@@ -1,8 +1,8 @@
 <?php
 
-header("Access-Control-Allow-Origin: *"); //solving CORS
-header("Access-Control-Allow-Header: *");
-header("Access-Control-Allow-Methods: *"); //allowing all, not just post/get
+header("Access-Control-Allow-Origin: *");  //solving CORS issue
+header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: *");
 
 include 'DbConnection.php';
 
