@@ -1,0 +1,34 @@
+.search__container {
+  display: flex;
+  flex-direction: column;
+  border: red solid 2px;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-result {
+  margin-top: 5px;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.search-result::-webkit-scrollbar {
+  display: none;
+}
+
+.search-result .contact-name {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-name {
+  margin-left: 10px;
+}
+
+.contact-name:hover {
+  background-color: lightblue;
+}
