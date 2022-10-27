@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function AddContact() {
     const [inputs, setInputs] = useState([])
@@ -17,8 +17,9 @@ export default function AddContact() {
         event.preventDefault();
         axios.post('http://localhost:8080/api', inputs).then(function(response){
             console.log(response.data);
-            // navigate('/admin/contacts');
-            redirect('/admin/contacts')
+    
+            navigate('/admin/contacts')
+
         })
     }
 

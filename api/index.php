@@ -18,10 +18,10 @@ switch ($method) {
         $path = explode('/', $_SERVER['REQUEST_URI']);
         // print_r($path);
 
-        if (isset($path[1]) && is_numeric($path[1])) {
+        if (isset($path[2]) && is_numeric($path[2])) {
             $sql .= " WHERE id=:id"; //concatenate to SELECT with space before WHERE!
             $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':id', $path[1]);
+            $stmt->bindParam(':id', $path[2]);
             $stmt->execute();
             $contacts = $stmt->fetch(PDO::FETCH_ASSOC);
         } else {

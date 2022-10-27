@@ -32,3 +32,16 @@
 .contact-name:hover {
   background-color: lightblue;
 }
+
+.list-group-item {
+  display: flex;
+}
+
+.list-group-item div {
+  text-align: start;
+  width: 30%;
+}
+
+.list-group-item p {
+  text-align: left;
+}
