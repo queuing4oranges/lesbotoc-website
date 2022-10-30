@@ -7,35 +7,33 @@ export default function EditContact() {
   const [inputs, setInputs] = useState([])
   const navigate = useNavigate();
   const { id } = useParams();
+  
 
  useEffect(() => {
     showContact();
  }, [])
 
 function showContact() {
-    axios.get(`http://localhost:8080/api/${id}`)
+    axios.get(`https://api.itisgoodtohave.me/contacts/single_read.php/?id=${id}`)  
     .then(function(response) {
         setInputs(response.data);
-        console.log(inputs)
     })
 }
 
-const handleChange = (event) => {  //need this, so val can be modified
-  const name = event.target.name;
-  const value = event.target.value;
-  setInputs(values => ({...values, [name]: value}))
-  console.log(inputs)
-}
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values=> ({...values, [name]: value}));
+        console.log(inputs)
+    }
 
-const handleSubmit = (event) => {
-  event.preventDefault();
-  axios.put(`http://localhost:8080/api/${id}`, inputs)
-  .then(function(response) {
-    console.log(response)
-    navigate('/admin/contacts')
-  })
-
-}
+    const handleSubmit = (event) => {
+    event.preventDefault();
+    axios.put('https://api.itisgoodtohave.me/contacts/update.php', inputs).then(function(response){
+        console.log(response.data);
+        navigate('/admin/contacts')
+    })
+    }
 
   return (
     <div>
@@ -43,19 +41,18 @@ const handleSubmit = (event) => {
       <form onSubmit={handleSubmit}>
             
             <label>Name</label>
-            <input value={inputs.name} type="text" name="name" onChange={handleChange} />
+            <input defaultValue={inputs.name} type="text" name="name" onChange={handleChange} />
             <br />
 
             <label>Email</label>
-            <input value={inputs.email} type="text" name="email" onChange={handleChange} />
+            <input defaultValue={inputs.email} type="text" name="email"  onChange={handleChange} />
             <br />
 
             <label>Phone</label>
-            <input value={inputs.phone} type="text" name="phone" onChange={handleChange} />
+            <input defaultValue={inputs.phone} type="text" name="phone" onChange={handleChange} />
             <br />
 
-            <button>Save</button>
-            <button>Cancel</button>
+            <button type="submit">Save</button>
 
         </form>     
 

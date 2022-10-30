@@ -37,9 +37,3 @@ export default function SingleContact() {
   )
 }
 
-// -> this works but try drilling down the data instead of fetchingit new?!?
-
-//der click der liste muss mit diesem component verbunden sein
-// contact suchen
-// wenn gef dann zeigen, dann edit oder delete möglich machen
-// mit x soll der wieder verschwinden?!

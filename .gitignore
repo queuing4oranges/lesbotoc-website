@@ -24,4 +24,5 @@ yarn-error.log*
 
 sql_queries.txt
 /api/DbConnection.php
+/api/helper.php
 

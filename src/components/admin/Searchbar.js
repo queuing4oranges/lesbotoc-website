@@ -19,8 +19,6 @@ const handleFilter = (event) => {
       } else {
         setFilteredData(newFilter);
       }
-      // setFilteredData(newFilter) //set new data to the filtered array
-      // console.log(filteredData);
 }
 
 const clearInput = () => {

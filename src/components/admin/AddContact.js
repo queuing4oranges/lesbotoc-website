@@ -11,19 +11,18 @@ export default function AddContact() {
         const name = event.target.name;
         const value = event.target.value;
         setInputs(values=> ({...values, [name]: value}));
+        console.log(inputs)
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('http://localhost:8080/api', inputs).then(function(response){
+        axios.post('https://api.itisgoodtohave.me/contacts/create.php', inputs).then(function(response){
             console.log(response.data);
     
             navigate('/admin/contacts')
 
         })
     }
-
-// --> also empty the input! and then redirect
 
   return (
     <div>
@@ -42,8 +41,7 @@ export default function AddContact() {
             <input type="text" name="phone" onChange={handleChange} />
             <br />
 
-            <button>Save</button>
-            <button>Cancel</button>
+            <button type='submit'>Save</button>
 
         </form>
     </div>
