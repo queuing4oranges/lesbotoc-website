@@ -1,0 +1,39 @@
+.td,
+th {
+  text-align: left;
+}
+
+.contacts__table {
+  width: 80%;
+  margin: auto;
+}
+
+.td-crud {
+  display: flex;
+  justify-content: center;
+}
+
+.contacts-title {
+  display: flex;
+  margin: auto;
+}
+
+.table__container-top {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+}
+
+.btn-create {
+  align-self: flex-start;
+  font-size: 20px;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}

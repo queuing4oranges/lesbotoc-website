@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 
 export default function AddContact() {
     const [inputs, setInputs] = useState([])
@@ -19,7 +19,7 @@ export default function AddContact() {
         axios.post('https://api.itisgoodtohave.me/contacts/create.php', inputs).then(function(response){
             console.log(response.data);
     
-            navigate('/admin/contacts')
+            redirect('/admin/contacts')
 
         })
     }

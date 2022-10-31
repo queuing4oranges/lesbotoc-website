@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import axios from 'axios';
 import AddContact from './AddContact';
 import Searchbar from './Searchbar';
@@ -7,6 +7,7 @@ import SingleContact from './SingleContact';
 
 export default function ContactsList() {
  const [contacts, setContacts] = useState([]);
+ const [addField, setAddField] = useState(false)
 
  useEffect(() => {
    getContacts();
@@ -25,34 +26,58 @@ const deleteContact = (id) => {
   axios.delete(`https://api.itisgoodtohave.me/contacts/delete.php/${id}`).then(function(response){
     console.log(response.data)
     console.log(id)
+    getContacts()
+
   })
+}
+
+function handleToggle () {
+  if (addField === true) {
+    setAddField(false)
+  }else setAddField(true)
 }
 
 
   return (
-    <div className='contacts__container'>
-      <AddContact/>
+    <Fragment>
+      {/* 
       <h3>Search a contact</h3>
-      <Searchbar placeholder="Enter a contact..." data={contacts}/>
+      <Searchbar placeholder="Enter a contact..." data={contacts}/> */}
+      <div className="table__container-top">
+      <h3 className="contacts-title">Contacts</h3>
+      <button onClick={handleToggle} className="btn btn-primary btn-create">Create</button>
+      <div className={addField ? "show" : "hide"}><AddContact /></div>
+      </div>
 
-      <h3>List of contacts</h3>
-     
-      <button>New Contact</button>
-      {contacts.map((contact, key) => (
-        <div key={key} className="contact__cont">
-          <ul className="list-group">
-            <li className="list-group-item">
-              <div>{contact.name}</div>
-              <div>{contact.email}</div>
-              <div>{contact.phone}</div>
-              <Link to={`${contact.id}/edit`}>Edit</Link>
-              <button id={contact.id} onClick={() =>deleteContact(contact.id)}>Delete</button>
-            </li>
-          </ul>
+          <table className="table table-sm table-striped table-bordered contacts__table">
+           
+            <thead>
+              <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Newsletter</th>
+              <th scope="col">Edit / Delete</th>
+              </tr>
+            </thead>
+
+            <tbody>
+            {contacts.map((contact, key) => (
+            
+              <tr key={key}>   
+
+              <td className="td td-name">{contact.name}</td>
+              <td className="td td-email">{contact.email}</td>
+              <td className="td td-phone">{contact.phone}</td>
+              <td className="td td-newsletter">yes/no</td>
+              <td className="td td-crud"><Link to={`${contact.id}/edit`}>Edit</Link><button id={contact.id} onClick={() =>deleteContact(contact.id)}>Delete</button></td>
+
+              </tr>
+            ))}</tbody>
 
         
-        </div>
-      ))}
-    </div>
+        
+            </table>
+</Fragment>
   )
 }
