@@ -11,6 +11,7 @@ export default function EditContact() {
 
  useEffect(() => {
     showContact();
+    // eslint-disable-next-line
  }, [])
 
 function showContact() {

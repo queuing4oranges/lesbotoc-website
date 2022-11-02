@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-export default function AddContact() {
+export default function AddContact({handleToggle}) {
     const [inputs, setInputs] = useState([])
     const navigate = useNavigate();
 
@@ -18,30 +18,33 @@ export default function AddContact() {
         event.preventDefault();
         axios.post('https://api.itisgoodtohave.me/contacts/create.php', inputs).then(function(response){
             console.log(response.data);
-    
-            redirect('/admin/contacts')
-
+            clearForm();
+            navigate('/admin/contacts')
         })
     }
 
+    const clearForm = () => {
+        const el = document.querySelectorAll(".input-field");
+        el.value="";
+    }
   return (
     <div>
-        <h3>Add a contact</h3>
-        <form onSubmit={handleSubmit}>
+        <h4>Add a contact</h4>
+        <form className="form-field" onSubmit={handleSubmit}>
             
             <label>Name</label>
-            <input type="text" name="name" onChange={handleChange} />
+            <input className="input-field" type="text" name="name" onChange={handleChange} />
             <br />
 
             <label>Email</label>
-            <input type="text" name="email" onChange={handleChange} />
+            <input className="input-field" type="text" name="email" onChange={handleChange} />
             <br />
 
             <label>Phone</label>
-            <input type="text" name="phone" onChange={handleChange} />
+            <input className="input-field" type="text" name="phone" onChange={handleChange} />
             <br />
 
-            <button type='submit'>Save</button>
+            <button className="btn btn-success" onClick={handleToggle} type='submit'>Save</button>
 
         </form>
     </div>

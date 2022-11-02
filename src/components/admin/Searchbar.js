@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { FaWindowClose } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import SingleContact from './contacts/SingleContact';
 
 export default function Searchbar({placeholder, data}) {  //passing in placeholder to customize searchbar and data from api of parent
   const [filteredData, setFilteredData] = useState([])
@@ -32,7 +32,7 @@ const clearInput = () => {
         <div className="search-input">
             <input 
             type="text" 
-            laceholder={placeholder}
+            placeholder={placeholder}
             value={nameInput}
             onChange={handleFilter}
             /> 
@@ -50,7 +50,9 @@ const clearInput = () => {
               <a 
                 key={key} 
                 className="contact-name"
-                href={`contacts/${contact.id}/one`}> {contact.name} 
+                href={`${contact.id}`}
+                > 
+                {contact.name} 
               </a>
             {/* <Link to={`${contact.id}/one`}>{contact.name}</Link> */}
         </div>
@@ -64,4 +66,3 @@ const clearInput = () => {
   )
 }
 
-{/* // could also send to show and then edit! ->make a "show" component with edit/delete!! */}
