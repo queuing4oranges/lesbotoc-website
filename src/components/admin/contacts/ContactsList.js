@@ -10,6 +10,7 @@ export default function ContactsList() {
   const [contacts, setContacts] = useState([]);
   const [addField, setAddField] = useState(false)
   const [dataLoaded, setDataLoaded] = useState(false)
+  const [oneContact, setOneContact] = useState(false)
 
  useEffect(() => {
    getContacts();
@@ -18,7 +19,6 @@ export default function ContactsList() {
   function getContacts() {
     axios.get('https://api.itisgoodtohave.me/contacts/read.php')
     .then(function(response) {
-      console.log(response.data)
       setContacts(response.data)
       setDataLoaded(true)
     });
