@@ -21,7 +21,7 @@ export default function ContactsList() {
   }, [contactsLoaded])  
  
   function getContacts() {
-    axios.get('https://api.itisgoodtohave.me/contacts/read.php')
+     axios.get('https://api.itisgoodtohave.me/contacts/read.php')
     .then(function(response) {
       console.log(response.data)
       setContacts(response.data);

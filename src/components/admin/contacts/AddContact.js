@@ -5,7 +5,6 @@ import axios from 'axios';
 export default function AddContact({toggleAddField, emptyInputs}) {
     
     const [inputs, setInputs] = useState([])
-    const [resetInputs, setResetInputs] = useState("")
     const [newsletter, setNewsletter] = useState(false)
 
     const handleChange = (event) => {
@@ -36,7 +35,7 @@ export default function AddContact({toggleAddField, emptyInputs}) {
         .then(function(response){
         console.log(response.data);
         })
-        emptyInputs();
+        setInputs([]);
     }
 
 
@@ -47,7 +46,7 @@ export default function AddContact({toggleAddField, emptyInputs}) {
             
             <div className="form-group">
             <label htmlFor="name">Name*</label>
-            <input className="input-item" id="name" type="text" name="name" onChange={handleChange} placeholder="first Name / last Name / nickname" required />
+            <input className="input-item" id="name" type="text" name="name" onChange={handleChange} placeholder="first Name / last Name / nickname"  />
             </div>
        
             <div className="form-group">
