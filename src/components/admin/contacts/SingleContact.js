@@ -9,18 +9,18 @@ export default function SingleContact() {
  const [contact, setContact] = useState([])
     const { id } = useParams();
 
-    useEffect(() => {
-      showContact();
-    }, [])
+    // useEffect(() => {
+    //   showContact();
+    // }, [])
     
-    function showContact() {
-    axios.get(`https://api.itisgoodtohave.me/contacts/single_read.php/${id}`)
-    .then(function(response) {
-      setContact(response.data)
-      console.log(contact)
-      console.log(contact.id)
-    })
-}
+//     function showContact() {
+//     axios.get(`https://api.itisgoodtohave.me/contacts/single_read.php/${id}`)
+//     .then(function(response) {
+//       setContact(response.data)
+//       console.log(contact)
+//       console.log(contact.id)
+//     })
+// }
 
 //  needs to be invoked somehow?!? like on click it gets a single contact or something??
 

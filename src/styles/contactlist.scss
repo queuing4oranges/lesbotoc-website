@@ -4,7 +4,7 @@ th {
 }
 
 .contacts__table {
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 
@@ -14,6 +14,9 @@ th {
 }
 
 .contacts-title {
+  width: 90%;
+  margin: auto;
+  padding-top: 120px;
   display: flex;
   margin: auto;
 }
@@ -21,19 +24,62 @@ th {
 .table__container-top {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 
 .btn-create {
+  margin-bottom: 20px;
   align-self: flex-start;
   font-size: 20px;
 }
 
+/*Add Contact Container*/
 .hide {
   display: none;
 }
 
 .show {
   display: block;
+  width: 100%;
+}
+
+.create-cont {
+  width: 100%;
+}
+
+.form-cont {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.btn-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox-cont {
+  display: flex;
+}
+
+::placeholder {
+  font-size: 0.75em;
+  font-style: italic;
+  color: rgb(204, 199, 199);
+}
+
+.form-group .input-item:focus {
+  outline: none;
+  border: #7ab6cb solid 2px;
 }

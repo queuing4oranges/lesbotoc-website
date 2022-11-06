@@ -1,23 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AdminNavbar from './AdminNavbar';
 
 
 export default function Admin() {
   return (
     <div>
-      here navbar
+      <AdminNavbar/>
       <br />
       <br />
-        What would you like to do 
-      <br />
-      <Link to={"/admin/contacts"}>Contacts</Link>
-      <br />
-      Events
-      <br />
-      Newsletter
-      <br />
-      <br />
-      here footer
+        here should be the login
+
     </div>
   )
 }

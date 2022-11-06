@@ -1,0 +1,82 @@
+.lesbotoc-adminnavbar-logo {
+  width: 80px;
+  height: 50px;
+  padding: 10px;
+  background-color: #e6f4f1;
+  border-radius: 3px;
+}
+
+.container {
+  background-color: #003243;
+  color: #e6f4f1;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-brand p {
+  color: #e6f4f1;
+  align-self: center;
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+
+.navbar-brand {
+  display: flex;
+  padding: 20px 0;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.nav-link {
+  color: #e6f4f1;
+  margin: 0 20px;
+}
+
+.nav-link:hover {
+  color: #7ab6cb;
+}
+
+.admin-navbar {
+  background-color: #003243;
+  position: relative;
+  box-shadow: 0px 10px 15px -5px rgba(122, 182, 203, 0.75);
+}
+.admin-nav {
+  margin: 0;
+  padding: 0;
+  width: 90%;
+  display: flex;
+  margin: auto;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.logout-cont {
+  display: flex;
+  flex-direction: row;
+}
+
+.logout-btn {
+  width: 100px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-btn p {
+  margin-bottom: 0;
+  margin-left: 5px;
+  display: flex;
+  justify-self: center;
+  line-height: 35px;
+}

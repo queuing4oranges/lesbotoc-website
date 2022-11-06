@@ -1,6 +1,7 @@
 @import "./styles/searchbar.scss";
 @import "./styles/contactlist.scss";
 @import "./styles/addcontact.scss";
+@import "./styles/adminnavbar.scss";
 
 html {
   box-sizing: border-box;
