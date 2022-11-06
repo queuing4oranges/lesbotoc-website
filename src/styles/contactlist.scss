@@ -52,6 +52,11 @@ th {
   margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
+  flex-direction: column;
+}
+
+.form-cont form {
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
@@ -86,4 +91,10 @@ th {
 
 .delete-btn::before {
   content: "&#1F5D1";
+}
+
+.alert-message {
+  width: 30%;
+  text-align: start;
+  z-index: -10;
 }

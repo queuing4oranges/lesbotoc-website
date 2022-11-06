@@ -3,7 +3,6 @@ import axios from 'axios';
 import AddContact from './AddContact';
 import Searchbar from '../Searchbar';
 import { Link } from 'react-router-dom';
-import SingleContact from './SingleContact';
 import EditContact from './EditContact';
 import AdminNavbar from '../AdminNavbar';
 
@@ -14,28 +13,25 @@ export default function ContactsList() {
   const [contactsLoaded, setContactsLoaded] = useState(false)
   const [addField, setAddField] = useState(false)
   const [editField, setEditField] = useState(false)
-  const [sortData, setSortData] = useState([])
+  const [successMsg, setSuccessMsg] = useState("")
+  const [formError, setFormError] = useState(null)
 
   useEffect(() => {
     getContacts();
   }, [contactsLoaded])  
  
   function getContacts() {
-     axios.get('https://api.itisgoodtohave.me/contacts/read.php')
+    axios.get('https://api.itisgoodtohave.me/contacts/read.php')
     .then(function(response) {
-      console.log(response.data)
       setContacts(response.data);
-      setContactsLoaded(true);
+      setContactsLoaded(true);    
     })
+    setSuccessMsg("");
   }
 
   const deleteContact = (id) => {
-    axios.delete(`https://api.itisgoodtohave.me/contacts/delete.php/${id}`)
-    .then(function(response){
-      console.log(response.data);
-      alert("Do you want to delete that contact?");  //needs a cancel opt!
-      getContacts();
-      setContactsLoaded(false);
+    axios.delete(`https://api.itisgoodtohave.me/contacts/delete.php/${id}`).then(function(response){
+      setContactsLoaded(false)
     })
   }
 
@@ -44,10 +40,12 @@ export default function ContactsList() {
       setAddField(false);
       setButtonText("New Contact")
       } else {
+      setFormError(null)
       setAddField(true);
       setButtonText("Cancel")
       emptyInputs();
-      }   
+      }  
+
       getContacts();   
       setContactsLoaded(false)
   }
@@ -60,33 +58,54 @@ export default function ContactsList() {
     }
   }
 
-    function emptyInputs () {
+  function emptyInputs () {
     let elements = document.querySelectorAll(".input-item")
     elements.forEach((element) =>{
-         element.value = "";
+      element.value = "";
     })
   }
 
   return (
     <Fragment>
     <AdminNavbar />
+            
     <h3 className="contacts-title">Contacts</h3>
-      
+    {successMsg && <p className="alert alert-success" >{successMsg}</p>}  
     <div className="table__container-top">
 
-      <div  className="searchbar-cont"><Searchbar toggleEditField={toggleEditField} placeholder="Enter a contact..." contacts={contacts}/></div>
-      <button onClick={toggleAddField} className="btn btn-success btn-create btn-sm">{buttonText}</button>
-      
-      <div className="create-cont">
-        <div className={addField ? "show" : "hide"}><AddContact emptyInputs={emptyInputs} toggleAddField={toggleAddField}/></div>
+{/* Searchbar */}
+      <div  className="searchbar-cont"><Searchbar toggleEditField={toggleEditField} placeholder="Enter a contact..." contacts={contacts}/>
       </div>
-    
-      <div className="edit-cont">
-        <div className={editField ? "show" : "hide"}><EditContact  />
+      <button onClick={toggleAddField} className="btn btn-success btn-create btn-sm">{buttonText}</button>
+
+{/* Adding a contact       */}
+      <div className="create-cont">
+        
+        <div className={addField ? "show" : "hide"}>
+          
+          {formError && <p className="alert alert-danger alert-message">{formError}</p>}
+         
+          <AddContact 
+          setAddField={setAddField} 
+          emptyInputs={emptyInputs} 
+          toggleAddField={toggleAddField} 
+          setSuccessMsg={setSuccessMsg}
+          setButtonText={setButtonText}
+          setFormError={setFormError}/>
+        
         </div>
+
+      </div>
+
+{/* Editing a contact */}
+      <div className="edit-cont">
+        <div className={editField ? "show" : "hide"}><EditContact /></div>
       </div>
 
     </div>
+
+{/* Contacts container - bottom 
+Contactslist */}
 
     {contactsLoaded &&
     <div className="table__container-bottom">
@@ -101,6 +120,7 @@ export default function ContactsList() {
               <th scope="col">Phone</th>
               <th scope="col">Newsletter</th>
               <th scope="col">Age</th>
+              <th scope="col">Last Update</th>
               <th scope="col">Edit / Delete</th>
               </tr>
             </thead>
@@ -114,6 +134,7 @@ export default function ContactsList() {
               <td className="td td-phone">{contact.phone}</td>
               <td className="td td-newsletter">{(contact.newsletter === 0) ? "no" : "yes"}</td>
               <td className="td td-age">{contact.age}</td>
+              <td className="td td-age">{contact.updated_at}</td>
               <td className="td td-crud">
                 <Link to={`${contact.id}/edit`}><button className="btn btn-info btn-sm">Edit</button></Link>
                 <button className="btn btn-danger btn-sm" id={contact.id} onClick={() =>deleteContact(contact.id)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
@@ -131,11 +152,3 @@ export default function ContactsList() {
     </Fragment>
   )
 }
-
-  // function getContacts() {
-  //   axios.get('https://api.itisgoodtohave.me/contacts/read.php')
-  //   .then(function(response) {
-  //     setContacts(response.data);
-  //     setContactsLoaded(true);
-  //   })
-  // }
