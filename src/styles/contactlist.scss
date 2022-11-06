@@ -83,3 +83,7 @@ th {
   outline: none;
   border: #7ab6cb solid 2px;
 }
+
+.delete-btn::before {
+  content: "&#1F5D1";
+}
