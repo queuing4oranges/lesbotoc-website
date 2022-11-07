@@ -4,12 +4,24 @@ import axios from 'axios';
 
 export default function AddContact({toggleAddField, setAddField, setSuccessMsg, setFormError}) {
     
-    const [inputs, setInputs] = useState([])
+    const [inputs, setInputs] = useState({
+        newsletter : false, //newsletter
+        name: "",
+        wherefrom: "",
+        email: "",
+        phone: "",
+
+    })
 
     const handleChange = (event) => {
-        const name = event.target.name;
-        const value = event.target.value;
-        setInputs(values=> ({...values, [name]: value}));
+        const target = event.target
+        const name = target.name
+        const value = target.type == "checkbox" ? target.checked : target.value
+   
+
+        setInputs({
+            ...inputs,
+        [name]: value })
     }
 
     //when submit - reset all errors first
@@ -27,7 +39,7 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
             setFormError("Please provide a valid email.")
            return
         }
-    
+    console.log(inputs)
         //execute post request
         axios.post('https://api.itisgoodtohave.me/contacts/create.php', inputs)
         .then(function(response){
@@ -35,7 +47,14 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
             setSuccessMsg(response.data.message)
 
             })
-        setInputs([]);          //empty Inputs
+        setInputs({
+        newsletter : false, //newsletter
+        name: "",
+        wherefrom: "",
+        email: "",
+        phone: "",
+
+    });          //empty Inputs
         toggleAddField();       //close field
     }
 
@@ -71,7 +90,9 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
             
             <div className="form-group checkbox-cont">
             <label htmlFor="newsletter">Newsletter?</label>
-            <input className="input-item checkbox" id="newsletter" type="checkbox" name="newsletter"  />
+            <input className="input-item checkbox" id="newsletter" type="checkbox" 
+            name="newsletter" value="0" checked={inputs.newsletter}
+            onChange={handleChange} />
             </div>
 
             <div className="form-group btn-cont">
