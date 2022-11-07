@@ -1,7 +1,6 @@
 .search__container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -43,4 +42,36 @@
 
 .list-group-item p {
   text-align: left;
+}
+
+.search-input input:focus {
+  display: flex;
+  outline: none;
+  border: #7ab6cb solid 2px;
+}
+
+.search-input {
+  display: flex;
+  width: 300px;
+}
+
+.search-input input {
+  width: 100%;
+}
+
+.search-icon {
+  margin-left: 10px;
+}
+
+.edit-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 0;
+}
+
+.edit-list-item {
+  display: flex;
+  align-content: flex-start;
 }

@@ -29,7 +29,7 @@ const clearInput = () => {
   return (
     <div className='search__container'>
         
-        <div className="search-input">
+        <div className="search-input input-item">
             <input 
             type="text" 
             placeholder={placeholder}
@@ -47,10 +47,10 @@ const clearInput = () => {
         <div className="search-result">
           {filteredData.map((contact, key) => {
             return <div key={key}>
-              <ul>
-                <li><a key={key} >{contact.name}</a></li>
-                <li>{contact.email}</li>
-                <li>{contact.phone}</li>
+              <ul className="edit-list">
+                <li className="edit-list-item" key={key}>{contact.name}</li>
+                <li className="edit-list-item">{contact.email}</li>
+                {/* <li className="edit-list-item">{contact.phone}</li> */}
                 <button onClick={toggleEditField}>Edit</button>               
               </ul>
               
