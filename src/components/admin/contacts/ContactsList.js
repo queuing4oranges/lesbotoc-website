@@ -15,6 +15,14 @@ export default function ContactsList() {
   const [editField, setEditField] = useState(false)
   const [successMsg, setSuccessMsg] = useState("")
   const [formError, setFormError] = useState(null)
+  const [inputs, setInputs] = useState({
+    newsletter : false, 
+    name: "",
+    wherefrom: "",
+    email: "",
+    phone: "",
+
+})
 
   useEffect(() => {
     getContacts();
@@ -39,6 +47,7 @@ export default function ContactsList() {
     if (addField === true) {
       setAddField(false);
       setButtonText("New Contact")
+      emptyInputs();
       } else {
       setFormError(null)
       setAddField(true);
@@ -59,10 +68,19 @@ export default function ContactsList() {
   }
 
   function emptyInputs () {
+    //emptying input field
     let elements = document.querySelectorAll(".input-item")
     elements.forEach((element) =>{
-      element.value = "";
+    element.value = "";
     })
+    //emptying inputs
+    setInputs({
+      newsletter : false, //default value of newsletter
+      name: "",
+      wherefrom: "",
+      email: "",
+      phone: "",
+    });
   }
 
   return (
@@ -91,8 +109,10 @@ export default function ContactsList() {
           toggleAddField={toggleAddField} 
           setSuccessMsg={setSuccessMsg}
           setButtonText={setButtonText}
-          setFormError={setFormError}/>
-        
+          setFormError={setFormError}
+          setInputs={setInputs}
+          inputs={inputs}
+          />
         </div>
 
       </div>
@@ -152,3 +172,4 @@ Contactslist */}
     </Fragment>
   )
 }
+

@@ -1,22 +1,12 @@
 import React from 'react';
-import { useState } from 'react';
 import axios from 'axios';
 
-export default function AddContact({toggleAddField, setAddField, setSuccessMsg, setFormError}) {
-    
-    const [inputs, setInputs] = useState({
-        newsletter : false, //newsletter
-        name: "",
-        wherefrom: "",
-        email: "",
-        phone: "",
-
-    })
+export default function AddContact({toggleAddField, setAddField, setSuccessMsg, setFormError, setInputs, inputs, emptyInputs}) {
 
     const handleChange = (event) => {
         const target = event.target
         const name = target.name
-        const value = target.type == "checkbox" ? target.checked : target.value
+        const value = target.type === "checkbox" ? target.checked : target.value
    
 
         setInputs({
@@ -45,16 +35,8 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
         .then(function(response){
             console.log(response.data.message)
             setSuccessMsg(response.data.message)
-
             })
-        setInputs({
-        newsletter : false, //newsletter
-        name: "",
-        wherefrom: "",
-        email: "",
-        phone: "",
-
-    });          //empty Inputs
+        emptyInputs();       
         toggleAddField();       //close field
     }
 
@@ -104,17 +86,3 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
   )
 }
 
-    // const handleNewsletter = (event) => {
-    //     let checkbox = document.getElementsByClassName(".checkbox")
-    //     if (event.target.checked) {
-    //         console.log('checked')
-    //         checkbox.value = "1"
-    //         // event.target.value = 1
-    //     } else {
-    //         console.log('NOT checked')
-    //         checkbox.value = "0"
-    //         // event.target.value = 0
-    //     } 
-    //     setNewsletter(current => !current)
-  
-    // }
