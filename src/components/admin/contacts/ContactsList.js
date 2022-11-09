@@ -2,8 +2,8 @@ import React, { useEffect, useState, Fragment } from 'react';
 import axios from 'axios';
 import AddContact from './AddContact';
 import Searchbar from '../Searchbar';
-import { Link } from 'react-router-dom';
-import EditContact from './EditContact';
+// import { Link } from 'react-router-dom';
+// import EditContact from './EditContact';
 import AdminNavbar from '../AdminNavbar';
 import EditModal from './EditModal';
 
@@ -22,9 +22,8 @@ export default function ContactsList() {
     wherefrom: "",
     email: "",
     phone: "",
-
-})
-
+  })
+  const [show, setShow] = useState(false)
 
   useEffect(() => {
     getContacts();
@@ -85,8 +84,11 @@ export default function ContactsList() {
     });
   }
 
+  
+
   return (
     <Fragment>
+
     <AdminNavbar />
             
     <h3 className="contacts-title">Contacts</h3>
@@ -120,16 +122,17 @@ export default function ContactsList() {
       </div>
 
 {/* Editing a contact */}
-      <div className="edit-cont">
+      {/* <div className="edit-cont">
         <div className={editField ? "show" : "hide"}><EditContact /></div>
-      </div>
+      </div> */}
 {/* Contacts container - bottom 
 Contactslist */}
     </div>
 
-
+    {/* <EditModal /> */}
 
     {contactsLoaded &&
+    
     <div className="table__container-bottom">
           
           <table className="table table-sm table-striped table-bordered contacts__table">
@@ -142,7 +145,7 @@ Contactslist */}
               <th scope="col">Phone</th>
               <th scope="col">Newsletter</th>
               <th scope="col">Age</th>
-              <th scope="col">Last Update</th>
+              <th scope="col">Updated</th>
               <th scope="col">Edit / Delete</th>
               </tr>
             </thead>
@@ -158,13 +161,20 @@ Contactslist */}
               <td className="td td-age">{contact.age}</td>
               <td className="td td-age">{contact.updated_at}</td>
               <td className="td td-crud">
+              
 
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Edit</button>
+              <button onClick={() =>setShow(true)} id={contact.id} type="button" className="btn btn-primary add-modal">Edit</button>
+                <EditModal 
+                id={contact.id} 
+                show={show} 
+                onClose={()=>setShow(false)}
+                inputs={inputs} />
+   
 
 
+{/* 
+                <Link to={`${contact.id}/edit`}><button className="btn btn-info btn-sm">Edit</button></Link> */}
 
-
-                <Link to={`${contact.id}/edit`}><button className="btn btn-info btn-sm">Edit</button></Link>
                 <button className="btn btn-danger btn-sm" id={contact.id} onClick={() =>deleteContact(contact.id)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                 <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -175,10 +185,13 @@ Contactslist */}
             </tbody>
 
           </table>
+
+          
+
     </div>
     }
 
-    <EditModal/>
+
     </Fragment>
   )
 }

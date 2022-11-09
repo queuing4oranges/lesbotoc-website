@@ -2,6 +2,7 @@
 @import "./styles/contactlist.scss";
 @import "./styles/addcontact.scss";
 @import "./styles/adminnavbar.scss";
+@import "./styles/editmodal.scss";
 
 html {
   box-sizing: border-box;

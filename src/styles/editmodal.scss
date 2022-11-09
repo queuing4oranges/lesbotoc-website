@@ -1,0 +1,32 @@
+.edit-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(0.5px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-modal-content {
+  width: 500px;
+  background-color: #fff;
+}
+
+.edit-modal-header,
+.edit-modal-footer {
+  padding: 10px;
+}
+
+.edit-modal-title {
+  margin: 0;
+}
+
+.edit-modal-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
