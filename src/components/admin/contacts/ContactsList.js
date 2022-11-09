@@ -2,8 +2,6 @@ import React, { useEffect, useState, Fragment } from 'react';
 import axios from 'axios';
 import AddContact from './AddContact';
 import Searchbar from '../Searchbar';
-// import { Link } from 'react-router-dom';
-// import EditContact from './EditContact';
 import AdminNavbar from '../AdminNavbar';
 import EditModal from './EditModal';
 
@@ -24,6 +22,14 @@ export default function ContactsList() {
     phone: "",
   })
   const [show, setShow] = useState(false)
+  const [data, setData] = useState({  //preventing uncontrolled-controlled error
+    newsletter : false, 
+    name: "",
+    wherefrom: "",
+    email: "",
+    phone: "",
+  })
+  const [dataLoaded, setDataLoaded] = useState(false)
 
   useEffect(() => {
     getContacts();
@@ -76,15 +82,30 @@ export default function ContactsList() {
     })
     //emptying inputs
     setInputs({
-      newsletter : false, //default value of newsletter
       name: "",
       wherefrom: "",
       email: "",
       phone: "",
-    });
+      newsletter : false, //default value of newsletter
+     });
   }
 
-  
+
+  const showContact = (id) => {
+    setShow(true)
+    console.log(id)
+    axios.get(`https://api.itisgoodtohave.me/contacts/single_read.php/${id}`)  
+    .then(function(response) {
+      setData(response.data)
+      setDataLoaded(true)
+
+    })
+  }
+
+  const closeModal =() => {
+    setShow(false)
+    setDataLoaded(false)
+  }
 
   return (
     <Fragment>
@@ -100,13 +121,10 @@ export default function ContactsList() {
       </div>
       <button onClick={toggleAddField} className="btn btn-success btn-create btn-sm">{buttonText}</button>
 
-{/* Adding a contact       */}
+{/* Adding a contact */}
       <div className="create-cont">
-        
         <div className={addField ? "show" : "hide"}>
-          
           {formError && <p className="alert alert-danger alert-message">{formError}</p>}
-         
           <AddContact 
           setAddField={setAddField} 
           emptyInputs={emptyInputs} 
@@ -118,19 +136,10 @@ export default function ContactsList() {
           inputs={inputs}
           />
         </div>
-
       </div>
 
-{/* Editing a contact */}
-      {/* <div className="edit-cont">
-        <div className={editField ? "show" : "hide"}><EditContact /></div>
-      </div> */}
-{/* Contacts container - bottom 
-Contactslist */}
+
     </div>
-
-    {/* <EditModal /> */}
-
     {contactsLoaded &&
     
     <div className="table__container-bottom">
@@ -163,17 +172,16 @@ Contactslist */}
               <td className="td td-crud">
               
 
-              <button onClick={() =>setShow(true)} id={contact.id} type="button" className="btn btn-primary add-modal">Edit</button>
+              <button onClick={() =>showContact(contact.id)} type="button" className="btn btn-primary add-modal">Edit</button>
                 <EditModal 
                 id={contact.id} 
                 show={show} 
-                onClose={()=>setShow(false)}
-                inputs={inputs} />
-   
-
-
-{/* 
-                <Link to={`${contact.id}/edit`}><button className="btn btn-info btn-sm">Edit</button></Link> */}
+                closeModal={closeModal}
+                inputs={inputs}
+                showContact={showContact}
+                data={data}
+                name={contact.name}
+                dataLoaded={dataLoaded} />
 
                 <button className="btn btn-danger btn-sm" id={contact.id} onClick={() =>deleteContact(contact.id)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -185,13 +193,8 @@ Contactslist */}
             </tbody>
 
           </table>
-
-          
-
     </div>
     }
-
-
     </Fragment>
   )
 }

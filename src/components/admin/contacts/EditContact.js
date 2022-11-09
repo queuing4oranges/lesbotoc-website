@@ -42,7 +42,7 @@ function showContact() {
       <form onSubmit={handleSubmit}>
             
             <label>Name</label>
-            <input defaultValue={inputs.name} type="text" name="name" onChange={handleChange} />
+            <input value={inputs.name} type="text" name="name" onChange={handleChange} />
             <br />
 
             <label>Email</label>
