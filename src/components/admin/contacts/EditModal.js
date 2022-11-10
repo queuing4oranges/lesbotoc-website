@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default function EditModal({ show, closeModal, inputs, data, dataLoaded}) {
 
-    const {name, email, phone} = data
+    const {name, email, phone, wherefrom, newsletter} = data
 
     const handleChange = (event) => {
         //when start typing - get rid of success message!
@@ -37,24 +37,37 @@ export default function EditModal({ show, closeModal, inputs, data, dataLoaded})
     {dataLoaded &&
       <form onSubmit={handleSubmit}>
             
+            <div className="edit-input">
             <label>Name</label>
             <input defaultValue={name} type="text" name="name" onChange={handleChange} />
-            <br />
+            </div>
 
+            <div className="edit-input">
             <label>Email</label>
             <input defaultValue={email} type="text" name="email"  onChange={handleChange} />
-            <br />
+            </div>
 
+            <div className="edit-input">
             <label>Phone</label>
             <input defaultValue={phone} type="text" name="phone" onChange={handleChange} />
-            <br />
-
-            <button type="submit">Save</button>
-<div className="edit-modal-footer">
-                <button onClick={closeModal}  className="edit-modal-button">
-                    Cancel
-                </button>
             </div>
+
+            {/* <div className="edit-input">
+            <label>Where from?</label>
+            <input defaultValue={wherefrom} type="text" name="phone" onChange={handleChange} />
+            </div>
+
+            <div className="edit-input">
+            <label>Newsletter</label>
+            <input defaultValue={newsletter} type="text" name="phone" onChange={handleChange} />
+            </div> */}
+
+           
+            <div className="edit-modal-footer"> 
+            <button className="btn btn-success" type="submit">Save</button>
+            <button onClick={closeModal}  className="edit-button btn btn-danger ">Cancel</button>
+            </div>
+
         </form>  }
 
 

@@ -4,16 +4,22 @@
   top: 0;
   right: 0;
   bottom: 0;
-  backdrop-filter: blur(0.5px);
-
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .edit-modal-content {
+  margin-top: 50px;
   width: 500px;
-  background-color: #fff;
+  height: 400px;
+  background-color: $lesbotoc;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: $dark-petrol 2px solid;
 }
 
 .edit-modal-header,
@@ -28,5 +34,29 @@
 .edit-modal-body {
   padding: 10px;
   border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+}
+
+.edit-modal-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.add-modal {
+  background-color: $lesbotoc;
+}
+
+.edit-modal-body form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-input {
+  display: flex;
+  margin: 5px;
+  justify-content: space-between;
+}
+
+.edit-input input {
+  margin-left: 50px;
 }

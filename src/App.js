@@ -1,13 +1,14 @@
-import './App.css';
+import './App.scss';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Admin from "./components/admin/Admin";
 import ContactsList from './components/admin/contacts/ContactsList';
 import EventsList from './components/admin/events/EventsList';
-import User from './components/user/User'
+import User from './components/user/User';
 
 
 
 function App() {
+
   return (
     <div className="App"> 
 

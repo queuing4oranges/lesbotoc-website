@@ -4,7 +4,7 @@ import { FaWindowClose } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
 
 
-export default function Searchbar({placeholder, contacts, toggleEditField}) {  //passing in placeholder to customize searchbar and data from api of parent
+export default function Searchbar({placeholder, contacts, toggleEditField, showContact,}) {  //passing in placeholder to customize searchbar and data from api of parent
   const [filteredData, setFilteredData] = useState([])
   const [nameInput, setNameInput] = useState("")
   
@@ -51,7 +51,7 @@ const clearInput = () => {
                 <li className="edit-list-item" key={key}>{contact.name}</li>
                 <li className="edit-list-item">{contact.email}</li>
                 {/* <li className="edit-list-item">{contact.phone}</li> */}
-                <button onClick={toggleEditField}>Edit</button>               
+                <button className="btn btn-sm add-modal" onClick={showContact}>Edit</button>               
               </ul>
               
 
