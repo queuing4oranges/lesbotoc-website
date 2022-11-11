@@ -51,16 +51,21 @@
   flex-direction: column;
 }
 
-.edit-input {
+.edit-input-cont {
   display: flex;
   margin: 5px;
   justify-content: space-between;
 }
 
-.edit-input input {
+.edit-input-cont input {
   margin-left: 50px;
 }
 
 .edit-btn {
   width: 100px;
+}
+
+.edit-input {
+  outline: none;
+  border: $input-look;
 }

@@ -43,24 +43,24 @@ export default function EditModal({ show, closeModal, data, dataLoaded }) {
     {dataLoaded &&
       <form onSubmit={handleSubmit}>
             
-            <div className="edit-input">
+            <div className="edit-input-cont">
             <label>Name</label>
-            <input defaultValue={name} type="text" name="name" onChange={handleChange} />
+            <input className="edit-input" defaultValue={name} type="text" name="name" onChange={handleChange} />
             </div>
 
-            <div className="edit-input">
+            <div className="edit-input-cont">
             <label>Email</label>
-            <input defaultValue={email} type="text" name="email"  onChange={handleChange} />
+            <input className="edit-input" defaultValue={email} type="text" name="email"  onChange={handleChange} />
             </div>
 
-            <div className="edit-input">
+            <div className="edit-input-cont">
             <label>Phone</label>
-            <input defaultValue={phone} type="text" name="phone" onChange={handleChange} />
+            <input className="edit-input" defaultValue={phone} type="text" name="phone" onChange={handleChange} />
             </div>
 
-            <div className="edit-input">
+            <div className="edit-input-cont">
             <label>ID</label>
-            <input defaultValue={id} type="text" name="id" readOnly  />
+            <input className="edit-input" defaultValue={id} type="text" name="id" readOnly  />
             </div>
 
 
