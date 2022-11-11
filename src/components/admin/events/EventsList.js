@@ -1,7 +1,12 @@
-import React from 'react'
+import React from 'react';
+import AdminNavbar from '../AdminNavbar';
 
 export default function EventsList() {
   return (
-    <div>Here I can take care of the AdminEvents.</div>
+    <div>
+      <AdminNavbar/>
+      
+      
+      Here I can take care of the AdminEvents.</div>
   )
 }
