@@ -6,12 +6,15 @@
 
 .search-result {
   margin-top: 5px;
-  width: 300px;
+  width: 400px;
   height: 150px;
   overflow: hidden;
   overflow-y: auto;
 }
 
+.edit-list:nth-child(odd) {
+  background-color: $light-blue;
+}
 // .search-result::-webkit-scrollbar {
 //   display: none;
 // }
@@ -75,4 +78,5 @@
 .edit-list-item {
   display: flex;
   align-content: flex-start;
+  width: 40%;
 }

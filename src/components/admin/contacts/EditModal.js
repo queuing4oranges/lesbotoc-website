@@ -3,13 +3,13 @@ import axios from 'axios';
 import { useState } from 'react';
 
 
-export default function EditModal({ show, closeModal, data, dataLoaded }) {
+export default function EditModal({ show, closeModal, data, dataLoaded, setSuccessMsg, setContactsLoaded, getContacts, contactsLoaded }) {
 
     const {name, email, phone, id} = data
     const [inputs, setInputs] = useState("")
 
     const handleChange = (event) => {
-        //when start typing - get rid of success message!
+        setSuccessMsg(false)
         const target = event.target
         const name = target.name;
         const value = target.value;
@@ -25,8 +25,10 @@ export default function EditModal({ show, closeModal, data, dataLoaded }) {
         axios.put(`https://api.itisgoodtohave.me/contacts/update.php/${id}`, inputs).then(function(response){
         console.log(response.data);
         })
+        closeModal();
+        
     }
-
+    
     if(!show) {
         return null
     }

@@ -113,11 +113,11 @@ export default function ContactsList() {
     <AdminNavbar />
             
     <h3 className="contacts-title">Contacts</h3>
-    {successMsg && <p className="alert alert-success" >{successMsg}</p>}  
+    {successMsg && <p className="alert alert-success alert" >{successMsg}</p>}  
     <div className="table__container-top">
 
 {/* Searchbar */}
-      <div  className="searchbar-cont"><Searchbar showContact={showContact}  placeholder="Enter a contact..." contacts={contacts}/>
+      <div  className="searchbar-cont"><Searchbar id={contacts.id} deleteContact={deleteContact} setSuccessMsg={setSuccessMsg} showContact={showContact}  placeholder="Enter a contact..." contacts={contacts}/>
       </div>
       <button onClick={toggleAddField} className="btn btn-success btn-create btn-sm">{buttonText}</button>
 
@@ -182,7 +182,9 @@ export default function ContactsList() {
                 showContact={showContact}
                 data={data}
                 name={contact.name}
-                dataLoaded={dataLoaded} />
+                dataLoaded={dataLoaded}
+                setSuccessMsg={setSuccessMsg}
+                getContacts={getContacts} />
 
 {/* Deleting a contact */}
                 <button className="btn btn-danger btn-sm" id={contact.id} onClick={() =>deleteContact(contact.id)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
