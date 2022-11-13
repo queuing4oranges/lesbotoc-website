@@ -66,14 +66,6 @@ export default function ContactsList() {
       setContactsLoaded(false)
   }
 
-  // function toggleEditField () {
-  //   if (editField === true) {
-  //     setEditField(false);
-  //   } else {
-  //     setEditField(true)
-  //   }
-  // }
-
   function emptyInputs () {
     //emptying input field
     let elements = document.querySelectorAll(".input-item")

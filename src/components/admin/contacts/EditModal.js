@@ -2,27 +2,28 @@ import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 
+export default function EditModal({ show, closeModal, data, dataLoaded, setSuccessMsg }) {
 
-export default function EditModal({ show, closeModal, data, dataLoaded, setSuccessMsg, setContactsLoaded, getContacts, contactsLoaded }) {
-
-    const {name, email, phone, id} = data
+    // const {name, email, phone, id} = data
     const [inputs, setInputs] = useState("")
 
     const handleChange = (event) => {
         setSuccessMsg(false)
-        const target = event.target
-        const name = target.name;
-        const value = target.value;
-        // setInputs(values=> ({...values, [name]: value}));
+        // const target = event.target
+        const name = event.target.name;
+        const value = event.target.value
         setInputs({
-            ...inputs, [name]:value
+            ...inputs, 
+            [name]:value
+
      });
         console.log(inputs)
     }
 
     const handleSubmit = (event) => {
+        console.log(inputs)
         event.preventDefault();
-        axios.put(`https://api.itisgoodtohave.me/contacts/update.php/${id}`, inputs).then(function(response){
+        axios.put(`https://api.itisgoodtohave.me/contacts/update.php/${data.id}`, inputs).then(function(response){
         console.log(response.data);
         })
         closeModal();
@@ -47,22 +48,24 @@ export default function EditModal({ show, closeModal, data, dataLoaded, setSucce
             
             <div className="edit-input-cont">
             <label>Name</label>
-            <input className="edit-input" defaultValue={name} type="text" name="name" onChange={handleChange} />
+            <input className="edit-input" value={data.name} type="text" name="name" onChange={handleChange} />
             </div>
+
+            {/* <input className="edit-input" defaultValue={name} type="text" name="name" onChange={(e) => setName(e.target.value)} /> */}
 
             <div className="edit-input-cont">
             <label>Email</label>
-            <input className="edit-input" defaultValue={email} type="text" name="email"  onChange={handleChange} />
+            <input className="edit-input" value={data.email} type="text" name="email"  onChange={handleChange} />
             </div>
 
             <div className="edit-input-cont">
             <label>Phone</label>
-            <input className="edit-input" defaultValue={phone} type="text" name="phone" onChange={handleChange} />
+            <input className="edit-input" value={data.phone == null ? "": data.phone} type="text" name="phone" onChange={handleChange} />
             </div>
 
             <div className="edit-input-cont">
             <label>ID</label>
-            <input className="edit-input" defaultValue={id} type="text" name="id" readOnly  />
+            <input className="edit-input" value={data.id} type="text" name="id" readOnly  />
             </div>
 
 
