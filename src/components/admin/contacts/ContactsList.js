@@ -136,7 +136,7 @@ export default function ContactsList() {
     
     <div className="table__container-bottom">
           
-          <table className="table table-sm table-striped table-bordered contacts__table">
+          <table className="table table-sm table-bordered contacts__table">
            
             <thead>
               <tr>
@@ -151,9 +151,9 @@ export default function ContactsList() {
               </tr>
             </thead>
 
-            <tbody>
+            <tbody className="table-body">
               {contacts.map((contact, key) => (
-              <tr key={key}>   
+              <tr className="table-row" key={key}>   
               <td className="td td-name">{contact.name}</td>
               <td className="td td-wherefrom">{contact.wherefrom}</td>
               <td className="td td-email">{contact.email}</td>

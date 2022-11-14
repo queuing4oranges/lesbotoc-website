@@ -4,6 +4,7 @@ import EventsList from './EventsList';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Fragment } from 'react';
+import AddEvent from './AddEvent';
 
 export default function Events() {
       const [events, setEvents] = useState([])
@@ -39,8 +40,16 @@ export default function Events() {
 
 {/* List of events */}
       <div className="events-container">
+
+        <div className="events-cont-left">
         {eventsLoaded &&
         <EventsList events={events} setEventsLoaded={setEventsLoaded}/>}
+        </div>
+
+        <div className="events-cont-right">
+          <AddEvent />
+        </div>
+
       </div>
       
       

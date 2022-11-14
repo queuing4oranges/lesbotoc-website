@@ -1,25 +1,27 @@
 import React from 'react'; 
 import { Fragment } from 'react';
-import dateFormat, { masks } from 'dateformat';
+import dateFormat from 'dateformat';
 
 
 
 export default function EventsList({ events }) {
+
+    // let date = new Date();
 
 
    
   return (
     <Fragment>
            
-            <div className="events-cont-left">
+            
                 {events.map((event, key) => (
                    <button className='btn eventlist-btn' key={key}>
                     <h6>{event.name}</h6>
-                    <p>{event.date}</p>
+                    <p>{dateFormat(event.date, "dd. mmmm yyyy")}</p>
                    </button> 
                 ))}             
 
-            </div>
+
 
     </Fragment>
   )

@@ -103,3 +103,7 @@ th {
 input {
   caret-color: red;
 }
+
+.table-row:nth-child(odd) {
+  background-color: $light-blue;
+}
