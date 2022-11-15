@@ -7,26 +7,26 @@ import { Fragment } from 'react';
 import AddEvent from './AddEvent';
 
 export default function Events() {
-      const [events, setEvents] = useState([])
-      const [eventsLoaded, setEventsLoaded] = useState(false)
+  const [events, setEvents] = useState([])
+  const [eventsLoaded, setEventsLoaded] = useState(false)
 
-    useEffect(() => {
-      getEvents();
-     }, [])
+  useEffect(() => {
+    getEvents();
+    }, [])
     
 
-    function getEvents() {
-        axios.get('https://api.itisgoodtohave.me/events/read.php')
-        .then(function(response) {
-           console.log(response)
-           setEvents(response.data);
-           setEventsLoaded(true)
-        })
-        .catch(function(error) {
-            if (error.response) {
-            console.log(error.response.data);
-        }}) 
-    } 
+  function getEvents() {
+    axios.get('https://api.itisgoodtohave.me/events/read.php')
+    .then(function(response) {
+        console.log(response)
+        setEvents(response.data);
+        setEventsLoaded(true)
+    })
+    .catch(function(error) {
+        if (error.response) {
+        console.log(error.response.data);
+    }}) 
+  } 
 
 
   return (   

@@ -14,27 +14,27 @@ export default function EditContact() {
     // eslint-disable-next-line
  }, [])
 
-function showContact() {
+  function showContact() {
     axios.get(`https://api.itisgoodtohave.me/contacts/single_read.php/?id=${id}`)  
     .then(function(response) {
         setInputs(response.data);
     })
-}
+  }
 
-    const handleChange = (event) => {
-        const name = event.target.name;
-        const value = event.target.value;
-        setInputs(values=> ({...values, [name]: value}));
-        console.log(inputs)
-    }
+  const handleChange = (event) => {
+      const name = event.target.name;
+      const value = event.target.value;
+      setInputs(values=> ({...values, [name]: value}));
+      console.log(inputs)
+  }
 
-    const handleSubmit = (event) => {
-    event.preventDefault();
-    axios.put('https://api.itisgoodtohave.me/contacts/update.php', inputs).then(function(response){
-        console.log(response.data);
-        navigate('/admin/contacts')
+  const handleSubmit = (event) => {
+  event.preventDefault();
+  axios.put('https://api.itisgoodtohave.me/contacts/update.php', inputs).then(function(response){
+      console.log(response.data);
+      navigate('/admin/contacts')
     })
-    }
+  }
 
   return (
     <div>

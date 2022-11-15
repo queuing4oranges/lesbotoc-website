@@ -11,7 +11,6 @@ export default function ContactsList() {
   const [contacts, setContacts] = useState([]);
   const [contactsLoaded, setContactsLoaded] = useState(false)
   const [addField, setAddField] = useState(false)
-  const [editField, setEditField] = useState(false)
   const [successMsg, setSuccessMsg] = useState("")
   const [formError, setFormError] = useState(null)
   const [inputs, setInputs] = useState({
@@ -21,8 +20,9 @@ export default function ContactsList() {
     email: "",
     phone: "",
   })
+
   const [show, setShow] = useState(false)
-  const [data, setData] = useState({  //preventing uncontrolled-controlled error
+  const [data, setData] = useState({  //uncontrolled-controlled issue
     newsletter : false, 
     name: "",
     wherefrom: "",
@@ -90,7 +90,6 @@ export default function ContactsList() {
     .then(function(response) {
       setData(response.data)
       setDataLoaded(true)
-
     })
   }
 

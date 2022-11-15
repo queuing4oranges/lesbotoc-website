@@ -31,8 +31,3 @@ function App() {
 }
 
 export default App;
-
-
-        // <Route path="admin/contacts/:id/edit" element={<EditContact/>}/>
-        // {/* <Route path="admin/contacts/:id" element={<SingleContact/>}/> */}
-        // <Route path="admin/events" element={<EventsList/>}/>

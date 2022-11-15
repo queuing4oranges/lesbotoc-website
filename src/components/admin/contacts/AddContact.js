@@ -8,7 +8,6 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
         const name = target.name
         const value = target.type === "checkbox" ? target.checked : target.value
    
-
         setInputs({
             ...inputs,
         [name]: value })
@@ -29,7 +28,7 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
             setFormError("Please provide a valid email.")
            return
         }
-    console.log(inputs)
+
         //execute post request
         axios.post('https://api.itisgoodtohave.me/contacts/create.php', inputs)
         .then(function(response){
