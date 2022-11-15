@@ -20,7 +20,6 @@ export default function Events() {
         .then(function(response) {
            console.log(response)
            setEvents(response.data);
-           console.log(events)
            setEventsLoaded(true)
         })
         .catch(function(error) {
