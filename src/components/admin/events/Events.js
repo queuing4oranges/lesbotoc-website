@@ -5,11 +5,12 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Fragment } from 'react';
 import AddEvent from './AddEvent';
+import EditEvent from './EditEvent';
 
 export default function Events() {
   const [events, setEvents] = useState([])
   const [eventsLoaded, setEventsLoaded] = useState(false)
-
+  
   useEffect(() => {
     getEvents();
     }, [])
@@ -42,13 +43,16 @@ export default function Events() {
 
         <div className="events-cont-left">
         {eventsLoaded &&
-        <EventsList events={events} setEventsLoaded={setEventsLoaded}/>}
+        <EventsList events={events} setEventsLoaded={setEventsLoaded} getEvents={getEvents}/>}
         </div>
 
+   
         <div className="events-cont-right">
-          <AddEvent />
+          <AddEvent getEvents={getEvents} />
+          <EditEvent getEvents={getEvents}/>
         </div>
 
+          
       </div>
       
       

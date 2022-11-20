@@ -2,8 +2,9 @@ import { useState } from "react";
 import React from 'react';
 import axios from "axios";
 import { Fragment } from "react";
+import { useEffect } from "react";
 
-export default function AddEvent() {
+export default function AddEvent({ getEvents }) {
     const [name, setName] = useState("")
     const [locationName, setLocationName] = useState("")
     const [locationAddress, setLocationAddress] = useState("")
@@ -15,8 +16,14 @@ export default function AddEvent() {
     const [capacity, setCapacity] = useState("")
     const [successMsg, setSuccessMsg] = useState("")
     const [errorMsg, setErrorMsg] = useState("")
+     
+    useEffect(() => {
+      getEvents();
+    }, [successMsg])
     
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
+        setSuccessMsg(false)
         setErrorMsg(null)
         e.preventDefault()
 
@@ -39,11 +46,13 @@ export default function AddEvent() {
         .then(function(response){
             if(response.status === 200) {
                setSuccessMsg(response.data.message) 
+
             } else if (response.status === 500) {
                 setErrorMsg("Could not add a new event.")
             }
         })
-        resetInputs() 
+        resetInputs()
+         
     }
 
     function resetInputs() {
@@ -57,7 +66,6 @@ export default function AddEvent() {
     setDescription(""),
     setPrice(""),
     setCapacity("")
-    
     )}
 
 
@@ -68,10 +76,9 @@ export default function AddEvent() {
 
         {errorMsg &&  
         <p className="alert alert-danger">{errorMsg}</p>}
-        {successMsg &&
-        <p className="alert alert-success">{successMsg}</p> }
+        {successMsg ? <p onMouseOver={(e) => setSuccessMsg(false)} className="alert alert-success">{successMsg}</p> : ""}
 
-        <form className="add-event-form" onSubmit={handleSubmit}>
+        <form className="add-event-form" id="add-event-form" onSubmit={handleSubmit}>
 
             <div className="event-title">
                 <label className="form-label" htmlFor="name">Name of event:</label>

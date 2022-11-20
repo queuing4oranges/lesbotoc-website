@@ -47,3 +47,24 @@
   display: flex;
   flex-direction: column;
 }
+
+.pencil-item,
+.trash-item {
+  margin: 5px;
+  cursor: default;
+}
+
+.trash-item {
+  color: red;
+}
+
+.pencil-item {
+  color: green;
+}
+
+/*EditEvent*/
+
+.events-provisorium {
+  display: flex;
+  flex-direction: column;
+}

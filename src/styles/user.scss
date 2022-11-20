@@ -1,0 +1,13 @@
+.user-title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  height: 100vh;
+}
+
+.user-title {
+  margin-top: 200px;
+  color: orangered;
+}
