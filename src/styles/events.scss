@@ -1,19 +1,24 @@
 /*Events*/
 
-.events-title {
-  width: 90%;
-  margin: auto;
-  padding-top: 120px;
-  display: flex;
-  margin: auto;
-}
-
 .events-container {
   display: flex;
   width: 90%;
   margin: auto;
 }
 
+.archive-btn {
+  margin-bottom: 10px;
+}
+
+.archive-link {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}
 /*EventsList*/
 
 .events-cont-left {
@@ -29,6 +34,9 @@
   max-width: 100%;
   background-color: $light-blue;
   color: $dark-petrol;
+  display: flex;
+  overflow: hidden;
+  justify-content: space-between;
 }
 
 .eventlist-btn h6,
@@ -55,11 +63,33 @@
 }
 
 .trash-item {
-  color: red;
+  color: white;
+  background-color: #dc3545;
+  padding: 3px;
+  border-radius: 3px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .pencil-item {
-  color: green;
+  color: white;
+  background-color: $lesbotoc;
+  padding: 3px;
+  border-radius: 3px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.name-date-cont {
+  text-align: justify;
+}
+
+.events-btn-cont {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 /*EditEvent*/
@@ -67,4 +97,25 @@
 .events-provisorium {
   display: flex;
   flex-direction: column;
+}
+
+/*EventsArchive*/
+.td-name {
+  font-weight: 600;
+}
+
+.archive-container {
+  margin-top: 20px;
+  font-size: 0.9em;
+}
+
+.archive-btn-cont {
+  display: block;
+}
+
+.events-archive-btn {
+  height: 30px;
+  width: 30px;
+  margin: 3px;
+  padding: 3px;
 }

@@ -35,7 +35,7 @@ export default function Events() {
 
       <AdminNavbar/>
 
-      <h3 className="events-title">Events</h3>
+      <h3 className="admin-page-title">Events</h3>
       {/* {successMsg && <p className="alert alert-success alert" >{successMsg}</p>}  */}
 
 {/* List of events */}
