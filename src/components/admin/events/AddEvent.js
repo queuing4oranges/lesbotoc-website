@@ -3,6 +3,7 @@ import React from 'react';
 import axios from "axios";
 import { Fragment } from "react";
 import { useEffect } from "react";
+import swal from "sweetalert";
 
 export default function AddEvent({ getEvents }) {
     const [name, setName] = useState("")
@@ -45,7 +46,8 @@ export default function AddEvent({ getEvents }) {
         })
         .then(function(response){
             if(response.status === 200) {
-               setSuccessMsg(response.data.message) 
+                swal("YEAH BABY!", "You added a new event.", "success");
+                // setSuccessMsg(response.data.message) 
 
             } else if (response.status === 500) {
                 setErrorMsg("Could not add a new event.")

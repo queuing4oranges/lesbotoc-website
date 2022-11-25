@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import swal from "sweetalert";
 
 export default function AddContact({toggleAddField, setAddField, setSuccessMsg, setFormError, setInputs, inputs, emptyInputs}) {
 
@@ -33,7 +34,8 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
         axios.post('https://api.itisgoodtohave.me/contacts/create.php', inputs)
         .then(function(response){
             console.log(response.data.message)
-            setSuccessMsg(response.data.message)
+            // setSuccessMsg(response.data.message)
+            swal("YEAH BABY!", "You added a new contact.", "success")
             })
         emptyInputs();       
         toggleAddField();       //close field

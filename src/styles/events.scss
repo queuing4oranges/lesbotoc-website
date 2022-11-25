@@ -56,32 +56,6 @@
   flex-direction: column;
 }
 
-.pencil-item,
-.trash-item {
-  margin: 5px;
-  cursor: default;
-}
-
-.trash-item {
-  color: white;
-  background-color: #dc3545;
-  padding: 3px;
-  border-radius: 3px;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.pencil-item {
-  color: white;
-  background-color: $lesbotoc;
-  padding: 3px;
-  border-radius: 3px;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
 .name-date-cont {
   text-align: justify;
 }
@@ -110,12 +84,5 @@
 }
 
 .archive-btn-cont {
-  display: block;
-}
-
-.events-archive-btn {
-  height: 30px;
-  width: 30px;
-  margin: 3px;
-  padding: 3px;
+  display: flex;
 }
