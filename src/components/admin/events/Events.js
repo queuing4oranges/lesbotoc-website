@@ -10,10 +10,11 @@ import EditEvent from './EditEvent';
 export default function Events() {
   const [events, setEvents] = useState([])
   const [eventsLoaded, setEventsLoaded] = useState(false)
+  const [success, setSuccess] = useState(false)
   
   useEffect(() => {
     getEvents();
-    }, [])
+    }, [success])
     
 
   function getEvents() {
@@ -43,7 +44,7 @@ export default function Events() {
 
         <div className="events-cont-left">
         {eventsLoaded &&
-        <EventsList events={events} setEventsLoaded={setEventsLoaded} getEvents={getEvents}/>}
+        <EventsList events={events} setEventsLoaded={setEventsLoaded} getEvents={getEvents} setSuccess={setSuccess} success={success}/>}
         </div>
 
    
@@ -55,14 +56,6 @@ export default function Events() {
           
       </div>
       
-      
-      
-      
-      
-
-
-
-
 
     </Fragment>
 

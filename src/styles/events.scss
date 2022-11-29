@@ -24,7 +24,7 @@
 .events-cont-left {
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 30%;
   margin-top: 20px;
 }
 
@@ -57,7 +57,13 @@
 }
 
 .name-date-cont {
+  width: 100%;
   text-align: justify;
+}
+
+.name-date-cont h6,
+.name-date-cont p {
+  font-size: 0.8em;
 }
 
 .events-btn-cont {

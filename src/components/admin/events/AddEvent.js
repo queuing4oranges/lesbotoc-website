@@ -14,17 +14,18 @@ export default function AddEvent({ getEvents }) {
     const [eventTime, setEventTime] = useState("")
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState("")
+
     const [capacity, setCapacity] = useState("")
-    const [successMsg, setSuccessMsg] = useState("")
+    const [success, setSuccess] = useState(false)
     const [errorMsg, setErrorMsg] = useState("")
      
     useEffect(() => {
       getEvents();
-    }, [successMsg])
+    }, [success])
     
 
     const handleSubmit = async (e) => {
-        setSuccessMsg(false)
+        setSuccess(false)
         setErrorMsg(null)
         e.preventDefault()
 
@@ -47,13 +48,14 @@ export default function AddEvent({ getEvents }) {
         .then(function(response){
             if(response.status === 200) {
                 swal("YEAH BABY!", "You added a new event.", "success");
-                // setSuccessMsg(response.data.message) 
+                setSuccess(true)
 
             } else if (response.status === 500) {
                 setErrorMsg("Could not add a new event.")
             }
         })
         resetInputs()
+        getEvents()
          
     }
 
@@ -78,7 +80,7 @@ export default function AddEvent({ getEvents }) {
 
         {errorMsg &&  
         <p className="alert alert-danger">{errorMsg}</p>}
-        {successMsg ? <p onMouseOver={(e) => setSuccessMsg(false)} className="alert alert-success">{successMsg}</p> : ""}
+        {/* {successMsg ? <p onMouseOver={(e) => setSuccessMsg(false)} className="alert alert-success">{successMsg}</p> : ""} */}
 
         <form className="add-event-form" id="add-event-form" onSubmit={handleSubmit}>
 
