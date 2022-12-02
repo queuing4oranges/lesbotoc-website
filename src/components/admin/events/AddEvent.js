@@ -14,7 +14,6 @@ export default function AddEvent({ getEvents }) {
     const [eventTime, setEventTime] = useState("")
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState("")
-
     const [capacity, setCapacity] = useState("")
     const [success, setSuccess] = useState(false)
     const [errorMsg, setErrorMsg] = useState("")

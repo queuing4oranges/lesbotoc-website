@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import swal from "sweetalert";
 import { useState } from "react";
-import moment from "moment";
 import Moment from "react-moment";
+import EditEventModal from "./EditEventModal";
 
-export default function EventsList({ events, setSuccess }) {
+export default function EventsList({ events, setSuccess, getEvents }) {
   const [errorMsg, setErrorMsg] = useState(false)
+  const [openModal, setOpenModal] = useState(false)
+  const [data, setData] = useState([])
 
 
   const deleteEvent = (id) => {
@@ -22,16 +24,31 @@ export default function EventsList({ events, setSuccess }) {
     .then(willDelete => {
       if(willDelete) {
         axios.delete(`https://api.itisgoodtohave.me/events/delete.php/${id}`)
-          .then(function(response){
+          .then(function(){
           swal("Deleted!", "It will never hurt your eyes again. Promised.", "success"); 
           setSuccess(true)
           })
       } else {
         setErrorMsg("Could not delete the event.")
+        console.log(errorMsg)
       }
     })
   }
 
+  const showEvent = (id) => {
+    setOpenModal(true)
+    console.log(id)
+    axios.get(`https://api.itisgoodtohave.me/events/single_read.php/${id}`)
+    .then(function(response) {
+      setData(response.data)
+      console.log(data)
+    })
+  }
+
+  const editEvent = (id) => {
+    setSuccess(false)
+    axios.put(`https://api.itisgoodtohave.me/events/delete.php/${id}`)
+  }
     // let date = new Date();
 
 
@@ -46,7 +63,8 @@ export default function EventsList({ events, setSuccess }) {
           <span className='btn eventlist-btn' key={key}>
 
             <div className="name-date-cont">
-              <h6>{event.name.substring(0,20)}</h6>
+              <h6>{event.name}</h6>
+              {/* <h6>{event.name.substring(0,20)}</h6> */}
               <p><Moment format="YYYY">{event.date}</Moment></p>
               <p><Moment format="D. MMMM">{event.date}</Moment></p>
 
@@ -54,10 +72,19 @@ export default function EventsList({ events, setSuccess }) {
             </div>
 
             <div className="events-btn-cont">
-              <button type="button" className="btn btn-sm pencil-item">
+              <button type="button" className="btn btn-sm pencil-item" onClick={()=>showEvent(event.id)}>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-pencil pencil-item" viewBox="0 0 16 16">
               <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
               </svg></button>
+
+              {openModal &&
+              <EditEventModal
+              id={event.id} 
+              data={data}
+              getEvents={getEvents}
+              setOpenModal={setOpenModal}   
+              />
+              }
  
               <button type="button" className="btn btn-danger btn-sm trash-item" id={event.id} onClick={() =>deleteEvent(event.id)} >
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-trash trash-item" viewBox="0 0 16 16">
@@ -67,7 +94,11 @@ export default function EventsList({ events, setSuccess }) {
             </div>
           
           </span> 
-        ))}             
+        ))}  
+ 
+
+          
+
     </Fragment>
   )
 }
