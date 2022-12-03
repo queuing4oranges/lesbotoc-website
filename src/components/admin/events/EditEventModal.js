@@ -14,23 +14,22 @@ export default function EditEvent({ data, getEvents, setOpenModal }) {
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState("")
     const [capacity, setCapacity] = useState("")
-    const [success, setSuccess] = useState(false)
     const [errorMsg, setErrorMsg] = useState("")
 
     
 useEffect(() => {
-  if(data){
-    setOpenModal(true)
+
+
     setName(data.name)
     setLocationName(data.loc_name)
     setLocationAddress(data.loc_address)
     setWebsite(data.loc_website)
-    setEventDate(data.data)
+    setEventDate(data.date)
     setEventTime(data.time)
     setDescription(data.description)
     setPrice(data.price)
     setCapacity(data.capacity)
-  }
+
 }, [data])
 
    
@@ -46,7 +45,7 @@ useEffect(() => {
         }
 
         axios.put(`https://api.itisgoodtohave.me/events/update.php/${data.id}`, {
-          
+
             name: name,
             loc_name: locationName,
             loc_address: locationAddress, 
@@ -85,10 +84,14 @@ useEffect(() => {
     setCapacity("")
     )}
 
+    function abortEditing() {
+      setOpenModal(false)
+      resetInputs()
+    }
 
 
   return (
-    <div className="edit-modal edit-event-modal">
+    <div className="edit-modal edit-event-modal" onClick={abortEditing} >
       
       <div className="edit-modal-content">
           
@@ -115,7 +118,7 @@ useEffect(() => {
 
                           <div className="edit-date-time">         
                             <div className="edit-input-cont">
-                            <label htmlFor="date">Date:</label>
+                            <label htmlFor="date">Date: *</label>
                             <input 
                             className="edit-input event-input"
                             name="date"
@@ -205,7 +208,7 @@ useEffect(() => {
           
                             <div className="edit-cont-btn">
                                 <button className="btn btn-success edit-btn">Save</button>
-                                <button className="btn btn-danger edit-btn"onClick={()=>setOpenModal(false)}>Cancel</button>
+                                <button className="btn btn-danger edit-btn"onClick={()=>abortEditing()}>Cancel</button>
                             </div>
                 </div>
           

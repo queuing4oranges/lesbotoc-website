@@ -65,8 +65,8 @@ export default function EventsList({ events, setSuccess, getEvents }) {
             <div className="name-date-cont">
               <h6>{event.name}</h6>
               {/* <h6>{event.name.substring(0,20)}</h6> */}
-              <p><Moment format="YYYY">{event.date}</Moment></p>
-              <p><Moment format="D. MMMM">{event.date}</Moment></p>
+              {event.date ? <p><Moment format="YYYY">{event.date}</Moment></p> : "" }
+              {event.date ? <p><Moment format="D. MMMM">{event.date}</Moment></p> : ""}
 
 
             </div>

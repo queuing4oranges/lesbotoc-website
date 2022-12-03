@@ -55,10 +55,6 @@ export default function Events() {
    
         <div className="events-cont-right">
           <AddEvent getEvents={getEvents} />
-          {/* <EditEventModal 
-            getEvents={getEvents}
-            events={events}
-          /> */}
         </div>
 
           
