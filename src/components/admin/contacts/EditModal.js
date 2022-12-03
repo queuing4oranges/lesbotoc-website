@@ -21,7 +21,8 @@ export default function EditModal({ show, closeModal, data, dataLoaded, setSucce
     const handleSubmit = (event) => {
         console.log(inputs)
         event.preventDefault();
-        axios.put(`https://api.itisgoodtohave.me/contacts/update.php/${data.id}`, inputs).then(function(response){
+        axios.put(`https://api.itisgoodtohave.me/contacts/update.php/${data.id}`, inputs)
+        .then(function(response){
         console.log(response.data);
         })
         closeModal();   

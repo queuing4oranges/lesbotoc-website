@@ -44,14 +44,6 @@ export default function EventsList({ events, setSuccess, getEvents }) {
       console.log(data)
     })
   }
-
-  const editEvent = (id) => {
-    setSuccess(false)
-    axios.put(`https://api.itisgoodtohave.me/events/delete.php/${id}`)
-  }
-    // let date = new Date();
-
-
    
   return (
     <Fragment>

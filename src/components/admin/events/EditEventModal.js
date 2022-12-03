@@ -18,8 +18,6 @@ export default function EditEvent({ data, getEvents, setOpenModal }) {
 
     
 useEffect(() => {
-
-
     setName(data.name)
     setLocationName(data.loc_name)
     setLocationAddress(data.loc_address)
@@ -91,7 +89,7 @@ useEffect(() => {
 
 
   return (
-    <div className="edit-modal edit-event-modal" onClick={abortEditing} >
+    <div className="edit-modal edit-event-modal" >
       
       <div className="edit-modal-content">
           
@@ -221,4 +219,3 @@ useEffect(() => {
 }
 
 
-// axios.get(`https://api.itisgoodtohave.me/events/single_read.php/${id}`)

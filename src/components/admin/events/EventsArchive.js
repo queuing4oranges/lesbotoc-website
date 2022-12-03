@@ -53,10 +53,7 @@ export default function EventsArchive() {
     })
   }
 
-  const updateEvent = (id) => {
-    setSuccess(false)
-    
-  }
+
 
   return (
     <div>
