@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 export default function User() {
   return (
     <div className="user-title-container">
-      <h2 className="user-title">Building the Admin Panel right now. Have a look here:</h2>
-      <button className='btn'><Link to={"/admin"}>Admin</Link></button>
+      <Link to={"/admin"}><button className='btn admin-panel-btn'>
+        <h6>Take me to the</h6>
+        <h4>Admin-Panel</h4>
+        </button></Link>
     </div>
    
   )

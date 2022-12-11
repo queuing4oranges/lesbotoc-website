@@ -37,12 +37,12 @@ export default function Admin() {
         </div>
         </Link>
 
-        <Link className="admin-link" to={"newsletter"}>
+        <Link className="admin-link" to={"pictures"}>
         <div className="newsletter">
-          <h6>Newsletter</h6>
+          <h6>Pictures</h6>
           <ul>
             <li>
-              Write newsletter and send it to subscribed contacts.
+              Add and delete pictures of events.
             </li>
           </ul>
         </div>

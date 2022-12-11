@@ -76,20 +76,6 @@
   border: $input-look;
 }
 
-// .edit-date-time,
-// .edit-price-cap,
-// .edit-name-venue,
-// .edit-address-website {
-//   display: flex;
-//   justify-content: space-between;
-// }
-
-// .event-input {
-//   width: 200px;
-//   display: flex;
-//   justify-content: space-between;
-// }
-
 .edit-cont-top {
   display: flex;
 }
@@ -118,4 +104,16 @@
 .edit-cont-top-left,
 .edit-cont-top-right {
   margin: 10px 10px;
+}
+
+.edit-cont-top-left span {
+  color: #dc3545;
+  font-size: small;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+.description-cont label {
+  align-self: flex-start;
 }

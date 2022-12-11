@@ -5,7 +5,6 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Fragment } from 'react';
 import AddEvent from './AddEvent';
-import EditEventModal from './EditEventModal';
 
 export default function Events() {
   const [events, setEvents] = useState([])

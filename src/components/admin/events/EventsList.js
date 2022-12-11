@@ -51,14 +51,14 @@ export default function EventsList({ events, setSuccess, getEvents }) {
       <p className="alert alert-danger">{errorMsg}</p>}
 
       <button className="btn btn-success archive-btn"><Link className="archive-link" to={"/admin/events/archive"}>All Events</Link></button>
-        {events.slice(0,8).map((event, key) => (
+        {events.slice(0,10).map((event, key) => (
           <span className='btn eventlist-btn' key={key}>
 
             <div className="name-date-cont">
               <h6>{event.name}</h6>
               {/* <h6>{event.name.substring(0,20)}</h6> */}
-              {event.date ? <p><Moment format="YYYY">{event.date}</Moment></p> : "" }
-              {event.date ? <p><Moment format="D. MMMM">{event.date}</Moment></p> : ""}
+              {event.date === "0000-00-00" ? "" : <p><Moment format="YYYY">{event.date}</Moment></p>}
+              {event.date === "0000-00-00" ? "" : <p><Moment format="D. MMMM">{event.date}</Moment></p>}
 
 
             </div>

@@ -37,10 +37,10 @@ useEffect(() => {
         setErrorMsg(null)
         e.preventDefault()
 
-        if(!name) {
+        if(name === "") {
             setErrorMsg("Please provide a name.")
             return
-        }
+        } 
 
         axios.put(`https://api.itisgoodtohave.me/events/update.php/${data.id}`, {
 
@@ -110,7 +110,7 @@ useEffect(() => {
                           name="name" 
                           type="text"
                           onChange={(e) => setName(e.target.value)}
-                          value={name}
+                          defaultValue={name}
                           />
                           </div>
 
@@ -122,7 +122,7 @@ useEffect(() => {
                             name="date"
                             type="date"
                             onChange={(e) => setEventDate(e.target.value)}
-                            value={eventDate} />
+                            defaultValue={eventDate} />
                             </div>
 
 
@@ -133,7 +133,7 @@ useEffect(() => {
                             name="time"
                             type="time"
                             onChange={(e) => setEventTime(e.target.value)}
-                            value={eventTime} />
+                            defaultValue={eventTime} />
                             </div>
                           </div>
 
@@ -144,7 +144,7 @@ useEffect(() => {
                             className="edit-input event-input" 
                             name="price"
                             onChange={(e) => setPrice(e.target.value)}
-                            value={price} />
+                            defaultValue={price} />
                             </div>
                                         
                             <div className="edit-input-cont">
@@ -153,10 +153,10 @@ useEffect(() => {
                             className="edit-input event-input" 
                             name="capacity"
                             onChange={(e) => setCapacity(e.target.value)}
-                            value={capacity} />
+                            defaultValue={capacity} />
                             </div>
                           </div>
-
+                        <span>* can not be left empty </span>
                       </div>
 
                     <div className="edit-cont-top-right">
@@ -168,7 +168,7 @@ useEffect(() => {
                                 type="text"
                                 placeholder="example: Cafe XY"
                                 onChange={(e) => setLocationName(e.target.value)}
-                                value={locationName} />
+                                defaultValue={locationName} />
                               </div>
 
                               <div className="edit-input-cont">
@@ -179,7 +179,7 @@ useEffect(() => {
                                 type="text"
                                 placeholder="example: Opatovická 12, Praha 11000"
                                 onChange={(e) => setLocationAddress(e.target.value)}
-                                value={locationAddress} />
+                                defaultValue={locationAddress} />
                               </div>
 
                               <div className="edit-input-cont">
@@ -189,7 +189,7 @@ useEffect(() => {
                                 name="loc_website"
                                 type="text"
                                 onChange={(e) => setWebsite(e.target.value)}
-                                value={website} />
+                                defaultValue={website} />
                               </div>
                     </div>
               </div>
@@ -201,7 +201,7 @@ useEffect(() => {
                                 className="edit-input event-input" 
                                 name="description"
                                 onChange={(e) => setDescription(e.target.value)}
-                                value={description} />
+                                defaultValue={description} />
                             </div>
           
                             <div className="edit-cont-btn">
