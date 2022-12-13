@@ -16,8 +16,6 @@ export default function ImageUpload() {
       getImages()
     }, [successMsg])
     
-    
-
 //uploading images to the DB
     function uploadImage(e) {
         setsuccessMsg(false)
@@ -34,14 +32,14 @@ export default function ImageUpload() {
         if (!formImage.value) {
             console.log("there is no pic")
         } else {
-            axios.post('https://api.itisgoodtohave.me/images/upload2.php', formData)
+            axios.post('https://api.itisgoodtohave.me/images/upload.php', formData)
             .then(function(response) {
             if(response.status === 200) {
                 swal("YEAH BABY!", "You uploaded an image.", "success");
                 setsuccessMsg(true)
                 toggleShowAdd()
             } else if (response.status === 500) {
-                setErrorMsg("Could not add a new event.")
+                setErrorMsg("Could not add a new image.")
             }
             })
             .catch((err) => {
@@ -109,7 +107,7 @@ export default function ImageUpload() {
 {/* add an image   */}
         {showAdd &&
         <div className="add-image-cont" id="add-image-cont">
-            <form className="add-image-form" onSubmit={uploadImage} id="form" >
+            <form className="add-image-form" onSubmit={uploadImage} id="form" encType="multipart/form-data" >
 
                 <input type="file" name="image" id="image" />
 
