@@ -115,13 +115,22 @@ export default function ImageUpload() {
 
                 <div className="alt-cont">
                 <label htmlFor="alt">Description</label>
-                <input className="form-control input-item" type="text" name="alt" id="alt" />
+                <input 
+                className="form-control input-item" 
+                type="text" 
+                name="alt" 
+                id="alt" />
                 <span>Description for screen reader.</span>
                 </div>
                 
                 <div className="img-title-cont">
                 <label htmlFor="title">Title</label>
-                <input className="form-control input-item" type="text" name="title" id="title" placeholder="Title for image gallery." />
+                <input 
+                className="form-control input-item" 
+                type="text" 
+                name="title" 
+                id="title" 
+                placeholder="Title for image gallery." />
                 <span>Title for image gallery.</span>
                 </div>
                 
