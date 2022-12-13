@@ -1,6 +1,7 @@
 .show-image-cont {
   width: 90%;
-  margin: auto;
+  height: 100vh;
+  margin: 50px auto;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -9,7 +10,6 @@
 }
 
 .img-cont {
-  margin-top: 50px;
   margin-left: 20px;
   height: 200px;
   width: 150px;
@@ -17,14 +17,64 @@
   box-shadow: 5px 5px 5px 0px rgba(0, 50, 67, 0.5);
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 
   & p {
     font-size: 0.7em;
     margin: 0;
+  }
+
+  & .img-title {
+    font-weight: bold;
+    position: absolute;
+    bottom: 70px;
+    text-align: center;
+    width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  & .img-date {
+    position: absolute;
+    bottom: 50px;
+  }
+
+  & .img-btn {
+    position: absolute;
+    bottom: 5px;
   }
 }
 
 .single-img {
   max-width: 100%;
   border-top-left-radius: 10px;
+}
+
+//form container
+.add-image-cont {
+  width: 90%;
+  margin: auto;
+}
+
+.add-img-btn-cont {
+  width: 90%;
+  margin: auto;
+  display: flex;
+
+  & button {
+    margin-top: 35px;
+  }
+}
+
+.img-form-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.add-img-btn {
+  height: 50%;
 }

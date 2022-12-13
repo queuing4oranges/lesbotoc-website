@@ -100,8 +100,8 @@ export default function ImageUpload() {
     <Fragment>
         <AdminNavbar/>
         <h3 className="admin-page-title">Picture Gallery</h3>
-        <div className="btn-cont">
-            <button className="btn btn-success add-image" onClick={toggleShowAdd}>{buttonText}</button>
+        <div className="add-img-btn-cont">
+            <button className="btn btn-success btn-create btn-sm" onClick={toggleShowAdd}>{buttonText}</button>
         </div>
 
 {/* add an image   */}
@@ -109,34 +109,42 @@ export default function ImageUpload() {
         <div className="add-image-cont" id="add-image-cont">
             <form className="add-image-form" onSubmit={uploadImage} id="form" encType="multipart/form-data" >
 
-                <input type="file" name="image" id="image" />
+                <div className="form-cont img-form-cont">
 
-                <div className="alt-cont">
-                <label htmlFor="alt">Description</label>
+                <div className="form-group">
+                <label htmlFor="image">Chose an image (1MB / jpeg, jpg, png, gif)</label>
+                <input type="file" name="image" id="image" className="input-item"/>
+                </div>
+
+                <div className="form-group">
+                <label htmlFor="alt">Description for screen reader</label>
                 <input 
-                className="form-control input-item" 
+                className="input-item" 
                 type="text" 
                 name="alt" 
-                id="alt" />
-                <span>Description for screen reader.</span>
+                id="alt"
+                placeholder="alternate text" />
                 </div>
                 
-                <div className="img-title-cont">
-                <label htmlFor="title">Title</label>
+                <div className="form-group">
+                <label htmlFor="title">Title for image gallery</label>
                 <input 
-                className="form-control input-item" 
+                className="input-item" 
                 type="text" 
                 name="title" 
                 id="title" 
-                placeholder="Title for image gallery." />
-                <span>Title for image gallery.</span>
+                placeholder="Title" />
+                </div>
+
+                <div className="form-group btn-cont">
+                <button className="btn btn-success save-btn" type="submit" name="insert" id="insert" >Save</button>
+</div>
+
                 </div>
                 
-
-                <input className="form-control input-item" type="submit" name="insert" id="insert" />
-                <span>*up to 1MB / jpeg, jpg, png gif</span>
-
+               
             </form>
+            
         </div>
         }
 
@@ -151,12 +159,11 @@ export default function ImageUpload() {
                 className="single-img"
                 src={`https://api.itisgoodtohave.me/images/images/${img.filename}`} 
                 alt={`${img.alt}`} />
-                <p>{img.filename}</p>
-                <p>Uploaded:</p> 
-                <p>{<Moment format="D. MMMM YYYY">{img.created_at}</Moment>}</p>
+                <p className="img-title">{img.title}</p>
+                <p className="img-date">{<Moment format="D. MMMM YYYY">{img.created_at}</Moment>}</p>
                 <button 
                 name="deleteBtn"
-                className="btn btn-sm btn-danger trash-item" 
+                className="btn btn-sm btn-danger trash-item img-btn" 
                 id={img.id} 
                 onClick={() =>deleteImage(img.id)}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash trash-item" viewBox="0 0 16 16">
