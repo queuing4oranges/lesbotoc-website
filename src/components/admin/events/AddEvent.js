@@ -44,6 +44,7 @@ export default function AddEvent({ getEvents }) {
             price: price,
             capacity: capacity,
         })
+        
         .then(function(response){
             if(response.status === 200) {
                 swal("YEAH BABY!", "You added a new event.", "success");

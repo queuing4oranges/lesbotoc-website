@@ -31,7 +31,7 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
         }
 
         //execute post request
-        axios.post('https://api.itisgoodtohave.me/contacts/create.php', inputs)
+        axios.post("https://api.itisgoodtohave.me/contacts/create.php", inputs)
         .then(function(response){
             console.log(response.data.message)
             // setSuccessMsg(response.data.message)
