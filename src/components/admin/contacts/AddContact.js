@@ -71,7 +71,15 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
 
             <div className="form-group">
             <label htmlFor="email">Email*</label>
-            <input className="input-item" id="email" type="text" name="email" onChange={handleChange} placeholder="someone@email.cz" />
+            <input 
+            className="input-item" 
+            id="email" 
+            type="text" 
+            name="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+            onChange={handleChange} 
+
+            placeholder="someone@email.cz" />
             </div>
 
             <div className="form-group">
