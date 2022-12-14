@@ -1,11 +1,17 @@
 import React from 'react';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import swal from 'sweetalert';
 
-export default function EditModal({ show, closeModal, data, dataLoaded, setSuccessMsg }) {
-
-    // const {name, email, phone, id} = data
+export default function EditModal({ show, closeModal, data, getContacts, setSuccessMsg, contactsLoaded, setContactsLoaded, id }) {
     const [inputs, setInputs] = useState("")
+
+    //get contacts w useeffect and also close modal!
+
+    //     useEffect(() => {
+    //   getContacts();
+
+    // }, [contactsLoaded])
 
     const handleChange = (event) => {
         setSuccessMsg(false)
@@ -21,7 +27,7 @@ export default function EditModal({ show, closeModal, data, dataLoaded, setSucce
     const handleSubmit = (event) => {
         console.log(inputs)
         event.preventDefault();
-        axios.put(`https://api.itisgoodtohave.me/contacts/update.php/${data.id}`, inputs)
+        axios.put(`https://api.itisgoodtohave.me/contacts/update.php/${id}`, inputs)
         .then(function(response){
         console.log(response.data);
         })
@@ -33,6 +39,32 @@ export default function EditModal({ show, closeModal, data, dataLoaded, setSucce
     }
 
 
+    
+    const deleteContact = (id) => {
+      swal({
+        title: "Sure?", 
+        text: "Do you REALLY want to delete this precious contact?", 
+        icon: "warning", 
+        dangerMode: true,
+      })
+        .then(willDelete => {
+            if(willDelete) {
+                axios.delete(`https://api.itisgoodtohave.me/contacts/delete.php/${id}`)
+                .then(function(response) {
+                    if (response.status === 200) {
+                        swal("Deleted!", "It will never bother you again. Promised.", "success")
+                        setContactsLoaded(false)
+                        
+                    } else if (response.status === 500) {
+                        swal("Wellllllll...", "Something went wrong here.", "error")
+                    }
+                })
+            closeModal()
+            }
+        })
+    }
+
+
   return (
     <div className="edit-modal" onClick={closeModal} >
         <div className="edit-modal-content" onClick={e=>e.stopPropagation()}>
@@ -41,7 +73,9 @@ export default function EditModal({ show, closeModal, data, dataLoaded, setSucce
             </div>
         
             <div className="edit-modal-body">
-                {dataLoaded &&
+                {data &&
+                <div>
+                
                 <form onSubmit={handleSubmit}>
                         
                         <div className="edit-input-cont">
@@ -77,13 +111,15 @@ export default function EditModal({ show, closeModal, data, dataLoaded, setSucce
                             <input defaultValue={newsletter} type="text" name="phone" onChange={handleChange} />
                         </div> */}
 
+                </form> 
+                
                     
-                        <div className="edit-modal-footer">
-                            <button onClick={closeModal}  className="edit-button btn btn-danger edit-btn">Cancel</button> 
+                <div className="edit-modal-footer">
+                            <button className="edit-button btn btn-danger edit-btn" onClick={() =>deleteContact(data.id)}>Delete</button>
                             <button className="btn btn-success edit-btn" type="submit">Save</button>
-                        </div>
-
-                    </form>  
+                </div>
+                
+                </div> 
                 }
             </div>
         </div> 

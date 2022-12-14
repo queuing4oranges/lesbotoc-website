@@ -58,7 +58,15 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
        
             <div className="form-group">
             <label htmlFor="wherefrom">Where did we meet?</label>
-            <input className="input-item" id="wherefrom" type="text" name="wherefrom" onChange={handleChange} />
+            <input className="input-item" id="wherefrom" type="text" name="wherefrom" list="places" onChange={handleChange} />
+            <datalist id="places">
+                <option value="Bowling s Lesbotočem"></option>
+                <option value="Knížní Klub"></option>
+                <option value="Lesbotoč MUSIC KVÍZ"></option>
+                <option value="Prague Pride"></option>
+                <option value="Speed Dating"></option>              
+
+            </datalist>
             </div>
 
             <div className="form-group">
