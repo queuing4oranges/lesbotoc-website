@@ -8,7 +8,6 @@ export default function ImageUpload() {
     const [showAdd, setShowAdd] = useState(false)
     const [buttonText, setButtonText] = useState("Add Image")
     const [successMsg, setsuccessMsg] = useState(false)
-    const [errorMsg, setErrorMsg] = useState(false)
     const [images, setImages] = useState("")
     const [imagesLoaded, setImagesLoaded] = useState(false)
 
@@ -19,7 +18,7 @@ export default function ImageUpload() {
 //uploading images to the DB
     function uploadImage(e) {
         setsuccessMsg(false)
-        setErrorMsg(false)
+        // setErrorMsg(false)
         e.preventDefault();
 
         const form = document.getElementById('form')
@@ -39,7 +38,7 @@ export default function ImageUpload() {
                 setsuccessMsg(true)
                 toggleShowAdd()
             } else if (response.status === 500) {
-                setErrorMsg("Could not add a new image.")
+                swal("Wellllllll...", "Something went wrong here.", "error")
             }
             })
             .catch((err) => {
@@ -87,7 +86,7 @@ export default function ImageUpload() {
                     swal("Deleted", "Dont ever worry about it.", "success")
                     setsuccessMsg(true)
                     } else if (response.status === 500) {
-                        setErrorMsg("Could not delete image.")
+                        swal("Wellllllll...", "Something went wrong here.", "error")
                     } 
                 })
             }   

@@ -105,7 +105,7 @@ export default function EventsArchive() {
               <td className="td td-locname">{event.loc_name}</td>
               <td className="td td-locadd">{event.loc_address}</td>
               <td className="td td-locweb">{event.loc_website}</td>
-              <td className="td td-date">{(event.date === "0000-00-00") ? "" : <Moment format="D. MMMM YYYY">{event.date}</Moment>}</td>           
+              <td className="td td-date">{(!event.date) ? "" : <Moment format="D. MMMM YYYY">{event.date}</Moment>}</td>           
               <td className="td td-time">{(event.time === "00:00:00") ? "" : event.time}</td>
               <td className="td td-price">{(event.price === 0) ? "" : event.price}</td>
               <td className="td td-capac">{(event.capacity === 0) ? "" : event.capacity}</td>

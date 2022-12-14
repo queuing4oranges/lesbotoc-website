@@ -7,7 +7,7 @@
 .trash-item {
   color: white;
   background-color: #dc3545;
-  padding: 3px;
+  padding: 1%;
   border-radius: 3px;
   &:hover {
     cursor: pointer;
@@ -17,7 +17,7 @@
 .pencil-item {
   color: white;
   background-color: $lesbotoc;
-  padding: 3px;
+  padding: 1%;
   border-radius: 3px;
   &:hover {
     cursor: pointer;

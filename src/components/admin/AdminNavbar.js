@@ -9,7 +9,7 @@ export default function AdminNavbar() {
         <nav className="navbar admin-nav">
             <div className="container">
                 <div className="navbar-brand" href="#">
-                    <img className="lesbotoc-adminnavbar-logo" src="/img/logo_light.png" alt="" /> 
+                    <Link to={"/"}><img className="lesbotoc-adminnavbar-logo" src="/img/logo_light.png" alt="lesbotoc logo" /></Link>
                     <Link style={{textDecoration: 'none'}} to={"/admin"}><p>Admin</p></Link>
                 </div>
 
