@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import swal from 'sweetalert';
 
-export default function EditModal({ show, closeModal, data, getContacts, setSuccessMsg, contactsLoaded, setContactsLoaded, id }) {
+export default function EditModal({ show, closeModal, data, getContacts, setSuccessMsg, contactsLoaded, setContactsLoaded, id, filteredData, setFilteredData, nameInput, setNameInput }) {
     const [inputs, setInputs] = useState("")
 
     //get contacts w useeffect and also close modal!
@@ -31,7 +31,8 @@ export default function EditModal({ show, closeModal, data, getContacts, setSucc
         .then(function(response){
         console.log(response.data);
         })
-        closeModal();   
+        closeModal(); 
+        
     }
     
     if(!show) {
@@ -60,6 +61,8 @@ export default function EditModal({ show, closeModal, data, getContacts, setSucc
                     }
                 })
             closeModal()
+            setFilteredData([])
+            setNameInput('')  
             }
         })
     }

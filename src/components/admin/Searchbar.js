@@ -4,9 +4,9 @@ import { FaWindowClose } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
 
 
-export default function Searchbar({placeholder, contacts, showContact, setSuccessMsg}) {  //passing in placeholder to customize searchbar and data from api of parent
-  const [filteredData, setFilteredData] = useState([])
-  const [nameInput, setNameInput] = useState("")
+export default function Searchbar({placeholder, contacts, showContact, setSuccessMsg, filteredData, setFilteredData, nameInput, setNameInput}) {  //passing in placeholder to customize searchbar and data from api of parent
+  // const [filteredData, setFilteredData] = useState([])
+  // const [nameInput, setNameInput] = useState("")
   
   const handleFilter = (event) => {
     setSuccessMsg(false)

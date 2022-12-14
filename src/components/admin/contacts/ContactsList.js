@@ -9,6 +9,8 @@ import Moment from "react-moment";
 
 
 export default function ContactsList() {
+  const [filteredData, setFilteredData] = useState([])
+  const [nameInput, setNameInput] = useState("")
   const [buttonText, setButtonText] = useState("New Contact")
   const [contacts, setContacts] = useState([]);
   const [contactsLoaded, setContactsLoaded] = useState(false)
@@ -128,7 +130,7 @@ export default function ContactsList() {
     <div className="table__container-top">
 
 {/* Searchbar */}
-      <div  className="searchbar-cont"><Searchbar id={contacts.id} deleteContact={deleteContact} setSuccessMsg={setSuccessMsg} showContact={showContact}  placeholder="Enter a contact..." contacts={contacts}/>
+      <div  className="searchbar-cont"><Searchbar nameInput={nameInput} setNameInput={setNameInput} filteredData={filteredData} setFilteredData={setFilteredData} id={contacts.id} deleteContact={deleteContact} setSuccessMsg={setSuccessMsg} showContact={showContact}  placeholder="Enter a contact..." contacts={contacts}/>
       </div>
       <button onClick={toggleAddField} className="btn btn-success btn-create btn-sm">{buttonText}</button>
 
@@ -189,6 +191,8 @@ export default function ContactsList() {
             </svg></button>
             
                 <EditModal 
+                nameInput={nameInput}
+                setNameInput={setNameInput}
                 id={contact.id} 
                 show={show} 
                 closeModal={closeModal}
@@ -201,7 +205,9 @@ export default function ContactsList() {
                 setSuccessMsg={setSuccessMsg}
                 getContacts={getContacts}
                 contact={contact}
-                deleteContact={() => deleteContact(contact.id)} />
+                deleteContact={() => deleteContact(contact.id)}
+                filteredData={filteredData} 
+                setFilteredData={setFilteredData} />
 
 {/* Deleting a contact */}
                 <button type="button" className="btn btn-danger btn-sm trash-item" onClick={() =>deleteContact(contact.id)}><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" className="bi bi-trash trash-item" viewBox="0 0 16 16">
