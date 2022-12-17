@@ -86,6 +86,20 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
             <label htmlFor="phone">Phone</label>
             <input className="input-item" id="phone" type="text" name="phone" onChange={handleChange} />
             </div>
+
+            <div className="form-group">
+            <label htmlFor="age">Age Group</label>
+            <input className="input-item" id="age" type="text" name="age" list="ages" onChange={handleChange} />
+                <datalist id="ages">
+                    <option value="20-25"></option>
+                    <option value="26-30"></option>
+                    <option value="31-35"></option>
+                    <option value="36-40"></option>
+                    <option value="41-45"></option>              
+                    <option value="46-50"></option>              
+                    <option value="50+"></option>              
+                </datalist>
+            </div>
             
             <div className="form-group checkbox-cont">
             <label htmlFor="newsletter">Newsletter?</label>

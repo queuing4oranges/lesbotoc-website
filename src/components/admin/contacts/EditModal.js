@@ -9,6 +9,7 @@ export default function EditModal({ show, closeModal, data, setContactsLoaded, i
     const [phone, setPhone] = useState("")
     const [wherefrom, setWherefrom] = useState("")
     const [newsletter, setNewsletter] = useState("")
+    const [age, setAge] = useState("")
     const [errorMsg, setErrorMsg] = useState("")
 
     useEffect(() => {
@@ -109,6 +110,15 @@ export default function EditModal({ show, closeModal, data, setContactsLoaded, i
                         </div>
 
                         <div className="edit-input-cont">
+                            <label>Where from?</label>
+                            <input 
+                            defaultValue={wherefrom} 
+                            type="text" 
+                            name="phone" 
+                            onChange={(e) => setWherefrom(e.target.value)} />
+                        </div> 
+
+                        <div className="edit-input-cont">
                             <label>Email</label>
                             <input 
                             className="edit-input" 
@@ -131,13 +141,18 @@ export default function EditModal({ show, closeModal, data, setContactsLoaded, i
                         </div>
 
                         <div className="edit-input-cont">
-                            <label>Where from?</label>
-                            <input 
-                            defaultValue={wherefrom} 
-                            type="text" 
-                            name="phone" 
-                            onChange={(e) => setWherefrom(e.target.value)} />
-                        </div> 
+                        <label htmlFor="age">Age Group</label>
+                        <input className="input-item" id="age" type="text" name="age" list="ages" onChange={(e) =>setAge(e.target.value)} />
+                            <datalist id="ages">
+                                <option value="20-25"></option>
+                                <option value="26-30"></option>
+                                <option value="31-35"></option>
+                                <option value="36-40"></option>
+                                <option value="41-45"></option>              
+                                <option value="46-50"></option>              
+                                <option value="50+"></option>              
+                            </datalist>
+                        </div>
 
                         <div className="edit-input-cont">
                             <label>Newsletter</label>
