@@ -3,14 +3,14 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import swal from 'sweetalert';
 
-export default function EditModal({ show, closeModal, data, setContactsLoaded, id,  setFilteredData, setNameInput }) {
+export default function EditModal({ show, closeModal, data, setContactsLoaded, setFilteredData, setNameInput }) {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
     const [wherefrom, setWherefrom] = useState("")
     const [newsletter, setNewsletter] = useState("")
     const [age, setAge] = useState("")
-    const [errorMsg, setErrorMsg] = useState("")
+    
 
     useEffect(() => {
         setName(data.name)
@@ -18,6 +18,7 @@ export default function EditModal({ show, closeModal, data, setContactsLoaded, i
         setPhone(data.phone)
         setWherefrom(data.wherefrom)
         setNewsletter(data.newsletter)
+        setAge(data.age)
     }, [data])
     
 
@@ -29,7 +30,8 @@ export default function EditModal({ show, closeModal, data, setContactsLoaded, i
             email: email, 
             phone: phone,
             wherefrom: wherefrom, 
-            newsletter: newsletter
+            newsletter: newsletter, 
+            age: age
         })
         .then(function(response){
             if(response.status === 200) {
@@ -49,7 +51,6 @@ export default function EditModal({ show, closeModal, data, setContactsLoaded, i
     }
 
 
-    
     const deleteContact = (id) => {
       swal({
         title: "Sure?", 
@@ -114,8 +115,17 @@ export default function EditModal({ show, closeModal, data, setContactsLoaded, i
                             <input 
                             defaultValue={wherefrom} 
                             type="text" 
-                            name="phone" 
-                            onChange={(e) => setWherefrom(e.target.value)} />
+                            name="wherefrom" 
+                            onChange={(e) => setWherefrom(e.target.value)}
+                            list="places"
+                            className="datalist-item" />
+                            <datalist id="places">
+                                <option value="Bowling s Lesbotočem"></option>
+                                <option value="Knížní Klub"></option>
+                                <option value="Lesbotoč MUSIC KVÍZ"></option>
+                                <option value="Prague Pride"></option>
+                                <option value="Speed Dating"></option>              
+                            </datalist>
                         </div> 
 
                         <div className="edit-input-cont">
@@ -126,7 +136,7 @@ export default function EditModal({ show, closeModal, data, setContactsLoaded, i
                             type="text" 
                             name="email" 
                             required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                            placeholder="must be valid email address"
+                            placeholder="email-address@email.cz"
                             onChange={(e) => setEmail(e.target.value)} />
                         </div>
 
@@ -136,13 +146,21 @@ export default function EditModal({ show, closeModal, data, setContactsLoaded, i
                             className="edit-input" 
                             defaultValue={phone == null ? "": phone} 
                             type="text" 
-                            name="phone" 
+                            name="phone"
+                            placeholder="+420 777 888 999" 
                             onChange={(e) => setPhone(e.target.value)} />
                         </div>
 
                         <div className="edit-input-cont">
                         <label htmlFor="age">Age Group</label>
-                        <input className="input-item" id="age" type="text" name="age" list="ages" onChange={(e) =>setAge(e.target.value)} />
+                        <input 
+                        className="input-item datalist-item" 
+                        defaultValue={age}
+                        id="age" 
+                        type="text" 
+                        name="age" 
+                        list="ages" 
+                        onChange={(e) =>setAge(e.target.value)} />
                             <datalist id="ages">
                                 <option value="20-25"></option>
                                 <option value="26-30"></option>
@@ -157,12 +175,18 @@ export default function EditModal({ show, closeModal, data, setContactsLoaded, i
                         <div className="edit-input-cont">
                             <label>Newsletter</label>
                             <input 
+                            className="edit-input"
                             defaultValue={newsletter} 
                             type="text" 
-                            name="phone" 
-                            onChange={(e) => setNewsletter(e.target.value)} />
-                            
+                            name="newsletter" 
+                            onChange={(e) => setNewsletter(e.target.value)}
+                            list="newsletter" />
+                            <datalist id="newsletter">
+                                <option value="1"></option>
+                                <option value="0"></option>           
+                            </datalist>  
                         </div>
+
                         <button className="btn btn-success edit-btn" type="submit">Save</button>
 
                 </form>                         
@@ -180,14 +204,3 @@ export default function EditModal({ show, closeModal, data, setContactsLoaded, i
   )  
 }
 
-
-  // const handleChange = (event) => {
-    //     setSuccessMsg(false)
-    //     // const target = event.target
-    //     const name = event.target.name;
-    //     const value = event.target.value
-    //     setInputs({
-    //         ...inputs, 
-    //         [name]:value
-    //  });
-    // }
