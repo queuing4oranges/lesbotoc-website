@@ -109,3 +109,14 @@ input {
 .table-row:nth-child(odd) {
   background-color: $light-blue;
 }
+
+/*EditContacts*/
+
+.edit-contacts-modal {
+  margin-top: 20px;
+}
+
+.add-contact-btn-cont {
+  display: flex;
+  justify-content: space-between;
+}

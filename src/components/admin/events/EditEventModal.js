@@ -87,17 +87,18 @@ useEffect(() => {
       resetInputs()
     }
 
-
+ 
   return (
-    <div className="edit-modal edit-event-modal" >
+    <div className="edit-modal edit-event-modal" onClick={() => setOpenModal(false)} >
       
-      <div className="edit-modal-content">
+      <div className="edit-modal-content" onClick={e=>e.stopPropagation()} >
           
         <div className="edit-modal-header">
           <h4 className="edit-modal-header">Edit an event</h4>
         </div>
 
         <div className="edit-modal-body edit-event-body">
+
           <form id="edit-event-form" onSubmit={handleSubmit}>
 
               <div className="edit-cont-top">

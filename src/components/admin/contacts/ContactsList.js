@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState, Fragment, useRef } from 'react';
 import axios from 'axios';
 import AddContact from './AddContact';
 import Searchbar from '../Searchbar';
@@ -6,9 +6,11 @@ import AdminNavbar from '../AdminNavbar';
 import EditModal from './EditModal';
 import swal from "sweetalert";
 import Moment from "react-moment";
+import { CSVLink } from 'react-csv'
 
 
 export default function ContactsList() {
+  const [emails, setEmails] = useState([])
   const [filteredData, setFilteredData] = useState([])
   const [nameInput, setNameInput] = useState("")
   const [buttonText, setButtonText] = useState("New Contact")
@@ -33,16 +35,40 @@ export default function ContactsList() {
     email: "",
     phone: "",
   })
- 
+
+  const getScrollPosition = (e) => {
+    console.log(e.target.scrollTop)
+    // get scroll position when click on icon edit or delete (also possible: getScrollPos - 1 fct and setScrollPos - 2nd fct??)
+    //clg
+
+    //onClick - (delete or edit) get scroll position and save in state
+    //clg state ?
+
+    //useEffect to scroll back? 
+    //or in the delete fct as last point to scroll back?
+  }
+
   useEffect(() => {
     getContacts();
   }, [contactsLoaded])  
+
+  const getOnlyEmail = () => {
+    const newsAdd = []
+    //it also needs to be filtered to people who subscribed to newsletter!
+    contacts.forEach(function(contact) {
+      newsAdd.push(contact.email)
+      console.log(...newsAdd)
+      setEmails(newsAdd)
+      console.log(emails)
+    }) 
+  }
  
   function getContacts() {
     axios.get('https://api.itisgoodtohave.me/contacts/read.php')
     .then(function(response) {
       setContacts(response.data);
-      setContactsLoaded(true);    
+      setContactsLoaded(true); 
+      getOnlyEmail();
     })
     setSuccessMsg("");
   }
@@ -100,21 +126,19 @@ export default function ContactsList() {
      });
   }
 
-
   const showContact = (id) => {
+    // handleScrollPosition()
     setShow(true)
     console.log(id)
     axios.get(`https://api.itisgoodtohave.me/contacts/single_read.php/${id}`)  
     .then(function(response) {
       setData(response.data)
-      // setDataLoaded(true)
       setContactsLoaded(true)
     })
   }
 
   const closeModal =() => {
     setShow(false)
-    // setDataLoaded(false)
     setContactsLoaded(false)
   }
 
@@ -141,7 +165,13 @@ export default function ContactsList() {
         placeholder="Enter a contact..." 
         contacts={contacts}/>
       </div>
+
+      <div className="add-contact-btn-cont">
       <button onClick={toggleAddField} className="btn btn-success btn-create btn-sm">{buttonText}</button>
+      <CSVLink data={contacts} filename="lesbotoč_contacts"><button className="btn btn-info btn-create btn-sm">Export Data</button></CSVLink> 
+      {/* <CSVLink onClick={getOnlyEmail} data={emails} filename="lesbotoč_contacts"><button className="btn btn-info btn-create btn-sm">Export Data</button></CSVLink>  */}
+      </div>
+
 
 {/* Adding a contact */}
       <div className="create-cont">
@@ -166,7 +196,10 @@ export default function ContactsList() {
     
     <div className="table__container-bottom">
           
-          <table className="table table-sm table-bordered contacts__table table-hover">
+          <table 
+          className="table table-sm table-bordered contacts__table table-hover"
+          id="contacts-table" 
+          >
            
             <thead>
               <tr>
@@ -207,11 +240,13 @@ export default function ContactsList() {
                 {show && 
                 <EditModal 
                 show={show}
+                setShow={setShow}
                 closeModal={closeModal}
                 data={data}
                 id={contact.id}                 
                 setFilteredData={setFilteredData}
                 setNameInput={setNameInput} 
+                // handleScrollPosition={handleScrollPosition}
                 />
                 }
 

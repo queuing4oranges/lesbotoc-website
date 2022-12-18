@@ -3,16 +3,18 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import swal from 'sweetalert';
 
-export default function EditModal({ show, closeModal, data, setContactsLoaded, setFilteredData, setNameInput }) {
+export default function EditModal({ show, setShow, closeModal, data,  setFilteredData, setNameInput }) {
+    const [id, setId] = useState("")
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
     const [wherefrom, setWherefrom] = useState("")
     const [newsletter, setNewsletter] = useState("")
     const [age, setAge] = useState("")
-    
+
 
     useEffect(() => {
+        setId(data.id)
         setName(data.name)
         setEmail(data.email)
         setPhone(data.phone)
@@ -23,7 +25,7 @@ export default function EditModal({ show, closeModal, data, setContactsLoaded, s
     
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault();       
 
         axios.put(`https://api.itisgoodtohave.me/contacts/update.php/${data.id}`, {
             name: name, 
@@ -51,35 +53,13 @@ export default function EditModal({ show, closeModal, data, setContactsLoaded, s
     }
 
 
-    const deleteContact = (id) => {
-      swal({
-        title: "Sure?", 
-        text: "Do you REALLY want to delete this precious contact?", 
-        icon: "warning", 
-        dangerMode: true,
-      })
-        .then(willDelete => {
-            if(willDelete) {
-                axios.delete(`https://api.itisgoodtohave.me/contacts/delete.php/${id}`)
-                .then(function(response) {
-                    if (response.status === 200) {
-                        swal("Deleted!", "It will never bother you again. Promised.", "success")
-                        setContactsLoaded(false)
-                        
-                    } else if (response.status === 500) {
-                        swal("Wellllllll...", "Something went wrong here.", "error")
-                    }
-                })
-            closeModal()
-            setFilteredData([])
-            setNameInput('')  
-            }
-        })
+    function abortEditing() {
+      setShow(false)
     }
 
-
   return (
-    <div className="edit-modal" onClick={closeModal} >
+    //click outside of div to close modal (needs also stoppropagation)
+    <div className="edit-modal edit-contacts-modal" onClick={closeModal} >
         <div className="edit-modal-content" onClick={e=>e.stopPropagation()}>
             <div className="edit-modal-header">
                 <h4 className="edit-modal-title">Edit a contact</h4>
@@ -94,7 +74,7 @@ export default function EditModal({ show, closeModal, data, setContactsLoaded, s
                             <label>ID</label>
                             <input 
                             className="edit-input" 
-                            value={data.id} type="text" 
+                            defaultValue={id} type="text" 
                             name="id" 
                             readOnly  />
                         </div>
@@ -141,13 +121,13 @@ export default function EditModal({ show, closeModal, data, setContactsLoaded, s
                         </div>
 
                         <div className="edit-input-cont">
-                            <label>Phone</label>
+                            <label>Phone +0420</label>
                             <input 
                             className="edit-input" 
                             defaultValue={phone == null ? "": phone} 
                             type="text" 
                             name="phone"
-                            placeholder="+420 777 888 999" 
+                            placeholder="777 888 999" 
                             onChange={(e) => setPhone(e.target.value)} />
                         </div>
 
@@ -176,25 +156,25 @@ export default function EditModal({ show, closeModal, data, setContactsLoaded, s
                             <label>Newsletter</label>
                             <input 
                             className="edit-input"
-                            defaultValue={newsletter} 
+                            defaultValue={newsletter === "1" ? "yes" : "no"} 
                             type="text" 
                             name="newsletter" 
-                            onChange={(e) => setNewsletter(e.target.value)}
-                            list="newsletter" />
-                            <datalist id="newsletter">
-                                <option value="1"></option>
-                                <option value="0"></option>           
+                            onChange={(e) => setNewsletter(e.target.value === "yes" ? "1" : "0")}
+                            list="news" />
+                            <datalist id="news">
+                                <option value="yes"></option>
+                                <option value="no"></option>           
                             </datalist>  
                         </div>
 
-                        <button className="btn btn-success edit-btn" type="submit">Save</button>
-
-                </form>                         
-                
-                <div className="edit-modal-footer">
-                                    <button className="edit-button btn btn-danger edit-btn" onClick={() =>deleteContact(data.id)}>Delete</button>
-                                   
+                       
+                        <div className="edit-cont-btn">
+                            <button className="btn btn-danger edit-button " onClick={abortEditing}>Cancel</button>
+                            <button className="btn btn-success edit-btn" >Save</button>
                         </div>
+                </form>                         
+                    
+
                 </div> 
                 }
             </div>

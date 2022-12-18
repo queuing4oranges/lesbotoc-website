@@ -53,7 +53,14 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
 
             <div className="form-group">
             <label htmlFor="name">Name*</label>
-            <input className="input-item" id="name" type="text" name="name" onChange={handleChange} placeholder="first Name / last Name / nickname"  />
+            <input 
+            className="input-item" 
+            id="name" 
+            type="text" 
+            name="name" 
+            onChange={handleChange} 
+            placeholder="first Name / last Name / nickname" 
+            required />
             </div>
        
             <div className="form-group">
@@ -65,7 +72,6 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
                 <option value="Lesbotoč MUSIC KVÍZ"></option>
                 <option value="Prague Pride"></option>
                 <option value="Speed Dating"></option>              
-
             </datalist>
             </div>
 
@@ -78,7 +84,6 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
             name="email"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
             onChange={handleChange} 
-
             placeholder="someone@email.cz" />
             </div>
 

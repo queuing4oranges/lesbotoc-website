@@ -85,7 +85,7 @@ export default function AddEvent({ getEvents }) {
         <form className="add-event-form" id="add-event-form" onSubmit={handleSubmit}>
 
             <div className="event-title">
-                <label className="form-label" htmlFor="name">Name of event:</label>
+                <label className="form-label" htmlFor="name">Name of event *</label>
                 <input
                 className="form-control input-item"
                 name="name" 
@@ -97,18 +97,19 @@ export default function AddEvent({ getEvents }) {
 
             <div className="venue-details">
                 <div className="venue-details-name">
-                    <label className="form-label" htmlFor="loc_name">Name of the venue:</label>
+                    <label className="form-label" htmlFor="loc_name">Name of the venue *</label>
                     <input 
                     className="form-control input-item"
                     name="loc_name"
                     type="text"
                     placeholder="example: Cafe XY"
                     onChange={(e) => setLocationName(e.target.value)}
-                    value={locationName} />
+                    value={locationName}
+                    required />
                 </div>
 
                 <div className="venue-details-address">
-                    <label className="form-label" htmlFor="loc_address">Address of the venue:</label>
+                    <label className="form-label" htmlFor="loc_address">Address of the venue</label>
                     <input 
                     className="form-control input-item"
                     name="loc_address"
@@ -119,7 +120,7 @@ export default function AddEvent({ getEvents }) {
                 </div>
                
                <div className="venue-details-website">
-                    <label className="form-label" htmlFor="loc_website">Website of the venue:</label>
+                    <label className="form-label" htmlFor="loc_website">Website of the venue</label>
                     <input 
                     className="form-control input-item"
                     name="loc_website"
@@ -134,43 +135,41 @@ export default function AddEvent({ getEvents }) {
             <div className="specifics">
                 <div className="time-date">
                     <div className="time-date-date">
-                        <label className="form-label" htmlFor="date">Date:</label>
+                        <label className="form-label" htmlFor="date">Date *</label>
                         <input 
                         className="form-control input-item"
                         name="date"
                         type="date"
                         onChange={(e) => setEventDate(e.target.value)}
-                        value={eventDate} />
+                        value={eventDate}
+                        required />
                     </div>
 
                     <div className="time-date-time">
-                        <label className="form-label" htmlFor="time">Time:</label>
+                        <label className="form-label" htmlFor="time">Time *</label>
                         <input 
                         className="form-control input-item"
                         name="time"
                         type="time"
                         onChange={(e) => setEventTime(e.target.value)}
-                        value={eventTime} />
+                        value={eventTime}
+                        required />
                     </div>
                 </div>
 
                 <div className="price-capac">
                     <div className="price-capac-price">
-                        <label className="form-label" htmlFor="price">Price:</label>
+                        <label className="form-label" htmlFor="price">Price</label>
                         <input
-                        placeholder="*"
                         className="form-control input-item" 
                         name="price"
                         onChange={(e) => setPrice(e.target.value)}
-                        value={price} />
-                        
-                        <span className="caption-price-capac">*If not valid, leave empty.</span>
+                        value={price} />   
                     </div>
 
                     <div className="price-capac-price">
-                        <label className="form-label" htmlFor="capacity">Capacity:</label>
+                        <label className="form-label" htmlFor="capacity">Capacity</label>
                         <input
-                        placeholder="*"
                         className="form-control input-item" 
                         name="capacity"
                         onChange={(e) => setCapacity(e.target.value)}
