@@ -3,6 +3,8 @@ import React, { Fragment, useState, useEffect } from 'react';
 import AdminNavbar from '../AdminNavbar';
 import swal from "sweetalert";
 import Moment from "react-moment";
+import PictureModal from './PictureModal';
+import ReportBug from '../../includes/ReportBug';
 
 export default function ImageUpload() {
     const [showAdd, setShowAdd] = useState(false)
@@ -10,6 +12,7 @@ export default function ImageUpload() {
     const [successMsg, setsuccessMsg] = useState(false)
     const [images, setImages] = useState("")
     const [imagesLoaded, setImagesLoaded] = useState(false)
+    const [picLoaded, setPicLoaded] = useState(false)
 
     useEffect(() => {
       getImages()
@@ -18,7 +21,6 @@ export default function ImageUpload() {
 //uploading images to the DB
     function uploadImage(e) {
         setsuccessMsg(false)
-        // setErrorMsg(false)
         e.preventDefault();
 
         const form = document.getElementById('form')
@@ -60,7 +62,6 @@ export default function ImageUpload() {
         }
     }
 //displaying images from DB path to images folder
-
     const getImages = () => {
         axios.get('https://api.itisgoodtohave.me/images/read.php')
         .then(function(response) {
@@ -69,6 +70,7 @@ export default function ImageUpload() {
         })
     }
 
+//deleting single image 
     const deleteImage = (id) => {
         setsuccessMsg(false)
         
@@ -94,6 +96,23 @@ export default function ImageUpload() {
 
     }
 
+//displaying single image on click
+
+    const [pic, setPic] = useState("")
+
+    const showOnePic = (id) => {
+        // setOpenModal(true);
+        console.log(id);
+        axios.get(`https://api.itisgoodtohave.me/images/single_pic.php/${id}`)
+        .then(function(response) {
+            console.log(response)
+            setPic(response.data)
+            console.log(pic)
+        })
+        .then(function() {
+            setPicLoaded(true);
+        })
+    }
 
   return (
     <Fragment>
@@ -138,13 +157,10 @@ export default function ImageUpload() {
 
                 <div className="form-group btn-cont">
                 <button className="btn btn-success save-btn" type="submit" name="insert" id="insert" >Save</button>
-</div>
+                </div>
 
                 </div>
-                
-               
-            </form>
-            
+            </form>          
         </div>
         }
 
@@ -154,28 +170,38 @@ export default function ImageUpload() {
             {images.map((img, key) =>(
                 <div
                 className="img-cont" 
-                key={key}>
-                <img 
-                className="single-img"
-                src={`https://api.itisgoodtohave.me/images/images/${img.filename}`} 
-                alt={`${img.alt}`} />
-                <p className="img-title">{img.title}</p>
-                <p className="img-date">{<Moment format="D. MMMM YYYY">{img.created_at}</Moment>}</p>
-                <button 
-                name="deleteBtn"
-                className="btn btn-sm btn-danger trash-item img-btn" 
-                id={img.id} 
-                onClick={() =>deleteImage(img.id)}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash trash-item" viewBox="0 0 16 16">
-                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                    <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                    </svg>
-                </button>
+                key={key}
+                id={img.id}
+                onClick={() => showOnePic(img.id)}>
+                    <img 
+                    className="single-img"
+                    src={`https://api.itisgoodtohave.me/images/images/${img.filename}`} 
+                    alt={`${img.alt}`} />
+                    <p className="img-title">{img.title}</p>
+                    <p className="img-date">{<Moment format="D. MMMM YYYY">{img.created_at}</Moment>}</p>
+                    <button 
+                    name="deleteBtn"
+                    className="btn btn-sm btn-danger trash-item img-btn" 
+                    id={img.id} 
+                    onClick={() =>deleteImage(img.id)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash trash-item" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                        <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                        </svg>
+                    </button>
                 </div>
             ))}
 
         </div>
         }
+
+        <PictureModal 
+        pic={pic}
+        setPicLoaded={setPicLoaded}
+        picLoaded={picLoaded}/>
+
+        <ReportBug/>
+
     </Fragment>
   )
 }

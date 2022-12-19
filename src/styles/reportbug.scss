@@ -1,0 +1,21 @@
+.report-container {
+  width: 50px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 10px;
+  background-color: $brown;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.report-cont {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & a {
+    justify-content: center;
+  }
+}

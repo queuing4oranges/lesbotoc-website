@@ -206,8 +206,9 @@ useEffect(() => {
                             </div>
           
                             <div className="edit-cont-btn">
-                                <button className="btn btn-success edit-btn">Save</button>
-                                <button className="btn btn-danger edit-btn"onClick={()=>abortEditing()}>Cancel</button>
+                              <button className="btn btn-danger edit-btn"onClick={()=>abortEditing()}>Cancel</button>
+                              <button className="btn btn-success edit-btn">Save</button>
+                                
                             </div>
                 </div>
           
@@ -215,6 +216,7 @@ useEffect(() => {
         </div>
 
       </div>
+
   </div>
   )
 }

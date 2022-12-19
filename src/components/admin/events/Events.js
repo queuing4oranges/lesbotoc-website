@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Fragment } from 'react';
 import AddEvent from './AddEvent';
+import ReportBug from '../../includes/ReportBug';
 
 export default function Events() {
   const [events, setEvents] = useState([])
@@ -59,7 +60,7 @@ export default function Events() {
           
       </div>
       
-
+      <ReportBug/>
     </Fragment>
 
   )

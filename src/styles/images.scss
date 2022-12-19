@@ -1,3 +1,4 @@
+/*ImageUpload*/
 .show-image-cont {
   width: 90%;
   height: 100vh;
@@ -21,6 +22,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  background-color: $light-blue;
 
   & p {
     font-size: 0.7em;
@@ -77,4 +79,43 @@
 
 .add-img-btn {
   height: 50%;
+}
+
+/*PictureModal*/
+.pic-modal-content {
+  width: 60%;
+  background-color: $lesbotoc;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: max-content;
+  padding: 20px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 50, 67, 0.5);
+  z-index: 14;
+}
+
+.pic-modal-body {
+  width: 100%;
+
+  & p {
+    margin: 0;
+  }
+}
+
+.pic-img {
+  max-width: 500px;
+}
+
+.pic-info {
+  margin: 10px auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  // border: red solid 2px;
+}
+
+.btn-img {
+  margin: 0;
 }

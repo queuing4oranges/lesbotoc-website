@@ -156,7 +156,7 @@ export default function EditModal({ show, setShow, closeModal, data,  setFiltere
                             <label>Newsletter</label>
                             <input 
                             className="edit-input"
-                            defaultValue={newsletter === "1" ? "yes" : "no"} 
+                            defaultValue={newsletter} 
                             type="text" 
                             name="newsletter" 
                             onChange={(e) => setNewsletter(e.target.value === "yes" ? "1" : "0")}

@@ -19,17 +19,16 @@
   width: max-content;
   height: max-content;
   background-color: $lesbotoc;
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: $dark-petrol 2px solid;
+  box-shadow: 5px 5px 5px 0px rgba(0, 50, 67, 0.5);
 }
 
 .edit-modal-header,
 .edit-modal-footer {
-  padding: 10px;
+  padding: 5px;
   margin: 0;
 }
 
