@@ -11,7 +11,7 @@ import ReportBug from '../../includes/ReportBug';
 
 
 export default function ContactsList() {
-  const [emails, setEmails] = useState("")
+  // const [emails, setEmails] = useState("")
   const [filteredData, setFilteredData] = useState([])
   const [nameInput, setNameInput] = useState("")
   const [buttonText, setButtonText] = useState("New Contact")

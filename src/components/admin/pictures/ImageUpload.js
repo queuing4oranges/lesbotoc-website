@@ -152,7 +152,7 @@ export default function ImageUpload() {
                 name="title" 
                 id="title" 
                 placeholder="Title"
-                maxlength="20" />
+                maxLength="30" />
                 </div>
 
                 <div className="form-group btn-cont">

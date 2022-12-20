@@ -1,4 +1,13 @@
-.report-cont {
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+
+.report-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  // font-family: "Permanent Marker", cursive;
+}
+
+.report-bug-cont {
   width: 50px;
   position: fixed;
   right: 0;
@@ -14,8 +23,179 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
-  & a {
-    justify-content: center;
+.bug-cont .rep-bug {
+  width: 200px;
+  box-shadow: -5px 5px 5px 0px rgba(154, 71, 0, 0.5);
+}
+
+.bug-btn {
+  width: 80%;
+  margin: 10px;
+}
+
+.form-cont {
+  position: fixed;
+  background-color: $brown;
+  right: 0;
+  bottom: 25px;
+  // border: solid 2px green;
+  width: 300px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  box-shadow: -5px 5px 5px 0px rgba(154, 71, 0, 0.5);
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
+
+  & .bug-title {
+    margin: 15px auto 10px;
+    width: 80%;
+    font-family: "Permanent Marker", cursive;
+    letter-spacing: 0.5em;
+  }
+
+  & textarea {
+    resize: none;
+    width: 80%;
+    height: 100px;
+  }
+
+  & input {
+    width: 80%;
+  }
+  & textarea:focus,
+  input:focus {
+    outline: none;
+  }
+}
+
+.slide-in-right {
+  -webkit-animation: slide-in-right 0.5s ease-in-out both;
+  animation: slide-in-right 0.5s ease-in-out both;
+}
+
+.slide-out-right {
+  -webkit-animation: slide-out-right 0.5s ease-in-out both;
+  animation: slide-out-right 0.5s ease-in-out both;
+}
+
+/*animation for slide-in*/
+@-webkit-keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/*animation for slide-out*/
+
+@-webkit-keyframes slide-out-right {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+}
+@keyframes slide-out-right {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+}
+
+/*animation for bug wiggle*/
+.rep-bug:hover {
+  -webkit-animation: wiggle 0.3s linear 2 both;
+  animation: wiggle 0.3s linear 2 both;
+  cursor: pointer;
+}
+
+@-webkit-keyframes wiggle {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+  80% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+}
+@keyframes wiggle {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+  80% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
   }
 }
