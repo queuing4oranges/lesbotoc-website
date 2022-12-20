@@ -23,7 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 sql_queries.txt
-/api/DbConnection.php
-/api/helper.php
 instructions_marta.txt
+/src/components/includes/variables.js
+
 
