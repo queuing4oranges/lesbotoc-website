@@ -1,13 +1,3 @@
-// //from events.scss
-// .events-cont-right {
-//   width: 80%;
-//   background-color: $light-blue;
-//   margin-left: 20px;
-//   margin-top: 20px;
-//   border-radius: 5px;
-//   height: 600px;
-// }
-
 .events-cont-right form {
   display: flex;
   flex-direction: column;
@@ -62,7 +52,8 @@
   }
 }
 
-.price-capac {
+.price-capac,
+.event-pic {
   width: 250px;
   margin: 10px 0;
   display: flex;
@@ -104,4 +95,23 @@
 .add-event-form .form-label {
   margin-bottom: 4px;
   font-size: 0.8em;
+}
+
+.event-pic {
+  display: flex;
+  flex-direction: column;
+
+  & label {
+    font-size: 0.8em;
+    margin: 0;
+    align-self: flex-start;
+  }
+
+  & input {
+    width: max-content;
+  }
+}
+
+.event-upload-btn {
+  font-size: small;
 }

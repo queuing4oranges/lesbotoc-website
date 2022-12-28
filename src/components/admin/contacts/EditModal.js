@@ -74,7 +74,8 @@ export default function EditModal({ show, setShow, closeModal, data,  setFiltere
                             <label>ID</label>
                             <input 
                             className="edit-input" 
-                            defaultValue={id} type="text" 
+                            defaultValue={id} 
+                            type="text" 
                             name="id" 
                             readOnly  />
                         </div>

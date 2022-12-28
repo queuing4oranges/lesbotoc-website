@@ -172,11 +172,12 @@ export default function ImageUpload() {
                 className="img-cont" 
                 key={key}
                 id={img.id}
-                onClick={() => showOnePic(img.id)}>
+                >
                     <img 
                     className="single-img"
                     src={`https://api.itisgoodtohave.me/images/images/${img.filename}`} 
-                    alt={`${img.alt}`} />
+                    alt={`${img.alt}`}
+                    onClick={() => showOnePic(img.id)} />
                     <p className="img-title">{img.title}</p>
                     <p className="img-date">{<Moment format="D. MMMM YYYY">{img.created_at}</Moment>}</p>
                     <button 

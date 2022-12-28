@@ -7,10 +7,11 @@ import { useState } from "react";
 import Moment from "react-moment";
 import EditEventModal from "./EditEventModal";
 
-export default function EventsList({ events, setSuccess, getEvents }) {
+export default function EventsList({ events, setSuccess, getEvents, eventsLoaded }) {
   const [errorMsg, setErrorMsg] = useState(false)
   const [openModal, setOpenModal] = useState(false)
   const [data, setData] = useState([])
+  const [oneEventLoaded, setOneEventLoaded] = useState(false)
 
 
   const deleteEvent = (id) => {
@@ -41,6 +42,7 @@ export default function EventsList({ events, setSuccess, getEvents }) {
     axios.get(`https://api.itisgoodtohave.me/events/single_read.php/${id}`)
     .then(function(response) {
       setData(response.data)
+      setOneEventLoaded(true)
       console.log(data)
     })
   }
@@ -74,7 +76,10 @@ export default function EventsList({ events, setSuccess, getEvents }) {
               id={event.id} 
               data={data}
               getEvents={getEvents}
-              setOpenModal={setOpenModal}   
+              setOpenModal={setOpenModal}
+              eventsLoaded={eventsLoaded} 
+              setOneEventLoaded={setOneEventLoaded} 
+              oneEventLoaded={oneEventLoaded} 
               />
               }
  

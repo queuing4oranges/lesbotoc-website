@@ -7,7 +7,7 @@ import AdminNavbar from './AdminNavbar';
 export default function Admin() {
   return (
     <div className="admin-container">
-      <AdminNavbar/>
+      {/* <AdminNavbar/> */}
 
       
 
@@ -18,34 +18,19 @@ export default function Admin() {
       <div className="cards-cont">
         <Link className="admin-link" to={"contacts"}>
         <div className="contacts">
-          <h6>Contacts</h6>
-          <ul>
-            <li>
-              Create, read, update, delete contacts. Download contacts as Excel file.
-            </li>
-          </ul>
+          <h6 className="admin-contacts-title">Contacts</h6>
         </div>
         </Link>
 
         <Link className="admin-link" to={"events"}>
         <div className="events">
-          <h6>Events</h6> 
-          <ul>
-            <li>
-            Create, update, delete events. Upload and display pictures for events.
-            </li>
-          </ul>
+          <h6 className="admin-events-title">Events</h6> 
         </div>
         </Link>
 
         <Link className="admin-link" to={"pictures"}>
-        <div className="newsletter">
-          <h6>Pictures</h6>
-          <ul>
-            <li>
-              Add and delete pictures of events.
-            </li>
-          </ul>
+        <div className="pictures">
+          <h6 className="admin-pictures-title">Pictures</h6>
         </div>
         </Link>
     </div>

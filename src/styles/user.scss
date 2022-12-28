@@ -16,12 +16,14 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background-color: #7ab6cb;
+  background-color: $lesbotoc;
   border: 10px #9a4700 solid;
   font-size: larger;
   font-weight: 700;
   color: #9a4700;
   overflow-wrap: break-word;
+  box-shadow: 5px 5px 20px 0px rgba(154, 71, 0, 0.75);
+
   & p {
     margin: 0;
   }

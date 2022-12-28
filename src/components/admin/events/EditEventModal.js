@@ -3,94 +3,86 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
 
-export default function EditEvent({ data, getEvents, setOpenModal }) {
-
+export default function EditEvent({ data, getEvents, setOpenModal, oneEventLoaded, setOneEventLoaded }) {
+    const [id, setId] = useState("")
     const [name, setName] = useState("")
-    const [locationName, setLocationName] = useState("")
-    const [locationAddress, setLocationAddress] = useState("")
-    const [website, setWebsite] = useState("")
-    const [eventDate, setEventDate] = useState("")
-    const [eventTime, setEventTime] = useState("")
-    const [description, setDescription] = useState("")
+    const [date, setDate] = useState("")
+    const [time, setTime] = useState("")
     const [price, setPrice] = useState("")
     const [capacity, setCapacity] = useState("")
-    const [errorMsg, setErrorMsg] = useState("")
+    const [locationName, setLocationName] = useState("")
+    const [locationAddress, setLocationAddress] = useState("")
+    const [locationWebsite, setLocationWebsite] = useState("")
+    const [description, setDescription] = useState("")
+    const [success, setSuccess] = useState(false)
 
+    useEffect(() => {
+      getEvents();
+      setId(data.id)
+      setName(data.name)
+      setDate(data.date)
+      setTime(data.time)
+      setPrice(data.price)
+      setCapacity(data.capacity)
+      setLocationName(data.loc_name)
+      setLocationAddress(data.loc_address)
+      setLocationWebsite(data.loc_website)
+      setDescription(data.description)
+     }, [oneEventLoaded])
     
-useEffect(() => {
-    setName(data.name)
-    setLocationName(data.loc_name)
-    setLocationAddress(data.loc_address)
-    setWebsite(data.loc_website)
-    setEventDate(data.date)
-    setEventTime(data.time)
-    setDescription(data.description)
-    setPrice(data.price)
-    setCapacity(data.capacity)
-
-}, [data])
-
-   
-
-    const handleSubmit = async (e) => {
-
-        setErrorMsg(null)
+     useEffect(() => {
+       getEvents();
+     }, [success])
+     
+  
+    const handleSubmit = (e) => {
         e.preventDefault()
 
-        if(name === "") {
-            setErrorMsg("Please provide a name.")
-            return
-        } 
-
         axios.put(`https://api.itisgoodtohave.me/events/update.php/${data.id}`, {
-
-            name: name,
-            loc_name: locationName,
-            loc_address: locationAddress, 
-            loc_website: website, 
-            date: eventDate,
-            time: eventTime,
-            description: description,
-            price: price,
-            capacity: capacity,
+          name: name,
+          loc_name: locationName,
+          loc_address: locationAddress,
+          loc_website: locationWebsite,  
+          date: date, 
+          time: time,
+          description: description,
+          // image_path: ...,
+          price: price, 
+          capacity: capacity
         })
         .then(function(response){
             if(response.status === 200) {
                 swal("YEAH BABY!", "You edited this event.", "success");
-                getEvents()
-
+                console.log(response.data)
+                
             } else if (response.status === 500) {
-                setErrorMsg("Could not edit this event.")
-            }
+                swal("Wellllllll...", "Something went wrong here.", "error")
+            } 
         })
-        resetInputs()
-        setOpenModal(false)
+        .then(function() {
+          setOneEventLoaded(false)
+          getEvents()
+        })
         
-         
+        setOpenModal(false)
+   
     }
 
-    function resetInputs() {
-    return (
-    setName(""),
-    setLocationName(""), 
-    setLocationAddress(""),
-    setWebsite(""),
-    setEventDate(""),
-    setEventTime(""),
-    setDescription(""),
-    setPrice(""),
-    setCapacity("")
-    )}
+    if(!oneEventLoaded) {  //(to prevent loading old values)
+      return null
+    }
 
     function abortEditing() {
       setOpenModal(false)
-      resetInputs()
+      setOneEventLoaded(false)
     }
 
  
   return (
-    <div className="edit-modal edit-event-modal" onClick={() => setOpenModal(false)} >
+    // <div className="edit-modal edit-event-modal" onClick={() => setOpenModal(false)} >
+    <div className="edit-modal edit-event-modal" onClick={abortEditing} >
       
+      {/* <div className="edit-modal-content" onClick={e=>e.stopPropagation()} > */}
       <div className="edit-modal-content" onClick={e=>e.stopPropagation()} >
           
         <div className="edit-modal-header">
@@ -98,8 +90,12 @@ useEffect(() => {
         </div>
 
         <div className="edit-modal-body edit-event-body">
+          
+          {oneEventLoaded &&
+          <div>
 
-          <form id="edit-event-form" onSubmit={handleSubmit}>
+          
+          <form id="edit-event-form" onSubmit={handleSubmit}  >
 
               <div className="edit-cont-top">
 
@@ -110,8 +106,8 @@ useEffect(() => {
                           className="edit-input event-input"
                           name="name" 
                           type="text"
+                          defaultValue={data.name}
                           onChange={(e) => setName(e.target.value)}
-                          defaultValue={name}
                           />
                           </div>
 
@@ -122,8 +118,9 @@ useEffect(() => {
                             className="edit-input event-input"
                             name="date"
                             type="date"
-                            onChange={(e) => setEventDate(e.target.value)}
-                            defaultValue={eventDate} />
+                            defaultValue={data.date}
+                            onChange={(e) => e.target.value=== "" ? setDate("") : setDate(e.target.value)}
+                            />
                             </div>
 
 
@@ -133,8 +130,8 @@ useEffect(() => {
                             className="edit-input event-input"
                             name="time"
                             type="time"
-                            onChange={(e) => setEventTime(e.target.value)}
-                            defaultValue={eventTime} />
+                            defaultValue={data.time}
+                            onChange={(e) =>setTime(e.target.value)} />
                             </div>
                           </div>
 
@@ -144,8 +141,9 @@ useEffect(() => {
                             <input
                             className="edit-input event-input" 
                             name="price"
+                            defaultValue={data.price}
                             onChange={(e) => setPrice(e.target.value)}
-                            defaultValue={price} />
+                            />
                             </div>
                                         
                             <div className="edit-input-cont">
@@ -153,11 +151,12 @@ useEffect(() => {
                             <input
                             className="edit-input event-input" 
                             name="capacity"
+                            defaultValue={data.capacity}
                             onChange={(e) => setCapacity(e.target.value)}
-                            defaultValue={capacity} />
+                            />
                             </div>
                           </div>
-                        <span>* can not be left empty </span>
+                        <span>* should not be empty </span>
                       </div>
 
                     <div className="edit-cont-top-right">
@@ -168,8 +167,9 @@ useEffect(() => {
                                 name="loc_name"
                                 type="text"
                                 placeholder="example: Cafe XY"
+                                defaultValue={data.loc_name}
                                 onChange={(e) => setLocationName(e.target.value)}
-                                defaultValue={locationName} />
+                                />
                               </div>
 
                               <div className="edit-input-cont">
@@ -179,8 +179,9 @@ useEffect(() => {
                                 name="loc_address"
                                 type="text"
                                 placeholder="example: Opatovická 12, Praha 11000"
+                                defaultValue={data.loc_address}
                                 onChange={(e) => setLocationAddress(e.target.value)}
-                                defaultValue={locationAddress} />
+                                />
                               </div>
 
                               <div className="edit-input-cont">
@@ -189,9 +190,16 @@ useEffect(() => {
                                 className="edit-input event-input"
                                 name="loc_website"
                                 type="text"
-                                onChange={(e) => setWebsite(e.target.value)}
-                                defaultValue={website} />
+                                defaultValue={data.loc_website}
+                                onChange={(e) => setLocationWebsite(e.target.value)}
+                                />
                               </div>
+{/* 
+                              //bild
+
+                              //title
+
+                              //alt */}
                     </div>
               </div>
 
@@ -202,7 +210,7 @@ useEffect(() => {
                                 className="edit-input event-input" 
                                 name="description"
                                 onChange={(e) => setDescription(e.target.value)}
-                                defaultValue={description} />
+                                defaultValue={data.description} />
                             </div>
           
                             <div className="edit-cont-btn">
@@ -211,8 +219,11 @@ useEffect(() => {
                                 
                             </div>
                 </div>
+                
           
           </form>
+          </div>
+          }
         </div>
 
       </div>
@@ -220,5 +231,3 @@ useEffect(() => {
   </div>
   )
 }
-
-

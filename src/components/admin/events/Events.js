@@ -23,6 +23,7 @@ export default function Events() {
         console.log(response)
         setEvents(response.data);
         setEventsLoaded(true)
+        
     })
     .catch(function(error) {
         if (error.response) {
@@ -49,7 +50,8 @@ export default function Events() {
           setEventsLoaded={setEventsLoaded} 
           getEvents={getEvents} 
           setSuccess={setSuccess} 
-          success={success}/>}
+          success={success}
+          eventsLoaded={eventsLoaded}/>}
         </div>
 
    
