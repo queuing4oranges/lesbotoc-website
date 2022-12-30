@@ -211,7 +211,7 @@ export default function AddEvent({ getEvents }) {
             <div className="description">
                 <label className="form-label" htmlFor="description">Description:</label>
                 <textarea
-                className="form-control input-item" 
+                className="form-control input-item add-event-description" 
                 name="description"
                 id="description"
                 // onChange={(e) => setDescription(e.target.value)}

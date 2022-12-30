@@ -16,7 +16,7 @@
   align-items: flex-start;
   margin: 10px 0;
   & input {
-    width: 250px;
+    width: 750px;
     font-weight: bold;
   }
 }
@@ -29,7 +29,7 @@
   & .venue-details-name,
   .venue-details-address,
   .venue-details-website {
-    width: 250px;
+    width: 247px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -80,8 +80,8 @@
 
 .description {
   margin-top: 10px;
-  margin-left: 50px;
-  width: 550px;
+  margin-left: 20px;
+  width: 480px;
   & textarea {
     height: 300px;
     resize: none;

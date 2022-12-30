@@ -1,4 +1,5 @@
 import React, { useEffect, useState, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import AddContact from './AddContact';
 import Searchbar from '../Searchbar';
@@ -8,9 +9,12 @@ import swal from "sweetalert";
 import Moment from "react-moment";
 import { CSVLink } from 'react-csv'
 import ReportBug from '../../includes/ReportBug';
+import { useRef } from 'react';
 
 
 export default function ContactsList() {
+  const [scrollY, setScrollY] = useState("")
+  const [scrollX, setScrollX] = useState("")
   const [filteredData, setFilteredData] = useState([])
   const [nameInput, setNameInput] = useState("")
   const [buttonText, setButtonText] = useState("New Contact")
@@ -38,22 +42,32 @@ export default function ContactsList() {
 
   useEffect(() => {
     getContacts();
-
+    
   }, [contactsLoaded])  
 
 
- 
+  
+
+
   function getContacts() {
+
+    
     axios.get('https://api.itisgoodtohave.me/contacts/read.php')
     .then(function(response) {
       setContacts(response.data);
-      setContactsLoaded(true); 
-
+      setContactsLoaded(true);
     })
     setSuccessMsg("");
+
   }
+    // setScrollY(document.body.scrollTop)
+    // console.log(scrollY)
+    // setScrollX(window.scrollX)
+    // console.log(scrollX)
+
 
   const deleteContact = (id) => {
+
     swal({
       title: "Sure?", 
       text: "Do you REALLY want to delete this precious contact?", 
@@ -67,9 +81,10 @@ export default function ContactsList() {
           if (response.status === 200) {
             swal("Deleted!", "It will never bother you again. Promised.", "success")
             setContactsLoaded(false)
+           
           } else if (response.status === 500) {
             swal("Wellllllll...", "Something went wrong here.", "error")
-          }
+          } 
         })
       }
     })
@@ -121,6 +136,8 @@ export default function ContactsList() {
     setShow(false)
     setContactsLoaded(false)
   }
+
+
 
   return (
     <Fragment>
@@ -237,7 +254,7 @@ export default function ContactsList() {
                 <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                 </svg>
                 </button>
-              </td>
+                </td>
               </tr>
               ))}
             </tbody>

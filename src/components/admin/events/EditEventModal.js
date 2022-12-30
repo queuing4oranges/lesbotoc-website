@@ -194,12 +194,14 @@ export default function EditEvent({ data, getEvents, setOpenModal, oneEventLoade
                                 onChange={(e) => setLocationWebsite(e.target.value)}
                                 />
                               </div>
-{/* 
-                              //bild
 
-                              //title
-
-                              //alt */}
+                              {data.image_path && 
+                              <div className="edit-input-cont">
+                                <p>Image used:</p>
+                                <img className="edit-input-pic" src={`https://api.itisgoodtohave.me/events/images/${data.image_path}`} alt={data.image_alt} />
+                              </div>
+                              }
+{/* set image to old value as in e=>default or something */}
                     </div>
               </div>
 

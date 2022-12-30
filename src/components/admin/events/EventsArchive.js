@@ -14,6 +14,7 @@ export default function EventsArchive() {
   const [errorMsg, setErrorMsg] = useState(false)
     const [openModal, setOpenModal] = useState(false)
   const [data, setData] = useState([])
+  const [oneArchiveEventLoaded, setOneArchiveEventLoaded] = useState(false)
   
   useEffect(() => {
     getEvents();
@@ -61,6 +62,7 @@ export default function EventsArchive() {
     axios.get(`https://api.itisgoodtohave.me/events/single_read.php/${id}`)
     .then(function(response) {
       setData(response.data)
+      setOneArchiveEventLoaded(true)
       console.log(data)
     })
   }
@@ -120,7 +122,9 @@ export default function EventsArchive() {
               id={event.id} 
               data={data}
               getEvents={getEvents}
-              setOpenModal={setOpenModal}   
+              setOpenModal={setOpenModal}  
+              oneEventLoaded={oneArchiveEventLoaded}
+              setOneEventLoaded={setOneArchiveEventLoaded} 
               />
               }
 

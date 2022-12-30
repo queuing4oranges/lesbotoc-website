@@ -46,7 +46,7 @@
 }
 
 .events-cont-right {
-  width: 80%;
+  width: 70%;
   background-color: $light-blue;
   margin-left: 20px;
   margin-top: 20px;
@@ -77,6 +77,12 @@
 .events-provisorium {
   display: flex;
   flex-direction: column;
+}
+
+.edit-input-pic {
+  margin-top: 10px;
+  height: 100px;
+  width: fit-content;
 }
 
 /*EventsArchive*/
