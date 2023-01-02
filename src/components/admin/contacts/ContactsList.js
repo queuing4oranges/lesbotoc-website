@@ -7,7 +7,7 @@ import AdminNavbar from '../AdminNavbar';
 import EditModal from './EditModal';
 import swal from "sweetalert";
 import Moment from "react-moment";
-import { CSVLink } from 'react-csv'
+import { CSVLink } from 'react-csv';
 import ReportBug from '../../includes/ReportBug';
 import { useRef } from 'react';
 
@@ -165,6 +165,7 @@ export default function ContactsList() {
 
       <div className="add-contact-btn-cont">
       <button onClick={toggleAddField} className="btn btn-success btn-create btn-sm">{buttonText}</button>
+
       <CSVLink data={contacts} filename="lesbotoč_contacts"><button className="btn btn-info btn-create btn-export btn-sm">Export Data</button></CSVLink> 
       {/* <CSVLink onClick={getOnlyEmail} data={emails} filename="lesbotoč_contacts"><button className="btn btn-info btn-create btn-sm">Export Data</button></CSVLink>  */}
       </div>

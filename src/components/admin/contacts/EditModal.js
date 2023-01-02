@@ -52,7 +52,6 @@ export default function EditModal({ show, setShow, closeModal, data,  setFiltere
         return null
     }
 
-
     function abortEditing() {
       setShow(false)
     }
@@ -153,20 +152,21 @@ export default function EditModal({ show, setShow, closeModal, data,  setFiltere
                             </datalist>
                         </div>
 
-                        <div className="edit-input-cont">
+{/* unsubscribe from newsletter only via "unsubscribe mail" */}
+                        {/* <div className="edit-input-cont">
                             <label>Newsletter</label>
                             <input 
                             className="edit-input"
                             defaultValue={newsletter} 
                             type="text" 
                             name="newsletter" 
-                            onChange={(e) => setNewsletter(e.target.value === "yes" ? "1" : "0")}
+                            onChange={(e) => setNewsletter(e.target.value === "yes" ? "yes" : "no")}
                             list="news" />
                             <datalist id="news">
                                 <option value="yes"></option>
                                 <option value="no"></option>           
                             </datalist>  
-                        </div>
+                        </div> */}
 
                        
                         <div className="edit-cont-btn">

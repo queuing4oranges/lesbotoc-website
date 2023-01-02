@@ -1,17 +1,17 @@
-import React from 'react';
-import axios from 'axios';
+import React from "react";
+import axios from "axios";
 import swal from "sweetalert";
 
-export default function AddContact({toggleAddField, setAddField, setSuccessMsg, setFormError, setInputs, inputs, emptyInputs}) {
+export default function AddContact({ toggleAddField, setAddField, setFormError, setInputs, inputs, emptyInputs }) {
 
     const handleChange = (event) => {
-        const target = event.target
-        const name = target.name
-        const value = target.type === "checkbox" ? target.checked : target.value
+        const target = event.target;
+        const name = target.name;
+        const value = target.type === "checkbox" ? target.checked : target.value;
    
         setInputs({
-            ...inputs,
-        [name]: value })
+        ...inputs,
+        [name]: value });
     }
 
     //when submit - reset all errors first
@@ -56,16 +56,24 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
             <input 
             className="input-item" 
             id="name" 
+            name="name"
             type="text" 
-            name="name" 
-            onChange={handleChange} 
             placeholder="first Name / last Name / nickname" 
-            required />
+            onChange={handleChange} 
+            required
+            />
             </div>
        
             <div className="form-group">
             <label htmlFor="wherefrom">Where did we meet?</label>
-            <input className="input-item" id="wherefrom" type="text" name="wherefrom" list="places" onChange={handleChange} />
+            <input 
+            className="input-item" 
+            id="wherefrom" 
+            name="wherefrom" 
+            list="places" 
+            type="text" 
+            onChange={handleChange} 
+            />
             <datalist id="places">
                 <option value="Bowling s Lesbotočem"></option>
                 <option value="Knížní Klub"></option>
@@ -80,21 +88,35 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
             <input 
             className="input-item" 
             id="email" 
-            type="text" 
             name="email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            placeholder="someone@email.cz" 
+            type="text" 
             onChange={handleChange} 
-            placeholder="someone@email.cz" />
+            />
             </div>
 
             <div className="form-group">
             <label htmlFor="phone">Phone</label>
-            <input className="input-item" id="phone" type="text" name="phone" onChange={handleChange} />
+            <input 
+            className="input-item" 
+            id="phone" 
+            name="phone" 
+            type="text" 
+            onChange={handleChange} 
+            />
             </div>
 
             <div className="form-group">
             <label htmlFor="age">Age Group</label>
-            <input className="input-item" id="age" type="text" name="age" list="ages" onChange={handleChange} />
+            <input 
+            className="input-item" 
+            id="age" 
+            list="ages"
+            name="age"
+            type="text" 
+            onChange={handleChange} 
+            />
                 <datalist id="ages">
                     <option value="20-25"></option>
                     <option value="26-30"></option>
@@ -108,9 +130,15 @@ export default function AddContact({toggleAddField, setAddField, setSuccessMsg, 
             
             <div className="form-group checkbox-cont">
             <label htmlFor="newsletter">Newsletter?</label>
-            <input className="input-item checkbox" id="newsletter" type="checkbox" 
-            name="newsletter" value="0" checked={inputs.newsletter}
-            onChange={handleChange} />
+            <input 
+            className="input-item checkbox" 
+            id="newsletter"
+            name="newsletter"  
+            type="checkbox" 
+            value="0" 
+            checked={inputs.newsletter}
+            onChange={handleChange} 
+            />
             </div>
 
             <div className="form-group btn-cont">

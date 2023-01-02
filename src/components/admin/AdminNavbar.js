@@ -19,9 +19,10 @@ export default function AdminNavbar() {
 
                   <Link className="nav-link" to={"/admin/events"}>Events</Link>
 
-                  {/* <Link className="nav-link" to={"/admin/newsletter"}>Newsletter</Link> */}
-
                   <Link className="nav-link" to={"/admin/pictures"}>Pictures</Link>
+
+                  <Link className="nav-link" to={"/admin/newsletter"}>Newsletter</Link>
+
                             
                     <div className="logout-cont">
                       <Link style={{textDecoration: 'none'}} to={"/"}>
