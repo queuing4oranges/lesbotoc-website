@@ -14,31 +14,30 @@ export default function AddContact({ toggleAddField, setAddField, setFormError, 
         [name]: value });
     }
 
-    //when submit - reset all errors first
     const handleSubmit = (event) => { 
-        setFormError(null)
+        //when submit - reset all errors first
+        setFormError(null);
         event.preventDefault();
        
-        //check that non-nullable inputs are provided
+        //check that inputs arent null (!null in DB)
         if (!inputs.name) {
-            setAddField(true)
-            setFormError("Please provide a name.")
+            setAddField(true);
+            setFormError("Please provide a name.");
             return
         } if (!inputs.email) {
-            setAddField(true)
-            setFormError("Please provide a valid email.")
+            setAddField(true);
+            setFormError("Please provide a valid email.");
            return
         }
 
         //execute post request
         axios.post("https://api.itisgoodtohave.me/contacts/create.php", inputs)
         .then(function(response){
-            console.log(response.data.message)
-            // setSuccessMsg(response.data.message)
-            swal("YEAH BABY!", "You added a new contact.", "success")
+            console.log(response.data.message);
+            swal("YEAH BABY!", "You added a new contact.", "success");
             })
         emptyInputs();       
-        toggleAddField();       //close field
+        toggleAddField();    
     }
 
 

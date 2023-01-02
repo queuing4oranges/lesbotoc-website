@@ -4,29 +4,28 @@ import { useState, useEffect } from 'react';
 import swal from 'sweetalert';
 
 export default function EditModal({ show, setShow, closeModal, data,  setFilteredData, setNameInput }) {
-    const [id, setId] = useState("")
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [phone, setPhone] = useState("")
-    const [wherefrom, setWherefrom] = useState("")
-    const [newsletter, setNewsletter] = useState("")
-    const [age, setAge] = useState("")
+    const [id, setId] = useState("");
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [wherefrom, setWherefrom] = useState("");
+    const [newsletter, setNewsletter] = useState("");
+    const [age, setAge] = useState("");
 
 
     useEffect(() => {
-        setId(data.id)
-        setName(data.name)
-        setEmail(data.email)
-        setPhone(data.phone)
-        setWherefrom(data.wherefrom)
-        setNewsletter(data.newsletter)
-        setAge(data.age)
+        setId(data.id);
+        setName(data.name);
+        setEmail(data.email);
+        setPhone(data.phone);
+        setWherefrom(data.wherefrom);
+        setNewsletter(data.newsletter);
+        setAge(data.age);
     }, [data])
     
 
     const handleSubmit = (e) => {
         e.preventDefault();       
-
         axios.put(`https://api.itisgoodtohave.me/contacts/update.php/${data.id}`, {
             name: name, 
             email: email, 
@@ -38,22 +37,21 @@ export default function EditModal({ show, setShow, closeModal, data,  setFiltere
         .then(function(response){
             if(response.status === 200) {
                 swal("YEAH BABY!", "You edited this Contact.", "success");
-                console.log(response.data)
             } else if (response.data === 500) {
-                swal("Wellllllll...", "Something went wrong here.", "error")
+                swal("Wellllllll...", "Something went wrong here.", "error");
             }
         })
         closeModal();   
-        setFilteredData([])
-        setNameInput('')  
+        setFilteredData([]);
+        setNameInput("");  
     }
     
     if(!show) {
-        return null
+        return null;
     }
 
     function abortEditing() {
-      setShow(false)
+      setShow(false);
     }
 
   return (
@@ -132,15 +130,15 @@ export default function EditModal({ show, setShow, closeModal, data,  setFiltere
                         </div>
 
                         <div className="edit-input-cont">
-                        <label htmlFor="age">Age Group</label>
-                        <input 
-                        className="input-item datalist-item" 
-                        defaultValue={age}
-                        id="age" 
-                        type="text" 
-                        name="age" 
-                        list="ages" 
-                        onChange={(e) =>setAge(e.target.value)} />
+                            <label htmlFor="age">Age Group</label>
+                            <input 
+                            className="input-item datalist-item" 
+                            defaultValue={age}
+                            id="age" 
+                            type="text" 
+                            name="age" 
+                            list="ages" 
+                            onChange={(e) =>setAge(e.target.value)} />
                             <datalist id="ages">
                                 <option value="20-25"></option>
                                 <option value="26-30"></option>
@@ -151,23 +149,6 @@ export default function EditModal({ show, setShow, closeModal, data,  setFiltere
                                 <option value="50+"></option>              
                             </datalist>
                         </div>
-
-{/* unsubscribe from newsletter only via "unsubscribe mail" */}
-                        {/* <div className="edit-input-cont">
-                            <label>Newsletter</label>
-                            <input 
-                            className="edit-input"
-                            defaultValue={newsletter} 
-                            type="text" 
-                            name="newsletter" 
-                            onChange={(e) => setNewsletter(e.target.value === "yes" ? "yes" : "no")}
-                            list="news" />
-                            <datalist id="news">
-                                <option value="yes"></option>
-                                <option value="no"></option>           
-                            </datalist>  
-                        </div> */}
-
                        
                         <div className="edit-cont-btn">
                             <button className="btn btn-danger edit-button " onClick={abortEditing}>Cancel</button>
@@ -181,7 +162,6 @@ export default function EditModal({ show, setShow, closeModal, data,  setFiltere
             </div>
         </div> 
     </div>
-
   )  
 }
 

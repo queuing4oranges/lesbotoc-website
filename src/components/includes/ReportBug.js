@@ -18,23 +18,20 @@ export default function ReportBug() {
             form.current, 
             publicKey)
             .then((result) => {
-            console.log(result.text);
-            e.target.reset();
+                console.log(result.text);
+                e.target.reset();
             }, (error) => {
             console.log(error.text);
             });
-            swal("Thank you!", "Feedback is the breakfast for champions. (Ken Blanchard)", "success")
-            setShowBugReport(false)
-            setShowBug(true)
+            swal("Thank you!", "Feedback is the breakfast for champions. (Ken Blanchard)", "success");
+            setShowBugReport(false);
+            setShowBug(true);
     };
 
     useEffect(() => {
       if (showBugReport === true) {
         document.querySelector("#bugformCont").classList.add("slide-in-right");
-      } else {
-        
-      }
-
+      } 
     }, [showBugReport])
     
 
@@ -45,8 +42,7 @@ export default function ReportBug() {
             setShowBug(false);
         } else {
             setShowBugReport(false);
-            setShowBug(true)
-
+            setShowBug(true);
         }
     }
 
@@ -61,19 +57,12 @@ export default function ReportBug() {
                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                 </svg>
 
-                {/* <p className="close-x">X</p> */}
                 <h6 className="bug-title">Found a bug?</h6>
                 
                 <h6 className="bug-title">Let me know about it!</h6>
 
-                
                 <label className="bug-label" ></label>
                 <textarea name="report" required minLength="5" />
-
-                {/* <label className="bug-label">Name</label>
-                <input type="text" name="user_name" className="bug-input" />
-                <label className="bug-label">Email</label>
-                <input type="email" name="user_email" className="bug-input" /> */}
 
                 <button className="btn btn-info btn-sm bug-btn" type="submit">Send</button>
     
@@ -94,6 +83,5 @@ export default function ReportBug() {
         </div>
 
     </div>
-
   )
 }

@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect} from "react";
+import React, { useState, useEffect}  from 'react';
 import axios from "axios";
 import AdminNavbar from '../AdminNavbar';
 import Moment from "react-moment";
@@ -7,21 +6,20 @@ import swal from 'sweetalert';
 import EditEventModal from "./EditEventModal";
 
 export default function EventsArchive() {
-
-  const [events, setEvents] = useState([])
-  const [eventsLoaded, setEventsLoaded] = useState(false)
-  const [success, setSuccess] = useState(false)
-  const [errorMsg, setErrorMsg] = useState(false)
-    const [openModal, setOpenModal] = useState(false)
-  const [data, setData] = useState([])
-  const [oneArchiveEventLoaded, setOneArchiveEventLoaded] = useState(false)
+  const [events, setEvents] = useState([]);
+  const [eventsLoaded, setEventsLoaded] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [data, setData] = useState([]);
+  const [oneArchiveEventLoaded, setOneArchiveEventLoaded] = useState(false);
   
   useEffect(() => {
     getEvents();
     }, [success])
     
 
-  function getEvents() {
+  const getEvents = () => {
     axios.get('https://api.itisgoodtohave.me/events/read.php')
     .then(function(response) {
         console.log(response)
@@ -31,10 +29,11 @@ export default function EventsArchive() {
     .catch(function(error) {
         if (error.response) {
         console.log(error.response.data);
-    }}) 
+        }
+    }) 
   } 
 
-    const deleteEvent = (id) => {
+  const deleteEvent = (id) => {
     setSuccess(false)
     swal({
       title: "Sure?", 
@@ -49,21 +48,19 @@ export default function EventsArchive() {
           swal("Deleted!", "It will never hurt your eyes again. Promised.", "success"); 
           setSuccess(true)
           })
-      } else {
+        } else {
         setErrorMsg("Could not delete the event.")
         console.log(errorMsg)
-      }
+        }
     })
   }
 
-    const showEvent = (id) => {
+  const showEvent = (id) => {
     setOpenModal(true)
-    console.log(id)
     axios.get(`https://api.itisgoodtohave.me/events/single_read.php/${id}`)
     .then(function(response) {
       setData(response.data)
       setOneArchiveEventLoaded(true)
-      console.log(data)
     })
   }
 

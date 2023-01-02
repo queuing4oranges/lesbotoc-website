@@ -1,5 +1,5 @@
-import axios from 'axios';
 import React, { Fragment, useState, useEffect } from 'react'; 
+import axios from 'axios';
 import AdminNavbar from '../AdminNavbar';
 import swal from "sweetalert";
 import Moment from "react-moment";
@@ -7,29 +7,28 @@ import PictureModal from './PictureModal';
 import ReportBug from '../../includes/ReportBug';
 
 export default function ImageUpload() {
-    const [showAdd, setShowAdd] = useState(false)
-    const [buttonText, setButtonText] = useState("Add Image")
-    const [successMsg, setsuccessMsg] = useState(false)
-    const [images, setImages] = useState("")
-    const [imagesLoaded, setImagesLoaded] = useState(false)
-    const [picLoaded, setPicLoaded] = useState(false)
+    const [showAdd, setShowAdd] = useState(false);
+    const [buttonText, setButtonText] = useState("Add Image");
+    const [successMsg, setsuccessMsg] = useState(false);
+    const [images, setImages] = useState("");
+    const [imagesLoaded, setImagesLoaded] = useState(false);
+    const [picLoaded, setPicLoaded] = useState(false);
+    const [pic, setPic] = useState("")
 
     useEffect(() => {
-      getImages()
+      getImages();
     }, [successMsg])
     
-//uploading images to the DB
-    function uploadImage(e) {
-        setsuccessMsg(false)
+    //uploading images to the DB
+    const uploadImage = (e) => {
+        setsuccessMsg(false);
         e.preventDefault();
 
-        const form = document.getElementById('form')
+        const form = document.getElementById('form');
         const formData = new FormData(form);
 
-        console.log([...formData])
-
+        //preventing request to be sent without image
         const formImage = document.getElementById("image")
-        console.log(formImage)
         if (!formImage.value) {
             console.log("there is no pic")
         } else {
@@ -37,18 +36,17 @@ export default function ImageUpload() {
             .then(function(response) {
             if(response.status === 200) {
                 swal("YEAH BABY!", "You uploaded an image.", "success");
-                setsuccessMsg(true)
-                toggleShowAdd()
+                setsuccessMsg(true);
+                toggleShowAdd();
             } else if (response.status === 500) {
-                swal("Wellllllll...", "Something went wrong here.", "error")
+                swal("Wellllllll...", "Something went wrong here.", "error");
             }
             })
             .catch((err) => {
             console.log(err);
             })
-        
-       } 
-        setImagesLoaded(true)
+        } 
+        setImagesLoaded(true);
     }
 
     const toggleShowAdd = () => {
@@ -61,7 +59,8 @@ export default function ImageUpload() {
             setButtonText("Add Image")
         }
     }
-//displaying images from DB path to images folder
+
+    //displaying images from DB path to images folder
     const getImages = () => {
         axios.get('https://api.itisgoodtohave.me/images/read.php')
         .then(function(response) {
@@ -70,10 +69,9 @@ export default function ImageUpload() {
         })
     }
 
-//deleting single image 
+    //deleting single image 
     const deleteImage = (id) => {
-        setsuccessMsg(false)
-        
+        setsuccessMsg(false);
         swal({
             title: "Dont like that image?",
             text: "Let's get rid of it!", 
@@ -96,18 +94,13 @@ export default function ImageUpload() {
 
     }
 
-//displaying single image on click
-
-    const [pic, setPic] = useState("")
-
+    //displaying single image on click
     const showOnePic = (id) => {
         // setOpenModal(true);
         console.log(id);
         axios.get(`https://api.itisgoodtohave.me/images/single_pic.php/${id}`)
         .then(function(response) {
-            console.log(response)
-            setPic(response.data)
-            console.log(pic)
+            setPic(response.data);
         })
         .then(function() {
             setPicLoaded(true);
@@ -197,9 +190,9 @@ export default function ImageUpload() {
         }
 
         <PictureModal 
-        pic={pic}
-        setPicLoaded={setPicLoaded}
-        picLoaded={picLoaded}/>
+            pic={pic}
+            setPicLoaded={setPicLoaded}
+            picLoaded={picLoaded}/>
 
         <ReportBug/>
 

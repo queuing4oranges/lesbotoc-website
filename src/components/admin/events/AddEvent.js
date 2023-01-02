@@ -1,43 +1,24 @@
-import { useState } from "react";
-import React from 'react';
+import React, { useState, Fragment, useEffect } from "react";
 import axios from "axios";
-import { Fragment } from "react";
-import { useEffect } from "react";
 import swal from "sweetalert";
 
 export default function AddEvent({ getEvents }) {
-    // const [name, setName] = useState("")
-    // const [locationName, setLocationName] = useState("")
-    // const [locationAddress, setLocationAddress] = useState("")
-    // const [website, setWebsite] = useState("")
-    // const [eventDate, setEventDate] = useState("")
-    // const [eventTime, setEventTime] = useState("")
-    // const [description, setDescription] = useState("")
-    // const [image, setImage] = useState("")
-    // const [price, setPrice] = useState("")
-    // const [capacity, setCapacity] = useState("")
-    const [success, setSuccess] = useState(false)
-    const [errorMsg, setErrorMsg] = useState("")
+    const [success, setSuccess] = useState(false);
+    const [errorMsg, setErrorMsg] = useState("");
      
     useEffect(() => {
-        //problem with dependency array - use getEvents inside useEffect??
       getEvents();
     }, [success])
     
 
-    function handleSubmit(e) {
-        setSuccess(false)
-        setErrorMsg(null)
-        e.preventDefault()
+    const handleSubmit = (e) => {
+        setSuccess(false);
+        setErrorMsg(null);
+        e.preventDefault();
 
-        const form = document.getElementById('add-event-form')
+        //making a form object to send to the DB
+        const form = document.getElementById('add-event-form');
         const formData = new FormData(form);
-        console.log([...formData]);
-
-        // if(!name) {
-        //     setErrorMsg("Please provide a name.")
-        //     return
-        // }
 
         axios.post('https://api.itisgoodtohave.me/events/create.php', formData) 
         .then(function(response){
@@ -45,39 +26,24 @@ export default function AddEvent({ getEvents }) {
                 swal("YEAH BABY!", "You added a new event.", "success");
                 setSuccess(true)
             } else if (response.status === 500) {
-                swal("DAMN!", "Could not add event. Something is  missing here.", "error")
+                swal("DAMN!", "Could not add event. Something is  missing here.", "error");
             }
         })
         .catch((err) => {
-            console.log(err)
+            console.log(err);
         })
-        resetInputs()
-        getEvents()
+        resetInputs();
+        getEvents();
          
     }
 
-    function resetInputs() {
+    //looping through inputs value to reset
+    const resetInputs = () => {
         let elements = document.querySelectorAll(".input-item");
-        elements.forEach((element) =>{
+            elements.forEach((element) =>{
             element.value = "";
-        })
+            })
     }
-
-
-
-    // function resetInputs() {
-    // return (
-    // setName(""),
-    // setLocationName(""), 
-    // setLocationAddress(""),
-    // setWebsite(""),
-    // setEventDate(""),
-    // setEventTime(""),
-    // setDescription(""),
-    // setPrice(""),
-    // setCapacity("")
-    // )}
-
 
   return (
 
@@ -86,7 +52,6 @@ export default function AddEvent({ getEvents }) {
 
         {errorMsg &&  
         <p className="alert alert-danger">{errorMsg}</p>}
-        {/* {successMsg ? <p onMouseOver={(e) => setSuccessMsg(false)} className="alert alert-success">{successMsg}</p> : ""} */}
 
         <form className="add-event-form" id="add-event-form" encType="multipart/form-data" onSubmit={handleSubmit}>
 
@@ -97,8 +62,6 @@ export default function AddEvent({ getEvents }) {
                 name="name" 
                 id="name"
                 type="text"
-                // onChange={(e) => setName(e.target.value)}
-                // value={name}
                 required
                 />
             </div>
@@ -112,8 +75,6 @@ export default function AddEvent({ getEvents }) {
                     id="loc_name"
                     type="text"
                     placeholder="example: Cafe XY"
-                    // onChange={(e) => setLocationName(e.target.value)}
-                    // value={locationName}
                     required />
                 </div>
 
@@ -125,8 +86,6 @@ export default function AddEvent({ getEvents }) {
                     id="loc_address"
                     type="text"
                     placeholder="example: Opatovická 12, Praha 11000"
-                    // onChange={(e) => setLocationAddress(e.target.value)}
-                    // value={locationAddress} 
                     />
                 </div>
                
@@ -137,8 +96,6 @@ export default function AddEvent({ getEvents }) {
                     name="loc_website"
                     id="loc_website"
                     type="text"
-                    // onChange={(e) => setWebsite(e.target.value)}
-                    // value={website} 
                     />
                 </div>
             </div>
@@ -154,8 +111,6 @@ export default function AddEvent({ getEvents }) {
                         name="date"
                         id="date"
                         type="date"
-                        // onChange={(e) => setEventDate(e.target.value)}
-                        // value={eventDate}
                         required />
                     </div>
 
@@ -166,8 +121,6 @@ export default function AddEvent({ getEvents }) {
                         name="time"
                         id="time"
                         type="time"
-                        // onChange={(e) => setEventTime(e.target.value)}
-                        // value={eventTime}
                         required />
                     </div>
                 </div>
@@ -179,8 +132,6 @@ export default function AddEvent({ getEvents }) {
                         className="form-control input-item" 
                         name="price"
                         id="price"
-                        // onChange={(e) => setPrice(e.target.value)}
-                        // value={price} 
                         />   
                     </div>
 
@@ -190,8 +141,6 @@ export default function AddEvent({ getEvents }) {
                         className="form-control input-item" 
                         name="capacity"
                         id="capacity"
-                        // onChange={(e) => setCapacity(e.target.value)}
-                        // value={capacity} 
                         />
                     </div>                    
                 </div>
@@ -202,7 +151,6 @@ export default function AddEvent({ getEvents }) {
                         className="input-item event-upload-btn"
                         name="image_path"
                         id="image_path"
-                        // onChange={(e) =>setImage(e.target.files[0])}
                         required
                         />
                     </div>
@@ -214,8 +162,6 @@ export default function AddEvent({ getEvents }) {
                 className="form-control input-item add-event-description" 
                 name="description"
                 id="description"
-                // onChange={(e) => setDescription(e.target.value)}
-                // value={description} 
                 />
             </div>
         </div>
@@ -228,17 +174,3 @@ export default function AddEvent({ getEvents }) {
   )
   
 }
-
-
-        // {
-        //     name: name,
-        //     loc_name: locationName,
-        //     loc_address: locationAddress, 
-        //     loc_website: website, 
-        //     date: eventDate,
-        //     time: eventTime,
-        //     description: description,
-        //     price: price,
-        //     capacity: capacity,
-        //     image: image
-        // }

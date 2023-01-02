@@ -1,34 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import AdminNavbar from '../AdminNavbar';
 import EventsList from './EventsList';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { Fragment } from 'react';
 import AddEvent from './AddEvent';
 import ReportBug from '../../includes/ReportBug';
 
 export default function Events() {
-  const [events, setEvents] = useState([])
-  const [eventsLoaded, setEventsLoaded] = useState(false)
-  const [success, setSuccess] = useState(false)
+  const [events, setEvents] = useState([]);
+  const [eventsLoaded, setEventsLoaded] = useState(false);
+  const [success, setSuccess] = useState(false);
   
   useEffect(() => {
     getEvents();
     }, [success])
     
 
-  function getEvents() {
+  const getEvents = () => {
     axios.get('https://api.itisgoodtohave.me/events/read.php')
     .then(function(response) {
         console.log(response)
         setEvents(response.data);
-        setEventsLoaded(true)
-        
+        setEventsLoaded(true);
     })
     .catch(function(error) {
         if (error.response) {
         console.log(error.response.data);
-    }}) 
+        }
+    }) 
   } 
 
 
@@ -38,7 +36,6 @@ export default function Events() {
       <AdminNavbar/>
 
       <h3 className="admin-page-title">Events</h3>
-      {/* {successMsg && <p className="alert alert-success alert" >{successMsg}</p>}  */}
 
 {/* List of events */}
       <div className="events-container">

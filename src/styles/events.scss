@@ -8,6 +8,7 @@
 
 .archive-btn {
   margin-bottom: 10px;
+  max-width: 250px;
 }
 
 .archive-link {
@@ -31,7 +32,7 @@
 .eventlist-btn {
   padding: 10px;
   margin-bottom: 10px;
-  max-width: 100%;
+  max-width: 250px;
   background-color: $light-blue;
   color: $dark-petrol;
   display: flex;
@@ -46,7 +47,7 @@
 }
 
 .events-cont-right {
-  width: 70%;
+  width: 90%;
   background-color: $light-blue;
   margin-left: 20px;
   margin-top: 20px;

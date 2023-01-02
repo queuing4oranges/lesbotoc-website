@@ -1,15 +1,12 @@
 import React from 'react';
-import { useState } from 'react';
 import { FaWindowClose } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
 
 
-export default function Searchbar({placeholder, contacts, showContact, setSuccessMsg, filteredData, setFilteredData, nameInput, setNameInput}) {  //passing in placeholder to customize searchbar and data from api of parent
-  // const [filteredData, setFilteredData] = useState([])
-  // const [nameInput, setNameInput] = useState("")
+export default function Searchbar({placeholder, contacts, showContact, setSuccessMsg, filteredData, setFilteredData, nameInput, setNameInput}) {  
   
   const handleFilter = (event) => {
-    setSuccessMsg(false)
+    setSuccessMsg(false);
     const searchName = event.target.value;
     setNameInput(searchName);
     const newFilter = contacts.filter((value) => {
@@ -24,7 +21,7 @@ export default function Searchbar({placeholder, contacts, showContact, setSucces
 
   const clearInput = () => {
     setFilteredData([]);
-    setNameInput("")
+    setNameInput("");
   }
 
   return (
@@ -45,18 +42,16 @@ export default function Searchbar({placeholder, contacts, showContact, setSucces
         {filteredData.length !==0 && //only show when sth is typed
           <div className="search-result">
             {filteredData.map((contact, key) => {
-            return <div key={key}>
+              return <div key={key}>
               <ul className="edit-list">
                 <li className="edit-list-item" key={key}>{contact.name}</li>
                 <li className="edit-list-item">{contact.email}</li>
-                {/* <li className="edit-list-item">{contact.phone}</li> */}
                 <button className="btn btn-sm add-modal" onClick={() =>showContact(contact.id)}>Show</button>               
               </ul>
           </div>
-        })}   
+            })}   
           </div>
         }
-
     </div>
   )
 }

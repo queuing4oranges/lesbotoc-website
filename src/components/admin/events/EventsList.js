@@ -1,21 +1,19 @@
-import React from 'react'; 
-import { Fragment } from 'react';
+import React, { Fragment, useState } from 'react'; 
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import swal from "sweetalert";
-import { useState } from "react";
 import Moment from "react-moment";
 import EditEventModal from "./EditEventModal";
 
 export default function EventsList({ events, setSuccess, getEvents, eventsLoaded }) {
-  const [errorMsg, setErrorMsg] = useState(false)
-  const [openModal, setOpenModal] = useState(false)
-  const [data, setData] = useState([])
-  const [oneEventLoaded, setOneEventLoaded] = useState(false)
+  const [errorMsg, setErrorMsg] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [data, setData] = useState([]);
+  const [oneEventLoaded, setOneEventLoaded] = useState(false);
 
 
   const deleteEvent = (id) => {
-    setSuccess(false)
+    setSuccess(false);
     swal({
       title: "Sure?", 
       text: "Do you really want to delete this exquisite event?", 
@@ -30,15 +28,14 @@ export default function EventsList({ events, setSuccess, getEvents, eventsLoaded
           setSuccess(true)
           })
       } else {
-        setErrorMsg("Could not delete the event.")
-        console.log(errorMsg)
+        setErrorMsg("Could not delete the event.");
+        console.log(errorMsg);
       }
     })
   }
 
   const showEvent = (id) => {
     setOpenModal(true)
-    console.log(id)
     axios.get(`https://api.itisgoodtohave.me/events/single_read.php/${id}`)
     .then(function(response) {
       setData(response.data)
@@ -58,7 +55,6 @@ export default function EventsList({ events, setSuccess, getEvents, eventsLoaded
 
             <div className="name-date-cont">
               <h6>{event.name}</h6>
-              {/* <h6>{event.name.substring(0,20)}</h6> */}
               {event.date === "0000-00-00" ? "" : <p><Moment format="YYYY">{event.date}</Moment></p>}
               {event.date === "0000-00-00" ? "" : <p><Moment format="D. MMMM">{event.date}</Moment></p>}
 
@@ -92,10 +88,6 @@ export default function EventsList({ events, setSuccess, getEvents, eventsLoaded
           
           </span> 
         ))}  
- 
-
-          
-
     </Fragment>
   )
 }

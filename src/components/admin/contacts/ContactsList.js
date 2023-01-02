@@ -1,5 +1,4 @@
 import React, { useEffect, useState, Fragment } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import AddContact from './AddContact';
 import Searchbar from '../Searchbar';
@@ -9,65 +8,46 @@ import swal from "sweetalert";
 import Moment from "react-moment";
 import { CSVLink } from 'react-csv';
 import ReportBug from '../../includes/ReportBug';
-import { useRef } from 'react';
-
 
 export default function ContactsList() {
-  const [scrollY, setScrollY] = useState("")
-  const [scrollX, setScrollX] = useState("")
-  const [filteredData, setFilteredData] = useState([])
-  const [nameInput, setNameInput] = useState("")
-  const [buttonText, setButtonText] = useState("New Contact")
+  const [filteredData, setFilteredData] = useState([]);
+  const [nameInput, setNameInput] = useState("");
+  const [buttonText, setButtonText] = useState("New Contact");
   const [contacts, setContacts] = useState([]);
-  const [contactsLoaded, setContactsLoaded] = useState(false)
-  const [addField, setAddField] = useState(false)
-  const [successMsg, setSuccessMsg] = useState("")
-  const [formError, setFormError] = useState(null)
+  const [contactsLoaded, setContactsLoaded] = useState(false);
+  const [addField, setAddField] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("");
+  const [formError, setFormError] = useState(null);
   const [inputs, setInputs] = useState({
     newsletter : false, 
     name: "",
     wherefrom: "",
     email: "",
     phone: "",
-  })
-
-  const [show, setShow] = useState(false)
+  });
+  const [show, setShow] = useState(false);
   const [data, setData] = useState({  //uncontrolled-controlled issue
     newsletter : false, 
     name: "",
     wherefrom: "",
     email: "",
     phone: "",
-  })
+  });
 
   useEffect(() => {
     getContacts();
-    
   }, [contactsLoaded])  
 
-
-  
-
-
-  function getContacts() {
-
-    
+  const getContacts = () => {
     axios.get('https://api.itisgoodtohave.me/contacts/read.php')
     .then(function(response) {
       setContacts(response.data);
       setContactsLoaded(true);
     })
     setSuccessMsg("");
-
   }
-    // setScrollY(document.body.scrollTop)
-    // console.log(scrollY)
-    // setScrollX(window.scrollX)
-    // console.log(scrollX)
-
 
   const deleteContact = (id) => {
-
     swal({
       title: "Sure?", 
       text: "Do you REALLY want to delete this precious contact?", 
@@ -79,39 +59,39 @@ export default function ContactsList() {
         axios.delete(`https://api.itisgoodtohave.me/contacts/delete.php/${id}`)
         .then(function(response) {
           if (response.status === 200) {
-            swal("Deleted!", "It will never bother you again. Promised.", "success")
-            setContactsLoaded(false)
-           
+            swal("Deleted!", "It will never bother you again. Promised.", "success");
+            setContactsLoaded(false);
           } else if (response.status === 500) {
-            swal("Wellllllll...", "Something went wrong here.", "error")
+            swal("Wellllllll...", "Something went wrong here.", "error");
           } 
         })
       }
     })
   }
 
-  function toggleAddField () {
+  //opening and closing modal + changing button text
+  const toggleAddField = () => {
     if (addField === true) {
       setAddField(false);
-      setButtonText("New Contact")
+      setButtonText("New Contact");
       emptyInputs();
       } else {
-        setFormError(null)
+        setFormError(null);
         setAddField(true);
-        setButtonText("Cancel")
+        setButtonText("Cancel");
         emptyInputs();
       }  
       getContacts();   
-      setContactsLoaded(false)
+      setContactsLoaded(false);
   }
 
-  function emptyInputs () {
-    //emptying input field
-    let elements = document.querySelectorAll(".input-item")
+  const emptyInputs = () => {
+    //empty input field
+    let elements = document.querySelectorAll(".input-item");
     elements.forEach((element) =>{
     element.value = "";
-    })
-    //emptying inputs
+    });
+    //empty inputs
     setInputs({
       name: "",
       wherefrom: "",
@@ -123,18 +103,17 @@ export default function ContactsList() {
 
   const showContact = (id) => {
     // handleScrollPosition()
-    setShow(true)
-    console.log(id)
+    setShow(true);
     axios.get(`https://api.itisgoodtohave.me/contacts/single_read.php/${id}`)  
     .then(function(response) {
-      setData(response.data)
-      setContactsLoaded(true)
-    })
+      setData(response.data);
+      setContactsLoaded(true);
+    });
   }
 
   const closeModal =() => {
-    setShow(false)
-    setContactsLoaded(false)
+    setShow(false);
+    setContactsLoaded(false);
   }
 
 
@@ -164,10 +143,8 @@ export default function ContactsList() {
       </div>
 
       <div className="add-contact-btn-cont">
-      <button onClick={toggleAddField} className="btn btn-success btn-create btn-sm">{buttonText}</button>
-
-      <CSVLink data={contacts} filename="lesbotoč_contacts"><button className="btn btn-info btn-create btn-export btn-sm">Export Data</button></CSVLink> 
-      {/* <CSVLink onClick={getOnlyEmail} data={emails} filename="lesbotoč_contacts"><button className="btn btn-info btn-create btn-sm">Export Data</button></CSVLink>  */}
+        <button onClick={toggleAddField} className="btn btn-success btn-create btn-sm">{buttonText}</button>
+        <CSVLink data={contacts} filename="lesbotoč_contacts"><button className="btn btn-info btn-create btn-export btn-sm">Export Data</button></CSVLink> 
       </div>
 
 
@@ -244,7 +221,6 @@ export default function ContactsList() {
                 id={contact.id}                 
                 setFilteredData={setFilteredData}
                 setNameInput={setNameInput} 
-                // handleScrollPosition={handleScrollPosition}
                 />
                 }
 

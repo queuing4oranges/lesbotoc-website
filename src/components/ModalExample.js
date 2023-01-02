@@ -99,4 +99,3 @@ function Modal({ hideModal }) {
 
 export default Modal
 
-<input className="input-field radio" type="checkbox" name="newsletter" onChange={(event)=>setNewsletter(event.target.checked)}  />

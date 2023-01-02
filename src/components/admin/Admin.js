@@ -1,15 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ReportBug from '../includes/ReportBug';
-import AdminNavbar from './AdminNavbar';
-
 
 export default function Admin() {
   return (
-    <div className="admin-container">
-      {/* <AdminNavbar/> */}
-
-      
+    <div className="admin-container">    
 
       <div className="admin-title-cont">
         <h3 className="admin-title">Admin</h3>
@@ -56,7 +51,6 @@ export default function Admin() {
         </div>
     </div>
 
-      
     </div>
   )
 }
