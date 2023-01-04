@@ -177,15 +177,15 @@ export default function ContactsList() {
           >
            
             <thead>
-              <tr>
+              <tr className="table-hr">
               <th scope="col">Name</th>
-              <th scope="col">Where from?</th>
-              <th scope="col">Email</th>
+              <th scope="col" className="col-wherefrom">Where from?</th>
+              <th scope="col" className="col-email">Email</th>
               <th scope="col">Phone</th>
-              <th scope="col">Newsletter</th>
-              <th scope="col">Age</th>
-              <th scope="col">Updated</th>
-              <th scope="col">Edit / Delete</th>
+              <th scope="col" className="col-newsletter">Newsletter</th>
+              <th scope="col" className="col-age">Age</th>
+              <th scope="col" className="col-updated">Updated</th>
+              <th scope="col" className="col-edit">Edit / Delete</th>
               </tr>
             </thead>
 
@@ -198,7 +198,7 @@ export default function ContactsList() {
               <td className="td td-phone">{contact.phone}</td>
               <td className="td td-newsletter">{(contact.newsletter === 0) ? "no" : "yes"}</td>
               <td className="td td-age">{contact.age}</td>
-              <td className="td td-age">{(!contact.updated_at) ? "" : <Moment format="D. MMMM YYYY">{contact.updated_at}</Moment> }</td>
+              <td className="td td-updated">{(!contact.updated_at) ? "" : <Moment format="D. MMMM YYYY">{contact.updated_at}</Moment> }</td>
               <td className="td td-crud">
               
 {/* Editing a contact */}

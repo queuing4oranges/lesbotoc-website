@@ -4,6 +4,7 @@ import EventsList from './EventsList';
 import axios from 'axios';
 import AddEvent from './AddEvent';
 import ReportBug from '../../includes/ReportBug';
+import { Link } from 'react-router-dom';
 
 export default function Events() {
   const [events, setEvents] = useState([]);
@@ -39,6 +40,7 @@ export default function Events() {
 
 {/* List of events */}
       <div className="events-container">
+        <button className="btn btn-success archive-mobile-btn"><Link className="archive-link" to={"/admin/events/archive"}>Got to all Events</Link></button>
 
         <div className="events-cont-left">
         {eventsLoaded &&

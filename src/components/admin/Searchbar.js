@@ -45,7 +45,7 @@ export default function Searchbar({placeholder, contacts, showContact, setSucces
               return <div key={key}>
               <ul className="edit-list">
                 <li className="edit-list-item" key={key}>{contact.name}</li>
-                <li className="edit-list-item">{contact.email}</li>
+                <li className="edit-list-item edit-list-item-email">{contact.email}</li>
                 <button className="btn btn-sm add-modal" onClick={() =>showContact(contact.id)}>Show</button>               
               </ul>
           </div>

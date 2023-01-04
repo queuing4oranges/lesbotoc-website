@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import AdminNavbar from '../AdminNavbar';
 import axios from 'axios';
 import { CSVLink } from 'react-csv'
+import ReportBug from '../../includes/ReportBug';
 
 export default function Newsletter() {
     const [contacts, setContacts] = useState([]);
@@ -44,6 +45,8 @@ export default function Newsletter() {
                 <CSVLink data={subscribers} filename="newsletter_subscribers"><button className="btn btn-info btn-news">Export Email Subscribers</button></CSVLink> 
                 <a href="https://mailchimp.com/"><button className="btn btn-info btn-news">Go to mailchimp</button></a>
             </div>
+
+            <ReportBug/>
         </Fragment>
   )
 }

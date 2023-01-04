@@ -167,7 +167,7 @@ export default function AddEvent({ getEvents }) {
         </div>
 
             
-                <button className="btn btn-success">Save event</button>
+                <button className="btn btn-success add-event-save">Save event</button>
         </form>
         
     </Fragment>

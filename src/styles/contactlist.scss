@@ -6,6 +6,10 @@
   max-height: 45px;
 }
 
+thead .table-hr {
+  text-align: left;
+}
+
 .contacts__table {
   width: 90%;
   margin: auto;
@@ -124,4 +128,99 @@ input {
 
 .btn-export {
   background-color: $lesbotoc;
+}
+
+/*for mobiles*/
+
+@media (max-width: 600px) {
+  .btn-export {
+    display: none;
+  }
+
+  .admin-page-title {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  //Searchbar
+  .search-input {
+    max-width: fit-content;
+  }
+
+  .edit-list {
+    max-width: 300px;
+    margin: auto;
+  }
+
+  .edit-list-item {
+    width: 100%;
+    margin: 5px;
+  }
+
+  .edit-list-item-email {
+    display: none;
+  }
+
+  //AddContact
+  .btn-create {
+    margin-top: 20px;
+    font-size: 0.7em;
+  }
+
+  .save-btn {
+    font-size: 0.7em;
+  }
+
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+
+    & label,
+    input {
+      font-size: 0.7em;
+    }
+  }
+
+  .checkbox-cont {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  //ContactsList
+  .col-wherefrom,
+  .col-email,
+  .col-newsletter,
+  .col-age,
+  .col-updated,
+  .col-edit,
+  .td-wherefrom,
+  .td-email,
+  .td-newsletter,
+  .td-age,
+  .td-updated {
+    display: none;
+  }
+
+  .contacts__table {
+    width: 350px;
+    font-size: 0.7em;
+
+    & td {
+      padding: 0 5px;
+      height: 25px;
+
+      & button {
+        width: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  //EditModal
+  .edit-button,
+  .edit-btn {
+    font-size: 0.7em;
+  }
 }
