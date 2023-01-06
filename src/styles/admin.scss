@@ -482,5 +482,24 @@ html {
 @media (max-width: 600px) {
   .cards-cont {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .admin-title {
+    padding-top: 20px;
+  }
+
+  .contacts,
+  .events,
+  .pictures {
+    width: 115px;
+    height: 115px;
+    margin: 15px;
+
+    & .admin-events-title,
+    .admin-contacts-title,
+    .admin-pictures-title {
+      font-size: 0.7em;
+    }
   }
 }
