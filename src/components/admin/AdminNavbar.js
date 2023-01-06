@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function AdminNavbar() {
-  const [showNavbar, setShowNavbar] = useState(false)
+  // const [showNavbar, setShowNavbar] = useState(false)
 
   const toggleMenu = () => {
     let menu = document.querySelector(".navbar-nav");

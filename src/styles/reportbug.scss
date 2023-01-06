@@ -216,3 +216,13 @@
     transform: translate(0);
   }
 }
+
+@media (max-width: 600px) {
+  .bug-form-cont {
+    width: 50%;
+
+    & h6 {
+      font-size: 0.7em;
+    }
+  }
+}
