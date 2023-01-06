@@ -122,3 +122,36 @@
 .btn-img {
   margin: 0;
 }
+
+/*for mobiles*/
+@media (max-width: 600px) {
+  .show-image-cont {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin: auto;
+  }
+
+  .image-upload-btn {
+    display: none;
+  }
+
+  .pic-img {
+    max-width: 400px;
+    max-height: 240px;
+  }
+
+  .pic-modal-content {
+    width: 100%;
+    margin: 15px;
+  }
+
+  .pic-info {
+    // max-width: 375px;
+    margin: 10px;
+    width: fit-content;
+    text-align: start;
+  }
+}

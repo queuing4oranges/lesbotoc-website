@@ -112,7 +112,7 @@ export default function ImageUpload() {
         <AdminNavbar/>
         <h3 className="admin-page-title">Picture Gallery</h3>
         <div className="add-img-btn-cont">
-            <button className="btn btn-success btn-create btn-sm" onClick={toggleShowAdd}>{buttonText}</button>
+            <button className="btn btn-success btn-create btn-sm image-upload-btn" onClick={toggleShowAdd}>{buttonText}</button>
         </div>
 
 {/* add an image   */}
