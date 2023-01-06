@@ -40,7 +40,7 @@ export default function Events() {
 
 {/* List of events */}
       <div className="events-container">
-        <button className="btn btn-success archive-mobile-btn"><Link className="archive-link" to={"/admin/events/archive"}>Got to all Events</Link></button>
+        <button className="btn btn-success archive-mobile-btn"><Link className="archive-link" to={"/admin/events/archive"}>Go to all Events</Link></button>
 
         <div className="events-cont-left">
         {eventsLoaded &&

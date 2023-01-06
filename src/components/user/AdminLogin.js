@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function User() {
+export default function AdminLogin() {
   return (
     <div className="user-title-container">
       <Link to={"/admin"}><button className='btn admin-panel-btn'>
