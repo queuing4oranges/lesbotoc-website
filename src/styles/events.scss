@@ -295,6 +295,22 @@
   .archive-btn-cont svg {
     height: 10px;
   }
+
+  //EditEventModal
+  .edit-event-modal {
+    margin-top: 30px;
+  }
+  .edit-cont-top {
+    flex-direction: column;
+  }
+
+  .edit-event-span p {
+    font-size: 0.7em;
+  }
+
+  .description-cont textarea {
+    height: 80px;
+  }
 }
 
 // @media screen and (min-width: 1900px)

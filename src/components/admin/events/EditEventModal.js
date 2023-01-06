@@ -147,7 +147,7 @@ export default function EditEvent({ data, getEvents, setOpenModal, oneEventLoade
                               />
                               </div>
                             </div>
-                          <span>* should not be empty </span>
+                          <span className="edit-event-span"><p>* should not be empty</p></span>
                         </div>
 
                       <div className="edit-cont-top-right">
