@@ -1,0 +1,46 @@
+.user-footer-container {
+  background: $lesbotoc;
+  height: 60px;
+}
+
+.user-footer-cont {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: $dark-petrol;
+}
+
+.user-footer-copyright {
+  width: 30%;
+  display: flex;
+  align-items: center;
+
+  & a {
+    color: $dark-petrol;
+  }
+
+  & p {
+    color: red;
+    display: flex;
+  }
+}
+
+.user-footer-newsletter {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-footer-admin {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
