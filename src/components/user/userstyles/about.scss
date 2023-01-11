@@ -1,0 +1,98 @@
+.user-about-container {
+  width: 100%;
+  background-color: #f5e2d3;
+  display: flex;
+  flex-direction: column;
+}
+.user-about-cont {
+  width: 90%;
+  margin: auto;
+}
+
+.user-about-img {
+  max-width: 100%;
+}
+
+.user-about-intro {
+  width: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.user-about-paragraph {
+  width: 60%;
+  margin: 20px auto;
+  position: relative;
+  z-index: 20;
+  padding-bottom: 100px;
+}
+
+.paragraph-box {
+  width: 795px;
+  height: 150px;
+  overflow-x: hidden;
+  position: absolute;
+  top: 140px;
+  left: 0px;
+  z-index: 1;
+}
+
+.user-singles-cont {
+  position: relative;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10%;
+}
+
+//to make img opaque but not text inside div
+.user-singles-cont::before {
+  content: "";
+  background-image: url("../../../../public/img/rainbow_flag.jpg");
+  background-size: cover;
+  opacity: 0.15;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.user-about {
+  position: relative;
+  margin-top: -170px;
+
+  & img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 10px $lesbotoc solid;
+  }
+
+  & p {
+    width: 275px;
+  }
+}
+
+.user-paragraph {
+  margin-top: 30px;
+}
+
+.member-name {
+  font-family: "Amatic SC", sans-serif, Arial, Helvetica, sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+  color: $dark-petrol;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 30px;
+}
+
+.bubbles-about {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+}

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function Navbar() {
   return (
-    <div className="user-navbar-container">
+    <div className="user-navbar-container sticky">
         <div className="user-navbar-cont">
 
             <div className="user-navbar-symbols">
@@ -33,7 +33,7 @@ export default function Navbar() {
                 <NavLink 
                 to={"/kalendar"} 
                 style={({isActive}) => ({
-                    color: isActive ? "#eb5a49" : "#003243" , 
+                    color: isActive ? "#eb5a49" : "#7ab6cb" , 
                     textDecoration: "none"
                 })}
                 >Kalendář
@@ -43,7 +43,7 @@ export default function Navbar() {
                 <NavLink 
                 to={"/galerie"}
                 style={({isActive}) => ({
-                color: isActive ? "#eb5a49" : "#003243" , 
+                color: isActive ? "#eb5a49" : "#7ab6cb" , 
                 textDecoration: "none"
                 })}
                 >Galerie</NavLink>
@@ -52,7 +52,7 @@ export default function Navbar() {
                 <NavLink 
                 to={"/about"}
                 style={({isActive}) => ({
-                color: isActive ? "#eb5a49" : "#003243" , 
+                color: isActive ? "#eb5a49" : "#7ab6cb" , 
                 textDecoration: "none"
                 })}
                 >About</NavLink>
@@ -61,7 +61,7 @@ export default function Navbar() {
                 <NavLink 
                 to={"/kontakt"}
                 style={({isActive}) => ({
-                color: isActive ? "#eb5a49" : "#003243" , 
+                color: isActive ? "#eb5a49" : "#7ab6cb" , 
                 textDecoration: "none"
                 })}
                 >Kontakt</NavLink>
@@ -74,28 +74,3 @@ export default function Navbar() {
   )
 }
 
-        {/* <nav className="navbar navbar-expand-lg bg-light">
-        <div className="container-fluid">
-            <div className="navbar-brand" href="#">
-                <Link to={"/"}>Home</Link>
-            </div>
-            
-            <div className="navbar-brand" href="#">
-                <Link to={"/gallery"}>Gallery</Link>
-            </div>            
-            
-            <div className="navbar-brand" href="#">
-                <Link to={"/about"}>About</Link>
-            </div>            
-            
-            <div className="navbar-brand" href="#">
-                <Link to={"/contact"}>Contact</Link>
-            </div>
-
-            <form className="d-flex" role="search">
-                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                <button className="btn btn-outline-success" type="submit">Search</button>
-            </form>
-
-        </div> */}
-        {/* </nav> */}

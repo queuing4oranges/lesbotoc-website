@@ -1,0 +1,55 @@
+.bubble-grid {
+  margin-top: 10px;
+  width: 130px;
+  height: 50px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.bubble {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #b84639;
+}
+
+// .bubble1 {
+//   position: absolute;
+//   left: 10px;
+//   top: 10px;
+// }
+
+// .bubble2 {
+//   position: absolute;
+//   left: 30px;
+//   top: 10px;
+// }
+
+// .bubble3 {
+//   left: 50px;
+//   top: 10px;
+// }
+
+// .bubble4 {
+//   left: 70px;
+//   top: 10px;
+// }
+
+// .bubble5 {
+//   left: 90px;
+//   top: 10px;
+// }
+
+// .bubble6 {
+//   left: 110px;
+//   top: 10px;
+// }
+
+// .bubble7 {
+//   left: 130px;
+//   top: 10px;
+// }

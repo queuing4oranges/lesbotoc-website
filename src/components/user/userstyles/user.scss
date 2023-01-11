@@ -1,0 +1,27 @@
+//repeating scss patterns and their classNames
+.user-title {
+  font-family: "Amatic SC", sans-serif, Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 4em;
+  line-height: 50px;
+  color: $dark-petrol;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 20vh;
+  margin-bottom: 10vh;
+}
+
+.user-paragraph {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 0.1em;
+  color: $dark-petrol;
+  text-align: left;
+}
+
+.opaque-box {
+  background-color: #7ab6cb40;
+}

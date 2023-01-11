@@ -1,6 +1,7 @@
 .user-footer-container {
   background: $lesbotoc;
   height: 60px;
+  z-index: 100;
 }
 
 .user-footer-cont {
@@ -27,20 +28,33 @@
   }
 
   & p {
-    color: red;
     display: flex;
+    margin: 0;
   }
 }
 
 .user-footer-newsletter {
-  width: 40%;
+  width: 30%;
   display: flex;
   justify-content: space-between;
+
+  & p {
+    margin-bottom: 0;
+  }
 }
 
 .user-footer-admin {
   width: 30%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+}
+
+.admin-panel-button {
+  background-color: $dark-petrol;
+  color: white;
+}
+
+.user-footer-social {
+  padding-left: 50px;
 }

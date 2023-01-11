@@ -1,6 +1,7 @@
 .user-navbar-container {
   background-color: $user-beige-light;
   height: 60px;
+  z-index: 100;
 }
 
 .user-navbar-cont {
@@ -50,7 +51,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 30px;
-  color: $dark-petrol;
+  // color: $dark-petrol;
 }
 
 .user-navbar-fb,
@@ -59,6 +60,6 @@
   margin-left: 20px;
 
   & path {
-    color: $dark-petrol;
+    color: $lesbotoc;
   }
 }
