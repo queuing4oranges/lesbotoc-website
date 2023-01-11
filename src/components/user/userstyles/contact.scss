@@ -1,0 +1,30 @@
+.user-contact-container {
+  width: 100%;
+  background-color: $user-beige-dark;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.user-contact-cont {
+  width: 100vw;
+  height: 90%;
+}
+
+.contact-form-container {
+  margin: 30px auto;
+  width: 500px;
+  height: 250px;
+  background-color: $lesbotoc;
+  padding: 10px;
+}
+
+.contact-footer-cont {
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+}
+
+.user-contact-item path {
+  color: #b84639;
+}
