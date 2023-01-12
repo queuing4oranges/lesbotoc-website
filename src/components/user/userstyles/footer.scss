@@ -1,6 +1,6 @@
 .user-footer-container {
   background: $lesbotoc;
-  height: 60px;
+  height: 50px;
   z-index: 100;
 }
 
@@ -13,7 +13,7 @@
   align-items: center;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   color: $dark-petrol;
 }
@@ -53,6 +53,7 @@
 .admin-panel-button {
   background-color: $dark-petrol;
   color: white;
+  font-size: 14px;
 }
 
 .user-footer-social {

@@ -6,7 +6,9 @@ export default function Gallery() {
   return (
     <div>
       <Navbar />
-      The gallery will depict images from events.
+      <div className="user-gallery-cont">
+        <h2 className="user-title">Galerie</h2>
+      </div>
       <Footer/>
       </div>
   )

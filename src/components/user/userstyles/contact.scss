@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  font-family: "Poppins", sans-serif, Arial, Helvetica, sans-serif;
 }
 
 .user-contact-cont {
@@ -12,11 +13,18 @@
 }
 
 .contact-form-container {
-  margin: 30px auto;
-  width: 500px;
-  height: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  // margin: 50px auto 50px;
+  width: 600px;
+  height: fit-content;
   background-color: $lesbotoc;
-  padding: 10px;
+  padding: 20px;
+  border: 1px solid #000000;
+  box-shadow: 5px 5px 5px #003243;
 }
 
 .contact-footer-cont {
@@ -25,6 +33,80 @@
   bottom: 0;
 }
 
-.user-contact-item path {
-  color: #b84639;
+.user-contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & svg {
+    width: 20%;
+  }
+
+  & .contact-name-input,
+  .contact-message-input,
+  .contact-email-input {
+    width: 80%;
+
+    & label {
+      margin-bottom: 0px;
+      color: #b84639;
+    }
+
+    & input {
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.contact-name-input,
+.contact-message-input,
+.contact-email-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  & input {
+    width: 100%;
+    background-color: $user-beige-light;
+    border-style: hidden;
+  }
+
+  & textarea {
+    resize: none;
+    width: 100%;
+    background-color: $user-beige-light;
+    border-style: hidden;
+    margin-bottom: 25px;
+  }
+
+  & input:focus {
+    outline: #b84639 1px solid;
+  }
+
+  & textarea:focus {
+    outline: #b84639 1px solid;
+  }
+}
+
+.contact-form-title {
+  font-size: 2em;
+  font-family: "Amatic SC", sans-serif, Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  line-height: 50px;
+  color: $dark-petrol;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.user-contact-btn-cont button {
+  background: $user-beige-light;
+  color: $dark-petrol;
+}
+
+.user-contact-grid {
+  position: absolute;
+  right: 310px;
+  bottom: 450px;
+  z-index: 0;
 }
