@@ -7,10 +7,10 @@
   font-family: "Poppins", sans-serif, Arial, Helvetica, sans-serif;
 }
 
-.user-contact-cont {
-  width: 100vw;
-  height: 90%;
-}
+// .user-contact-cont {
+//   width: 100vw;
+//   height: 80%;
+// }
 
 .contact-form-container {
   position: absolute;
@@ -19,7 +19,7 @@
   transform: translate(-50%, -50%);
   z-index: 1;
   // margin: 50px auto 50px;
-  width: 600px;
+  width: 550px;
   height: fit-content;
   background-color: $lesbotoc;
   padding: 20px;
@@ -35,25 +35,31 @@
 
 .user-contact-item {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
-  & svg {
-    width: 20%;
-  }
+  // & svg {
+  //   width: 20%;
+  // }
 
   & .contact-name-input,
   .contact-message-input,
   .contact-email-input {
-    width: 80%;
+    width: 60%;
 
     & label {
+      margin-left: 20px;
       margin-bottom: 0px;
       color: #b84639;
     }
 
     & input {
+      margin-left: 20px;
       margin-bottom: 25px;
+    }
+
+    & textarea {
+      margin-left: 20px;
     }
   }
 }
@@ -71,12 +77,20 @@
     border-style: hidden;
   }
 
+  & input[type="text"] {
+    font-size: 12px;
+  }
+
   & textarea {
     resize: none;
     width: 100%;
     background-color: $user-beige-light;
     border-style: hidden;
     margin-bottom: 25px;
+  }
+
+  & textarea[type="text"] {
+    font-size: 12px;
   }
 
   & input:focus {
@@ -102,11 +116,14 @@
 .user-contact-btn-cont button {
   background: $user-beige-light;
   color: $dark-petrol;
+  border-radius: 0px;
+  width: 150px;
+  border: 1px solid #b84639;
 }
 
 .user-contact-grid {
   position: absolute;
-  right: 310px;
-  bottom: 450px;
+  right: 265px;
+  bottom: 420px;
   z-index: 0;
 }

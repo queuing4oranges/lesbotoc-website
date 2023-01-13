@@ -9,12 +9,12 @@ export default function About() {
       <Navbar/>
       <div className="user-about-cont">
       <h2 className="user-title">To jsme my</h2>
-      <img src="img/Team2.jpg" alt="" className="user-about-img" />
+      <img src="img/Team2.jpg" alt="3 women from lesbotoč" className="user-about-img" />
       </div>
       
       <div className="user-about-intro">
         <div className="bubbles-about">
-          <BubbleGrid/>
+          <BubbleGrid color="#B84639"/>
         </div>
         
 

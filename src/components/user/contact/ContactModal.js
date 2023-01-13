@@ -54,7 +54,7 @@ export default function ContactModal() {
               </svg>
               <div className="contact-message-input">
                 <label htmlFor="user-message">my message to you</label>
-                <textarea name="user-message" id="" cols="30" rows="5" placeholder="Hello. I have a question ..."></textarea>
+                <textarea name="user-message" type="text" id="" cols="30" rows="5" placeholder="Hello. I have a question ..."></textarea>
               </div>
             </div>
 

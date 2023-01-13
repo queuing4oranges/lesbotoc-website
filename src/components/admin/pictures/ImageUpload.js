@@ -60,7 +60,7 @@ export default function ImageUpload() {
         }
     }
 
-    //displaying images from DB path to images folder
+    //displaying images from images folder via DB path
     const getImages = () => {
         axios.get('https://api.itisgoodtohave.me/images/read.php')
         .then(function(response) {
@@ -144,8 +144,8 @@ export default function ImageUpload() {
                 type="text" 
                 name="title" 
                 id="title" 
-                placeholder="Title"
-                maxLength="30" />
+                placeholder="Title - max 20 char"
+                maxLength="20" />
                 </div>
 
                 <div className="form-group btn-cont">
