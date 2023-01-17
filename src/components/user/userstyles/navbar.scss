@@ -1,6 +1,6 @@
 .user-navbar-container {
   background-color: $user-beige-light;
-  height: 50px;
+  height: 40px;
   z-index: 100;
 }
 
@@ -17,25 +17,32 @@
 .user-navbar-symbols {
   width: 30%;
   display: flex;
+  flex-direction: row;
+  align-content: center;
   justify-content: flex-start;
 
   & a {
     display: flex;
     align-items: center;
   }
+
+  & p {
+    text-align: center;
+  }
 }
 
 .logo-bubbles {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
 }
 
 .logo-home {
   margin-right: 100px;
+  margin-bottom: 0;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 14px;
-  line-height: 30px;
+  line-height: 25px;
   color: $lesbotoc;
 }
 
@@ -51,7 +58,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 14px;
-  line-height: 30px;
+  line-height: 25px;
   // color: $dark-petrol;
 }
 

@@ -16,6 +16,23 @@
   height: fit-content;
   justify-content: space-between;
   margin-bottom: 60px;
+  position: relative;
+}
+.bubbles-gallery1 {
+  position: absolute;
+  left: 0;
+  top: 700;
+}
+.bubbles-gallery2 {
+  position: absolute;
+  left: 1050px;
+  top: 175px;
+}
+
+.bubbles-gallery3 {
+  position: absolute;
+  left: 65px;
+  top: 900px;
 }
 
 .user-img-cont {

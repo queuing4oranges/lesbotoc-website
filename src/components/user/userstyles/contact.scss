@@ -1,24 +1,24 @@
 .user-contact-container {
   width: 100%;
+  height: fit-content;
   background-color: $user-beige-dark;
   display: flex;
   flex-direction: column;
-  height: 100vh;
   font-family: "Poppins", sans-serif, Arial, Helvetica, sans-serif;
 }
 
-// .user-contact-cont {
-//   width: 100vw;
-//   height: 80%;
-// }
+.user-contact-cont {
+  height: 100vh;
+}
 
 .contact-form-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+
   z-index: 1;
-  // margin: 50px auto 50px;
+  margin: 70px auto 50px;
   width: 550px;
   height: fit-content;
   background-color: $lesbotoc;
@@ -27,20 +27,10 @@
   box-shadow: 5px 5px 5px #003243;
 }
 
-.contact-footer-cont {
-  width: 100vw;
-  position: absolute;
-  bottom: 0;
-}
-
 .user-contact-item {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  // & svg {
-  //   width: 20%;
-  // }
 
   & .contact-name-input,
   .contact-message-input,
@@ -118,7 +108,6 @@
   color: $dark-petrol;
   border-radius: 0px;
   width: 150px;
-  border: 1px solid #b84639;
 }
 
 .user-contact-grid {
