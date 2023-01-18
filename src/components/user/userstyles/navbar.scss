@@ -71,3 +71,11 @@
     color: $lesbotoc;
   }
 }
+.user-nav-link {
+  border-bottom: 2px solid transparent;
+}
+
+.user-nav-link:hover {
+  transition: 200ms;
+  border-bottom: 2px $lesbotoc solid;
+}

@@ -22,6 +22,12 @@
   text-align: left;
 }
 
+.opaque-bg-box {
+  background-color: #7ab6cb40;
+  position: absolute;
+  z-index: 1;
+}
+
 .opaque-box {
   background-color: #7ab6cb40;
 }

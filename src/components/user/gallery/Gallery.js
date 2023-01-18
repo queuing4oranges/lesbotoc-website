@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Footer from "../includes/Footer";
 import Navbar from "../includes/Navbar";
 import axios from "axios";
-import BubbleGrid from "../includes/BubbleGrid";
 import BubbleGrid6x7 from "../includes/BubbleGrid6x7";
+import OpaqueBox from "../includes/OpaqueBox";
 
 export default function Gallery() {
   const [images, setImages] = useState([]);
@@ -28,9 +28,13 @@ export default function Gallery() {
       <div className="user-gallery-container">
         <h2 className="user-title">Galerie</h2>
 
-        {/* <div className="bubbles-gallery1">
-          <BubbleGrid color="#003243" />
-        </div> */}
+        <div className="box-gallery1">
+          <OpaqueBox width="600px" height="300px" />
+        </div>
+
+        <div className="box-gallery2">
+          <OpaqueBox width="600px" height="300px" />
+        </div>
 
         <div className="bubbles-gallery2">
           <BubbleGrid6x7 color="#B84639" />

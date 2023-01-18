@@ -18,6 +18,21 @@
   margin-bottom: 60px;
   position: relative;
 }
+
+.box-gallery1 {
+  position: absolute;
+  z-index: 1;
+  top: 390px;
+  left: 0;
+}
+
+.box-gallery2 {
+  position: absolute;
+  z-index: 1;
+  top: 1050px;
+  right: 600px;
+}
+
 .bubbles-gallery1 {
   position: absolute;
   left: 0;
@@ -44,6 +59,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 5;
 }
 
 .user-gallery-img {

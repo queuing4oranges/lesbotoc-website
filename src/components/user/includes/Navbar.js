@@ -7,6 +7,7 @@ export default function Navbar() {
       <div className="user-navbar-cont">
         <div className="user-navbar-symbols">
           <NavLink
+            className="user-nav-link"
             to={"/"}
             style={({ isActive }) => ({
               color: isActive ? "#eb5a49" : "#7ab6cb",
@@ -53,6 +54,7 @@ export default function Navbar() {
 
         <div className="navbar-links">
           <NavLink
+            className="user-nav-link"
             to={"/kalendar"}
             style={({ isActive }) => ({
               color: isActive ? "#eb5a49" : "#7ab6cb",
@@ -63,6 +65,7 @@ export default function Navbar() {
           </NavLink>
 
           <NavLink
+            className="user-nav-link"
             to={"/galerie"}
             style={({ isActive }) => ({
               color: isActive ? "#eb5a49" : "#7ab6cb",
@@ -73,6 +76,7 @@ export default function Navbar() {
           </NavLink>
 
           <NavLink
+            className="user-nav-link"
             to={"/about"}
             style={({ isActive }) => ({
               color: isActive ? "#eb5a49" : "#7ab6cb",
@@ -83,6 +87,7 @@ export default function Navbar() {
           </NavLink>
 
           <NavLink
+            className="user-nav-link"
             to={"/kontakt"}
             style={({ isActive }) => ({
               color: isActive ? "#eb5a49" : "#7ab6cb",
@@ -91,6 +96,17 @@ export default function Navbar() {
           >
             Kontakt
           </NavLink>
+
+          {/* <NavLink
+            className="user-nav-link"
+            to={"/eshop"}
+            style={({ isActive }) => ({
+              color: isActive ? "#eb5a49" : "#7ab6cb",
+              textDecoration: "none",
+            })}
+          >
+            E-Shop
+          </NavLink> */}
         </div>
       </div>
     </div>
