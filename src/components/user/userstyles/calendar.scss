@@ -34,7 +34,7 @@
 }
 
 .square-lesbotoc {
-  background-color: $lesbotoc;
+  background-color: $lesbotoc-dark;
 }
 
 .square-other {
@@ -64,4 +64,36 @@
   width: 200px;
   height: 200px;
   //   border: 1px green solid;
+  padding: 15px;
+  color: $user-beige-light;
+  text-align: start;
+}
+
+.cal-date-time-cont {
+  display: flex;
+  font-weight: 600;
+}
+
+.cal-date-time {
+  font-weight: 600;
+}
+
+.cal-name {
+  font-weight: 500;
+  font-size: 1.5em;
+}
+
+.cal-address-cont {
+  font-size: 0.8em;
+  display: flex;
+
+  & svg,
+  p {
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+}
+
+.calendar-event-link:hover {
+  text-decoration: none;
 }
