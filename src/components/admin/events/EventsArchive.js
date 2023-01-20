@@ -176,10 +176,13 @@ export default function EventsArchive() {
                         <EditEventModal
                           id={event.id}
                           data={data}
+                          setData={setData}
                           getEvents={getEvents}
                           setOpenModal={setOpenModal}
                           oneEventLoaded={oneArchiveEventLoaded}
                           setOneEventLoaded={setOneArchiveEventLoaded}
+                          success={success}
+                          setSuccess={setSuccess}
                         />
                       )}
 

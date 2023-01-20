@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { isRouteErrorResponse, useParams } from "react-router-dom";
 import axios from "axios";
 
 export default function SingleCalendarEvent() {
@@ -20,12 +20,20 @@ export default function SingleCalendarEvent() {
         setData(response.data);
         console.log(data);
         setOneEventLoaded(true);
+      })
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.response.data);
+        }
       });
   };
 
-  showEvent();
-
-  return <div>{data && <p>{data}</p>}</div>;
+  return (
+    <div>
+      <button onClick={() => showEvent()}>Get one event</button>
+      {data && <p>{data}</p>}
+    </div>
+  );
 }
 
 //   https://api.itisgoodtohave.me/events/single_read.php/78
