@@ -24,7 +24,6 @@ export default function EditEvent({
 
   //setting the default values for the form
   useEffect(() => {
-    getEvents();
     setId(data.id);
     setName(data.name);
     setDate(data.date);
@@ -55,6 +54,7 @@ export default function EditEvent({
       .then(function (response) {
         if (response.status === 200) {
           swal("YEAH BABY!", "You edited this event.", "success");
+          setSuccess(true);
         } else if (response.status === 500) {
           swal("Wellllllll...", "Something went wrong here.", "error");
         }
@@ -62,6 +62,7 @@ export default function EditEvent({
       .then(function () {
         setOneEventLoaded(false);
         getEvents();
+        setSuccess(true);
       });
     setOpenModal(false);
   };
