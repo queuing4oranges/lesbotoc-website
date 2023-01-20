@@ -29,12 +29,10 @@ export default function Calendar() {
       });
   };
 
-  // const userName = document.getElementsByClassName("user-event-name");
-  // console.log(userName);
-
   return (
-    <div className="user-calendar-container">
+    <div className="user-container">
       <Navbar />
+
       <div className="user-calendar-cont">
         <h2 className="user-title">Kalendář</h2>
 
@@ -62,9 +60,9 @@ export default function Calendar() {
                 key={key}
                 className="calendar-event-link"
                 to={`/kalendar/${event.id}`}
-                // to={"/kalendar/" + event.id}
               >
                 <div
+                  className="user-single-event"
                   style={{
                     backgroundColor:
                       // later change event.name to event.type or something here
@@ -75,8 +73,8 @@ export default function Calendar() {
                         : event.name === "Other Event"
                         ? "#A5B8BC"
                         : "#4d8eb5",
+                    boxShadow: "3px 3px 3px 0px rgba(0, 0, 0, 0.3)",
                   }}
-                  className="user-single-event"
                 >
                   <div className="cal-name">
                     <p>{event.name}</p>

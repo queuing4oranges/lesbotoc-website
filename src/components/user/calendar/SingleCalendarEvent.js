@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { isRouteErrorResponse, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
+import BubbleGrid6x7 from "../includes/BubbleGrid6x7";
 
 export default function SingleCalendarEvent() {
   const [data, setData] = useState([]);
@@ -9,9 +10,9 @@ export default function SingleCalendarEvent() {
   const { id } = useParams();
   console.log(id);
 
-  //   useEffect(() => {
-  //     showEvent();
-  //   }, []);
+  useEffect(() => {
+    showEvent(id);
+  }, []);
 
   const showEvent = (id) => {
     axios
@@ -30,8 +31,38 @@ export default function SingleCalendarEvent() {
 
   return (
     <div>
-      <button onClick={() => showEvent()}>Get one event</button>
-      {data && <p>{data}</p>}
+      {oneEventLoaded && (
+        <div className="user-container">
+          <h2 className="user-title">{data.name}</h2>
+
+          <div className="single-cal-event-bg">
+            <div className="single-cal-event-left">
+              <div className="single-cal-event">
+                <p>{data.date}</p>
+              </div>
+              <div className="single-cal-event">
+                <p>{data.time}</p>
+              </div>
+              <div className="single-cal-event">
+                <p>{data.loc_name}</p>
+              </div>
+              <div className="single-cal-event">
+                <p>{data.loc_website}</p>
+              </div>
+              <div className="single-cal-event">
+                <p>{data.description}</p>
+              </div>
+              <button className="button btn sm">Back</button>
+            </div>
+
+            <div className="single-cal-event-right">
+              <img src="" alt="" />
+              <BubbleGrid6x7 color="#4d8eb5" />
+              <BubbleGrid6x7 color="#b84639" />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

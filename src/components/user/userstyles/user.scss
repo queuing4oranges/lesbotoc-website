@@ -12,6 +12,13 @@
   margin-bottom: 10vh;
 }
 
+.user-container {
+  background-color: #f5e2d3;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
 .user-paragraph {
   font-family: "Poppins", sans-serif, Arial, Helvetica, sans-serif;
   font-weight: 300;

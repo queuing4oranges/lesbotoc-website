@@ -1,14 +1,7 @@
-.user-calendar-container {
-  width: 100%;
-  background-color: #f5e2d3;
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-}
-
 .user-calendar-cont {
-  width: 80%;
+  width: fit-content;
   margin: auto;
+  position: relative;
 }
 
 .calendar-subtitle-cont {
@@ -94,6 +87,38 @@
   }
 }
 
+.user-single-event {
+  color: white;
+}
+
 .calendar-event-link:hover {
   text-decoration: none;
 }
+
+// .cal-name p {
+//   text-decoration: none;
+//   background: linear-gradient(to right, transparent, transparent),
+//     linear-gradient(
+//       to right,
+//       rgba(255, 0, 0, 1),
+//       rgba(255, 0, 180, 1),
+//       rgba(0, 100, 200, 1)
+//     );
+//   background-size: 100% 3px, 0 3px;
+//   background-position: 100% 100%, 0 100%;
+//   background-repeat: no-repeat;
+//   background-size: 500ms;
+// }
+
+// .cal-name p:hover {
+//   text-decoration: none;
+//   background-size: 0 3px, 100% 3px;
+// }
+
+.user-single-event:hover {
+  background-color: green;
+}
+
+/*----------------------------
+SingleCalenderEvent.js
+----------------------------*/

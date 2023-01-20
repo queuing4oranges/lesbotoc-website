@@ -25,7 +25,7 @@ export default function Gallery() {
   return (
     <div>
       <Navbar />
-      <div className="user-gallery-container">
+      <div className="user-container">
         <h2 className="user-title">Galerie</h2>
 
         <div className="box-gallery1">

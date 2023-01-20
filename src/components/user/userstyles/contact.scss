@@ -40,16 +40,19 @@
     & label {
       margin-left: 20px;
       margin-bottom: 0px;
-      color: #b84639;
+      color: #003243;
+      font-weight: 600;
     }
 
     & input {
       margin-left: 20px;
       margin-bottom: 25px;
+      filter: drop-shadow(3px 0px 3px $lesbotoc-dark);
     }
 
     & textarea {
       margin-left: 20px;
+      filter: drop-shadow(3px 0px 3px $lesbotoc-dark);
     }
   }
 }
@@ -108,6 +111,7 @@
   color: $dark-petrol;
   border-radius: 0px;
   width: 150px;
+  filter: drop-shadow(-1px 4px 3px $lesbotoc-dark);
 }
 
 .user-contact-grid {
