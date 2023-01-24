@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+}
+
+.home-card {
+  height: 200px;
+  background: $lesbotoc;
+  flex: 1;
+  transition: 0.3s;
+}
+
+.home-card:hover {
+  flex: 4;
+  background: $lesbotoc-dark;
+}

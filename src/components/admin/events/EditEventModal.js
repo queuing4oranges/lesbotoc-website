@@ -12,6 +12,10 @@ export default function EditEvent({
 }) {
   const [id, setId] = useState("");
   const [name, setName] = useState("");
+  const [eventType, setEventType] = useState("");
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
+  const [instructions, setInstructions] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [price, setPrice] = useState("");
@@ -26,6 +30,10 @@ export default function EditEvent({
   useEffect(() => {
     setId(data.id);
     setName(data.name);
+    setEventType(data.event_type);
+    setLatitude(data.latitude);
+    setLongitude(data.longitude);
+    setInstructions(data.instructions);
     setDate(data.date);
     setTime(data.time);
     setPrice(data.price);
@@ -42,6 +50,10 @@ export default function EditEvent({
       .put(`https://api.itisgoodtohave.me/events/update.php/${data.id}`, {
         name: name,
         loc_name: locationName,
+        event_type: eventType,
+        latitude: latitude,
+        longitude: longitude,
+        instructions: instructions,
         loc_address: locationAddress,
         loc_website: locationWebsite,
         date: date,
@@ -101,6 +113,23 @@ export default function EditEvent({
                       />
                     </div>
 
+                    <div className="edit-input-cont">
+                      <label htmlFor="event_type">Type of Event: *</label>
+                      <input
+                        className="edit-input event-input"
+                        name="event_type"
+                        type="text"
+                        defaultValue={data.event_type}
+                        onChange={(e) => setEventType(e.target.value)}
+                        list="typesEvents"
+                      />
+                      <datalist id="typesEvents">
+                        <option value="Lesbotoc Event"></option>
+                        <option value="Speed Dating"></option>
+                        <option value="Other Event"></option>
+                      </datalist>
+                    </div>
+
                     <div className="edit-date-time">
                       <div className="edit-input-cont">
                         <label htmlFor="date">Date: *</label>
@@ -150,9 +179,28 @@ export default function EditEvent({
                         />
                       </div>
                     </div>
-                    <span className="edit-event-span">
+                    {/* <span className="edit-event-span">
                       <p>* should not be empty</p>
-                    </span>
+                    </span> */}
+
+                    <div className="edit-input-cont">
+                      <label htmlFor="latitude">Latitude:</label>
+                      <input
+                        className="edit-input event input"
+                        name="latitude"
+                        defaultValue={data.latitude}
+                        onChange={(e) => setLatitude(e.target.value)}
+                      />
+                    </div>
+                    <div className="edit-input-cont">
+                      <label htmlFor="longitude">Longitude:</label>
+                      <input
+                        className="edit-input event input"
+                        name="longitude"
+                        defaultValue={data.longitude}
+                        onChange={(e) => setLongitude(e.target.value)}
+                      />
+                    </div>
                   </div>
 
                   <div className="edit-cont-top-right">
@@ -205,6 +253,16 @@ export default function EditEvent({
                 </div>
 
                 <div className="edit-cont-bottom">
+                  <div className="edit-input-cont instructions-cont">
+                    <label htmlFor="description">Instructions:</label>
+                    <textarea
+                      className="edit-input event-input"
+                      name="description"
+                      onChange={(e) => setInstructions(e.target.value)}
+                      defaultValue={data.instructions}
+                    />
+                  </div>
+
                   <div className="edit-input-cont description-cont">
                     <label htmlFor="description">Description:</label>
                     <textarea

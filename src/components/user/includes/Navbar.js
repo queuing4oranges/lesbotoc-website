@@ -19,7 +19,13 @@ export default function Navbar() {
               src="img/icons/lesbotoc-bubbles.png"
               alt=""
             />
-            <p className="logo-home">Home</p>
+            <p
+              className="logo-home"
+              style={{ fontFamily: "'Amatic SC', cursive", fontSize: "22px" }}
+            >
+              {" "}
+              Lesbotoč
+            </p>
           </NavLink>
 
           <a href="https://www.facebook.com/seznamsenatoci">

@@ -1,6 +1,7 @@
 .user-footer-container {
   background: $lesbotoc;
-  height: 40px;
+
+  height: 80px;
   z-index: 100;
 }
 
@@ -12,29 +13,14 @@
   justify-content: space-between;
   align-items: center;
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 14px;
   line-height: 24px;
-  color: $dark-petrol;
-}
-
-.user-footer-copyright {
-  width: 30%;
-  display: flex;
-  align-items: center;
-
-  & a {
-    color: $dark-petrol;
-  }
-
-  & p {
-    display: flex;
-    margin: 0;
-  }
+  color: $user-beige-light;
 }
 
 .user-footer-newsletter {
-  width: 30%;
+  width: 20%;
   display: flex;
   justify-content: space-between;
 
@@ -58,4 +44,24 @@
 
 .user-footer-social {
   padding-left: 50px;
+}
+
+.user-footer-copyright {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  & a {
+    color: $user-beige-light;
+  }
+
+  & p {
+    display: flex;
+    margin: 0;
+  }
+}
+
+.copyright-katja {
+  display: flex;
 }

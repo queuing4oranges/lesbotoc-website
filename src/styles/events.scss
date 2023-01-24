@@ -108,19 +108,37 @@
   margin: 20px;
 }
 
+.event-title-cont {
+  display: flex;
+  align-items: center;
+}
+
 .add-event-title {
   padding: 20px 20px 0 20px;
   align-self: flex-start;
 }
 
-.event-title {
+.event-title,
+.event-type {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 10px 0;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.event-title {
   & input {
     width: 250px;
-    font-weight: bold;
+    font-weight: 700;
+  }
+}
+
+.event-type {
+  & input,
+  label {
+    font-weight: 400;
+    margin-left: 25px;
   }
 }
 
@@ -131,12 +149,19 @@
   justify-content: space-between;
   & .venue-details-name,
   .venue-details-address,
-  .venue-details-website {
+  .venue-details-website,
+  .venue-details-latitude,
+  .venue-details-longitude,
+  .venue-details-instructions {
     width: 250px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+.venue-details-instructions textarea {
+  height: 70px;
 }
 
 .time-date {
@@ -204,10 +229,19 @@
   display: flex;
   flex-direction: column;
 
-  & label {
+  & label,
+  a {
     font-size: 0.8em;
     margin: 0;
     align-self: flex-start;
+  }
+
+  & label {
+    margin-top: 10px;
+  }
+  & a {
+    text-decoration: underline;
+    margin-top: 10px;
   }
 
   & input {
@@ -223,7 +257,9 @@
   display: none;
 }
 
-/*for mobiles*/
+/*-------------------------------
+FOR MOBILES
+-------------------------------*/
 @media (max-width: 600px) {
   //Events
   .events-cont-left {

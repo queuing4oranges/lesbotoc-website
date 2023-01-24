@@ -17,14 +17,11 @@ export default function Calendar() {
     axios
       .get("https://api.itisgoodtohave.me/events/read.php")
       .then(function (response) {
-        console.log(response);
         setEvents(response.data);
         setEventsLoaded(true);
-        console.log(events);
       })
       .catch(function (error) {
         if (error.response) {
-          console.log(error.response.data);
         }
       });
   };
@@ -68,18 +65,14 @@ export default function Calendar() {
                       // later change event.name to event.type or something here
                       //speed dating = red, other = grey, lesbotoc = lesbotoc color
 
-                      event.name === "Speed Dating"
+                      event.event_type === "Speed Dating"
                         ? "#ed7f71"
-                        : event.name === "Other Event"
+                        : event.event_type === "Other Event"
                         ? "#A5B8BC"
                         : "#4d8eb5",
                     boxShadow: "3px 3px 3px 0px rgba(0, 0, 0, 0.3)",
                   }}
                 >
-                  <div className="cal-name">
-                    <p>{event.name}</p>
-                  </div>
-
                   <div className="cal-date-time-cont">
                     {event.date === "0000-00-00" ? (
                       ""
@@ -91,6 +84,10 @@ export default function Calendar() {
                     )}
 
                     {event.time === "00:00:00" ? "" : event.time}
+                  </div>
+
+                  <div className="cal-name">
+                    <p>{event.name}</p>
                   </div>
 
                   <div className="cal-address-cont">
