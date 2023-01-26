@@ -1,5 +1,8 @@
 .user-navbar-container {
-  background-color: $user-beige-light;
+  background-color: $user-beige-dark;
+  box-shadow: 3px 2px 5px 0px rgba(122, 182, 203, 0.75);
+  // background-color: transparent;
+  // backdrop-filter: blur(10px);
   height: 40px;
   z-index: 100;
 }
@@ -7,7 +10,8 @@
 .user-navbar-cont {
   width: 90%;
   height: 100%;
-  background-color: $user-beige-light;
+  // background-color: transparent;
+  // backdrop-filter: blur(10px);
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -53,7 +57,7 @@
 .navbar-links {
   width: 40%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
@@ -73,6 +77,7 @@
 }
 .user-nav-link {
   border-bottom: 2px solid transparent;
+  margin-left: 20px;
 }
 
 .user-nav-link:hover {

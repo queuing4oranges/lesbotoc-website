@@ -27,7 +27,7 @@ export default function Calendar() {
   };
 
   return (
-    <div className="user-container">
+    <div className="user-container calendar-container">
       <Navbar />
 
       <div className="user-calendar-cont">

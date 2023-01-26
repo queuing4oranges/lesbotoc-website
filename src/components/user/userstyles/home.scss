@@ -1,15 +1,42 @@
-.container {
+.home-container {
   display: flex;
+  padding: 50px;
+  // min-width: 80%;
+  height: 100vh;
 }
 
 .home-card {
-  height: 200px;
+  height: 400px;
   background: $lesbotoc;
+  margin: 10px;
   flex: 1;
-  transition: 0.3s;
+  transition: 0.4s;
+  filter: grayscale(100%);
+  background-size: cover;
 }
 
 .home-card:hover {
-  flex: 4;
-  background: $lesbotoc-dark;
+  flex: 2;
+  // background: $lesbotoc-dark;
+  filter: none;
+  background-size: cover;
 }
+
+.home-card-images {
+  display: block;
+  max-width: 100%;
+  min-height: 100%;
+}
+
+.knizni-card {
+  background-image: url("../../../../public/img/home/book-club-min.jpg");
+}
+
+.deskovky-card {
+  background-image: url("../../../../public/img/home/deskovky-min.jpg");
+}
+
+.bowling-card {
+  background-image: url("../../../../public/img/home/bowling-min.jpg");
+}
+// public\img\home\book-club-min.jpg

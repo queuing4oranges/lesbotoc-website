@@ -46,7 +46,7 @@ export default function Newsletter() {
             Export Newsletter Subscribers
           </button>
         </CSVLink>
-        <a href="https://mailchimp.com/">
+        <a href="https://mailchimp.com/" target="_blank" rel="noreferrer">
           <button className="btn btn-info btn-news">Go to mailchimp</button>
         </a>
       </div>
