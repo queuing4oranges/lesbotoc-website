@@ -235,7 +235,12 @@ export default function SingleCalendarEvent() {
 
       <div className="gmaps-container">
         <div className="gmaps-cont">
-          <iframe id="iframeId" height="300px" width="50%"></iframe>
+          <iframe
+            loading="lazy"
+            id="iframeId"
+            height="300px"
+            width="50%"
+          ></iframe>
 
           <div className="gmaps-info">
             <div className="gmaps-address">

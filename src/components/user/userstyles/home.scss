@@ -1,12 +1,16 @@
 .home-container {
+  height: 100vh;
+  margin-top: -300px;
+}
+.home-cont {
   display: flex;
   padding: 50px;
   // min-width: 80%;
-  height: 100vh;
+  // height: 90vh;
 }
 
 .home-card {
-  height: 400px;
+  height: 350px;
   background: $lesbotoc;
   margin: 10px;
   flex: 1;
@@ -16,7 +20,7 @@
 }
 
 .home-card:hover {
-  flex: 2;
+  flex: 3;
   // background: $lesbotoc-dark;
   filter: none;
   background-size: cover;
@@ -39,4 +43,32 @@
 .bowling-card {
   background-image: url("../../../../public/img/home/bowling-min.jpg");
 }
-// public\img\home\book-club-min.jpg
+
+.music-card {
+  background-image: url("../../../../public/img/home/music-quiz-min.jpg");
+}
+
+.camp-card {
+  background-image: url("../../../../public/img/home/cottage-min.jpg");
+}
+
+.svarek-card {
+  background-image: url("../../../../public/img/home/svaracek-min.jpg");
+}
+
+.speed-card {
+  background-image: url("../../../../public/img/home/speed-dating-min.jpg");
+}
+
+.more-card {
+  //
+}
+
+.dynamic-home-title {
+  font-family: "Amatic SC", sans-serif, Arial, Helvetica, sans-serif;
+  color: $dark-petrol;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 4em;
+  animation: none;
+}

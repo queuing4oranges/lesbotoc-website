@@ -37,6 +37,7 @@ export default function About() {
       <div className="user-singles-cont">
         <div className="user-about member-mariana">
           <img
+            loading="lazy"
             src="/img/mariana_sq.png"
             alt="pictures of Mariana - Team Member"
           />
@@ -52,6 +53,7 @@ export default function About() {
 
         <div className="user-about member-eliska">
           <img
+            loading="lazy"
             src="/img/eliska_sq.png"
             alt="pictures of Eliska - Team Member"
           />
@@ -66,7 +68,11 @@ export default function About() {
         </div>
 
         <div className="user-about member-marta">
-          <img src="/img/marta_sq.png" alt="pictures of Marta - Team Member" />
+          <img
+            loading="lazy"
+            src="/img/marta_sq.png"
+            alt="pictures of Marta - Team Member"
+          />
           <p className="member-name">Marta</p>
           <p className="user-paragraph marta-intro">
             Lorem ipsum dolor sit amet. Et enim architecto ea reprehenderit
