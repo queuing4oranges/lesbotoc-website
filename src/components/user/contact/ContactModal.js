@@ -3,6 +3,7 @@ import React from "react";
 import BubbleGrid from "../includes/BubbleGrid";
 import Footer from "../includes/Footer";
 import Navbar from "../includes/Navbar";
+import SpeedDating from "../speeddating/SpeedDating";
 
 export default function ContactModal() {
   //mailchimp???
@@ -154,6 +155,9 @@ export default function ContactModal() {
           <BubbleGrid />
         </div>
       </div>
+
+      <SpeedDating />
+
       <Footer />
     </div>
   );

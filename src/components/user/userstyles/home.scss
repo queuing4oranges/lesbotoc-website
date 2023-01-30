@@ -14,15 +14,13 @@
   align-items: center;
   justify-content: center;
   padding: 25px;
-  margin-top: 20px;
+  margin-top: 120px;
 }
 .home-cont {
   width: 70vw;
   display: flex;
   padding: 25px;
   height: fit-content;
-  // min-width: 80%;
-  // height: 90vh;
 }
 
 .home-card {
@@ -75,6 +73,29 @@
   background-image: url("../../../../public/img/home/speed-dating-min.jpg");
 }
 
+.home-cont a {
+  display: flex;
+  align-items: flex-end;
+  writing-mode: vertical-rl;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.more-card {
+  height: 50%;
+  width: 100%;
+  background-color: $lesbotoc;
+  color: $user-beige-light;
+  filter: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1em;
+}
+
 .dynamic-title-cont {
   display: flex;
   justify-content: flex-end;
@@ -89,10 +110,15 @@
   text-transform: uppercase;
   font-weight: 700;
   font-size: 3em;
-  // padding-right: 5%;
-  // width: 70%;
 }
 
+.logo-cont-text {
+  color: $dark-petrol;
+}
+
+/*----------------------------
+animations
+----------------------------*/
 .logo-cont-logo {
   -webkit-animation: swirl-in-fwd 0.6s ease-out both;
   animation: swirl-in-fwd 0.6s ease-out both;

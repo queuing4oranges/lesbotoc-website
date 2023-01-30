@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../includes/Footer";
 import Navbar from "../includes/Navbar";
 
 export default function Home() {
+  useEffect(() => {
+    resetTitle();
+  }, []);
+
   const resetTitle = () => {
     document.getElementById("dynamic-home-title").innerHTML = "";
   };
@@ -124,15 +128,30 @@ export default function Home() {
             }
             onMouseLeave={() => resetTitle()}
           ></div>
-          {/* <div className="home-card more-card">
-            <Link to={"/kalendar"}>Kam vyrazit?</Link>
-          </div> */}
+
+          <Link to={"/kalendar"}>
+            <div className="home-card more-card">ENTER</div>
+          </Link>
         </div>{" "}
       </div>
       <div className="dynamic-title-cont">
-        <h3 className="dynamic-home-title" id="dynamic-home-title"></h3>
+        <p className="dynamic-home-title" id="dynamic-home-title"></p>
       </div>
-      {/* <Footer /> */}
+
+      {/* <section className="section-cont book-section">
+        <div className="sec-text-cont"><p>Knižní Klub</p></div>
+        <div className="sec-pic-cont"><img src="" alt="" /></div>
+      </section>
+
+
+      <section className="section-cont deskovky-section"></section>
+      <section className="section-cont bowling-section"></section>
+      <section className="section-cont music-section"></section>
+      <section className="section-cont camp-section"></section>
+      <section className="section-cont svarak-section"></section>
+      <section className="section-cont dating-section"></section> */}
+
+      <Footer />
     </div>
   );
 }

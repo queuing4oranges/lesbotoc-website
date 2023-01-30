@@ -97,7 +97,7 @@ export default function Navbar() {
               textDecoration: "none",
             })}
           >
-            About
+            O nás
           </NavLink>
 
           <NavLink
