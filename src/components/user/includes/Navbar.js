@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export default function Navbar() {
   return (
     <div className="user-navbar-container sticky">
-      <div className="user-navbar-cont">
+      <div className="user-navbar-cont" id="user-navbar-container">
         <div className="user-navbar-symbols">
           <NavLink
             className="user-nav-link"

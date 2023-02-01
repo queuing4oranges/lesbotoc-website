@@ -156,8 +156,6 @@ export default function ContactModal() {
         </div>
       </div>
 
-      <SpeedDating />
-
       <Footer />
     </div>
   );
