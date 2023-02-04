@@ -4,6 +4,7 @@ import Footer from "../includes/Footer";
 import axios from "axios";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
+import bgImage from "../../../assets/pride-flag-house-bg.png";
 
 export default function Calendar() {
   const [events, setEvents] = useState([]);
@@ -27,7 +28,10 @@ export default function Calendar() {
   };
 
   return (
-    <div className="user-container calendar-container">
+    <div
+      style={{ backgroundImage: `url(${bgImage})` }}
+      className="user-container calendar-container"
+    >
       <Navbar />
 
       <div className="user-calendar-cont">
@@ -62,9 +66,6 @@ export default function Calendar() {
                   className="user-single-event"
                   style={{
                     backgroundColor:
-                      // later change event.name to event.type or something here
-                      //speed dating = red, other = grey, lesbotoc = lesbotoc color
-
                       event.event_type === "Speed Dating"
                         ? "#ed7f71"
                         : event.event_type === "Other Event"

@@ -2,6 +2,10 @@ import React from "react";
 import BubbleGrid from "../includes/BubbleGrid";
 import Footer from "../includes/Footer";
 import Navbar from "../includes/Navbar";
+import team from "../../../assets/team2.jpg";
+import mariana from "../../../assets/mariana.png";
+import eliska from "../../../assets/eliska.png";
+import marta from "../../../assets/marta.png";
 
 export default function About() {
   return (
@@ -10,7 +14,7 @@ export default function About() {
       <div className="user-about-cont">
         <h2 className="user-title">To jsme my</h2>
         <img
-          src="img/Team2-min.jpg"
+          src={team}
           alt="3 women from lesbotoč"
           className="user-about-img"
         />
@@ -36,11 +40,7 @@ export default function About() {
 
       <div className="user-singles-cont">
         <div className="user-about member-mariana">
-          <img
-            loading="lazy"
-            src="/img/mariana_sq.png"
-            alt="pictures of Mariana - Team Member"
-          />
+          <img loading="lazy" src={mariana} alt="Mariana - Team Member" />
           <p className="member-name">Mariana</p>
           <p className="user-paragraph mariana-intro">
             Lorem ipsum dolor sit amet. Et enim architecto ea reprehenderit
@@ -52,11 +52,7 @@ export default function About() {
         </div>
 
         <div className="user-about member-eliska">
-          <img
-            loading="lazy"
-            src="/img/eliska_sq.png"
-            alt="pictures of Eliska - Team Member"
-          />
+          <img loading="lazy" src={eliska} alt="Eliska - Team Member" />
           <p className="member-name">Eliška</p>
           <p className="user-paragraph eliska-intro">
             Lorem ipsum dolor sit amet. Et enim architecto ea reprehenderit
@@ -68,11 +64,7 @@ export default function About() {
         </div>
 
         <div className="user-about member-marta">
-          <img
-            loading="lazy"
-            src="/img/marta_sq.png"
-            alt="pictures of Marta - Team Member"
-          />
+          <img loading="lazy" src={marta} alt="Marta - Team Member" />
           <p className="member-name">Marta</p>
           <p className="user-paragraph marta-intro">
             Lorem ipsum dolor sit amet. Et enim architecto ea reprehenderit

@@ -22,7 +22,6 @@ export default function EventsArchive() {
     axios
       .get("https://api.itisgoodtohave.me/events/read.php")
       .then(function (response) {
-        console.log(response);
         setEvents(response.data);
         setEventsLoaded(true);
       })
@@ -174,15 +173,11 @@ export default function EventsArchive() {
 
                       {openModal && (
                         <EditEventModal
-                          id={event.id}
                           data={data}
-                          setData={setData}
                           getEvents={getEvents}
                           setOpenModal={setOpenModal}
                           oneEventLoaded={oneArchiveEventLoaded}
                           setOneEventLoaded={setOneArchiveEventLoaded}
-                          success={success}
-                          setSuccess={setSuccess}
                         />
                       )}
 

@@ -21,7 +21,6 @@ export default function SingleCalendarEvent() {
   useEffect(() => {
     const lat = data.latitude;
     const lon = data.longitude;
-    console.log(lat, lon);
     const iframeData = document.getElementById("iframeId");
     iframeData.src = `https://maps.google.com/maps?q=${lat},${lon}&hl=es;&output=embed`;
   });
@@ -35,7 +34,6 @@ export default function SingleCalendarEvent() {
       .get(`https://api.itisgoodtohave.me/events/single_read.php/${id}`)
       .then(function (response) {
         setData(response.data);
-        console.log(data);
         setOneEventLoaded(true);
       })
       .catch(function (error) {
@@ -280,7 +278,6 @@ export default function SingleCalendarEvent() {
           date={data.date}
           time={data.time}
           location={data.loc_name}
-          showMod={showMod}
           setShowMod={setShowMod}
         />
       )}
@@ -288,5 +285,3 @@ export default function SingleCalendarEvent() {
     </div>
   );
 }
-
-// Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque id fuga illum dignissimos facilis earum vero ipsum expedita voluptatum magnam. Temporibus nulla hic sed sapiente quis, architecto aliquam minima ratione.

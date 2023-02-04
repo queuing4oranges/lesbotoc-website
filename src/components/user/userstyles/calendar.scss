@@ -4,10 +4,6 @@
   position: relative;
 }
 
-.calendar-container {
-  background-image: url("../../../../public/img/wall-flag-opaq.png");
-}
-
 .calendar-subtitle-cont {
   display: flex;
   width: 50vw;
@@ -69,9 +65,6 @@
 .cal-date-time-cont {
   display: flex;
   font-weight: 600;
-  // position: absolute;
-  // left: 20px;
-  // top: 130px;
 }
 
 .cal-date-time {
@@ -102,100 +95,8 @@
 }
 
 .user-single-event:hover {
-  // opacity: 0.9;
   color: $dark-petrol;
 }
-
-/*----------------------------
-animations
-----------------------------*/
-
-// animation over single event card in calendar
-
-// .user-single-event:hover {
-//   -webkit-animation: wobble-hor-bottom 1s cubic-bezier(0.445, 0.05, 0.55, 0.95)
-//     both;
-//   animation: wobble-hor-bottom 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) both;
-// }
-
-// @-webkit-keyframes wobble-hor-bottom {
-//   0%,
-//   100% {
-//     -webkit-transform: translateX(0%);
-//     transform: translateX(0%);
-//     -webkit-transform-origin: 50% 50%;
-//     transform-origin: 50% 50%;
-//   }
-//   15% {
-//     -webkit-transform: translateX(-30px) rotate(-6deg);
-//     transform: translateX(-30px) rotate(-6deg);
-//   }
-//   30% {
-//     -webkit-transform: translateX(15px) rotate(6deg);
-//     transform: translateX(15px) rotate(6deg);
-//   }
-//   45% {
-//     -webkit-transform: translateX(-15px) rotate(-3.6deg);
-//     transform: translateX(-15px) rotate(-3.6deg);
-//   }
-//   60% {
-//     -webkit-transform: translateX(9px) rotate(2.4deg);
-//     transform: translateX(9px) rotate(2.4deg);
-//   }
-//   75% {
-//     -webkit-transform: translateX(-6px) rotate(-1.2deg);
-//     transform: translateX(-6px) rotate(-1.2deg);
-//   }
-// }
-// @keyframes wobble-hor-bottom {
-//   0%,
-//   100% {
-//     -webkit-transform: translateX(0%);
-//     transform: translateX(0%);
-//     -webkit-transform-origin: 50% 50%;
-//     transform-origin: 50% 50%;
-//   }
-//   15% {
-//     -webkit-transform: translateX(-30px) rotate(-6deg);
-//     transform: translateX(-30px) rotate(-6deg);
-//   }
-//   30% {
-//     -webkit-transform: translateX(15px) rotate(6deg);
-//     transform: translateX(15px) rotate(6deg);
-//   }
-//   45% {
-//     -webkit-transform: translateX(-15px) rotate(-3.6deg);
-//     transform: translateX(-15px) rotate(-3.6deg);
-//   }
-//   60% {
-//     -webkit-transform: translateX(9px) rotate(2.4deg);
-//     transform: translateX(9px) rotate(2.4deg);
-//   }
-//   75% {
-//     -webkit-transform: translateX(-6px) rotate(-1.2deg);
-//     transform: translateX(-6px) rotate(-1.2deg);
-//   }
-// }
-
-// .cal-name p {
-//   text-decoration: none;
-//   background: linear-gradient(to right, transparent, transparent),
-//     linear-gradient(
-//       to right,
-//       rgba(255, 0, 0, 1),
-//       rgba(255, 0, 180, 1),
-//       rgba(0, 100, 200, 1)
-//     );
-//   background-size: 100% 3px, 0 3px;
-//   background-position: 100% 100%, 0 100%;
-//   background-repeat: no-repeat;
-//   background-size: 500ms;
-// }
-
-// .cal-name p:hover {
-//   text-decoration: none;
-//   background-size: 0 3px, 100% 3px;
-// }
 
 /*----------------------------
 SingleCalenderEvent.js
@@ -205,7 +106,6 @@ SingleCalenderEvent.js
   position: relative;
   width: 100%;
   height: fit-content;
-  // background-color: #7ab6cb40;
   background-size: cover;
   padding-bottom: 30px;
   margin-bottom: 200px;
@@ -213,7 +113,7 @@ SingleCalenderEvent.js
 
 .single-cal-event-bg::before {
   content: "";
-  background-image: url("../../../../public/img/cafe-above-min.jpg");
+  background-image: url("../../../assets/cafe-above.jpg");
   background-size: cover;
   opacity: 0.15;
   position: absolute;
@@ -235,8 +135,6 @@ SingleCalenderEvent.js
 }
 
 .single-cal-event-left {
-  // border: 2px red solid;
-  // background-color: $user-beige-dark;
   background-color: $light-blue;
   z-index: 2;
   width: 50%;
@@ -244,7 +142,6 @@ SingleCalenderEvent.js
 }
 
 .single-cal-event-right {
-  // border: 2px green solid;
   width: 50%;
   position: relative;
   min-height: fit-content;
@@ -334,7 +231,6 @@ SingleCalenderEvent.js
 
 .gmaps-container {
   background-color: $user-beige-dark;
-  // border: 1px red solid;
   margin-bottom: 60px;
   background-color: #7ab6cb40;
 
@@ -373,14 +269,12 @@ SingleCalenderEvent.js
 }
 
 .gmaps-info {
-  // border: 1px white solid;
   display: flex;
   flex-direction: column;
   padding: 20px 60px;
   width: 50%;
 
   & .gmaps-address {
-    // border: green 1px solid;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -398,7 +292,6 @@ SingleCalenderEvent.js
 }
 
 .gmaps-instructions {
-  // border: 1px black solid;
   text-align: left;
   margin-top: 20px;
 }

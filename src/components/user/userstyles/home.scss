@@ -46,36 +46,26 @@
 }
 
 .knizni-card {
-  background-image: url("../../../../public/img/home/book-club-min.jpg");
   margin-top: 50px;
 }
 
 .deskovky-card {
-  background-image: url("../../../../public/img/home/deskovky-min.jpg");
   margin-top: 25px;
 }
 
 .bowling-card {
-  background-image: url("../../../../public/img/home/bowling-min.jpg");
   margin-top: 75px;
 }
 
-.music-card {
-  background-image: url("../../../../public/img/home/music-quiz-min.jpg");
-}
-
 .camp-card {
-  background-image: url("../../../../public/img/home/cottage-min.jpg");
   margin-top: 25px;
 }
 
-.svarek-card {
-  background-image: url("../../../../public/img/home/svaracek-min.jpg");
+.svarak-card {
   margin-top: 50px;
 }
 
 .speed-card {
-  background-image: url("../../../../public/img/home/speed-dating-min.jpg");
   margin-top: 25px;
 }
 
@@ -157,9 +147,8 @@ animations
 }
 
 .logo-cont-text {
-  -webkit-animation: slide-right 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s
-    both;
-  animation: slide-right 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
+  -webkit-animation: slide-right 0.6s 0.6s both;
+  animation: slide-right 0.6s 0.6s both;
 }
 
 @-webkit-keyframes slide-right {

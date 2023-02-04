@@ -1,13 +1,13 @@
-import React, { useEffect, useState, Fragment } from 'react';
-import axios from 'axios';
-import AddContact from './AddContact';
-import Searchbar from '../Searchbar';
-import AdminNavbar from '../AdminNavbar';
-import EditModal from './EditModal';
+import React, { useEffect, useState, Fragment } from "react";
+import axios from "axios";
+import AddContact from "./AddContact";
+import Searchbar from "../Searchbar";
+import AdminNavbar from "../AdminNavbar";
+import EditModal from "./EditModal";
 import swal from "sweetalert";
 import Moment from "react-moment";
-import { CSVLink } from 'react-csv';
-import ReportBug from '../../includes/ReportBug';
+import { CSVLink } from "react-csv";
+import ReportBug from "../../includes/ReportBug";
 
 export default function ContactsList() {
   const [filteredData, setFilteredData] = useState([]);
@@ -19,15 +19,16 @@ export default function ContactsList() {
   const [successMsg, setSuccessMsg] = useState("");
   const [formError, setFormError] = useState(null);
   const [inputs, setInputs] = useState({
-    newsletter : false, 
+    newsletter: false,
     name: "",
     wherefrom: "",
     email: "",
     phone: "",
   });
   const [show, setShow] = useState(false);
-  const [data, setData] = useState({  //uncontrolled-controlled issue
-    newsletter : false, 
+  const [data, setData] = useState({
+    //uncontrolled-controlled issue
+    newsletter: false,
     name: "",
     wherefrom: "",
     email: "",
@@ -36,38 +37,43 @@ export default function ContactsList() {
 
   useEffect(() => {
     getContacts();
-  }, [contactsLoaded])  
+  }, [contactsLoaded]);
 
   const getContacts = () => {
-    axios.get('https://api.itisgoodtohave.me/contacts/read.php')
-    .then(function(response) {
-      setContacts(response.data);
-      setContactsLoaded(true);
-    })
+    axios
+      .get("https://api.itisgoodtohave.me/contacts/read.php")
+      .then(function (response) {
+        setContacts(response.data);
+        setContactsLoaded(true);
+      });
     setSuccessMsg("");
-  }
+  };
 
   const deleteContact = (id) => {
     swal({
-      title: "Sure?", 
-      text: "Do you REALLY want to delete this precious contact?", 
-      icon: "warning", 
+      title: "Sure?",
+      text: "Do you REALLY want to delete this precious contact?",
+      icon: "warning",
       dangerMode: true,
-    })
-    .then(willDelete => {
-      if(willDelete) {
-        axios.delete(`https://api.itisgoodtohave.me/contacts/delete.php/${id}`)
-        .then(function(response) {
-          if (response.status === 200) {
-            swal("Deleted!", "It will never bother you again. Promised.", "success");
-            setContactsLoaded(false);
-          } else if (response.status === 500) {
-            swal("Wellllllll...", "Something went wrong here.", "error");
-          } 
-        })
+    }).then((willDelete) => {
+      if (willDelete) {
+        axios
+          .delete(`https://api.itisgoodtohave.me/contacts/delete.php/${id}`)
+          .then(function (response) {
+            if (response.status === 200) {
+              swal(
+                "Deleted!",
+                "It will never bother you again. Promised.",
+                "success"
+              );
+              setContactsLoaded(false);
+            } else if (response.status === 500) {
+              swal("Wellllllll...", "Something went wrong here.", "error");
+            }
+          });
       }
-    })
-  }
+    });
+  };
 
   //opening and closing modal + changing button text
   const toggleAddField = () => {
@@ -75,21 +81,21 @@ export default function ContactsList() {
       setAddField(false);
       setButtonText("New Contact");
       emptyInputs();
-      } else {
-        setFormError(null);
-        setAddField(true);
-        setButtonText("Cancel");
-        emptyInputs();
-      }  
-      getContacts();   
-      setContactsLoaded(false);
-  }
+    } else {
+      setFormError(null);
+      setAddField(true);
+      setButtonText("Cancel");
+      emptyInputs();
+    }
+    getContacts();
+    setContactsLoaded(false);
+  };
 
   const emptyInputs = () => {
     //empty input field
     let elements = document.querySelectorAll(".input-item");
-    elements.forEach((element) =>{
-    element.value = "";
+    elements.forEach((element) => {
+      element.value = "";
     });
     //empty inputs
     setInputs({
@@ -97,152 +103,191 @@ export default function ContactsList() {
       wherefrom: "",
       email: "",
       phone: "",
-      newsletter : false, //default value of newsletter
-     });
-  }
+      newsletter: false, //default value of newsletter
+    });
+  };
 
   const showContact = (id) => {
     // handleScrollPosition()
     setShow(true);
-    axios.get(`https://api.itisgoodtohave.me/contacts/single_read.php/${id}`)  
-    .then(function(response) {
-      setData(response.data);
-      setContactsLoaded(true);
-    });
-  }
+    axios
+      .get(`https://api.itisgoodtohave.me/contacts/single_read.php/${id}`)
+      .then(function (response) {
+        setData(response.data);
+        setContactsLoaded(true);
+      });
+  };
 
-  const closeModal =() => {
+  const closeModal = () => {
     setShow(false);
     setContactsLoaded(false);
-  }
-
-
+  };
 
   return (
     <Fragment>
+      <AdminNavbar />
 
-    <AdminNavbar />
-            
-    <h3 className="admin-page-title">Contacts</h3>
-    {successMsg && <p className="alert alert-success alert" >{successMsg}</p>}  
-    <div className="table__container-top">
-
-{/* Searchbar */}
-      <div  className="searchbar-cont">
-        <Searchbar 
-        nameInput={nameInput} 
-        setNameInput={setNameInput} 
-        filteredData={filteredData} 
-        setFilteredData={setFilteredData} 
-        id={contacts.id} 
-        deleteContact={deleteContact} 
-        setSuccessMsg={setSuccessMsg} 
-        showContact={showContact}  
-        placeholder="Enter a contact..." 
-        contacts={contacts}/>
-      </div>
-
-      <div className="add-contact-btn-cont">
-        <button onClick={toggleAddField} className="btn btn-success btn-create btn-sm">{buttonText}</button>
-        <CSVLink data={contacts} filename="lesbotoč_contacts"><button className="btn btn-info btn-create btn-export btn-sm">Export Data</button></CSVLink> 
-      </div>
-
-
-{/* Adding a contact */}
-      <div className="create-cont">
-        <div className={addField ? "show" : "hide"}>
-          {formError && <p className="alert alert-danger alert-message">{formError}</p>}
-          <AddContact 
-          setAddField={setAddField} 
-          emptyInputs={emptyInputs} 
-          toggleAddField={toggleAddField} 
-          setSuccessMsg={setSuccessMsg}
-          setButtonText={setButtonText}
-          setFormError={setFormError}
-          setInputs={setInputs}
-          inputs={inputs}
+      <h3 className="admin-page-title">Contacts</h3>
+      {successMsg && <p className="alert alert-success alert">{successMsg}</p>}
+      <div className="table__container-top">
+        {/* Searchbar */}
+        <div className="searchbar-cont">
+          <Searchbar
+            placeholder="Enter a contact..."
+            contacts={contacts}
+            showContact={showContact}
+            setSuccessMsg={setSuccessMsg}
+            filteredData={filteredData}
+            setFilteredData={setFilteredData}
+            nameInput={nameInput}
+            setNameInput={setNameInput}
           />
         </div>
-      </div>
 
-{/* List of contacts */}
-    </div>
-    {contactsLoaded &&
-    
-    <div className="table__container-bottom">
-          
-          <table 
-          className="table table-sm table-bordered contacts__table table-hover"
-          id="contacts-table" 
+        <div className="add-contact-btn-cont">
+          <button
+            onClick={toggleAddField}
+            className="btn btn-success btn-create btn-sm"
           >
-           
+            {buttonText}
+          </button>
+          <CSVLink data={contacts} filename="lesbotoč_contacts">
+            <button className="btn btn-info btn-create btn-export btn-sm">
+              Export Data
+            </button>
+          </CSVLink>
+        </div>
+
+        {/* Adding a contact */}
+        <div className="create-cont">
+          <div className={addField ? "show" : "hide"}>
+            {formError && (
+              <p className="alert alert-danger alert-message">{formError}</p>
+            )}
+            <AddContact
+              toggleAddField={toggleAddField}
+              setAddField={setAddField}
+              setFormError={setFormError}
+              setInputs={setInputs}
+              inputs={inputs}
+              emptyInputs={emptyInputs}
+            />
+          </div>
+        </div>
+
+        {/* List of contacts */}
+      </div>
+      {contactsLoaded && (
+        <div className="table__container-bottom">
+          <table
+            className="table table-sm table-bordered contacts__table table-hover"
+            id="contacts-table"
+          >
             <thead>
               <tr className="table-hr">
-              <th scope="col">Name</th>
-              <th scope="col" className="col-wherefrom">Where from?</th>
-              <th scope="col" className="col-email">Email</th>
-              <th scope="col">Phone</th>
-              <th scope="col" className="col-newsletter">Newsletter</th>
-              <th scope="col" className="col-age">Age</th>
-              <th scope="col" className="col-updated">Updated</th>
-              <th scope="col" className="col-edit">Edit / Delete</th>
+                <th scope="col">Name</th>
+                <th scope="col" className="col-wherefrom">
+                  Where from?
+                </th>
+                <th scope="col" className="col-email">
+                  Email
+                </th>
+                <th scope="col">Phone</th>
+                <th scope="col" className="col-newsletter">
+                  Newsletter
+                </th>
+                <th scope="col" className="col-age">
+                  Age
+                </th>
+                <th scope="col" className="col-updated">
+                  Updated
+                </th>
+                <th scope="col" className="col-edit">
+                  Edit / Delete
+                </th>
               </tr>
             </thead>
 
             <tbody className="table-body table-body-contacts">
               {contacts.map((contact, key) => (
-              <tr className="table-row" key={key}>   
-              <td className="td td-name">{contact.name}</td>
-              <td className="td td-wherefrom">{contact.wherefrom}</td>
-              <td className="td td-email">{contact.email}</td>
-              <td className="td td-phone">{contact.phone}</td>
-              <td className="td td-newsletter">{(contact.newsletter === 0) ? "no" : "yes"}</td>
-              <td className="td td-age">{contact.age}</td>
-              <td className="td td-updated">{(!contact.updated_at) ? "" : <Moment format="D. MMMM YYYY">{contact.updated_at}</Moment> }</td>
-              <td className="td td-crud">
-              
-{/* Editing a contact */}
+                <tr className="table-row" key={key}>
+                  <td className="td td-name">{contact.name}</td>
+                  <td className="td td-wherefrom">{contact.wherefrom}</td>
+                  <td className="td td-email">{contact.email}</td>
+                  <td className="td td-phone">{contact.phone}</td>
+                  <td className="td td-newsletter">
+                    {contact.newsletter === 0 ? "no" : "yes"}
+                  </td>
+                  <td className="td td-age">{contact.age}</td>
+                  <td className="td td-updated">
+                    {!contact.updated_at ? (
+                      ""
+                    ) : (
+                      <Moment format="D. MMMM YYYY">
+                        {contact.updated_at}
+                      </Moment>
+                    )}
+                  </td>
+                  <td className="td td-crud">
+                    {/* Editing a contact */}
 
-              <button 
-              onClick={() =>showContact(contact.id)} 
-              type="button" 
-              className="btn btn-sm pencil-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" className="bi bi-pencil pencil-item" viewBox="0 0 16 16">
-                  <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-                </svg>
-            </button>
-            
-                {show && 
-                <EditModal 
-                show={show}
-                setShow={setShow}
-                closeModal={closeModal}
-                data={data}
-                id={contact.id}                 
-                setFilteredData={setFilteredData}
-                setNameInput={setNameInput} 
-                />
-                }
+                    <button
+                      onClick={() => showContact(contact.id)}
+                      type="button"
+                      className="btn btn-sm pencil-item"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="10"
+                        height="10"
+                        fill="currentColor"
+                        className="bi bi-pencil pencil-item"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                      </svg>
+                    </button>
 
+                    {show && (
+                      <EditModal
+                        show={show}
+                        setShow={setShow}
+                        closeModal={closeModal}
+                        data={data}
+                        setFilteredData={setFilteredData}
+                        setNameInput={setNameInput}
+                      />
+                    )}
 
-{/* Deleting a contact */}
-                <button type="button" className="btn btn-danger btn-sm trash-item" onClick={() =>deleteContact(contact.id)}><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" className="bi bi-trash trash-item" viewBox="0 0 16 16">
-                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                </svg>
-                </button>
-                </td>
-              </tr>
+                    {/* Deleting a contact */}
+                    <button
+                      type="button"
+                      className="btn btn-danger btn-sm trash-item"
+                      onClick={() => deleteContact(contact.id)}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="10"
+                        height="10"
+                        fill="currentColor"
+                        className="bi bi-trash trash-item"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                        <path
+                          fillRule="evenodd"
+                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                        />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
               ))}
             </tbody>
-
           </table>
-    </div>
-    }
-
-    <ReportBug/> 
-
+        </div>
+      )}
+      <ReportBug />
     </Fragment>
-  )
+  );
 }
-

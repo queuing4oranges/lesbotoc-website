@@ -1,8 +1,6 @@
 .user-navbar-container {
   background-color: $user-beige-dark;
-  box-shadow: 3px 2px 5px 0px rgba(122, 182, 203, 0.75);
-  // background-color: transparent;
-  // backdrop-filter: blur(10px);
+  box-shadow: 1px 1px 3px 0px rgba(122, 182, 203, 0.75);
   height: 40px;
   z-index: 100;
 }
@@ -10,8 +8,6 @@
 .user-navbar-cont {
   width: 90%;
   height: 100%;
-  // background-color: transparent;
-  // backdrop-filter: blur(10px);
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -63,7 +59,6 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 25px;
-  // color: $dark-petrol;
 }
 
 .user-navbar-fb,

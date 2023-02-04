@@ -14,7 +14,6 @@ export default function BubbleGrid(props) {
     for (let i = 1; i < 22; i++) {
       bubbleArr.push(i);
     }
-    console.log(bubbleArr);
     //setting bubbles to number array 1-21
     setBubbles(bubbleArr);
   };

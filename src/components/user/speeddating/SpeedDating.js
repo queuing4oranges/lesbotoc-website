@@ -1,13 +1,7 @@
 import React from "react";
 import Moment from "react-moment";
 
-export default function SpeedDating({
-  date,
-  time,
-  location,
-  showMod,
-  setShowMod,
-}) {
+export default function SpeedDating({ date, time, location, setShowMod }) {
   return (
     <div className="user-container">
       <div className="speed-container">

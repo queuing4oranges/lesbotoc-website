@@ -20,7 +20,6 @@ function App() {
       <BrowserRouter basename="/">
         <Routes>
           <Route exact path="/" element={<Home />} />
-          {/* <Route path="/event" element={<SingleEvent/>}/> */}
           <Route path="/galerie" element={<Gallery />} />
           <Route path="/kalendar" element={<Calendar />} />
           <Route path="/kalendar/:id" element={<SingleCalendarEvent />} />

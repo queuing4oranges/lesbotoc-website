@@ -3,21 +3,8 @@ import React from "react";
 import BubbleGrid from "../includes/BubbleGrid";
 import Footer from "../includes/Footer";
 import Navbar from "../includes/Navbar";
-import SpeedDating from "../speeddating/SpeedDating";
 
 export default function ContactModal() {
-  //mailchimp???
-  // const sendEnquiry = (e) => {
-  //   e.preventDefault();
-
-  //   emailjs.sendForm(
-  //     serviceId2,
-  //     tempateId2,
-  //     form.current,
-  //     publickKey2)
-  //     .then
-  //   )
-  // }
   return (
     <div className="user-contact-container">
       <Navbar />

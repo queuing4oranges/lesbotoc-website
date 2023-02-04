@@ -10,7 +10,6 @@ export default function EditEvent({
   oneEventLoaded,
   setOneEventLoaded,
 }) {
-  const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [eventType, setEventType] = useState("");
   const [latitude, setLatitude] = useState("");
@@ -28,7 +27,6 @@ export default function EditEvent({
 
   //setting the default values for the form
   useEffect(() => {
-    setId(data.id);
     setName(data.name);
     setEventType(data.event_type);
     setLatitude(data.latitude);
@@ -179,9 +177,6 @@ export default function EditEvent({
                         />
                       </div>
                     </div>
-                    {/* <span className="edit-event-span">
-                      <p>* should not be empty</p>
-                    </span> */}
 
                     <div className="edit-input-cont">
                       <label htmlFor="latitude">Latitude:</label>

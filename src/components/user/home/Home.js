@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../includes/Footer";
-import Navbar from "../includes/Navbar";
+import books from "../../../assets/book-club.jpg";
+import bowling from "../../../assets/bowling.jpg";
+import camp from "../../../assets/camp.jpg";
+import deskovky from "../../../assets/deskovky.jpg";
+import music from "../../../assets/music-quiz.jpg";
+import dating from "../../../assets/speed-dating.jpg";
+import svarak from "../../../assets/svarak.jpg";
 
 export default function Home() {
-  useEffect(() => {
-    resetTitle();
-  }, []);
-
   const resetTitle = () => {
     document.getElementById("dynamic-home-title").innerHTML = "";
   };
@@ -38,8 +40,6 @@ export default function Home() {
           transform="rotate(-180 720 200)"
         ></path>
       </svg>
-      {/* <Navbar /> */}
-      {/* <h2 className="user-title">Home Sweet Home</h2> */}
 
       <div className="home-container">
         <div className="logo-cont">
@@ -73,6 +73,7 @@ export default function Home() {
         </div>
         <div className="home-cont">
           <div
+            style={{ backgroundImage: `url(${books})` }}
             className="home-card knizni-card"
             onMouseEnter={() =>
               (document.getElementById("dynamic-home-title").innerHTML =
@@ -81,6 +82,7 @@ export default function Home() {
             onMouseLeave={() => resetTitle()}
           ></div>
           <div
+            style={{ backgroundImage: `url(${deskovky})` }}
             className="home-card deskovky-card"
             onMouseEnter={() =>
               (document.getElementById("dynamic-home-title").innerHTML =
@@ -89,6 +91,7 @@ export default function Home() {
             onMouseLeave={() => resetTitle()}
           ></div>
           <div
+            style={{ backgroundImage: `url(${bowling})` }}
             className="home-card bowling-card"
             onMouseEnter={() =>
               (document.getElementById("dynamic-home-title").innerHTML =
@@ -97,6 +100,7 @@ export default function Home() {
             onMouseLeave={() => resetTitle()}
           ></div>
           <div
+            style={{ backgroundImage: `url(${music})` }}
             className="home-card music-card"
             onMouseEnter={() =>
               (document.getElementById("dynamic-home-title").innerHTML =
@@ -105,6 +109,7 @@ export default function Home() {
             onMouseLeave={() => resetTitle()}
           ></div>
           <div
+            style={{ backgroundImage: `url(${camp})` }}
             className="home-card camp-card"
             onMouseEnter={() =>
               (document.getElementById("dynamic-home-title").innerHTML =
@@ -113,7 +118,8 @@ export default function Home() {
             onMouseLeave={() => resetTitle()}
           ></div>
           <div
-            className="home-card svarek-card"
+            style={{ backgroundImage: `url(${svarak})` }}
+            className="home-card svarak-card"
             onMouseEnter={() =>
               (document.getElementById("dynamic-home-title").innerHTML =
                 "Tour de Svařáček")
@@ -121,6 +127,7 @@ export default function Home() {
             onMouseLeave={() => resetTitle()}
           ></div>
           <div
+            style={{ backgroundImage: `url(${dating})` }}
             className="home-card speed-card"
             onMouseEnter={() =>
               (document.getElementById("dynamic-home-title").innerHTML =
@@ -137,20 +144,6 @@ export default function Home() {
       <div className="dynamic-title-cont">
         <p className="dynamic-home-title" id="dynamic-home-title"></p>
       </div>
-
-      {/* <section className="section-cont book-section">
-        <div className="sec-text-cont"><p>Knižní Klub</p></div>
-        <div className="sec-pic-cont"><img src="" alt="" /></div>
-      </section>
-
-
-      <section className="section-cont deskovky-section"></section>
-      <section className="section-cont bowling-section"></section>
-      <section className="section-cont music-section"></section>
-      <section className="section-cont camp-section"></section>
-      <section className="section-cont svarak-section"></section>
-      <section className="section-cont dating-section"></section> */}
-
       <Footer />
     </div>
   );

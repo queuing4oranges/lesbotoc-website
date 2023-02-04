@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export default function Navbar() {
   return (
     <div className="user-navbar-container sticky">
-      <div className="user-navbar-cont" id="user-navbar-container">
+      <div className="user-navbar-cont">
         <div className="user-navbar-symbols">
           <NavLink
             className="user-nav-link"
@@ -110,17 +110,6 @@ export default function Navbar() {
           >
             Kontakt
           </NavLink>
-
-          {/* <NavLink
-            className="user-nav-link"
-            to={"/eshop"}
-            style={({ isActive }) => ({
-              color: isActive ? "#eb5a49" : "#7ab6cb",
-              textDecoration: "none",
-            })}
-          >
-            E-Shop
-          </NavLink> */}
         </div>
       </div>
     </div>

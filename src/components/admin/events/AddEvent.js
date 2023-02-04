@@ -4,7 +4,6 @@ import swal from "sweetalert";
 
 export default function AddEvent({ getEvents }) {
   const [success, setSuccess] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
     getEvents();
@@ -12,13 +11,11 @@ export default function AddEvent({ getEvents }) {
 
   const handleSubmit = (e) => {
     setSuccess(false);
-    setErrorMsg(null);
     e.preventDefault();
 
     //making a form object to send to the DB
     const form = document.getElementById("add-event-form");
     const formData = new FormData(form);
-    console.log(formData);
 
     axios
       .post("https://api.itisgoodtohave.me/events/create.php", formData)
@@ -52,8 +49,6 @@ export default function AddEvent({ getEvents }) {
   return (
     <Fragment>
       <h5 className="add-event-title">Add an event</h5>
-
-      {errorMsg && <p className="alert alert-danger">{errorMsg}</p>}
 
       <form
         className="add-event-form"
@@ -268,5 +263,3 @@ export default function AddEvent({ getEvents }) {
     </Fragment>
   );
 }
-
-// Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere ex voluptas sint voluptates totam dolorum nisi dolorem cumque expedita tenetur enim cum impedit, possimus qui atque eius aliquam delectus consectetur.

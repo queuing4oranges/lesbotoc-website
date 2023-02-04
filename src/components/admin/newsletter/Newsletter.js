@@ -19,7 +19,6 @@ export default function Newsletter() {
       .then(function (response) {
         setContacts(response.data);
         setSuccessMsg(true);
-        console.log(contacts);
       })
       //filtering the mail adresses for newsletter subscription
       .then(function () {
@@ -27,10 +26,6 @@ export default function Newsletter() {
           return contact.newsletter === 1;
         });
         setSubscribers(result);
-        console.log(result);
-      })
-      .then(function () {
-        let subs = subscribers.map((subscriber) => subscriber.email);
       });
   };
 
