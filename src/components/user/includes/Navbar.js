@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import bubbles from "../../../assets/lesbotoc-bubbles.png";
 
 export default function Navbar() {
   return (
@@ -14,11 +15,7 @@ export default function Navbar() {
               textDecoration: "none",
             })}
           >
-            <img
-              className="logo-bubbles"
-              src="img/icons/lesbotoc-bubbles.png"
-              alt=""
-            />
+            <img className="logo-bubbles" src={bubbles} alt="" />
             <p
               className="logo-home"
               style={{ fontFamily: "'Amatic SC', cursive", fontSize: "22px" }}

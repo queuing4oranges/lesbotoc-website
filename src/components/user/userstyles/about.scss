@@ -44,7 +44,7 @@
 //to make img opaque but not text inside div
 .user-singles-cont::before {
   content: "";
-  background-image: url("../../../../public/img/rainbow_flag.jpg");
+  background-image: url("../../../assets/rainbow-flag-pride.jpg");
   background-size: cover;
   opacity: 0.15;
   position: absolute;

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo-light.png";
 
 export default function AdminNavbar() {
   const toggleMenu = () => {
@@ -33,7 +34,7 @@ export default function AdminNavbar() {
             <Link to={"/"}>
               <img
                 className="lesbotoc-adminnavbar-logo"
-                src="/img/logo_light.png"
+                src={logo}
                 alt="lesbotoc logo"
               />
             </Link>
