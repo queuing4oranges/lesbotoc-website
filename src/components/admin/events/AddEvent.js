@@ -16,6 +16,7 @@ export default function AddEvent({ getEvents }) {
     //making a form object to send to the DB
     const form = document.getElementById("add-event-form");
     const formData = new FormData(form);
+    console.log(formData);
 
     axios
       .post("https://api.itisgoodtohave.me/events/create.php", formData)

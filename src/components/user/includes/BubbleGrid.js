@@ -18,8 +18,6 @@ export default function BubbleGrid(props) {
     setBubbles(bubbleArr);
   };
 
-  console.log(bubbles);
-
   //make container for each bubble by mapping through bubbles
   return (
     <div className="bubble-grid">

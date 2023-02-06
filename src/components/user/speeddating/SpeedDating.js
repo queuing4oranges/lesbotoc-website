@@ -1,7 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import Moment from "react-moment";
+import axios from "axios";
+import swal from "sweetalert";
 
 export default function SpeedDating({ date, time, location, setShowMod }) {
+  const [speedName, setSpeedName] = useState("");
+  const [speedMail, setSpeedMail] = useState("");
+  const [speedPhone, setSpeedPhone] = useState("");
+  const [speedAge, setSpeedAge] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    axios
+      .post("https://api.itisgoodtohave.me/speeddating/create.php", {
+        date: date,
+        name: speedName,
+        email: speedMail,
+        phone: speedPhone,
+        age: speedAge,
+      })
+      .then(function (response) {
+        console.log(response.data.message);
+        if (response.status === 200) {
+          swal({
+            title: "SKVĚLE",
+            text: "We're looking forward to seeing you there.",
+            icon: "success",
+            button: "Me too!",
+          });
+        } else if (response.status === 500) {
+          swal(
+            "DAMN!",
+            "Could not add event. Something is  missing here.",
+            "error"
+          );
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    setShowMod(false);
+  };
+
   return (
     <div className="user-container">
       <div className="speed-container">
@@ -10,7 +51,7 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
             <h3>Lesbotoč speed dating sign up</h3>
           </div>
 
-          <form action="">
+          <form onSubmit={handleSubmit} id="add-speeddating-contact">
             <div className="speed-data">
               <div className="speed-data__item">
                 <svg
@@ -131,11 +172,20 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
                   />
                 </svg>
               </div>
+              {/* <input type="text" hidden value={setdate}/> */}
               <div className="speed-form-cont__input">
                 <label htmlFor="" className="form-label speed-label">
                   Jméno
                 </label>
-                <input type="text" className="form-control speed-input" />
+                <input
+                  type="text"
+                  className="form-control speed-input"
+                  name="name"
+                  id="speed-name"
+                  onChange={(e) => {
+                    setSpeedName(e.target.value);
+                  }}
+                />
               </div>
             </div>
             <div className="speed-form-cont">
@@ -161,6 +211,10 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
                   type="email"
                   className="form-control speed-input"
                   placeholder="youremail@address.cz"
+                  name="email"
+                  onChange={(e) => {
+                    setSpeedMail(e.target.value);
+                  }}
                 />
               </div>
             </div>
@@ -189,6 +243,10 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
                   type="text"
                   className="form-control speed-input"
                   list="user_ages"
+                  name="age"
+                  onChange={(e) => {
+                    setSpeedAge(e.target.value);
+                  }}
                 />
                 <datalist id="user_ages">
                   <option value="20-25"></option>
@@ -243,6 +301,10 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
                   type="text"
                   className="form-control speed-input"
                   placeholder="+420 777 888 999"
+                  name="phone"
+                  onChange={(e) => {
+                    setSpeedPhone(e.target.value);
+                  }}
                 />
               </div>
             </div>
@@ -275,3 +337,27 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
     </div>
   );
 }
+
+// const [inputs, setInputs] = useState({
+//   date: "",
+//   name: "",
+//   email: "",
+//   phone: "",
+//   age: "",
+// });
+
+// const handleChange = (e) => {
+//   const target = e.target;
+//   const name = e.name;
+//   const value = target.type === "checkbox" ? target.checked : target.value;
+
+//   setInputs({
+//     ...inputs,
+//     [name]: value,
+//   });
+// };
+
+// const handleSubmit = (e) => {
+//   e.preventDefault();
+//   console.log(inputs);
+// };

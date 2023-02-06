@@ -12,7 +12,6 @@ export default function BubbleGrid6x7(props) {
     for (let i = 1; i < 43; i++) {
       bubbleArray.push(i);
     }
-    console.log(bubbleArray);
     setBubbles(bubbleArray);
   };
 
