@@ -1,0 +1,40 @@
+.more-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90vw;
+  margin: 20px auto;
+}
+
+.more-data-container {
+  // border: green 1px solid;
+  display: flex;
+  flex-direction: column;
+
+  max-width: 20vw;
+
+  & button {
+    min-width: 150px;
+    max-width: 150px;
+    font-size: 12px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+}
+
+.signup-container {
+  // border: red 1px solid;
+  width: 40vw;
+  padding: 15px;
+}
+
+.btn-data button {
+  font-size: 10px;
+}
+
+.speedDaters-table {
+  font-size: 12px;
+}
+
+tbody {
+  text-align: left;
+}

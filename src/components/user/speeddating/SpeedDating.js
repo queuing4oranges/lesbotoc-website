@@ -29,6 +29,7 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
             icon: "success",
             button: "Me too!",
           });
+          setShowMod(false);
         } else if (response.status === 500) {
           swal(
             "DAMN!",
@@ -40,7 +41,6 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
       .catch((err) => {
         console.log(err);
       });
-    setShowMod(false);
   };
 
   return (
@@ -172,7 +172,7 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
                   />
                 </svg>
               </div>
-              {/* <input type="text" hidden value={setdate}/> */}
+
               <div className="speed-form-cont__input">
                 <label htmlFor="" className="form-label speed-label">
                   Jméno
@@ -185,6 +185,9 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
                   onChange={(e) => {
                     setSpeedName(e.target.value);
                   }}
+                  required
+                  minLength="3"
+                  maxLength="20"
                 />
               </div>
             </div>
@@ -300,11 +303,13 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
                 <input
                   type="text"
                   className="form-control speed-input"
-                  placeholder="+420 777 888 999"
+                  placeholder="777 888 999"
                   name="phone"
                   onChange={(e) => {
                     setSpeedPhone(e.target.value);
                   }}
+                  required
+                  maxLength="12"
                 />
               </div>
             </div>
@@ -319,6 +324,7 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
             </div>
             <div className="speed-btn-cont">
               <button
+                type="button"
                 onClick={() => setShowMod(false)}
                 className="button btn sm single-event-button"
               >

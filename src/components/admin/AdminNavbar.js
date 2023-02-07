@@ -56,8 +56,8 @@ export default function AdminNavbar() {
               Pictures
             </Link>
 
-            <Link className="nav-link" to={"/admin/newsletter"}>
-              Newsletter
+            <Link className="nav-link" to={"/admin/more"}>
+              More
             </Link>
 
             <div className="logout-cont">

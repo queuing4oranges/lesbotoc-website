@@ -124,3 +124,7 @@
 .swal-overlay {
   background-color: rgb(122, 182, 203, 0.45);
 }
+
+.speed-form-cont input:invalid {
+  border: 1px solid red;
+}
