@@ -74,15 +74,28 @@
     margin-top: 35px;
   }
 }
-
+.image-btn-cont {
+  margin: 16px 16px 0 0;
+}
 .img-form-cont {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  background-color: #e6f4f1;
+  padding: 20px 0;
 }
 
 .add-img-btn {
   height: 50%;
+}
+
+.image-compressor-container {
+  display: flex;
+  justify-content: flex-start;
+  & a {
+    text-decoration: underline;
+  }
 }
 
 /*PictureModal*/

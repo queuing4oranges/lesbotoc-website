@@ -216,6 +216,13 @@ SingleCalenderEvent.js
   }
 }
 
+.yellow-btn {
+  background-color: $lesbotoc;
+  &:hover {
+    background-color: #ec9704;
+  }
+}
+
 .single-event-img-cont {
   min-height: fit-content;
 }

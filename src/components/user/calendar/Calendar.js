@@ -70,6 +70,8 @@ export default function Calendar() {
                         ? "#ed7f71"
                         : event.event_type === "Other Event"
                         ? "#A5B8BC"
+                        : event.event_type === "Lesbotoc Camp"
+                        ? "#EC9704"
                         : "#4d8eb5",
                     boxShadow: "3px 3px 3px 0px rgba(0, 0, 0, 0.3)",
                   }}

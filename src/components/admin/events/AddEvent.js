@@ -21,10 +21,11 @@ export default function AddEvent({ getEvents }) {
     axios
       .post("https://api.itisgoodtohave.me/events/create.php", formData)
       .then(function (response) {
-        if (response.status === 1) {
+        if (response.status === 200) {
           swal("YEAH BABY!", "You added a new event.", "success");
           setSuccess(true);
-        } else if (response.status === 0) {
+          console.log(response.status);
+        } else if (response.status === 500) {
           swal(
             "DAMN!",
             "Could not add event. Something is  missing here.",
@@ -88,6 +89,7 @@ export default function AddEvent({ getEvents }) {
               <option value="Lesbotoc Event"></option>
               <option value="Speed Dating"></option>
               <option value="Other Event"></option>
+              <option value="Lesbotoc Camp"></option>
             </datalist>
           </div>
         </div>
@@ -227,8 +229,11 @@ export default function AddEvent({ getEvents }) {
             </div>
 
             <div className="event-pic">
-              <label htmlFor="image_path">
-                Image * (max. 1 MB / jpeg, jpg, png, gif)
+              <label
+                htmlFor="image_path"
+                style={{ fontSize: "12px", color: "red", marginBottom: "5px" }}
+              >
+                Image * (max. 300kB / jpeg, jpg, png, gif)
               </label>
               <input
                 type="file"

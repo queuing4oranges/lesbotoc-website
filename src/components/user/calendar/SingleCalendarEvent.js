@@ -223,6 +223,19 @@ export default function SingleCalendarEvent() {
                   ) : (
                     ""
                   )}
+
+                  {data.event_type === "Lesbotoc Camp" ? (
+                    <Link>
+                      <button
+                        // onClick={() => openModal()}
+                        className="button btn sm single-event-button yellow-btn"
+                      >
+                        Sign Up
+                      </button>
+                    </Link>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
 
