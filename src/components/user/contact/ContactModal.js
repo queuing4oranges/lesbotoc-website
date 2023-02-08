@@ -3,10 +3,14 @@ import React from "react";
 import BubbleGrid from "../includes/BubbleGrid";
 import Footer from "../includes/Footer";
 import Navbar from "../includes/Navbar";
+import bgGradient from "../../../assets/wash-gradient.jpg";
 
 export default function ContactModal() {
   return (
-    <div className="user-contact-container">
+    <div
+      className="user-contact-container"
+      style={{ backgroundImage: `url(${bgGradient})`, backgroundSize: "cover" }}
+    >
       <Navbar />
       <div className="user-contact-cont">
         <div className="contact-form-container">

@@ -12,14 +12,32 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const speedNews = document.querySelector("#speedNewsletter");
+    console.log(speedNews.checked);
+
+    const inputs = {
+      date: date,
+      name: speedName,
+      email: speedMail,
+      phone: speedPhone,
+      age: speedAge,
+      newsletter: "1",
+    };
+
+    //getting value from checkbox - if user agrees to newsletter, it'll be saved to contacts table too
+    if (speedNews.checked === true) {
+      axios
+        .post("https://api.itisgoodtohave.me/contacts/create.php", inputs)
+        .then(function () {
+          console.log("Speed Dating contact was added to 'contacts' table.");
+        });
+    } else {
+      console.log("nic tam neni");
+    }
+
+    //sign up for the speed dating
     axios
-      .post("https://api.itisgoodtohave.me/speeddating/create.php", {
-        date: date,
-        name: speedName,
-        email: speedMail,
-        phone: speedPhone,
-        age: speedAge,
-      })
+      .post("https://api.itisgoodtohave.me/speeddating/create.php", inputs)
       .then(function (response) {
         console.log(response.data.message);
         if (response.status === 200) {

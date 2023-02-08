@@ -12,7 +12,6 @@ export default function SingleCalendarEvent() {
   const [showMod, setShowMod] = useState(false);
 
   const { id } = useParams();
-  console.log(id);
 
   const openModal = () => {
     showMod === true ? setShowMod(false) : setShowMod(true);

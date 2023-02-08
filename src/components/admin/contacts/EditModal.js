@@ -162,7 +162,7 @@ export default function EditModal({
                   </datalist>
                 </div>
 
-                <div className="edit-cont-btn">
+                <div className=" contact-edit-cont-btn">
                   <button
                     className="btn btn-danger edit-button "
                     onClick={abortEditing}

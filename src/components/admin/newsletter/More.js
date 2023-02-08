@@ -68,23 +68,90 @@ export default function More() {
 
       <div className="more-container">
         <div className="more-data-container">
-          <CSVLink data={subscribers} filename="newsletter_subscribers">
+          <CSVLink
+            style={{ textDecoration: "none" }}
+            data={subscribers}
+            filename="newsletter_subscribers"
+          >
             <button className="btn btn-info btn-data">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M7.64645 10.8536C7.84171 11.0488 8.15829 11.0488 8.35355 10.8536L10.3536 8.85355C10.5488 8.65829 10.5488 8.34171 10.3536 8.14645C10.1583 7.95118 9.84171 7.95118 9.64645 8.14645L8.5 9.29289V5.5C8.5 5.22386 8.27614 5 8 5C7.72386 5 7.5 5.22386 7.5 5.5V9.29289L6.35355 8.14645C6.15829 7.95118 5.84171 7.95118 5.64645 8.14645C5.45118 8.34171 5.45118 8.65829 5.64645 8.85355L7.64645 10.8536Z"
+                  fill="white"
+                />
+                <path
+                  d="M4.40576 3.34182C5.31176 2.56046 6.57359 2 8 2C10.6902 2 12.9233 3.99944 13.1657 6.57898C14.7581 6.80411 16 8.13656 16 9.77273C16 11.5695 14.5023 13 12.6875 13H3.78125C1.70754 13 0 11.366 0 9.31818C0 7.55511 1.26586 6.09512 2.94223 5.725C3.08479 4.8617 3.63985 4.00237 4.40576 3.34182ZM5.05886 4.09909C4.3023 4.75157 3.90625 5.5383 3.90625 6.15455V6.6026L3.46088 6.65155C2.06371 6.80512 1 7.95266 1 9.31818C1 10.7849 2.23059 12 3.78125 12H12.6875C13.9793 12 15 10.9884 15 9.77273C15 8.55703 13.9793 7.54545 12.6875 7.54545H12.1875V7.04545C12.1875 4.8256 10.3273 3 8 3C6.83758 3 5.80253 3.45773 5.05886 4.09909Z"
+                  fill="white"
+                />
+              </svg>
               <p>
-                Export Newsletter <br /> Subscribers
+                Newsletter <br /> Subscribers
               </p>
             </button>
           </CSVLink>
 
-          <CSVLink data={speedDaters} filename="speedDatingParticipants">
+          <CSVLink
+            style={{ textDecoration: "none" }}
+            data={speedDaters}
+            filename="speedDatingParticipants"
+          >
             <button className="btn btn-info btn-data">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M7.64645 10.8536C7.84171 11.0488 8.15829 11.0488 8.35355 10.8536L10.3536 8.85355C10.5488 8.65829 10.5488 8.34171 10.3536 8.14645C10.1583 7.95118 9.84171 7.95118 9.64645 8.14645L8.5 9.29289V5.5C8.5 5.22386 8.27614 5 8 5C7.72386 5 7.5 5.22386 7.5 5.5V9.29289L6.35355 8.14645C6.15829 7.95118 5.84171 7.95118 5.64645 8.14645C5.45118 8.34171 5.45118 8.65829 5.64645 8.85355L7.64645 10.8536Z"
+                  fill="white"
+                />
+                <path
+                  d="M4.40576 3.34182C5.31176 2.56046 6.57359 2 8 2C10.6902 2 12.9233 3.99944 13.1657 6.57898C14.7581 6.80411 16 8.13656 16 9.77273C16 11.5695 14.5023 13 12.6875 13H3.78125C1.70754 13 0 11.366 0 9.31818C0 7.55511 1.26586 6.09512 2.94223 5.725C3.08479 4.8617 3.63985 4.00237 4.40576 3.34182ZM5.05886 4.09909C4.3023 4.75157 3.90625 5.5383 3.90625 6.15455V6.6026L3.46088 6.65155C2.06371 6.80512 1 7.95266 1 9.31818C1 10.7849 2.23059 12 3.78125 12H12.6875C13.9793 12 15 10.9884 15 9.77273C15 8.55703 13.9793 7.54545 12.6875 7.54545H12.1875V7.04545C12.1875 4.8256 10.3273 3 8 3C6.83758 3 5.80253 3.45773 5.05886 4.09909Z"
+                  fill="white"
+                />
+              </svg>
               <p>
-                Export Speed Dating <br /> Participants
+                Speed Dating <br /> Participants
               </p>
             </button>
           </CSVLink>
-          <a href="https://mailchimp.com/" target="_blank" rel="noreferrer">
-            <button className="btn btn-info btn-news">Go to mailchimp</button>
+          <a
+            style={{ textDecoration: "none" }}
+            href="https://mailchimp.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button className="btn btn-info btn-data">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.35417 5.5H4C2.34315 5.5 1 6.84315 1 8.5C1 10.1569 2.34315 11.5 4 11.5H7C8.65685 11.5 10 10.1569 10 8.5C10 8.14936 9.93985 7.81278 9.82929 7.5H9C8.91376 7.5 8.83008 7.51092 8.75024 7.53144C8.90938 7.8184 9 8.14862 9 8.5C9 9.60457 8.10457 10.5 7 10.5H4C2.89543 10.5 2 9.60457 2 8.5C2 7.39543 2.89543 6.5 4 6.5H5.53513C5.75287 6.12359 6.03018 5.78596 6.35417 5.5Z"
+                  fill="white"
+                />
+                <path
+                  d="M9 5.5C7.34315 5.5 6 6.84315 6 8.5C6 8.85064 6.06015 9.18722 6.17071 9.5H7.26756C7.09739 9.20583 7 8.86429 7 8.5C7 7.39543 7.89543 6.5 9 6.5H12C13.1046 6.5 14 7.39543 14 8.5C14 9.60457 13.1046 10.5 12 10.5H10.4649C10.2471 10.8764 9.96982 11.214 9.64582 11.5H12C13.6569 11.5 15 10.1569 15 8.5C15 6.84315 13.6569 5.5 12 5.5H9Z"
+                  fill="white"
+                />
+              </svg>
+              <p>Mailchimp</p>
+            </button>
           </a>
         </div>
 
@@ -160,7 +227,7 @@ export default function More() {
         </div>
 
         <div className="signup-container signup-camp-cont">
-          <p>here should be the table for signups to the camp</p>
+          <h6>List of Lesbotoč Camp Participants</h6>
         </div>
       </div>
 

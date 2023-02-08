@@ -37,18 +37,18 @@
       margin-left: 20px;
       margin-bottom: 0px;
       color: #003243;
-      font-weight: 600;
+      font-weight: 400;
     }
 
     & input {
       margin-left: 20px;
       margin-bottom: 25px;
-      filter: drop-shadow(3px 0px 3px $lesbotoc-dark);
+      // filter: drop-shadow(3px 0px 3px $lesbotoc-dark);
     }
 
     & textarea {
       margin-left: 20px;
-      filter: drop-shadow(3px 0px 3px $lesbotoc-dark);
+      // filter: drop-shadow(3px 0px 3px $lesbotoc-dark);
     }
   }
 }
@@ -108,6 +108,11 @@
   border-radius: 0px;
   width: 150px;
   filter: drop-shadow(-1px 4px 3px $lesbotoc-dark);
+
+  &:hover {
+    background-color: #eb5a49;
+    color: $user-beige-light;
+  }
 }
 
 .user-contact-grid {

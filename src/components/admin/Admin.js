@@ -31,7 +31,11 @@ export default function Admin() {
 
       <div className="media-cont">
         <div className="social">
-          <a href="https://www.instagram.com/lesbotoc/">
+          <a
+            href="https://www.instagram.com/lesbotoc/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
@@ -44,7 +48,11 @@ export default function Admin() {
             </svg>
           </a>
 
-          <a href="https://www.facebook.com/seznamsenatoci">
+          <a
+            href="https://www.facebook.com/seznamsenatoci"
+            target="_blank"
+            rel="noreferrer"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"

@@ -25,8 +25,6 @@ export default function Footer() {
         </div>
 
         <div className="user-footer-newsletter">
-          <p className="footer-newsletter">Newsletter</p>
-          <p className="footer-contact">Contact</p>
           <p className="footer-privacy">Privacy</p>
         </div>
 
