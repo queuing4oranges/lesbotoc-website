@@ -1,0 +1,16 @@
+.admin-panel-btn {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  color: orange;
+  $box-shadow: 0px 10px 15px -5px rgba(228, 241, 151, 0.75);
+}
+
+.admin-login-container {
+  height: 100vh;
+  background: rgb(121, 121, 252);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
