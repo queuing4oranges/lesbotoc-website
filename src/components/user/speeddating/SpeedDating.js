@@ -309,6 +309,7 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
                     setSpeedPhone(e.target.value);
                   }}
                   required
+                  minLength="9"
                   maxLength="12"
                 />
               </div>

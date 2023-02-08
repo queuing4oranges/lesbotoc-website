@@ -21,10 +21,10 @@ export default function AddEvent({ getEvents }) {
     axios
       .post("https://api.itisgoodtohave.me/events/create.php", formData)
       .then(function (response) {
-        if (response.status === 200) {
+        if (response.status === 1) {
           swal("YEAH BABY!", "You added a new event.", "success");
           setSuccess(true);
-        } else if (response.status === 500) {
+        } else if (response.status === 0) {
           swal(
             "DAMN!",
             "Could not add event. Something is  missing here.",
