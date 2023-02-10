@@ -32,17 +32,17 @@ export default function Gallery() {
           <OpaqueBox width="600px" height="300px" />
         </div>
 
-        <div className="box-gallery2">
+        {/* <div className="box-gallery2">
           <OpaqueBox width="600px" height="300px" />
-        </div>
+        </div> */}
 
         <div className="bubbles-gallery2">
           <BubbleGrid6x7 color="#B84639" />
         </div>
 
-        <div className="bubbles-gallery3">
+        {/* <div className="bubbles-gallery3">
           <BubbleGrid6x7 color="#003243" />
-        </div>
+        </div> */}
 
         {imagesLoaded && (
           <div className="user-gallery-cont">
