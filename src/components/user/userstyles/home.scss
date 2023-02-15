@@ -31,12 +31,14 @@
   transition: 0.4s;
   filter: grayscale(100%);
   background-size: cover;
+  box-shadow: -2px 2px 6px 0px rgba(0, 0, 0, 0.75);
 }
 
 .home-card:hover {
   flex: 4;
   filter: none;
   background-size: cover;
+  cursor: pointer;
 }
 
 .home-card-images {
@@ -45,28 +47,20 @@
   min-height: 100%;
 }
 
-.knizni-card {
+.knizni-card,
+.film-card,
+.svarak-card {
   margin-top: 50px;
 }
 
-.deskovky-card {
+.deskovky-card,
+.camp-card,
+.speed-card {
   margin-top: 25px;
 }
 
 .bowling-card {
   margin-top: 75px;
-}
-
-.camp-card {
-  margin-top: 25px;
-}
-
-.svarak-card {
-  margin-top: 50px;
-}
-
-.speed-card {
-  margin-top: 25px;
 }
 
 .home-cont a {
@@ -99,7 +93,6 @@
 }
 
 .dynamic-home-title {
-  background-color: $user-beige-dark;
   min-height: 150px;
   font-family: "Amatic SC", sans-serif, Arial, Helvetica, sans-serif;
   color: $dark-petrol;

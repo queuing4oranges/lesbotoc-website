@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../includes/Footer";
 import books from "../../../assets/book-club.jpg";
+import film from "../../../assets/film-club.jpg";
 import bowling from "../../../assets/bowling.jpg";
 import camp from "../../../assets/camp.jpg";
 import deskovky from "../../../assets/deskovky.jpg";
@@ -10,8 +11,14 @@ import dating from "../../../assets/speed-dating.jpg";
 import svarak from "../../../assets/svarak.jpg";
 
 export default function Home() {
+  const navigate = useNavigate();
+
   const resetTitle = () => {
     document.getElementById("dynamic-home-title").innerHTML = "";
+  };
+
+  const goToCalendar = () => {
+    navigate("/kalendar");
   };
 
   return (
@@ -26,8 +33,10 @@ export default function Home() {
       >
         <defs>
           <linearGradient id="gradient" x1="38%" y1="1%" x2="62%" y2="99%">
-            <stop offset="5%" stopColor="#f5e2d3"></stop>
-            <stop offset="95%" stopColor="#7ab6cb"></stop>
+            {/* lower color */}
+            <stop offset="5%" stopColor="#FE6B4D"></stop>
+            {/* upper color  */}
+            <stop offset="95%" stopColor="#FB9644"></stop>
           </linearGradient>
         </defs>
         <path
@@ -77,9 +86,10 @@ export default function Home() {
             className="home-card knizni-card"
             onMouseEnter={() =>
               (document.getElementById("dynamic-home-title").innerHTML =
-                "Knižní Klub")
+                "Knižní diskuzní Klub")
             }
             onMouseLeave={() => resetTitle()}
+            onClick={() => goToCalendar()}
           ></div>
           <div
             style={{ backgroundImage: `url(${deskovky})` }}
@@ -89,6 +99,7 @@ export default function Home() {
                 "Deskovky")
             }
             onMouseLeave={() => resetTitle()}
+            onClick={() => goToCalendar()}
           ></div>
           <div
             style={{ backgroundImage: `url(${bowling})` }}
@@ -98,6 +109,7 @@ export default function Home() {
                 "Bowling")
             }
             onMouseLeave={() => resetTitle()}
+            onClick={() => goToCalendar()}
           ></div>
           <div
             style={{ backgroundImage: `url(${music})` }}
@@ -107,6 +119,17 @@ export default function Home() {
                 "Music Kvíz")
             }
             onMouseLeave={() => resetTitle()}
+            onClick={() => goToCalendar()}
+          ></div>
+          <div
+            style={{ backgroundImage: `url(${film})` }}
+            className="home-card film-card"
+            onMouseEnter={() =>
+              (document.getElementById("dynamic-home-title").innerHTML =
+                "Filmový diskuzní klub")
+            }
+            onMouseLeave={() => resetTitle()}
+            onClick={() => goToCalendar()}
           ></div>
           <div
             style={{ backgroundImage: `url(${camp})` }}
@@ -116,6 +139,7 @@ export default function Home() {
                 "Lesbotoč Camp")
             }
             onMouseLeave={() => resetTitle()}
+            onClick={() => goToCalendar()}
           ></div>
           <div
             style={{ backgroundImage: `url(${svarak})` }}
@@ -125,6 +149,7 @@ export default function Home() {
                 "Tour de Svařáček")
             }
             onMouseLeave={() => resetTitle()}
+            onClick={() => goToCalendar()}
           ></div>
           <div
             style={{ backgroundImage: `url(${dating})` }}
@@ -134,6 +159,7 @@ export default function Home() {
                 "Speed Dating")
             }
             onMouseLeave={() => resetTitle()}
+            onClick={() => goToCalendar()}
           ></div>
 
           <Link to={"/kalendar"}>

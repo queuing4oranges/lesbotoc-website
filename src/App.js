@@ -13,7 +13,7 @@ import About from "./components/user/about/About";
 import Contact from "./components/user/contact/ContactModal";
 import Calendar from "./components/user/calendar/Calendar";
 import SingleCalendarEvent from "./components/user/calendar/SingleCalendarEvent";
-import More from "./components/admin/newsletter/More";
+import More from "./components/admin/more/More";
 
 function App() {
   return (
