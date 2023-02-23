@@ -1,7 +1,8 @@
 .user-navbar-container {
   // background-color: $user-beige-dark;
-  background-color: #fb9644;
-  box-shadow: 1px 1px 3px 0px rgba(122, 182, 203, 0.75);
+  background-color: #fe6b4d;
+
+  // box-shadow: 1px 1px 3px 0px rgba(122, 182, 203, 0.75);
   height: 40px;
   z-index: 100;
 }
@@ -44,7 +45,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 25px;
-  color: $lesbotoc;
+  color: black;
 }
 
 .navbar-searchbar {
@@ -68,7 +69,7 @@
   margin-left: 20px;
 
   & path {
-    color: $lesbotoc;
+    color: black;
   }
 }
 .user-nav-link {
@@ -78,5 +79,5 @@
 
 .user-nav-link:hover {
   transition: 200ms;
-  border-bottom: 2px $lesbotoc solid;
+  border-bottom: 2px black solid;
 }

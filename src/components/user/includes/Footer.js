@@ -18,6 +18,7 @@ export default function Footer() {
               href="https://www.itisgoodtohave.me"
               target="_blank"
               rel="noreferrer"
+              aria-label="Portfolio Katja Zenker"
             >
               &nbsp;www.itisgoodtohave.me
             </a>
@@ -34,6 +35,7 @@ export default function Footer() {
               href="https://www.facebook.com/seznamsenatoci"
               target="_blank"
               rel="noreferrer"
+              aria-label="Facebook"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -50,6 +52,7 @@ export default function Footer() {
               href="https://www.instagram.com/lesbotoc/"
               target="_blank"
               rel="noreferrer"
+              aria-label="Instagram"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -18,7 +18,11 @@ export default function Navbar() {
             <img className="logo-bubbles" src={bubbles} alt="" />
             <p
               className="logo-home"
-              style={{ fontFamily: "'Amatic SC', cursive", fontSize: "22px" }}
+              style={{
+                fontFamily: "'Amatic SC', cursive",
+                fontSize: "22px",
+                color: "black",
+              }}
             >
               {" "}
               Lesbotoč
@@ -29,6 +33,7 @@ export default function Navbar() {
             href="https://www.facebook.com/seznamsenatoci"
             target="_blank"
             rel="noreferrer"
+            aria-label="Facebook"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -45,6 +50,7 @@ export default function Navbar() {
             href="https://www.instagram.com/lesbotoc/"
             target="_blank"
             rel="noreferrer"
+            aria-label="Instagram"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +74,7 @@ export default function Navbar() {
             className="user-nav-link"
             to={"/kalendar"}
             style={({ isActive }) => ({
-              color: isActive ? "#eb5a49" : "#7ab6cb",
+              color: isActive ? "#feebdd" : "black",
               textDecoration: "none",
             })}
           >
@@ -79,7 +85,7 @@ export default function Navbar() {
             className="user-nav-link"
             to={"/galerie"}
             style={({ isActive }) => ({
-              color: isActive ? "#eb5a49" : "#7ab6cb",
+              color: isActive ? "#feebdd" : "black",
               textDecoration: "none",
             })}
           >
@@ -90,7 +96,7 @@ export default function Navbar() {
             className="user-nav-link"
             to={"/about"}
             style={({ isActive }) => ({
-              color: isActive ? "#eb5a49" : "#7ab6cb",
+              color: isActive ? "#feebdd" : "black",
               textDecoration: "none",
             })}
           >
@@ -101,7 +107,7 @@ export default function Navbar() {
             className="user-nav-link"
             to={"/kontakt"}
             style={({ isActive }) => ({
-              color: isActive ? "#eb5a49" : "#7ab6cb",
+              color: isActive ? "#feebdd" : "black",
               textDecoration: "none",
             })}
           >

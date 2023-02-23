@@ -2,10 +2,10 @@
 import React, { Fragment } from "react";
 import Footer from "../includes/Footer";
 import Navbar from "../includes/Navbar";
-import TwoWomenMobiles from "../../includes/icons/TwoWomenMobiles";
-import PersonIcon from "../../includes/icons/PersonIcon";
 import EnvelopeIcon from "../../includes/icons/EnvelopeIcon";
-import MessageIcon from "../../includes/icons/MessageIcon";
+import PhoneIcon from "../../includes/icons/PhoneIcon";
+import InstagramIcon from "../../includes/icons/InstagramIcon";
+import FacebookIcon from "../../includes/icons/FacebookIcon";
 
 export default function ContactModal() {
   return (
@@ -19,18 +19,13 @@ export default function ContactModal() {
           <div className="contact-form-container">
             <form className="user-contact-form" action="">
               <div className="user-contact-item">
-                <PersonIcon width={50} height={50} color="white" />
-
                 <div className="contact-name-input">
-                  {/* <label htmlFor="user-name">Hi, I'm...</label> */}
                   <input type="text" name="user-name" placeholder="Name" />
                 </div>
               </div>
 
               <div className="user-contact-item">
-                <MessageIcon width={50} height={50} color="white" />
                 <div className="contact-message-input">
-                  {/* <label htmlFor="user-message">my message to you</label> */}
                   <textarea
                     name="user-message"
                     type="text"
@@ -43,9 +38,7 @@ export default function ContactModal() {
               </div>
 
               <div className="user-contact-item">
-                <EnvelopeIcon width={50} height={50} color="white" />
                 <div className="contact-email-input">
-                  {/* <label htmlFor="user-email">you can reply to me</label> */}
                   <input
                     type="text"
                     name="user-email"
@@ -61,7 +54,40 @@ export default function ContactModal() {
           </div>
         </div>
         <div className="contact-icon-container">
-          <TwoWomenMobiles widthSize={190} heightSize={190} color="#FB9644" />
+          <div className="contact-icon contact-icon-email">
+            {/* <EnvelopeIcon width={25} height={25} color="#fb9644" /> */}
+            <a href="mailto: lesbotoc@gmail.com" aria-label="Email address">
+              lesbotoc@gmail.com
+            </a>
+          </div>
+          <div className="contact-icon contact-icon-phone">
+            {/* <PhoneIcon width={25} height={25} color="#fb9644" /> */}
+            <a href="tel:777696969" aria-label="Phone Number">
+              +420 777 696 969
+            </a>
+          </div>
+          <div className="contact-icon-fb-insta">
+            <div className="contact-icon contact-icon-insta">
+              <a
+                href="https://www.instagram.com/lesbotoc/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+              >
+                <InstagramIcon width={25} height={25} color="#fb9644" />
+              </a>
+            </div>
+            <div className="contact-icon contact-icon-fb">
+              <a
+                href="https://www.facebook.com/seznamsenatoci"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+              >
+                <FacebookIcon width={25} height={25} color="#fb9644" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />
