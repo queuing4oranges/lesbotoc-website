@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Lesbotoč Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
 
-## Available Scripts
+The website was created as a revision to the existing website and is still work in progress.
 
-In the project directory, you can run:
+The clients want to have a website with a slim and easy to handle CMS, in which they can update their events on a regular basis. They also want to be able to save contacts and for people to be able to sign up to events.
 
-### `npm start`
+The backend and frontend of the website are separated.
+The finished admin panel is currently hosted at:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+http://lesbotoc.itisgoodtohave.me
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Functionalities
 
-### `npm test`
+### For Admins:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- create, update, delete, show single or all contacts
+- search for contacts
+- export all contacts as csv
+- create, update, delete, show single or all events
+- add images to events
+- add and delete pictures (for the user picture gallery)
+- bug report function
+- login/logout
+- register a new admin
 
-### `npm run build`
+### For Users:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- look up all events in the calendar
+- display single events in more detail (description, time/date, how to get there, website of venue)
+- sign up for special events
+- see events of other organization in the calendar
+- browse through a gallery of photos from previous events
+- get information about the organization and members thereof
+- contact the organization via a contact form, phone or email
+- use links to follow the organization on social media
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- JavaScript (React)
+- SASS
+- EmailJS
+- React-Router
+- Axios
+- Bootstrap
+- Sweet Alert
+- Figma (Wireframes)
 
-### `npm run eject`
+## How to run the project
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the lesbotoc-backend-api from GitHub:  
+   `git clone https://github.com/queuing4oranges/lesbotoc-backend-api.git`
+2. Set up a Database and Tables
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Adapt DB connection settings.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Clone the lesbotoc-website:  
+   `git clone https://github.com/queuing4oranges/lesbotoc-website.git`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. Change URLs in lesbotoc-website.
 
-## Learn More
+6. Run frontend in development mode with:  
+   `npm start`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+7. Build for production:  
+   `npm run build`

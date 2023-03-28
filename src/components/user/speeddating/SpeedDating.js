@@ -22,6 +22,7 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
       phone: speedPhone,
       age: speedAge,
       newsletter: "1",
+      wherefrom: "SpeedDating",
     };
 
     //getting value from checkbox - if user agrees to newsletter, it'll be saved to contacts table too
