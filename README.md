@@ -66,3 +66,15 @@ http://lesbotoc.itisgoodtohave.me
 
 7. Build for production:  
    `npm run build`
+
+## Screenshots
+
+<img src="https://github.com/queuing4oranges/lesbotoc-website/blob/main/screenshots/ScreenShLesbotoc1.PNG">
+
+<img src="https://github.com/queuing4oranges/lesbotoc-website/blob/main/screenshots/ScreenShLesbotoc2.PNG">
+
+<img src="https://github.com/queuing4oranges/lesbotoc-website/blob/main/screenshots/ScreenShLesbotoc3.PNG">
+
+<img src="https://github.com/queuing4oranges/lesbotoc-website/blob/main/screenshots/ScreenShLesbotoc4.PNG">
+
+<img src="https://github.com/queuing4oranges/lesbotoc-website/blob/main/screenshots/ScreenShLesbotoc5.PNG">
