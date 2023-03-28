@@ -24,6 +24,7 @@ http://lesbotoc.itisgoodtohave.me
 - bug report function
 - login/logout
 - register a new admin
+- download function for a list of newsletter subscribers, speed dating participants or events
 
 ### For Users:
 
