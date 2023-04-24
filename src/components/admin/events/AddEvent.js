@@ -40,7 +40,7 @@ export default function AddEvent({ getEvents }) {
     getEvents();
   };
 
-  //looping through inputs value to reset
+  //looping through inputs value to reset to ""
   const resetInputs = () => {
     let elements = document.querySelectorAll(".input-item");
     elements.forEach((element) => {
