@@ -10,77 +10,60 @@ export default function EditEvent({
   oneEventLoaded,
   setOneEventLoaded,
 }) {
-  const [name, setName] = useState("");
-  const [eventType, setEventType] = useState("");
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
-  const [instructions, setInstructions] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [price, setPrice] = useState("");
-  const [capacity, setCapacity] = useState("");
-  const [locationName, setLocationName] = useState("");
-  const [locationAddress, setLocationAddress] = useState("");
-  const [locationWebsite, setLocationWebsite] = useState("");
-  const [description, setDescription] = useState("");
-  const [success, setSuccess] = useState(false);
+  const [formValues, setFormValues] = useState({
+    name: "",
+    eventType: "",
+    latitude: "",
+    longitude: "",
+    instructions: "",
+    date: "", //
+    time: "",
+    price: "",
+    capacity: "",
+    locationName: "",
+    locationAddress: "",
+    locationWebsite: "",
+    description: "",
+  });
+  // const [success, setSuccess] = useState(false);
 
   //setting the default values for the form
   useEffect(() => {
-    setName(data.name);
-    setEventType(data.event_type);
-    setLatitude(data.latitude);
-    setLongitude(data.longitude);
-    setInstructions(data.instructions);
-    setDate(data.date);
-    setTime(data.time);
-    setPrice(data.price);
-    setCapacity(data.capacity);
-    setLocationName(data.loc_name);
-    setLocationAddress(data.loc_address);
-    setLocationWebsite(data.loc_website);
-    setDescription(data.description);
-  }, [oneEventLoaded, success]);
+    setFormValues({
+      name: data.name,
+      eventType: data.event_type,
+      latitude: data.latitude,
+      longitude: data.longitude,
+      instructions: data.instructions,
+      date: data.date,
+      time: data.time,
+      price: data.price,
+      capacity: data.capacity,
+      locationName: data.loc_name,
+      locationAddress: data.loc_address,
+      locationWebsite: data.loc_website,
+      description: data.description,
+    });
+  }, [oneEventLoaded]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`https://api.itisgoodtohave.me/events/update.php/${data.id}`, {
-        name: name,
-        loc_name: locationName,
-        event_type: eventType,
-        latitude: latitude,
-        longitude: longitude,
-        instructions: instructions,
-        loc_address: locationAddress,
-        loc_website: locationWebsite,
-        date: date,
-        time: time,
-        description: description,
-        // image_path: ...,
-        price: price,
-        capacity: capacity,
-      })
+      .put(
+        `https://api.itisgoodtohave.me/events/update.php/${data.id}`,
+        formValues
+      )
       .then(function (response) {
         if (response.status === 200) {
           swal("YEAH BABY!", "You edited this event.", "success");
-          setSuccess(true);
+          setOneEventLoaded(false);
+          getEvents();
+          setOpenModal(false);
         } else if (response.status === 500) {
           swal("Wellllllll...", "Something went wrong here.", "error");
         }
-      })
-      .then(function () {
-        setOneEventLoaded(false);
-        getEvents();
-        setSuccess(true);
       });
-    setOpenModal(false);
   };
-
-  //(to prevent loading old values)
-  if (!oneEventLoaded) {
-    return null;
-  }
 
   function abortEditing() {
     setOpenModal(false);
@@ -107,7 +90,9 @@ export default function EditEvent({
                         name="name"
                         type="text"
                         defaultValue={data.name}
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={(e) =>
+                          setFormValues({ ...formValues, name: e.target.value })
+                        }
                       />
                     </div>
 
@@ -118,7 +103,12 @@ export default function EditEvent({
                         name="event_type"
                         type="text"
                         defaultValue={data.event_type}
-                        onChange={(e) => setEventType(e.target.value)}
+                        onChange={(e) =>
+                          setFormValues({
+                            ...formValues,
+                            eventType: e.target.value,
+                          })
+                        }
                         list="typesEvents"
                       />
                       <datalist id="typesEvents">
@@ -138,8 +128,11 @@ export default function EditEvent({
                           defaultValue={data.date}
                           onChange={(e) =>
                             e.target.value === ""
-                              ? setDate("")
-                              : setDate(e.target.value)
+                              ? setFormValues({ ...formValues, date: "" })
+                              : setFormValues({
+                                  ...formValues,
+                                  date: e.target.value,
+                                })
                           }
                         />
                       </div>
@@ -151,7 +144,12 @@ export default function EditEvent({
                           name="time"
                           type="time"
                           defaultValue={data.time}
-                          onChange={(e) => setTime(e.target.value)}
+                          onChange={(e) =>
+                            setFormValues({
+                              ...formValues,
+                              time: e.target.value,
+                            })
+                          }
                         />
                       </div>
                     </div>
@@ -163,7 +161,12 @@ export default function EditEvent({
                           className="edit-input event-input"
                           name="price"
                           defaultValue={data.price}
-                          onChange={(e) => setPrice(e.target.value)}
+                          onChange={(e) =>
+                            setFormValues({
+                              ...formValues,
+                              price: e.target.value,
+                            })
+                          }
                         />
                       </div>
 
@@ -173,7 +176,12 @@ export default function EditEvent({
                           className="edit-input event-input"
                           name="capacity"
                           defaultValue={data.capacity}
-                          onChange={(e) => setCapacity(e.target.value)}
+                          onChange={(e) =>
+                            setFormValues({
+                              ...formValues,
+                              capacity: e.target.value,
+                            })
+                          }
                         />
                       </div>
                     </div>
@@ -184,7 +192,12 @@ export default function EditEvent({
                         className="edit-input event input"
                         name="latitude"
                         defaultValue={data.latitude}
-                        onChange={(e) => setLatitude(e.target.value)}
+                        onChange={(e) =>
+                          setFormValues({
+                            ...formValues,
+                            latitude: e.target.value,
+                          })
+                        }
                       />
                     </div>
                     <div className="edit-input-cont">
@@ -193,7 +206,12 @@ export default function EditEvent({
                         className="edit-input event input"
                         name="longitude"
                         defaultValue={data.longitude}
-                        onChange={(e) => setLongitude(e.target.value)}
+                        onChange={(e) =>
+                          setFormValues({
+                            ...formValues,
+                            longitude: e.target.value,
+                          })
+                        }
                       />
                     </div>
                   </div>
@@ -207,7 +225,12 @@ export default function EditEvent({
                         type="text"
                         placeholder="example: Cafe XY"
                         defaultValue={data.loc_name}
-                        onChange={(e) => setLocationName(e.target.value)}
+                        onChange={(e) =>
+                          setFormValues({
+                            ...formValues,
+                            locationName: e.target.value,
+                          })
+                        }
                       />
                     </div>
 
@@ -219,7 +242,12 @@ export default function EditEvent({
                         type="text"
                         placeholder="example: Opatovická 12, Praha 11000"
                         defaultValue={data.loc_address}
-                        onChange={(e) => setLocationAddress(e.target.value)}
+                        onChange={(e) =>
+                          setFormValues({
+                            ...formValues,
+                            locationAddress: e.target.value,
+                          })
+                        }
                       />
                     </div>
 
@@ -230,7 +258,12 @@ export default function EditEvent({
                         name="loc_website"
                         type="text"
                         defaultValue={data.loc_website}
-                        onChange={(e) => setLocationWebsite(e.target.value)}
+                        onChange={(e) =>
+                          setFormValues({
+                            ...formValues,
+                            locationWebsite: e.target.value,
+                          })
+                        }
                       />
                     </div>
 
@@ -253,7 +286,12 @@ export default function EditEvent({
                     <textarea
                       className="edit-input event-input"
                       name="description"
-                      onChange={(e) => setInstructions(e.target.value)}
+                      onChange={(e) =>
+                        setFormValues({
+                          ...formValues,
+                          instructions: e.target.value,
+                        })
+                      }
                       defaultValue={data.instructions}
                     />
                   </div>
@@ -263,8 +301,13 @@ export default function EditEvent({
                     <textarea
                       className="edit-input event-input"
                       name="description"
-                      onChange={(e) => setDescription(e.target.value)}
                       defaultValue={data.description}
+                      onChange={(e) =>
+                        setFormValues({
+                          ...formValues,
+                          description: e.target.value,
+                        })
+                      }
                     />
                   </div>
 

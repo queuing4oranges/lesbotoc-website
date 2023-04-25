@@ -1,15 +1,19 @@
 import React, { useEffect, useState, Fragment } from "react";
 import axios from "axios";
+import Moment from "react-moment";
+import swal from "sweetalert";
+import { CSVLink } from "react-csv";
+
+//components
 import AddContact from "./AddContact";
 import Searchbar from "../Searchbar";
 import AdminNavbar from "../AdminNavbar";
 import EditModal from "./EditModal";
-import swal from "sweetalert";
-import Moment from "react-moment";
-import { CSVLink } from "react-csv";
 import ReportBug from "../../includes/ReportBug";
-import Pen from "../../../../src/assets/svg-icons/Pen";
+
+//icons
 import Trash from "../../../../src/assets/svg-icons/Trash";
+import { PenIcon } from "../../../assets/SvgIcons";
 
 export default function ContactsList() {
   const [filteredData, setFilteredData] = useState([]);
@@ -29,7 +33,6 @@ export default function ContactsList() {
   });
   const [show, setShow] = useState(false);
   const [data, setData] = useState({
-    //uncontrolled-controlled issue
     newsletter: false,
     name: "",
     wherefrom: "",
@@ -70,26 +73,22 @@ export default function ContactsList() {
               );
               setContactsLoaded(false);
             } else if (response.status === 500) {
-              swal("Wellllllll...", "Something went wrong here.", "error");
+              swal("Well...", "Something went wrong here.", "error");
             }
           });
       }
     });
   };
 
-  //opening and closing modal + changing button text
   const toggleAddField = () => {
+    setAddField(!addField);
     if (addField === true) {
-      setAddField(false);
       setButtonText("New Contact");
-      emptyInputs();
     } else {
       setFormError(null);
-      setAddField(true);
       setButtonText("Cancel");
       emptyInputs();
     }
-    getContacts();
     setContactsLoaded(false);
   };
 
@@ -110,7 +109,6 @@ export default function ContactsList() {
   };
 
   const showContact = (id) => {
-    // handleScrollPosition()
     setShow(true);
     axios
       .get(`https://api.itisgoodtohave.me/contacts/single_read.php/${id}`)
@@ -170,6 +168,7 @@ export default function ContactsList() {
               toggleAddField={toggleAddField}
               setAddField={setAddField}
               setFormError={setFormError}
+              formError={formError}
               setInputs={setInputs}
               inputs={inputs}
               emptyInputs={emptyInputs}
@@ -238,7 +237,9 @@ export default function ContactsList() {
                       type="button"
                       className="btn btn-sm pencil-item"
                     >
-                      <Pen width={20} height={20} fill="currentColor" />
+                      {/* <Pen width={20} height={20} fill="currentColor" />
+                       */}
+                      <PenIcon width={20} height={20} fill={"currentColor"} />
                     </button>
 
                     {show && (

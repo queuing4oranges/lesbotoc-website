@@ -4,21 +4,20 @@ import swal from "sweetalert";
 
 export default function AddContact({
   toggleAddField,
-  setAddField,
   setFormError,
+  formError,
   setInputs,
   inputs,
   emptyInputs,
 }) {
   const handleChange = (event) => {
-    const target = event.target;
-    const name = target.name;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    const { name, type, checked, value } = event.target; //destr. target object
+    const newValue = type === "checkbox" ? checked : value; //if checkbox - use checked property, otherwise use value
 
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
+    setInputs((prevState) => ({
+      ...prevState, //ensures state is updated in correct order when multiple updates
+      [name]: newValue,
+    }));
   };
 
   const handleSubmit = (event) => {
@@ -26,14 +25,12 @@ export default function AddContact({
     setFormError(null);
     event.preventDefault();
 
-    //check that inputs arent null (!null in DB)
-    if (!inputs.name) {
-      setAddField(true);
+    //check that inputs arent null
+    if (!inputs.name || inputs.name < 2) {
       setFormError("Please provide a name.");
       return;
     }
     if (!inputs.email) {
-      setAddField(true);
       setFormError("Please provide a valid email.");
       return;
     }
@@ -51,6 +48,7 @@ export default function AddContact({
 
   return (
     <div className="form-container">
+      {formError ? formError : false}
       <div className="form-cont">
         <form onSubmit={handleSubmit}>
           <div className="form-group">

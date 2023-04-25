@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { serviceId, templateId, publicKey } from "./variables";
 import swal from "sweetalert";
+
+//icons
 import Bug from "../../assets/svg-icons/Bug";
 import Close from "../../assets/svg-icons/Close";
 
