@@ -237,8 +237,6 @@ export default function ContactsList() {
                       type="button"
                       className="btn btn-sm pencil-item"
                     >
-                      {/* <Pen width={20} height={20} fill="currentColor" />
-                       */}
                       <PenIcon width={20} height={20} fill={"currentColor"} />
                     </button>
 
