@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
+//components
 import Navbar from "../includes/Navbar";
 import Footer from "../includes/Footer";
+
+//libraries
 import axios from "axios";
 import Moment from "react-moment";
-import { Link } from "react-router-dom";
+
+//images
 import bgImage from "../../../assets/pride-flag-house-bg.png";
+
+//components
+import Loading from "../includes/Loading";
 
 export default function Calendar() {
   const [events, setEvents] = useState([]);
-  const [eventsLoaded, setEventsLoaded] = useState([]);
+  const [eventsLoaded, setEventsLoaded] = useState(false);
 
   useEffect(() => {
     getEvents();
@@ -26,6 +35,10 @@ export default function Calendar() {
         }
       });
   };
+
+  if (!eventsLoaded) {
+    return <Loading />;
+  }
 
   return (
     <div

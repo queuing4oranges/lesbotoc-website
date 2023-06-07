@@ -15,7 +15,7 @@ export default function Navbar() {
               textDecoration: "none",
             })}
           >
-            <img className="logo-bubbles" src={bubbles} alt="" />
+            {/* <img className="logo-bubbles" src={bubbles} alt="" /> */}
             <p
               className="logo-home"
               style={{

@@ -2,9 +2,10 @@
   margin-top: -320px;
   margin-left: auto;
   margin-right: auto;
-  height: fit-content;
+  height: 100%;
   display: flex;
   width: 90vw;
+  position: relative;
 }
 
 .logo-cont {
@@ -73,16 +74,6 @@
   margin-top: 75px;
 }
 
-.home-cont a {
-  display: flex;
-  align-items: flex-end;
-  writing-mode: vertical-rl;
-
-  &:hover {
-    text-decoration: none;
-  }
-}
-
 .more-card {
   height: 50%;
   width: 100%;
@@ -98,12 +89,23 @@
 
 .dynamic-title-cont {
   display: flex;
+  height: fit-content;
   justify-content: flex-end;
+  align-items: center;
   width: 90vw;
+  & .enter-btn {
+    margin-left: 20px;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
 }
 
 .dynamic-home-title {
-  min-height: 150px;
   font-family: "Amatic SC", sans-serif, Arial, Helvetica, sans-serif;
   color: $dark-petrol;
   text-transform: uppercase;

@@ -4,7 +4,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700");
 //font-family: 'Amatic SC', cursive;
 
+//importing main style sheets
 @import "./styles/variables";
+
+//importing component style sheets
+@import "./components/user/home/home.scss";
+
 @import "./styles/searchbar.scss";
 @import "./styles/contactlist.scss";
 @import "./styles/adminnavbar.scss";
@@ -23,58 +28,5 @@
 @import "./components/user/userstyles/contact.scss";
 @import "./components/user/userstyles/gallery.scss";
 @import "./components/user/userstyles/calendar.scss";
-@import "./components/user/userstyles/home.scss";
 @import "./components/user/userstyles/speeddating.scss";
 @import "./styles/adminlogin.scss";
-
-// colours:
-$lesbotoc: #7ab6cb;
-$lesbotoc-dark: #4d8eb5;
-$dark-petrol: #003243;
-$brown: #9a4700;
-$light-blue: #e6f4f1;
-
-//user-colours:
-$user-beige-light: #f5efea;
-$user-beige-dark: #f5e2d3;
-$user-red: #eb5a49;
-$user-lightred: #ed7f71;
-$user-darkred: #b84639;
-$user-almostblack: #2c353c;
-
-html {
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif, Arial, Helvetica, sans-serif;
-  scroll-behavior: smooth;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-.App {
-  text-align: center;
-  font-family: "Poppins", sans-serif, Arial, Helvetica, sans-serif;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}

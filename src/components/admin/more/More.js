@@ -1,10 +1,16 @@
 import React, { Fragment, useState, useEffect } from "react";
+
+//components
 import AdminNavbar from "../AdminNavbar";
+import ReportBug from "../../includes/ReportBug";
+
+//libraries
 import axios from "axios";
 import { CSVLink } from "react-csv";
-import ReportBug from "../../includes/ReportBug";
-import Moment from "react-moment";
 import swal from "sweetalert";
+import Moment from "react-moment";
+
+//icons
 import Download from "../../../assets/svg-icons/Download";
 import Linking from "../../../assets/svg-icons/Linking";
 import Trash from "../../../assets/svg-icons/Trash";
