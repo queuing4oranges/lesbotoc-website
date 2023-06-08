@@ -7,18 +7,22 @@ export default function useGetEvents() {
     const [ error, setError ] = useState(null)
 
     const getEvents = async () => {
-    try {
-        setLoading(true)
+        try {
+            setLoading(true)
 
-        const response = await axios.get("https://api.itisgoodtohave.me/events/read.php")
-        const data = response.data;
+            setTimeout(async () => {
+                const response = await axios.get("https://api.itisgoodtohave.me/events/read.php")
+                const data = response.data;
+    
+                setEvents(data);
+                setLoading(false);
 
-        setEvents(data);
-        setLoading(false);
-    } catch (error) {
-        setError(error);
-        setLoading(false);
-    }
+            }, 400)
+
+        } catch (error) {
+            setError(error);
+            setLoading(false);
+        }
     };
 
   return {

@@ -1,54 +1,22 @@
 .user-gallery-cont {
-  // width: 100vw;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   grid-column-gap: 60px;
   grid-row-gap: 60px;
-  // height: fit-c
   justify-content: space-between;
   margin-bottom: 60px;
   position: relative;
 }
 
-.box-gallery1 {
-  position: absolute;
-  z-index: 1;
-  top: 390px;
-  left: 0;
-}
-
-// .box-gallery2 {
-//   position: absolute;
-//   z-index: 1;
-//   top: 1050px;
-//   right: 600px;
-// }
-
-.bubbles-gallery1 {
-  position: absolute;
-  left: 0;
-  top: 700;
-}
-.bubbles-gallery2 {
-  position: absolute;
-  left: 1050px;
-  top: 175px;
-}
-
-// .bubbles-gallery3 {
-//   position: absolute;
-//   left: 65px;
-//   top: 900px;
-// }
-
 .user-img-cont {
   width: 300px;
   height: 300px;
   padding-top: 30px;
+  border: 1px dotted $lesbotoc;
   background-color: $user-beige-light;
-  box-shadow: 5px 5px 5px #003243;
+  box-shadow: $box-shadow;
   display: flex;
   flex-direction: column;
   align-items: center;

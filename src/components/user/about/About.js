@@ -1,5 +1,4 @@
 import React from "react";
-import BubbleGrid from "../includes/BubbleGrid";
 import Footer from "../includes/Footer";
 import Navbar from "../includes/Navbar";
 import team from "../../../assets/team2.jpg";
@@ -21,10 +20,6 @@ export default function About() {
       </div>
 
       <div className="user-about-intro">
-        <div className="bubbles-about">
-          <BubbleGrid color="#B84639" />
-        </div>
-
         <div className="paragraph-box opaque-box"></div>
 
         <p className="user-paragraph user-about-paragraph">

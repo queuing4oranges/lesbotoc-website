@@ -1,26 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+//components
 import Footer from "../includes/Footer";
 import Navbar from "../includes/Navbar";
-import axios from "axios";
-import BubbleGrid6x7 from "../includes/BubbleGrid6x7";
-import OpaqueBox from "../includes/OpaqueBox";
+import Loading from "../includes/Loading";
+//hooks
+import useGetImages from "../../../hooks/useGetImages";
 
 export default function Gallery() {
-  const [images, setImages] = useState([]);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const { images, loading, error, getImages } = useGetImages();
 
   useEffect(() => {
     getImages();
-  }, [imagesLoaded]);
+  }, []);
 
-  const getImages = () => {
-    axios
-      .get("https://api.itisgoodtohave.me/images/read.php")
-      .then(function (response) {
-        setImages(response.data);
-        setImagesLoaded(true);
-      });
-  };
+  if (loading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -28,23 +27,7 @@ export default function Gallery() {
       <div className="user-container">
         <h2 className="user-title">Galerie</h2>
 
-        <div className="box-gallery1">
-          <OpaqueBox width="600px" height="300px" />
-        </div>
-
-        {/* <div className="box-gallery2">
-          <OpaqueBox width="600px" height="300px" />
-        </div> */}
-
-        <div className="bubbles-gallery2">
-          <BubbleGrid6x7 color="#B84639" />
-        </div>
-
-        {/* <div className="bubbles-gallery3">
-          <BubbleGrid6x7 color="#003243" />
-        </div> */}
-
-        {imagesLoaded && (
+        {images && (
           <div className="user-gallery-cont">
             {images.map((img, key) => (
               <div key={key} className="user-img-cont">
