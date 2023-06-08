@@ -16,7 +16,6 @@ export default function Loading() {
       }}
     >
       <LoadingIcon height={135} width={135} fill={"#eb5a49"} />
-      <p>Crunching your data...</p>
     </div>
   );
 }
