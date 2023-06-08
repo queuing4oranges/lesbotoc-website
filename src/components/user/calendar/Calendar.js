@@ -1,4 +1,3 @@
-import { AddressPin } from "../../../assets/svg-icons/AddressPin";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -12,6 +11,9 @@ import Moment from "react-moment";
 
 //images
 import bgImage from "../../../assets/pride-flag-house-bg.png";
+import AddressPin from "../../../assets/svg-icons/AddressPin";
+
+//hooks
 import useGetEvents from "../../../hooks/useGetEvents";
 
 export default function Calendar() {
@@ -99,7 +101,7 @@ export default function Calendar() {
                   </div>
 
                   <div className="cal-address-cont">
-                    <AddressPin width={14} height={20} />
+                    <AddressPin width={14} height={20} fill="#f5efea" />
 
                     <p className="cal-address">{event.loc_name}</p>
                   </div>
