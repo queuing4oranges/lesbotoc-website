@@ -1,7 +1,8 @@
 // import emailjs from '@emailjs/browser';
 import React, { Fragment } from "react";
-import Footer from "../includes/Footer";
+//components
 import Navbar from "../includes/Navbar";
+//icons
 import InstagramIcon from "../../includes/icons/InstagramIcon";
 import FacebookIcon from "../../includes/icons/FacebookIcon";
 
@@ -70,7 +71,7 @@ export default function ContactModal() {
                 rel="noreferrer"
                 aria-label="Instagram"
               >
-                <InstagramIcon width={25} height={25} color="#fb9644" />
+                <InstagramIcon width={25} height={25} color="#003243" />
               </a>
             </div>
             <div className="contact-icon contact-icon-fb">
@@ -80,13 +81,12 @@ export default function ContactModal() {
                 rel="noreferrer"
                 aria-label="Facebook"
               >
-                <FacebookIcon width={25} height={25} color="#fb9644" />
+                <FacebookIcon width={25} height={25} color="#003243" />
               </a>
             </div>
           </div>
         </div>
       </div>
-      <Footer />
     </Fragment>
   );
 }

@@ -1,0 +1,183 @@
+.user-contact-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #7ab6cb;
+  display: flex;
+  font-family: "Poppins", sans-serif, Arial, Helvetica, sans-serif;
+  background-image: url("../../../components/user/contact/contact-bg.svg");
+  background-size: cover;
+}
+
+.contact-title-container {
+  @include center-object;
+  width: 200px;
+  // height: 200px;
+  position: absolute;
+  top: 190px;
+  left: 60px;
+  color: #feebdd;
+  & h2 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: $dark-petrol;
+  }
+}
+
+.user-contact-cont {
+  @include center-object;
+  background-color: $user-beige-light;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  margin: 60px auto;
+}
+
+.contact-icon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  background-color: $lesbotoc;
+  border-radius: 50%;
+  border: #fb9644 2px solid;
+  position: absolute;
+  right: 60px;
+  bottom: 20px;
+  padding: 20px;
+}
+
+.user-contact-item {
+  display: flex;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  & svg {
+    margin-right: 10px;
+  }
+
+  & input,
+  textarea {
+    padding: 10px;
+    width: 250px;
+    border-radius: 15px;
+    border: none;
+    resize: none;
+    background-color: transparent;
+    border: #fb9644 solid 2px;
+    // color: $text-color;
+  }
+
+  & ::placeholder {
+    font-style: normal;
+    color: $lesbotoc;
+    opacity: 0.9;
+  }
+
+  & input {
+    height: 50px;
+  }
+
+  & textarea {
+    height: 150px;
+  }
+
+  & input:focus,
+  textarea:focus {
+    outline: none;
+    border: 2px solid $lesbotoc;
+  }
+}
+
+.user-contact-btn-cont {
+  @include center-object;
+
+  button {
+    width: 250px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #fb9644;
+    color: $text-color;
+    font-size: 1.2rem;
+    &:hover {
+      background-color: $lesbotoc;
+      color: $dark-petrol;
+    }
+  }
+}
+
+.contact-icon {
+  width: 200px;
+  @include center-object;
+  margin: 10px;
+  font-size: 1rem;
+  & a {
+    color: $dark-petrol;
+  }
+}
+
+.contact-icon-email,
+.contact-icon-phone {
+  border: 2px #fb9644 solid;
+  border-radius: 15px;
+  padding: 5px;
+
+  &:hover {
+    background: $lesbotoc;
+  }
+
+  & a:hover {
+    opacity: 0.6;
+    text-decoration: none;
+  }
+}
+
+.contact-icon-fb-insta {
+  width: 10vw;
+  @include center-object;
+  & svg:hover {
+    opacity: 0.6;
+  }
+}
+
+/*ANIMATIONS*/
+
+.contact-title-container {
+  -webkit-animation: puff-in-center 700ms cubic-bezier(0.47, 0, 0.745, 0.715)
+    400ms both;
+  animation: puff-in-center 700ms cubic-bezier(0.47, 0, 0.745, 0.715) 400ms both;
+}
+
+@-webkit-keyframes puff-in-center {
+  0% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes puff-in-center {
+  0% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
