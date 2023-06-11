@@ -4,7 +4,7 @@
   background-color: #7ab6cb;
   display: flex;
   font-family: "Poppins", sans-serif, Arial, Helvetica, sans-serif;
-  background-image: url("../../../assets/first-wave.svg");
+  background-image: url("../../../components/user/contact/contact-bg.svg");
   background-size: cover;
 }
 
@@ -18,8 +18,6 @@
   position: absolute;
   top: 90px;
   left: 60px;
-  box-shadow: 5px 5px 5px 3px #fb9644bf;
-  // font-family: ;
   color: #feebdd;
   & h2 {
     font-weight: 400;

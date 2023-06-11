@@ -1,5 +1,5 @@
 .user-navbar-container {
-  background-color: #fe6b4d;
+  background-color: $lesbotoc;
   height: 40px;
   z-index: 100;
 }
@@ -23,6 +23,9 @@
   & a {
     display: flex;
     align-items: center;
+    &:hover {
+      opacity: 0.6;
+    }
   }
 
   & p {

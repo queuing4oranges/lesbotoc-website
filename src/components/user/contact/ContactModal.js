@@ -2,8 +2,6 @@
 import React, { Fragment } from "react";
 import Footer from "../includes/Footer";
 import Navbar from "../includes/Navbar";
-import EnvelopeIcon from "../../includes/icons/EnvelopeIcon";
-import PhoneIcon from "../../includes/icons/PhoneIcon";
 import InstagramIcon from "../../includes/icons/InstagramIcon";
 import FacebookIcon from "../../includes/icons/FacebookIcon";
 
@@ -55,13 +53,11 @@ export default function ContactModal() {
         </div>
         <div className="contact-icon-container">
           <div className="contact-icon contact-icon-email">
-            {/* <EnvelopeIcon width={25} height={25} color="#fb9644" /> */}
             <a href="mailto: lesbotoc@gmail.com" aria-label="Email address">
               lesbotoc@gmail.com
             </a>
           </div>
           <div className="contact-icon contact-icon-phone">
-            {/* <PhoneIcon width={25} height={25} color="#fb9644" /> */}
             <a href="tel:777696969" aria-label="Phone Number">
               +420 777 696 969
             </a>

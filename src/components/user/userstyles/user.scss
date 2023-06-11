@@ -1,4 +1,4 @@
-//repeating scss patterns and their classNames
+//global css for users
 .user-title {
   font-family: "Amatic SC", sans-serif, Arial, Helvetica, sans-serif;
   font-weight: 700;
@@ -27,28 +27,4 @@
   letter-spacing: 0.1em;
   color: $dark-petrol;
   text-align: left;
-}
-
-.opaque-bg-box {
-  background-color: #7ab6cb40;
-  position: absolute;
-  z-index: 1;
-}
-
-.opaque-box {
-  background-color: #7ab6cb40;
-}
-
-//changing color of bubble-grid
-
-.blue-bubble {
-  color: $dark-petrol;
-}
-
-.red-bubble {
-  color: #b84639;
-}
-
-.lesbotoc-bubble {
-  color: $lesbotoc;
 }
