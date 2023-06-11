@@ -3,10 +3,6 @@
   margin: auto;
 }
 
-.user-about-img {
-  width: 100vw;
-}
-
 .user-about-intro {
   width: 100%;
   margin: auto;
@@ -21,20 +17,22 @@
   padding-bottom: 100px;
 }
 
-.user-singles-cont {
+.user-about-img {
+  width: 100vw;
+}
+
+.user-paragraph {
+  margin-top: 30px;
+}
+
+.user-singles-container {
   position: relative;
-  height: fit-content;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10%;
 }
 
 //to make img opaque but not text inside div
-.user-singles-cont::before {
+.user-singles-container::before {
   content: "";
-  background-image: url("../../../assets/rainbow-flag-pride.jpg");
+  background-image: url("../../../assets/about_images/rainbow-flag-pride.jpg");
   background-size: cover;
   opacity: 0.15;
   position: absolute;
@@ -44,10 +42,24 @@
   left: 0px;
 }
 
-.user-about {
-  position: relative;
-  margin-top: -170px;
+.user-singles {
+  width: 80%;
+  margin: auto;
+  margin-top: -70px;
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 100;
+}
 
+.user-about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25vw;
+  z-index: 90;
+  padding: 20px;
   & img {
     width: 200px;
     height: 200px;
@@ -58,10 +70,6 @@
   & p {
     width: 275px;
   }
-}
-
-.user-paragraph {
-  margin-top: 30px;
 }
 
 .member-name {

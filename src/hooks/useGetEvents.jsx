@@ -6,7 +6,8 @@ export default function useGetEvents() {
     const [ loading, setLoading ] = useState(false)
     const [ error, setError ] = useState(null)
 
-    const getEvents = async () => {
+    //setting the seconds to variable - default is always 0
+    const getEvents = async (timer) => {
         try {
             setLoading(true)
 
@@ -17,7 +18,7 @@ export default function useGetEvents() {
                 setEvents(data);
                 setLoading(false);
 
-            }, 400)
+            }, timer)
 
         } catch (error) {
             setError(error);

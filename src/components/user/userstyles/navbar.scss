@@ -1,8 +1,5 @@
 .user-navbar-container {
-  // background-color: $user-beige-dark;
   background-color: #fe6b4d;
-
-  // box-shadow: 1px 1px 3px 0px rgba(122, 182, 203, 0.75);
   height: 40px;
   z-index: 100;
 }
@@ -45,7 +42,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 25px;
-  color: black;
+  color: $dark-petrol;
 }
 
 .navbar-searchbar {
@@ -69,7 +66,7 @@
   margin-left: 20px;
 
   & path {
-    color: black;
+    color: $dark-petrol;
   }
 }
 .user-nav-link {
@@ -79,5 +76,5 @@
 
 .user-nav-link:hover {
   transition: 200ms;
-  border-bottom: 2px black solid;
+  border-bottom: 2px $dark-petrol solid;
 }

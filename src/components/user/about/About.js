@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../includes/Footer";
 import Navbar from "../includes/Navbar";
-import team from "../../../assets/team2.jpg";
+import team from "../../../assets/about_images/team2.png";
 import { members } from "./aboutData";
 
 export default function About() {
@@ -14,6 +14,7 @@ export default function About() {
           src={team}
           alt="3 women from lesbotoč"
           className="user-about-img"
+          loading="eager"
         />
       </div>
 
@@ -29,14 +30,16 @@ export default function About() {
         </p>
       </div>
 
-      <div className="user-singles-cont">
-        {members.map((member) => (
-          <div key={member.id} className="user-about">
-            <img src={member.img} loading="lazy" alt={member.name} />
-            <p className="member-name">{member.name}</p>
-            <p className="user-paragraph">{member.intro}</p>
-          </div>
-        ))}
+      <div className="user-singles-container">
+        <div className="user-singles">
+          {members.map((member) => (
+            <div key={member.id} className="user-about">
+              <img src={member.img} loading="lazy" alt={member.name} />
+              <p className="member-name">{member.name}</p>
+              <p className="user-paragraph">{member.intro}</p>
+            </div>
+          ))}
+        </div>
       </div>
       <Footer />
     </div>

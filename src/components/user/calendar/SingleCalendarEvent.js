@@ -28,14 +28,6 @@ export default function SingleCalendarEvent() {
     showEvent(id);
   }, []);
 
-  // if (loading) {
-  //   return (
-  //     <div>
-  //       <Loading />
-  //     </div>
-  //   );
-  // }
-
   if (error) {
     return console.log(error);
   }

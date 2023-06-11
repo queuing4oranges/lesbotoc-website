@@ -113,7 +113,7 @@ SingleCalenderEvent.js
 
 .single-cal-event-bg::before {
   content: "";
-  background-image: url("../../../assets/cafe-above.jpg");
+  background-image: url("../../../assets/calendar_images/cafe-above.jpg");
   background-size: cover;
   opacity: 0.15;
   position: absolute;
@@ -300,4 +300,138 @@ SingleCalenderEvent.js
 .gmaps-instructions {
   text-align: left;
   margin-top: 20px;
+}
+
+/*----------------------------
+SpeedDating.js
+----------------------------*/
+.speed-container {
+  background-image: url("../../../assets/calendar_images/speeddating-heart.png");
+  background-size: cover;
+  background-position-x: right;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  border: solid $dark-petrol 10px;
+  width: 70vw;
+  margin: 50px auto;
+  height: fit-content;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 25px;
+  border-radius: 10px;
+  z-index: 60;
+}
+
+.speed-data {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 11px;
+
+  &__item {
+    display: flex;
+    margin-left: 10px;
+  }
+
+  & p {
+    margin-left: 5px;
+  }
+}
+
+.speed-form {
+  width: 400px;
+  min-height: 70vh;
+  background-color: $user-beige-light;
+  color: $dark-petrol;
+  padding: 15px;
+}
+
+.speed-title h3 {
+  font-size: 36px;
+  font-weight: bold;
+  font-family: "Amatic SC", sans-serif, Arial, Helvetica, sans-serif;
+}
+
+.speed-label,
+.speed-intro p {
+  font-size: 11px;
+  margin-bottom: 0;
+}
+
+.speed-intro p {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 10px;
+}
+
+.speed-input {
+  width: 300px;
+  height: 25px;
+}
+
+.speed-input-newsletter {
+  width: 13px;
+  height: 13px;
+}
+
+.speed-label-telefon {
+  font-size: 10px;
+}
+
+.speed-form-cont {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  & input[type="text"],
+  input[type="email"] {
+    font-size: 11px;
+    margin-right: 20px;
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  & svg {
+    margin-left: 20px;
+  }
+}
+
+.checkbox-input {
+  width: fit-content;
+}
+
+.checkbox-cont {
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  margin-right: 20px;
+
+  & p {
+    font-size: 11px;
+    margin: 0;
+  }
+}
+
+.swal-overlay {
+  background-color: rgb(122, 182, 203, 0.45);
+}
+
+.speed-form-cont input:invalid {
+  border: 1px solid red;
 }

@@ -10,7 +10,7 @@ import Loading from "../includes/Loading";
 import Moment from "react-moment";
 
 //images
-import bgImage from "../../../assets/pride-flag-house-bg.png";
+import bgImage from "../../../assets/calendar_images/pride-flag-house-bg.png";
 import AddressPin from "../../../assets/svg-icons/AddressPin";
 
 //hooks
@@ -20,7 +20,7 @@ export default function Calendar() {
   const { events, loading, error, getEvents } = useGetEvents();
 
   useEffect(() => {
-    getEvents();
+    getEvents(300);
   }, []);
 
   if (loading) {
