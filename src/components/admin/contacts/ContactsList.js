@@ -10,7 +10,6 @@ import Searchbar from "../Searchbar";
 import AdminNavbar from "../AdminNavbar";
 import EditModal from "./EditModal";
 import ReportBug from "../../includes/ReportBug";
-import NewForm from "../contacts/NewForm";
 
 //icons
 import Trash from "../../../../src/assets/svg-icons/Trash";
@@ -165,7 +164,6 @@ export default function ContactsList() {
             {formError && (
               <p className="alert alert-danger alert-message">{formError}</p>
             )}
-            <NewForm />
 
             <AddContact
               toggleAddField={toggleAddField}

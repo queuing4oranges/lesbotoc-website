@@ -1,66 +1,45 @@
 import React from "react";
 import axios from "axios";
 import swal from "sweetalert";
+import { useForm } from "react-hook-form";
+import { ageGroups, wherefromPlaces } from "../Datalists";
 
-export default function AddContact({
-  toggleAddField,
-  setFormError,
-  formError,
-  setInputs,
-  inputs,
-  emptyInputs,
-}) {
-  const handleChange = (event) => {
-    const { name, type, checked, value } = event.target; //destr. target object
-    const newValue = type === "checkbox" ? checked : value; //if checkbox - use checked property, otherwise use value
+export default function AddContact({}) {
+  //register individ. inputs into the hook
+  const {
+    register,
+    handleSubmit,
+    reset, //resets form inputs to blank
+    formState: { errors },
+  } = useForm();
 
-    setInputs((prevState) => ({
-      ...prevState, //ensures state is updated in correct order when multiple updates
-      [name]: newValue,
-    }));
-  };
-
-  const handleSubmit = (event) => {
-    //when submit - reset all errors first
-    setFormError(null);
-    event.preventDefault();
-
-    //check that inputs arent null
-    if (!inputs.name || inputs.name < 2) {
-      setFormError("Please provide a name.");
-      return;
-    }
-    if (!inputs.email) {
-      setFormError("Please provide a valid email.");
-      return;
-    }
-
-    //execute post request
+  const onSubmit = (data) => {
+    console.log(data);
     axios
-      .post("https://api.itisgoodtohave.me/contacts/create.php", inputs)
+      .post("https://api.itisgoodtohave.me/contacts/create.php", data)
       .then(function (response) {
         console.log(response.data.message);
         swal("YEAH BABY!", "You added a new contact.", "success");
       });
-    emptyInputs();
-    toggleAddField();
+    reset();
   };
 
   return (
     <div className="form-container">
-      {formError ? formError : false}
+      <p>{errors.name?.message}</p>
+      <p>{errors.email?.message}</p>
       <div className="form-cont">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-group">
             <label htmlFor="name">Name*</label>
             <input
               className="input-item contacts-input"
-              id="name"
-              name="name"
+              placeholder="first name / last name / nickname"
               type="text"
-              placeholder="first Name / last Name / nickname"
-              onChange={handleChange}
-              required
+              {...register("name", {
+                required: "Gimme a name.",
+                minLength: 4,
+              })}
             />
           </div>
 
@@ -68,18 +47,14 @@ export default function AddContact({
             <label htmlFor="wherefrom">Where did we meet?</label>
             <input
               className="input-item contacts-input"
-              id="wherefrom"
-              name="wherefrom"
-              list="places"
               type="text"
-              onChange={handleChange}
+              list="places"
+              {...register("wherefrom")}
             />
             <datalist id="places">
-              <option value="Bowling s Lesbotočem"></option>
-              <option value="Knížní Klub"></option>
-              <option value="Lesbotoč MUSIC KVÍZ"></option>
-              <option value="Prague Pride"></option>
-              <option value="Speed Dating"></option>
+              {wherefromPlaces.map((item) => (
+                <option key={item.id} value={item.place}></option>
+              ))}
             </datalist>
           </div>
 
@@ -87,23 +62,24 @@ export default function AddContact({
             <label htmlFor="email">Email*</label>
             <input
               className="input-item contacts-input"
-              id="email"
-              name="email"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               placeholder="someone@email.cz"
-              type="text"
-              onChange={handleChange}
+              type="email"
+              {...register("email", {
+                validate: {
+                  matchPattern: (v) =>
+                    /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+                    "Email must be a valid address",
+                },
+                required: "An address please.",
+              })}
             />
           </div>
-
           <div className="form-group">
             <label htmlFor="phone">Phone</label>
             <input
               className="input-item contacts-input"
-              id="phone"
-              name="phone"
               type="text"
-              onChange={handleChange}
+              {...register("phone")}
             />
           </div>
 
@@ -111,33 +87,24 @@ export default function AddContact({
             <label htmlFor="age">Age Group</label>
             <input
               className="input-item contacts-input"
-              id="age"
               list="ages"
-              name="age"
               type="text"
-              onChange={handleChange}
+              {...register("age")}
             />
-            <datalist id="ages">
-              <option value="20-25"></option>
-              <option value="26-30"></option>
-              <option value="31-35"></option>
-              <option value="36-40"></option>
-              <option value="41-45"></option>
-              <option value="46-50"></option>
-              <option value="50+"></option>
+
+            <datalist>
+              {ageGroups.map((item) => (
+                <option key={item.id} value={item.age}></option>
+              ))}
             </datalist>
           </div>
 
-          <div className="form-group checkbox-cont">
+          <div className="form-group checkbox cont">
             <label htmlFor="newsletter">Newsletter?</label>
             <input
               className="input-item contacts-input-check checkbox"
-              id="newsletter"
-              name="newsletter"
               type="checkbox"
-              value="0"
-              checked={inputs.newsletter}
-              onChange={handleChange}
+              {...register("newsletter")}
             />
           </div>
 

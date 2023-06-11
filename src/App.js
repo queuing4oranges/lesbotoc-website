@@ -1,11 +1,9 @@
 import "./App.scss";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Admin from "./components/admin/Admin";
 import ContactsList from "./components/admin/contacts/ContactsList";
 import Events from "./components/admin/events/Events";
 import EventsArchive from "./components/admin/events/EventsArchive";
 import ImageUpload from "./components/admin/pictures/ImageUpload";
-// import Newsletter from "./components/admin/newsletter/More";
 import AdminLogin from "./components/admin/AdminLogin";
 import Home from "./components/user/home/Home";
 import Gallery from "./components/user/gallery/Gallery";
@@ -26,7 +24,6 @@ function App() {
           <Route path="/kalendar/:id" element={<SingleCalendarEvent />} />
           <Route path="/about" element={<About />} />
           <Route path="/kontakt" element={<Contact />} />
-          {/* <Route path="/login" element={<AdminLogin />} /> */}
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/contacts" element={<ContactsList />} />
           <Route path="/admin/events" element={<Events />} />
@@ -40,7 +37,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <Route path="/events/:id" element={<EventDetail />} />; */
-}
