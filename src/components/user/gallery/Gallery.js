@@ -21,6 +21,8 @@ export default function Gallery() {
     );
   }
 
+  console.log(error);
+
   return (
     <div>
       <Navbar />

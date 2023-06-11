@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import Moment from "react-moment";
+import { useForm } from "react-hook-form";
+import { ageGroups } from "../../admin/Datalists";
+
+//libraries
 import axios from "axios";
 import swal from "sweetalert";
+
+//icons
 import Kalender from "../../../assets/svg-icons/Kalender";
 import Clock from "../../../assets/svg-icons/Clock";
 import AddressPin from "../../../assets/svg-icons/AddressPin";
@@ -11,29 +17,20 @@ import Dino from "../../../assets/svg-icons/Dino";
 import Handy from "../../../assets/svg-icons/Handy";
 
 export default function SpeedDating({ date, time, location, setShowMod }) {
-  const [speedName, setSpeedName] = useState("");
-  const [speedMail, setSpeedMail] = useState("");
-  const [speedPhone, setSpeedPhone] = useState("");
-  const [speedAge, setSpeedAge] = useState("");
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const onSubmit = (data) => {
+    console.log(data);
+    const inputs = { ...data, date, wherefrom: "SpeedDating" };
+    console.log(inputs);
 
-    const speedNews = document.querySelector("#speedNewsletter");
-    console.log(speedNews.checked);
-
-    const inputs = {
-      date: date,
-      name: speedName,
-      email: speedMail,
-      phone: speedPhone,
-      age: speedAge,
-      newsletter: "1",
-      wherefrom: "SpeedDating",
-    };
-
-    //getting value from checkbox - if user agrees to newsletter, it'll be saved to contacts table too
-    if (speedNews.checked === true) {
+    //if newsletter in data obj is true, also add contact to user table
+    if (data.newsletter) {
       axios
         .post("https://api.itisgoodtohave.me/contacts/create.php", inputs)
         .then(function () {
@@ -43,7 +40,6 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
       console.log("nic tam neni");
     }
 
-    //sign up for the speed dating
     axios
       .post("https://api.itisgoodtohave.me/speeddating/create.php", inputs)
       .then(function (response) {
@@ -51,9 +47,9 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
         if (response.status === 200) {
           swal({
             title: "SKVĚLE",
-            text: "We're looking forward to seeing you there.",
+            text: "Těšíme se na Vás.",
             icon: "success",
-            button: "Me too!",
+            button: "Já také!",
           });
           setShowMod(false);
         } else if (response.status === 500) {
@@ -69,6 +65,7 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
       });
   };
 
+  console.log(errors);
   return (
     <div className="user-container">
       <div className="speed-container">
@@ -77,7 +74,7 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
             <h3>Lesbotoč speed dating sign up</h3>
           </div>
 
-          <form onSubmit={handleSubmit} id="add-speeddating-contact">
+          <form onSubmit={handleSubmit(onSubmit)} id="add-speeddating-contact">
             <div className="speed-data">
               <div className="speed-data__item">
                 <Kalender width={16} height={16} fill="#003243" />
@@ -110,17 +107,16 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
                   Jméno
                 </label>
                 <input
-                  type="text"
                   className="form-control speed-input"
-                  name="name"
-                  id="speed-name"
-                  onChange={(e) => {
-                    setSpeedName(e.target.value);
-                  }}
-                  required
-                  minLength="3"
-                  maxLength="20"
+                  type="text"
+                  placeholder={errors.name?.message}
+                  {...register("name", {
+                    required: "Please enter a name here",
+                    minLength: 3,
+                    maxLength: 20,
+                  })}
                 />
+                {/* <p>{errors.name?.message}</p> */}
               </div>
             </div>
             <div className="speed-form-cont">
@@ -132,13 +128,12 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
                   Email
                 </label>
                 <input
-                  type="email"
                   className="form-control speed-input"
-                  placeholder="youremail@address.cz"
-                  name="email"
-                  onChange={(e) => {
-                    setSpeedMail(e.target.value);
-                  }}
+                  type="email"
+                  placeholder={errors.email?.message}
+                  {...register("email", {
+                    required: "Enter an email - someone@email.cz",
+                  })}
                 />
               </div>
             </div>
@@ -154,19 +149,12 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
                   type="text"
                   className="form-control speed-input"
                   list="user_ages"
-                  name="age"
-                  onChange={(e) => {
-                    setSpeedAge(e.target.value);
-                  }}
+                  {...register("age")}
                 />
                 <datalist id="user_ages">
-                  <option value="20-25"></option>
-                  <option value="26-30"></option>
-                  <option value="31-35"></option>
-                  <option value="36-40"></option>
-                  <option value="41-45"></option>
-                  <option value="46-50"></option>
-                  <option value="50+"></option>
+                  {ageGroups.map((age) => (
+                    <option key={age.id} value={age.age}></option>
+                  ))}
                 </datalist>
               </div>
             </div>
@@ -185,14 +173,12 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
                 <input
                   type="text"
                   className="form-control speed-input"
-                  placeholder="777 888 999"
-                  name="phone"
-                  onChange={(e) => {
-                    setSpeedPhone(e.target.value);
-                  }}
-                  required
-                  minLength="9"
-                  maxLength="12"
+                  placeholder={errors.phone?.message}
+                  {...register("phone", {
+                    required: "Please enter a phone number",
+                    minLength: 9,
+                    maxLength: 12,
+                  })}
                 />
               </div>
             </div>
@@ -200,7 +186,8 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
               <input
                 type="checkbox"
                 className="form-check-input speed-input checkbox-input"
-                id="speedNewsletter"
+                {...register("newsletter")}
+                // id="speedNewsletter"
               />
 
               <p>Chci dostávat informace o dalších akcích Lesbotoče.</p>
