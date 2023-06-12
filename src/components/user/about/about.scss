@@ -13,7 +13,7 @@
   width: 60%;
   margin: 20px auto;
   position: relative;
-  z-index: 20;
+  z-index: 1;
   padding-bottom: 100px;
 }
 
@@ -27,6 +27,7 @@
 
 .user-singles-container {
   position: relative;
+  z-index: 1;
 }
 
 //to make img opaque but not text inside div
