@@ -36,7 +36,11 @@ export default function Calendar() {
 
   return (
     <div
-      style={{ backgroundImage: `url(${bgImage})` }}
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundRepeat: "repeat",
+        height: "fit-content",
+      }}
       className="user-container calendar-container"
     >
       <Navbar />
