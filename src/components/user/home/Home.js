@@ -1,5 +1,5 @@
 import { HomeGradient } from "./HomeGradient";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 //logo
@@ -12,9 +12,16 @@ import RightArrow from "../../../assets/svg-icons/RightArrow";
 
 export default function Home() {
   const navigate = useNavigate();
+  const [title, setTitle] = useState("");
+  const [fontColor, setFontColor] = useState("#003243");
 
-  const resetTitle = () => {
-    document.getElementById("dynamic-home-title").innerHTML = "";
+  const handleMouseEnter = (newTitle) => {
+    setTitle(newTitle);
+    setFontColor("#003243");
+  };
+
+  const handleMouseLeave = () => {
+    setFontColor("transparent");
   };
 
   const goToCalendar = () => {
@@ -23,7 +30,9 @@ export default function Home() {
 
   return (
     <div className="user-container">
-      <HomeGradient />
+      <div className="gradient-container">
+        <HomeGradient />
+      </div>
 
       <div className="home-container">
         <div className="logo-cont">
@@ -49,19 +58,22 @@ export default function Home() {
             <div
               key={link.id}
               style={{ backgroundImage: `url(${link.background})` }}
-              className={`home-card ${link.class}`}
-              onMouseEnter={() =>
-                (document.getElementById("dynamic-home-title").innerHTML =
-                  link.title)
-              }
-              onMouseLeave={() => resetTitle()}
+              className={`home-card ${link.CName}`}
+              onMouseEnter={() => handleMouseEnter(link.title)}
+              onMouseLeave={() => handleMouseLeave()}
               onClick={() => goToCalendar()}
             ></div>
           ))}
         </div>{" "}
       </div>
       <div className="dynamic-title-cont">
-        <p className="dynamic-home-title" id="dynamic-home-title"></p>
+        <p
+          className="dynamic-home-title"
+          id="dynamic-home-title"
+          style={{ color: fontColor }}
+        >
+          {title}
+        </p>
         <div className="enter-btn" onClick={() => goToCalendar()}>
           <RightArrow height={50} width={50} />
         </div>

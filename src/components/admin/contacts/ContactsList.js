@@ -3,135 +3,119 @@ import axios from "axios";
 import Moment from "react-moment";
 import swal from "sweetalert";
 import { CSVLink } from "react-csv";
-
 //components
 import AddContact from "./AddContact";
 import Searchbar from "../Searchbar";
 import AdminNavbar from "../AdminNavbar";
 import EditModal from "./EditModal";
 import ReportBug from "../../includes/ReportBug";
-
+import Loading from "../../user/includes/Loading";
 //icons
 import Trash from "../../../../src/assets/svg-icons/Trash";
 import { PenIcon } from "../../../assets/SvgIcons";
+//hooks
+import useGetContacts from "../../../hooks/useGetContacts";
+import useDeleteContact from "../../../hooks/useDeleteContact";
+import useShowContact from "../../../hooks/useShowContact";
 
 export default function ContactsList() {
-  const [filteredData, setFilteredData] = useState([]);
-  const [nameInput, setNameInput] = useState("");
-  const [buttonText, setButtonText] = useState("New Contact");
-  const [contacts, setContacts] = useState([]);
-  const [contactsLoaded, setContactsLoaded] = useState(false);
-  const [addField, setAddField] = useState(false);
-  const [successMsg, setSuccessMsg] = useState("");
-  const [formError, setFormError] = useState(null);
-  const [inputs, setInputs] = useState({
-    newsletter: false,
-    name: "",
-    wherefrom: "",
-    email: "",
-    phone: "",
-  });
-  const [show, setShow] = useState(false);
-  const [data, setData] = useState({
-    newsletter: false,
-    name: "",
-    wherefrom: "",
-    email: "",
-    phone: "",
-  });
+  const { contacts, loading, error, getContacts } = useGetContacts();
+  const { deletedContact, setDeletedContact, deleteContact } =
+    useDeleteContact();
+  const { oneContact, showContact } = useShowContact();
 
   useEffect(() => {
+    setDeletedContact(false); //resetting deletedContact to false
     getContacts();
-  }, [contactsLoaded]);
+  }, [deletedContact]);
 
-  const getContacts = () => {
-    axios
-      .get("https://api.itisgoodtohave.me/contacts/read.php")
-      .then(function (response) {
-        setContacts(response.data);
-        setContactsLoaded(true);
-      });
-    setSuccessMsg("");
-  };
+  if (error) {
+    return console.log(error);
+  }
 
-  const deleteContact = (id) => {
-    swal({
-      title: "Sure?",
-      text: "Do you REALLY want to delete this precious contact?",
-      icon: "warning",
-      dangerMode: true,
-    }).then((willDelete) => {
-      if (willDelete) {
-        axios
-          .delete(`https://api.itisgoodtohave.me/contacts/delete.php/${id}`)
-          .then(function (response) {
-            if (response.status === 200) {
-              swal(
-                "Deleted!",
-                "It will never bother you again. Promised.",
-                "success"
-              );
-              setContactsLoaded(false);
-            } else if (response.status === 500) {
-              swal("Well...", "Something went wrong here.", "error");
-            }
-          });
-      }
-    });
-  };
+  console.log(oneContact);
 
-  const toggleAddField = () => {
-    setAddField(!addField);
-    if (addField === true) {
-      setButtonText("New Contact");
-    } else {
-      setFormError(null);
-      setButtonText("Cancel");
-      emptyInputs();
-    }
-    setContactsLoaded(false);
-  };
+  // const [filteredData, setFilteredData] = useState([]);
+  // const [nameInput, setNameInput] = useState("");
+  // const [buttonText, setButtonText] = useState("New Contact");
+  // // const [contacts, setContacts] = useState([]);
+  // const [contactsLoaded, setContactsLoaded] = useState(false);
+  // const [addField, setAddField] = useState(false);
+  // const [successMsg, setSuccessMsg] = useState("");
+  // const [formError, setFormError] = useState(null);
+  // const [inputs, setInputs] = useState({
+  //   newsletter: false,
+  //   name: "",
+  //   wherefrom: "",
+  //   email: "",
+  //   phone: "",
+  // });
 
-  const emptyInputs = () => {
-    //empty input field
-    let elements = document.querySelectorAll(".input-item");
-    elements.forEach((element) => {
-      element.value = "";
-    });
-    //empty inputs
-    setInputs({
-      name: "",
-      wherefrom: "",
-      email: "",
-      phone: "",
-      newsletter: false, //default value of newsletter
-    });
-  };
+  // const [show, setShow] = useState(false);
+  // const [data, setData] = useState({
+  //   newsletter: false,
+  //   name: "",
+  //   wherefrom: "",
+  //   email: "",
+  //   phone: "",
+  // });
 
-  const showContact = (id) => {
-    setShow(true);
-    axios
-      .get(`https://api.itisgoodtohave.me/contacts/single_read.php/${id}`)
-      .then(function (response) {
-        setData(response.data);
-        setContactsLoaded(true);
-      });
-  };
+  // useEffect(() => {
+  //   getContacts();
+  // }, [contactsLoaded]);
 
-  const closeModal = () => {
-    setShow(false);
-    setContactsLoaded(false);
-  };
+  // const toggleAddField = () => {
+  //   setAddField(!addField);
+  //   if (addField === true) {
+  //     setButtonText("New Contact");
+  //   } else {
+  //     setFormError(null);
+  //     setButtonText("Cancel");
+  //     emptyInputs();
+  //   }
+  //   setContactsLoaded(false);
+  // };
+
+  // const emptyInputs = () => {
+  //   //empty input field
+  //   let elements = document.querySelectorAll(".input-item");
+  //   elements.forEach((element) => {
+  //     element.value = "";
+  //   });
+  //   //empty inputs
+  //   setInputs({
+  //     name: "",
+  //     wherefrom: "",
+  //     email: "",
+  //     phone: "",
+  //     newsletter: false, //default value of newsletter
+  //   });
+  // };
+
+  // const showContact = (id) => {
+  //   setShow(true);
+  //   axios
+  //     .get(`https://api.itisgoodtohave.me/contacts/single_read.php/${id}`)
+  //     .then(function (response) {
+  //       setData(response.data);
+  //       setContactsLoaded(true);
+  //     });
+  // };
+
+  // const closeModal = () => {
+  //   setShow(false);
+  //   setContactsLoaded(false);
+  // };
 
   return (
     <Fragment>
       <AdminNavbar />
 
-      <h3 className="admin-page-title">Contacts</h3>
-      {successMsg && <p className="alert alert-success alert">{successMsg}</p>}
+      {/* <h3 className="admin-page-title">Contacts</h3>
+      {successMsg && <p className="alert alert-success alert">{successMsg}</p>} */}
       <div className="table__container-top">
-        {/* Searchbar */}
-        <div className="searchbar-cont">
+        Searchbar
+        {/* <div className="searchbar-cont">
           <Searchbar
             placeholder="Enter a contact..."
             contacts={contacts}
@@ -142,14 +126,13 @@ export default function ContactsList() {
             nameInput={nameInput}
             setNameInput={setNameInput}
           />
-        </div>
-
+        </div> */}
         <div className="add-contact-btn-cont">
           <button
-            onClick={toggleAddField}
+            // onClick={toggleAddField}
             className="btn btn-success btn-create btn-sm"
           >
-            {buttonText}
+            {/* {buttonText} */}
           </button>
           <CSVLink data={contacts} filename="lesbotoč_contacts">
             <button className="btn btn-info btn-create btn-export btn-sm">
@@ -157,9 +140,8 @@ export default function ContactsList() {
             </button>
           </CSVLink>
         </div>
-
         {/* Adding a contact */}
-        <div className="create-cont">
+        {/* <div className="create-cont">
           <div className={addField ? "show" : "hide"}>
             {formError && (
               <p className="alert alert-danger alert-message">{formError}</p>
@@ -175,11 +157,10 @@ export default function ContactsList() {
               emptyInputs={emptyInputs}
             />
           </div>
-        </div>
-
+        </div> */}
         {/* List of contacts */}
       </div>
-      {contactsLoaded && (
+      {contacts && (
         <div className="table__container-bottom">
           <table
             className="table table-sm table-bordered contacts__table table-hover"
@@ -241,7 +222,7 @@ export default function ContactsList() {
                       <PenIcon width={20} height={20} fill={"currentColor"} />
                     </button>
 
-                    {show && (
+                    {/* {show && (
                       <EditModal
                         show={show}
                         setShow={setShow}
@@ -250,7 +231,7 @@ export default function ContactsList() {
                         setFilteredData={setFilteredData}
                         setNameInput={setNameInput}
                       />
-                    )}
+                    )} */}
 
                     {/* Deleting a contact */}
                     <button

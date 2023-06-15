@@ -41,7 +41,7 @@ html {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif, Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
-  background-color: $user-beige-medium;
+  // background-color: $user-beige-light;
   height: 100%;
 }
 
@@ -54,6 +54,7 @@ html {
 .App {
   text-align: center;
   font-family: "Poppins", sans-serif, Arial, Helvetica, sans-serif;
+  height: 100vh;
 }
 
 .App-logo {
