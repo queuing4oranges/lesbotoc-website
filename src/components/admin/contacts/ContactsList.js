@@ -19,10 +19,21 @@ import useDeleteContact from "../../../hooks/useDeleteContact";
 import useShowContact from "../../../hooks/useShowContact";
 
 export default function ContactsList() {
+  //hooks
   const { contacts, loading, error, getContacts } = useGetContacts();
   const { deletedContact, setDeletedContact, deleteContact } =
     useDeleteContact();
   const { oneContact, showContact } = useShowContact();
+
+  const [buttonText, setButtonText] = useState("New Contact");
+  const [addField, setAddField] = useState(false);
+  const [inputs, setInputs] = useState({
+    newsletter: false,
+    name: "",
+    wherefrom: "",
+    email: "",
+    phone: "",
+  });
 
   useEffect(() => {
     setDeletedContact(false); //resetting deletedContact to false
@@ -37,19 +48,10 @@ export default function ContactsList() {
 
   // const [filteredData, setFilteredData] = useState([]);
   // const [nameInput, setNameInput] = useState("");
-  // const [buttonText, setButtonText] = useState("New Contact");
   // // const [contacts, setContacts] = useState([]);
   // const [contactsLoaded, setContactsLoaded] = useState(false);
-  // const [addField, setAddField] = useState(false);
   // const [successMsg, setSuccessMsg] = useState("");
   // const [formError, setFormError] = useState(null);
-  // const [inputs, setInputs] = useState({
-  //   newsletter: false,
-  //   name: "",
-  //   wherefrom: "",
-  //   email: "",
-  //   phone: "",
-  // });
 
   // const [show, setShow] = useState(false);
   // const [data, setData] = useState({
@@ -64,33 +66,33 @@ export default function ContactsList() {
   //   getContacts();
   // }, [contactsLoaded]);
 
-  // const toggleAddField = () => {
-  //   setAddField(!addField);
-  //   if (addField === true) {
-  //     setButtonText("New Contact");
-  //   } else {
-  //     setFormError(null);
-  //     setButtonText("Cancel");
-  //     emptyInputs();
-  //   }
-  //   setContactsLoaded(false);
-  // };
+  const toggleAddField = () => {
+    setAddField(!addField);
+    if (addField === true) {
+      setButtonText("New Contact");
+    } else {
+      // setFormError(null);
+      setButtonText("Cancel");
+      emptyInputs();
+    }
+    // setContactsLoaded(false);
+  };
 
-  // const emptyInputs = () => {
-  //   //empty input field
-  //   let elements = document.querySelectorAll(".input-item");
-  //   elements.forEach((element) => {
-  //     element.value = "";
-  //   });
-  //   //empty inputs
-  //   setInputs({
-  //     name: "",
-  //     wherefrom: "",
-  //     email: "",
-  //     phone: "",
-  //     newsletter: false, //default value of newsletter
-  //   });
-  // };
+  const emptyInputs = () => {
+    //empty input field
+    let elements = document.querySelectorAll(".input-item");
+    elements.forEach((element) => {
+      element.value = "";
+    });
+    //empty inputs
+    setInputs({
+      name: "",
+      wherefrom: "",
+      email: "",
+      phone: "",
+      newsletter: false, //default value of newsletter
+    });
+  };
 
   // const showContact = (id) => {
   //   setShow(true);
@@ -109,7 +111,7 @@ export default function ContactsList() {
 
   return (
     <Fragment>
-      <AdminNavbar />
+      {/* <AdminNavbar /> */}
 
       {/* <h3 className="admin-page-title">Contacts</h3>
       {successMsg && <p className="alert alert-success alert">{successMsg}</p>} */}
@@ -129,10 +131,10 @@ export default function ContactsList() {
         </div> */}
         <div className="add-contact-btn-cont">
           <button
-            // onClick={toggleAddField}
+            onClick={toggleAddField}
             className="btn btn-success btn-create btn-sm"
           >
-            {/* {buttonText} */}
+            {buttonText}
           </button>
           <CSVLink data={contacts} filename="lesbotoč_contacts">
             <button className="btn btn-info btn-create btn-export btn-sm">
@@ -141,23 +143,23 @@ export default function ContactsList() {
           </CSVLink>
         </div>
         {/* Adding a contact */}
-        {/* <div className="create-cont">
+        <div className="create-cont">
           <div className={addField ? "show" : "hide"}>
-            {formError && (
+            {/* {formError && (
               <p className="alert alert-danger alert-message">{formError}</p>
-            )}
+            )} */}
 
             <AddContact
-              toggleAddField={toggleAddField}
-              setAddField={setAddField}
-              setFormError={setFormError}
-              formError={formError}
-              setInputs={setInputs}
-              inputs={inputs}
-              emptyInputs={emptyInputs}
+            // toggleAddField={toggleAddField}
+            // setAddField={setAddField}
+            // setFormError={setFormError}
+            // formError={formError}
+            // setInputs={setInputs}
+            // inputs={inputs}
+            // emptyInputs={emptyInputs}
             />
           </div>
-        </div> */}
+        </div>
         {/* List of contacts */}
       </div>
       {contacts && (

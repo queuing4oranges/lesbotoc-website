@@ -24,6 +24,10 @@ export default function AddContact({}) {
     reset();
   };
 
+  // const handleCancel = () =>{   //error is still visible after cancel btn
+  //   reset();
+  // }
+
   return (
     <div className="form-container">
       <p>{errors.name?.message}</p>
@@ -70,7 +74,7 @@ export default function AddContact({}) {
                     /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
                     "Email must be a valid address",
                 },
-                required: "An address please.",
+                required: "An email address please.",
               })}
             />
           </div>
