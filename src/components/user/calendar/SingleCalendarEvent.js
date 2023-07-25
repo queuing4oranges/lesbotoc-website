@@ -36,7 +36,7 @@ export default function SingleCalendarEvent() {
     <div className="user-container">
       <Navbar />
       {oneEvent && (
-        <div className="user-container">
+        <div className="user-container single-cal-cont">
           <h2 className="user-title">{oneEvent.name}</h2>
 
           <div className="single-cal-event-bg">

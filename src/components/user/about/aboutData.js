@@ -1,6 +1,8 @@
 import mariana from "../../../assets/about_images/mariana.png";
 import eliska from "../../../assets/about_images/eliska.png";
 import marta from "../../../assets/about_images/marta.png";
+import nathalie from "../../../assets/about_images/nathalie.png";
+import klara from "../../../assets/about_images/klara.png";
 import Avatar from "../../../assets/about_images/AvatarImage.png";
 
 export const members = [
@@ -30,13 +32,13 @@ export const members = [
     name: "Klára",
     intro:
       "Jsem kreativní krutopřísná kantorka :) Miluju kafe, kočky, kytky, kántrysajd, knihy a knihkupectví (a papírnictví). Jsem srdcem Lesbotočího knižního klubu.",
-    img: Avatar,
+    img: klara,
   },
   {
     id: 5,
     name: "Nathalie",
     intro:
       "Ahoj, jsem Nathalie a mám ráda batáty. Baví mě jezdit na kole v přírodě a plavat. Ráda trávím čas s knížkou v klíně. Pomáhám s organizací některých akcí Lesbotoče.",
-    img: Avatar,
+    img: nathalie,
   },
 ];

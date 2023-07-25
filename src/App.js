@@ -24,12 +24,12 @@ function App() {
           <Route path="/kalendar/:id" element={<SingleCalendarEvent />} />
           <Route path="/about" element={<About />} />
           <Route path="/kontakt" element={<Contact />} />
-          <Route path="/admin" element={<AdminLogin />} />
+          {/* <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/contacts" element={<ContactsList />} />
           <Route path="/admin/events" element={<Events />} />
           <Route path="/admin/events/archive" element={<EventsArchive />} />
           <Route path="/admin/pictures" element={<ImageUpload />} />
-          <Route path="/admin/more" element={<More />} />
+          <Route path="/admin/more" element={<More />} /> */}
         </Routes>
       </BrowserRouter>
     </div>

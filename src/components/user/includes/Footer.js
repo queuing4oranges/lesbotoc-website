@@ -13,7 +13,7 @@ export default function Footer() {
             <p>&copy; {currentYear.getFullYear()} &nbsp; Lesbotoč </p>
           </div>
           <div className="copyright-katja">
-            <p>made by Katja /</p>
+            <p>made by</p>
             <a
               href="https://www.itisgoodtohave.me"
               target="_blank"
@@ -25,9 +25,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="user-footer-newsletter">
+        {/* <div className="user-footer-newsletter">
           <p className="footer-privacy">Privacy</p>
-        </div>
+        </div> */}
 
         <div className="user-footer-admin">
           <div className="user-footer-social">
@@ -66,9 +66,9 @@ export default function Footer() {
               </svg>
             </a>
           </div>
-          <NavLink to={"/admin"}>
-            <button className="btn admin-panel-button">AdminPanel</button>
-          </NavLink>
+          {/* <NavLink to={"/admin"}> */}
+          <button className="btn admin-panel-button">AdminPanel</button>
+          {/* </NavLink> */}
         </div>
       </div>
     </div>

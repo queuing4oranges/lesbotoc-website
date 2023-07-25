@@ -101,7 +101,9 @@
 /*----------------------------
 SingleCalenderEvent.js
 ----------------------------*/
-
+.single-cal-cont {
+  height: fit-content !important;
+}
 .single-cal-event-bg {
   position: relative;
   width: 100%;
@@ -152,17 +154,17 @@ SingleCalenderEvent.js
   z-index: 5;
 }
 
-.singcal-bubble-red {
-  position: absolute;
-  top: 180px;
-  left: 420px;
-}
+// .singcal-bubble-red {
+//   position: absolute;
+//   top: 180px;
+//   left: 420px;
+// }
 
-.singcal-bubble-blue {
-  position: absolute;
-  top: 260px;
-  left: 400px;
-}
+// .singcal-bubble-blue {
+//   position: absolute;
+//   top: 260px;
+//   left: 400px;
+// }
 
 .single-cal-event {
   // border: 1px white solid;
