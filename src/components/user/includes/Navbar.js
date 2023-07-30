@@ -5,6 +5,7 @@ import Facebook from "../../../assets/svg-icons/Facebook";
 import Instagram from "../../../assets/svg-icons/Instagram";
 //data
 import { navbarlinks } from "../../../data/NavbarLinks";
+import MobileNavbar from "./MobileNavbar";
 
 export default function Navbar() {
   return (
@@ -64,6 +65,9 @@ export default function Navbar() {
               </NavLink>
             </div>
           ))}
+        </div>
+        <div className="mobile-menu">
+          <MobileNavbar />
         </div>
       </div>
     </div>

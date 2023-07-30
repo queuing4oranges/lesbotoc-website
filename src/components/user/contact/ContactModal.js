@@ -5,6 +5,8 @@ import Navbar from "../includes/Navbar";
 //icons
 import InstagramIcon from "../../includes/icons/InstagramIcon";
 import FacebookIcon from "../../includes/icons/FacebookIcon";
+import Letter from "../../../assets/svg-icons/Letter";
+import Handy from "../../../assets/svg-icons/Handy";
 
 export default function ContactModal() {
   return (
@@ -55,12 +57,20 @@ export default function ContactModal() {
         <div className="contact-icon-container">
           <div className="contact-icon contact-icon-email">
             <a href="mailto: lesbotoc@gmail.com" aria-label="Email address">
-              lesbotoc@gmail.com
+              <p>lesbotoc@gmail.com</p>
+
+              <div className="mobile-contact">
+                <Letter width={25} height={25} fill="#003243" />
+              </div>
             </a>
           </div>
           <div className="contact-icon contact-icon-phone">
             <a href="tel:777696969" aria-label="Phone Number">
-              +420 777 696 969
+              <p>+420 777 696 969</p>
+
+              <div className="mobile-contact">
+                <Handy width={25} height={25} fill="#003243" />
+              </div>
             </a>
           </div>
           <div className="contact-icon-fb-insta">

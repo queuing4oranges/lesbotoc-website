@@ -98,9 +98,64 @@
   color: $dark-petrol;
 }
 
-/*----------------------------
+/* ------ RESPONSIVENESS ------ */
+//mobiles
+@media only screen and (max-width: 600px) {
+  .user-calendar-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .calendar-subtitle-cont {
+    display: none;
+  }
+
+  .cal-events-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 90vw;
+  }
+
+  .user-single-event {
+    width: 40vw !important;
+    height: 30vh !important;
+    position: relative;
+
+    & .cal-address-cont {
+      position: absolute;
+      align-items: center;
+      height: fit-content;
+      left: 20px;
+      top: 200px;
+      font-size: 1.2rem;
+
+      & svg {
+        margin-top: 0;
+      }
+
+      & .cal-address {
+        margin: 0;
+      }
+    }
+  }
+
+  .user-single-event {
+    width: 60vw;
+    height: 50vw;
+  }
+
+  .cal-name p {
+    margin-top: 30px;
+  }
+}
+
+/*-------------------------------------------------------------------------------------
 SingleCalenderEvent.js
-----------------------------*/
+--------------------------------------------------------------------------------------*/
 .single-cal-cont {
   height: fit-content !important;
 }
@@ -153,18 +208,6 @@ SingleCalenderEvent.js
   position: relative;
   z-index: 5;
 }
-
-// .singcal-bubble-red {
-//   position: absolute;
-//   top: 180px;
-//   left: 420px;
-// }
-
-// .singcal-bubble-blue {
-//   position: absolute;
-//   top: 260px;
-//   left: 400px;
-// }
 
 .single-cal-event {
   // border: 1px white solid;
@@ -239,8 +282,6 @@ SingleCalenderEvent.js
 
 .gmaps-container {
   background-color: $user-beige-light;
-  // margin-bottom: 60px;
-  // background-color: #7ab6cb40;
 
   & iframe {
     border: none;

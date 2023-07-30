@@ -4,6 +4,7 @@
   background-color: #7ab6cb;
   display: flex;
   font-family: "Poppins", sans-serif, Arial, Helvetica, sans-serif;
+  font-size: 1rem;
   background-image: url("../../../components/user/contact/contact-bg.svg");
   background-size: cover;
 }
@@ -179,5 +180,66 @@
     -webkit-filter: blur(0px);
     filter: blur(0px);
     opacity: 1;
+  }
+}
+
+.mobile-contact {
+  display: none;
+}
+
+/* ------ RESPONSIVENESS ------ */
+//mobiles
+@media only screen and (max-width: 600px) {
+  .user-contact-container {
+    width: 100%;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-title-container {
+    // width: 70%;
+    position: unset;
+    margin-top: 10vh;
+    margin-bottom: 2vh;
+    & h2 {
+      font-size: 2rem;
+    }
+  }
+
+  .user-contact-cont {
+    border-radius: 5%;
+    max-width: 70vw;
+    margin: 0;
+
+    & input,
+    textarea,
+    button {
+      max-width: 60vw;
+    }
+  }
+
+  .contact-icon-container {
+    max-width: 40vw;
+    border-radius: 5%;
+    width: 45vw;
+    padding: 1%;
+    height: fit-content;
+    position: absolute;
+    right: 5vw;
+    bottom: 5vw;
+
+    & .contact-icon-email,
+    .contact-icon-phone {
+      max-width: 30vw;
+      & p {
+        display: none;
+      }
+    }
+  }
+
+  .mobile-contact {
+    display: block;
   }
 }
