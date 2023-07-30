@@ -47,7 +47,7 @@
 
 .user-img-title {
   font-family: "Amatic SC", sans-serif, Arial, Helvetica, sans-serif;
-  font-size: 2rem;
+  font-size: 2vw;
   font-weight: 700;
   color: $dark-petrol;
   text-align: center;
@@ -69,8 +69,8 @@
   }
 
   .user-img-cont {
-    width: 70vw;
-    height: 60vw;
+    width: 80vw;
+    height: 70vw;
   }
 
   .user-gallery-img {
@@ -78,10 +78,8 @@
     height: auto;
   }
 
-  .user-img-cont {
-    & .user-img-title {
-      margin: 3%;
-      font-size: 1.2em;
-    }
+  .user-img-title {
+    margin: 3%;
+    font-size: 8vw;
   }
 }

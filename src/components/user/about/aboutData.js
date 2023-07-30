@@ -3,7 +3,6 @@ import eliska from "../../../assets/about_images/eliska.png";
 import marta from "../../../assets/about_images/marta.png";
 import nathalie from "../../../assets/about_images/nathalie.png";
 import klara from "../../../assets/about_images/klara.png";
-import Avatar from "../../../assets/about_images/AvatarImage.png";
 
 export const members = [
   {
