@@ -22,8 +22,8 @@
 }
 
 .square {
-  width: 16px;
-  height: 16px;
+  width: 1em;
+  height: 1em;
 }
 
 .square-lesbotoc {
@@ -60,6 +60,7 @@
   text-align: start;
   color: white;
   position: relative;
+  font-size: 1em;
 }
 
 .cal-date-time-cont {
@@ -107,8 +108,6 @@
     align-items: center;
     justify-content: center;
     width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
   }
   .calendar-subtitle-cont {
     display: none;
@@ -116,40 +115,42 @@
 
   .cal-events-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     width: 90vw;
   }
 
   .user-single-event {
-    width: 40vw !important;
-    height: 30vh !important;
-    position: relative;
+    width: 70vw !important;
+    height: 70vw !important;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+  }
 
-    & .cal-address-cont {
-      position: absolute;
-      align-items: center;
-      height: fit-content;
-      left: 20px;
-      top: 200px;
-      font-size: 1.2rem;
-
-      & svg {
-        margin-top: 0;
-      }
-
-      & .cal-address {
-        margin: 0;
-      }
+  .cal-date-time-cont {
+    & p {
+      font-size: 1em;
     }
   }
 
-  .user-single-event {
-    width: 60vw;
-    height: 50vw;
+  .cal-name {
+    font-size: 1.2em !important;
+    line-height: 1.2 !important;
   }
 
-  .cal-name p {
-    margin-top: 30px;
+  .cal-address-cont {
+    align-items: center;
+    height: fit-content;
+    margin-top: 15%;
+    font-size: 1em;
+
+    & svg {
+      margin-top: 0;
+    }
+
+    & .cal-address {
+      margin: 0;
+    }
   }
 }
 

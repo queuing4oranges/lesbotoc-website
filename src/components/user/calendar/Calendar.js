@@ -97,11 +97,11 @@ export default function Calendar() {
                       </p>
                     )}
 
-                    {event.time === "00:00:00" ? "" : event.time}
+                    <p>{event.time === "00:00:00" ? "" : event.time}</p>
                   </div>
 
                   <div className="cal-name">
-                    <p>{event.name}</p>
+                    <h3>{event.name}</h3>
                   </div>
 
                   <div className="cal-address-cont">
