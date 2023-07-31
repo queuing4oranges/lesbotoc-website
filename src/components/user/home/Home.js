@@ -9,6 +9,7 @@ import LogoPart1 from "../../includes/icons/LogoPart1";
 //data
 import { links } from "./homeData";
 import RightArrow from "../../../assets/svg-icons/RightArrow";
+import CarouselSlider from "./CarouselSlider";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -77,7 +78,8 @@ export default function Home() {
         </div>{" "}
         {/* the mobile-home-cont will be only visible on mobiles and should have changing images */}
         <div className="mobile-home-cont">
-          {eventImages.map((img, index) => (
+          <CarouselSlider />
+          {/* {eventImages.map((img, index) => (
             <img
               className="event-images"
               key={index}
@@ -85,7 +87,7 @@ export default function Home() {
               alt={index}
               style={{ display: index === currentIndex ? "block" : "none" }}
             />
-          ))}
+          ))} */}
           <div className="enter-btn" onClick={() => goToCalendar()}>
             <RightArrow height={50} width={50} />
           </div>

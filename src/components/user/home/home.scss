@@ -216,6 +216,7 @@ animations
 @media only screen and (max-width: 600px) {
   .user-container {
     position: relative;
+    height: fit-content !important;
   }
   .home-container {
     margin-left: unset;
@@ -241,31 +242,50 @@ animations
     width: 80vw;
     padding: 10px;
     margin: auto;
-    margin-top: 400px;
+    margin-top: 40vh;
     margin-bottom: 50px;
   }
 
   .mobile-home-cont {
-    // border: 1px green solid;
-    position: absolute;
-    top: 600px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    // border: 1px green solid;
+    top: 60vh;
     width: 80vw;
-    & img {
-      // border: 1px green solid;
-      position: absolute;
-      max-width: 50%;
-      height: auto;
-      top: 50px;
+    height: auto;
+    // & img {
+    //   // border: 1px green solid;
+    //   position: absolute;
+    //   max-width: 50%;
+    //   height: auto;
+    //   top: 50px;
+    // }
+
+    .slick-cont {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 80vw;
+
+      & img {
+        margin: auto;
+      }
+
+      & h2 {
+        font-family: $title-font !important;
+        font-weight: 600;
+        margin-top: 3vh;
+      }
     }
 
-    & .enter-btn {
-      position: absolute;
-      top: 450px;
+    .slick-prev,
+    .slick-next {
+      display: none !important;
     }
+    // & .enter-btn {
+    //   position: absolute;
+    //   top: 450px;
+    // }
   }
 }
