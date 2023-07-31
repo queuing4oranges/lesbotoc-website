@@ -537,3 +537,22 @@ SpeedDating.js
 .speed-form-cont input:invalid {
   border: 1px solid red;
 }
+
+/* ------ RESPONSIVENESS ------ */
+//mobiles
+@media only screen and (max-width: 600px) {
+  .speed-container {
+    background-image: unset;
+    background-size: unset;
+    background-position-x: unset;
+    background-position-y: unset;
+    background-repeat: unset;
+    border: unset;
+    // margin: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // border: 2px solid $lesbotoc-dark;
+    // background-color: $dark-petrol;
+  }
+}
