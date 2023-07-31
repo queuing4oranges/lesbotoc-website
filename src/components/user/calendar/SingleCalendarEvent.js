@@ -5,7 +5,6 @@ import Moment from "react-moment";
 //components
 import Navbar from "../includes/Navbar";
 import Footer from "../includes/Footer";
-import Loading from "../includes/Loading";
 import SpeedDating from "./SpeedDating";
 //hooks
 import useShowEvent from "../../../hooks/useShowEvent";

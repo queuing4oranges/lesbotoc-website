@@ -124,25 +124,28 @@
     height: 70vw !important;
     display: flex;
     flex-direction: column;
-    font-size: 1.5em;
+    font-size: 2em;
   }
 
   .cal-date-time-cont {
     & p {
-      font-size: 1em;
+      font-size: 0.6em;
     }
   }
 
   .cal-name {
-    font-size: 1.2em !important;
-    line-height: 1.2 !important;
+    h2 {
+      font-size: 0.7em !important;
+      line-height: 1em !important;
+      margin-top: 10%;
+    }
   }
 
   .cal-address-cont {
     align-items: center;
     height: fit-content;
-    margin-top: 15%;
-    font-size: 1em;
+    margin-top: 20%;
+    font-size: 0.6em;
 
     & svg {
       margin-top: 0;
@@ -346,9 +349,64 @@ SingleCalenderEvent.js
   margin-top: 20px;
 }
 
-/*----------------------------
+/* ------ RESPONSIVENESS ------ */
+//mobiles
+@media only screen and (max-width: 600px) {
+  .user-cal-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .single-cal-cont {
+    & h2 {
+      width: 70vw;
+      align-self: center;
+    }
+  }
+
+  .single-cal-event-left,
+  .single-cal-event-right {
+    width: 80vw;
+  }
+
+  .single-cal-img {
+    max-width: 80vw;
+    margin-left: unset;
+  }
+
+  .single-cal-event-bg {
+    margin-bottom: 10vh;
+  }
+
+  .single-cal-event {
+    overflow: hidden;
+    & a {
+      font-size: 0.8em;
+    }
+  }
+
+  .gmaps-cont {
+    width: 80vw;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-top: unset;
+    & iframe {
+      height: 30vh;
+      width: 70vw;
+    }
+  }
+
+  .gmaps-info {
+    width: 70vw;
+    padding: 2vw;
+  }
+}
+
+/*-------------------------------------------------------------------------------------
 SpeedDating.js
-----------------------------*/
+--------------------------------------------------------------------------------------*/
 .speed-container {
   background-image: url("../../../assets/calendar_images/speeddating-heart.png");
   background-size: cover;

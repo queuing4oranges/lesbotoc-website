@@ -101,7 +101,7 @@ export default function Calendar() {
                   </div>
 
                   <div className="cal-name">
-                    <h3>{event.name}</h3>
+                    <h2>{event.name}</h2>
                   </div>
 
                   <div className="cal-address-cont">
