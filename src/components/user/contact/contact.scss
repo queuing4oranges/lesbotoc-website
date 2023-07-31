@@ -196,12 +196,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 
   .contact-title-container {
-    // width: 70%;
     position: unset;
-    margin-top: 10vh;
+
     margin-bottom: 2vh;
     & h2 {
       font-size: 2rem;
@@ -212,6 +212,8 @@
     border-radius: 5%;
     max-width: 70vw;
     margin: 0;
+    height: fit-content;
+    padding: 5%;
 
     & input,
     textarea,
@@ -221,14 +223,12 @@
   }
 
   .contact-icon-container {
-    max-width: 40vw;
+    max-width: 70vw;
     border-radius: 5%;
-    width: 45vw;
     padding: 1%;
     height: fit-content;
-    position: absolute;
-    right: 5vw;
-    bottom: 5vw;
+    position: unset;
+    margin-top: 5%;
 
     & .contact-icon-email,
     .contact-icon-phone {
