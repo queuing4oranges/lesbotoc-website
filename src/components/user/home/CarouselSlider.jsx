@@ -30,8 +30,8 @@ export default function CarouselSlider() {
             
             return (
             <div key={event.id} className='slick-cont'>
-            <img src={event.background} alt={event.title} className='carousel-event-img' /> 
             <h2>{event.title}</h2>       
+            <img src={event.background} alt={event.title} className='carousel-event-img' /> 
             </div> 
                 )
 

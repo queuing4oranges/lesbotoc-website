@@ -214,21 +214,31 @@ animations
 /* ------ RESPONSIVENESS ------ */
 //mobiles
 @media only screen and (max-width: 600px) {
+  body {
+    min-height: 100vh;
+    background-color: $user-beige-medium;
+  }
   .user-container {
     position: relative;
-    height: fit-content !important;
+    height: 100vh !important;
   }
   .home-container {
+    margin-top: unset;
     margin-left: unset;
     margin-right: unset;
     width: unset;
     height: 100% !important;
-    // border: 1px green solid;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     position: relative;
+    background-color: $user-beige-medium;
+    background-size: 100vh;
+  }
+
+  .gradient-container {
+    display: none;
   }
 
   .home-cont,
@@ -241,9 +251,9 @@ animations
 
     width: 80vw;
     padding: 10px;
-    margin: auto;
-    margin-top: 40vh;
-    margin-bottom: 50px;
+
+    margin-top: 15vh;
+    // margin-bottom: 50px;
   }
 
   .mobile-home-cont {

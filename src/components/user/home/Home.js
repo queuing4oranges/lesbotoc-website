@@ -1,6 +1,7 @@
 import { HomeGradient } from "./HomeGradient";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../includes/Navbar";
 
 //logo
 import LogoPart2 from "../../includes/icons/LogoPart2";
@@ -44,6 +45,7 @@ export default function Home() {
       <div className="gradient-container">
         <HomeGradient />
       </div>
+      <Navbar />
 
       <div className="home-container">
         <div className="logo-cont">
@@ -88,9 +90,9 @@ export default function Home() {
               style={{ display: index === currentIndex ? "block" : "none" }}
             />
           ))} */}
-          <div className="enter-btn" onClick={() => goToCalendar()}>
+          {/* <div className="enter-btn" onClick={() => goToCalendar()}>
             <RightArrow height={50} width={50} />
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="dynamic-title-cont">
