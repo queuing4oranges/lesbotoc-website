@@ -23,7 +23,7 @@ export const members = [
     id: 3,
     name: "Eliška",
     intro:
-      "Jsem Connection Creator týmu a zároveň spravuji sociální sítě, vytvářím příspěvky a snažím se rozšířit dosah naší skupiny. Je mi třice, ráda vařím, peču a šiju. Pro moje Brownies cookies by leckdo šel světa kraj, přesto jsem šťastně zadaná tady s Mari, ale to nám nebrání vymýšlet dál aktivitya zajišťovat bezpečný prostor pro všechny lesby a bi holky, které se chtějí seznámit.",
+      "Jsem Connection Creator týmu a zároveň spravuji sociální sítě, vytvářím příspěvky a snažím se rozšířit dosah naší skupiny. Je mi třicet, ráda vařím, peču a šiju. Pro moje Brownies cookies by leckdo šel světa kraj, přesto jsem šťastně zadaná tady s Mari, ale to nám nebrání vymýšlet dál aktivitya zajišťovat bezpečný prostor pro všechny lesby a bi holky, které se chtějí seznámit.",
     img: eliska,
   },
   {
