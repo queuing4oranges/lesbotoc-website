@@ -63,6 +63,9 @@
 /* ------ RESPONSIVENESS ------ */
 //mobiles
 @media only screen and (max-width: 600px) {
+  .gallery-container {
+    height: 100% !important;
+  }
   .user-gallery-cont {
     display: flex;
     flex-direction: column;
