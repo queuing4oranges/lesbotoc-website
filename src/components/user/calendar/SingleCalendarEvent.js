@@ -31,6 +31,14 @@ export default function SingleCalendarEvent() {
     return console.log(error);
   }
 
+  // useEffect(() => {
+  //   if (showMod) {
+  //     document.querySelector(".single-cal-cont").classList.add("blur");
+  //   } else {
+  //     document.querySelector(".single-cal-cont").classList.remove("blur");
+  //   }
+  // });
+
   return (
     <div className="user-container">
       <Navbar />

@@ -45,9 +45,11 @@ export default function Home() {
       <div className="gradient-container">
         <HomeGradient />
       </div>
-      <Navbar />
 
       <div className="home-container">
+        <div className="mobile-navbar-cont">
+          <Navbar />
+        </div>
         <div className="logo-cont">
           <div className="logo-cont-logo">
             <LogoPart1 width={105} height={125} color="#2B2A29" />

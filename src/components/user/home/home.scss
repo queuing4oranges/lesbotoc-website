@@ -211,6 +211,10 @@ animations
   }
 }
 
+.mobile-navbar-cont {
+  display: none;
+}
+
 /* ------ RESPONSIVENESS ------ */
 //mobiles
 @media only screen and (max-width: 600px) {
@@ -218,6 +222,7 @@ animations
     min-height: 100vh;
     background-color: $user-beige-medium;
   }
+
   .user-container {
     position: relative;
     height: 100vh !important;
@@ -237,6 +242,11 @@ animations
     background-size: 100vh;
   }
 
+  .mobile-navbar-cont {
+    display: block;
+    width: 100vw;
+  }
+
   .gradient-container {
     display: none;
   }
@@ -252,7 +262,7 @@ animations
     width: 80vw;
     padding: 10px;
 
-    margin-top: 15vh;
+    margin-top: 10vh;
     // margin-bottom: 50px;
   }
 

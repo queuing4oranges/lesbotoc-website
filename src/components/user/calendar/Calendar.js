@@ -65,7 +65,7 @@ export default function Calendar() {
           </div>
         </div>
 
-        <div className="cal-events-container">
+        <div className="cal-events-container pb-4">
           {events &&
             events.map((event, key) => (
               <Link
@@ -74,7 +74,7 @@ export default function Calendar() {
                 to={`/kalendar/${event.id}`}
               >
                 <div
-                  className="user-single-event"
+                  className="user-single-event mb-1"
                   style={{
                     backgroundColor:
                       event.event_type === "Speed Dating"
@@ -100,7 +100,7 @@ export default function Calendar() {
                     <p>{event.time === "00:00:00" ? "" : event.time}</p>
                   </div>
 
-                  <div className="cal-name">
+                  <div className="cal-name mt-1">
                     <h2>{event.name}</h2>
                   </div>
 
