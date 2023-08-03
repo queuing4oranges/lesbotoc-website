@@ -16,7 +16,7 @@ export default function AddContact({}) {
   const onSubmit = (data) => {
     console.log(data);
     axios
-      .post("https://api.itisgoodtohave.me/contacts/create.php", data)
+      .post("https://api.lesbotoc.com/contacts/create.php", data)
       .then(function (response) {
         console.log(response.data.message);
         swal("YEAH BABY!", "You added a new contact.", "success");

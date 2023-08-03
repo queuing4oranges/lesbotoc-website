@@ -30,7 +30,7 @@ export default function EventsArchive() {
 
   const getEvents = () => {
     axios
-      .get("https://api.itisgoodtohave.me/events/read.php")
+      .get("https://api.lesbotoc.com/events/read.php")
       .then(function (response) {
         setEvents(response.data);
         setEventsLoaded(true);
@@ -52,7 +52,7 @@ export default function EventsArchive() {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`https://api.itisgoodtohave.me/events/delete.php/${id}`)
+          .delete(`https://api.lesbotoc.com/events/delete.php/${id}`)
           .then(function () {
             swal(
               "Deleted!",
@@ -71,7 +71,7 @@ export default function EventsArchive() {
   const showEvent = (id) => {
     setOpenModal(true);
     axios
-      .get(`https://api.itisgoodtohave.me/events/single_read.php/${id}`)
+      .get(`https://api.lesbotoc.com/events/single_read.php/${id}`)
       .then(function (response) {
         setData(response.data);
         setOneArchiveEventLoaded(true);

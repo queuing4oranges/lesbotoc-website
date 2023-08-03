@@ -17,7 +17,7 @@ export default function useDeleteContact() {
         .then((willDelete) => {
             if(willDelete){
                 axios
-          .delete(`https://api.itisgoodtohave.me/contacts/delete.php/${id}`)
+          .delete(`https://api.lesbotoc.com/contacts/delete.php/${id}`)
           .then(function(response){
             if(response.status === 200) {
                 swal(

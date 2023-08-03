@@ -17,7 +17,7 @@ export default function Events() {
 
   const getEvents = () => {
     axios
-      .get("https://api.itisgoodtohave.me/events/read.php")
+      .get("https://api.lesbotoc.com/events/read.php")
       .then(function (response) {
         console.log(response);
         setEvents(response.data);

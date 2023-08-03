@@ -33,7 +33,7 @@ export default function ImageUpload() {
       console.log("there is no pic");
     } else {
       axios
-        .post("https://api.itisgoodtohave.me/images/upload.php", formData)
+        .post("https://api.lesbotoc.com/images/upload.php", formData)
         .then(function (response) {
           if (response.status === 200) {
             swal("YEAH BABY!", "You uploaded an image.", "success");
@@ -64,7 +64,7 @@ export default function ImageUpload() {
   //displaying images from images folder via DB path
   const getImages = () => {
     axios
-      .get("https://api.itisgoodtohave.me/images/read.php")
+      .get("https://api.lesbotoc.com/images/read.php")
       .then(function (response) {
         setImages(response.data);
         setImagesLoaded(true);
@@ -82,7 +82,7 @@ export default function ImageUpload() {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`https://api.itisgoodtohave.me/images/delete.php/${id}`)
+          .delete(`https://api.lesbotoc.com/images/delete.php/${id}`)
           .then(function (response) {
             if (response.status === 200) {
               swal("Deleted", "Dont ever worry about it.", "success");
@@ -100,7 +100,7 @@ export default function ImageUpload() {
     // setOpenModal(true);
     console.log(id);
     axios
-      .get(`https://api.itisgoodtohave.me/images/single_pic.php/${id}`)
+      .get(`https://api.lesbotoc.com/images/single_pic.php/${id}`)
       .then(function (response) {
         setPic(response.data);
       })
@@ -202,7 +202,7 @@ export default function ImageUpload() {
             <div className="img-cont" key={key} id={img.id}>
               <img
                 className="single-img"
-                src={`https://api.itisgoodtohave.me/images/images/${img.filename}`}
+                src={`https://api.lesbotoc.com/images/images/${img.filename}`}
                 alt={`${img.alt}`}
                 onClick={() => showOnePic(img.id)}
               />

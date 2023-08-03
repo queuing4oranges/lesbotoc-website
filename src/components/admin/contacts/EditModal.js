@@ -32,7 +32,7 @@ export default function EditModal({
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`https://api.itisgoodtohave.me/contacts/update.php/${data.id}`, {
+      .put(`https://api.lesbotoc.com/contacts/update.php/${data.id}`, {
         name: name,
         email: email,
         phone: phone,

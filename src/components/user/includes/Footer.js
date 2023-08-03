@@ -15,12 +15,12 @@ export default function Footer() {
           <div className="copyright-katja">
             <p>made by</p>
             <a
-              href="https://www.itisgoodtohave.me"
+              href="https://www.lesbotoc.com"
               target="_blank"
               rel="noreferrer"
               aria-label="Portfolio Katja Zenker"
             >
-              &nbsp;www.itisgoodtohave.me
+              &nbsp;www.lesbotoc.com
             </a>
           </div>
         </div>
@@ -66,9 +66,9 @@ export default function Footer() {
               </svg>
             </a>
           </div>
-          {/* <NavLink to={"/admin"}> */}
-          <button className="btn admin-panel-button">AdminPanel</button>
-          {/* </NavLink> */}
+          <NavLink to={"/admin"}>
+            <button className="btn admin-panel-button">AdminPanel</button>
+          </NavLink>
         </div>
       </div>
     </div>

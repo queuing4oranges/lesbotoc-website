@@ -11,7 +11,7 @@ export default function useGetImages() {
             setLoading(true)
 
             setTimeout(async () => {
-                const response = await axios.get("https://api.itisgoodtohave.me/images/read.php")
+                const response = await axios.get("https://api.lesbotoc.com/images/read.php")
                 const data = response.data
     
                 setImages(data);

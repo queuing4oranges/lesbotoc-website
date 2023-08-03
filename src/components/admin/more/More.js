@@ -31,7 +31,7 @@ export default function More() {
 
   const getEvents = () => {
     axios
-      .get("https://api.itisgoodtohave.me/events/read.php")
+      .get("https://api.lesbotoc.com/events/read.php")
       .then(function (response) {
         setEvents(response.data);
       })
@@ -43,7 +43,7 @@ export default function More() {
 
   const getContacts = () => {
     axios
-      .get("https://api.itisgoodtohave.me/contacts/read.php")
+      .get("https://api.lesbotoc.com/contacts/read.php")
       .then(function (response) {
         setContacts(response.data);
         setSuccessMsg(true);
@@ -59,7 +59,7 @@ export default function More() {
 
   const getSpeedDaters = () => {
     axios
-      .get("https://api.itisgoodtohave.me/speeddating/read.php")
+      .get("https://api.lesbotoc.com/speeddating/read.php")
       .then(function (response) {
         setSpeedDaters(response.data);
       });
@@ -73,7 +73,7 @@ export default function More() {
     ).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`https://api.itisgoodtohave.me/speeddating/delete.php/${id}`)
+          .delete(`https://api.lesbotoc.com/speeddating/delete.php/${id}`)
           .then(function () {
             swal("Deleted!", "She will stay single forever.", "success");
             successMsg === true ? setSuccessMsg(false) : setSuccessMsg(true);

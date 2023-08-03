@@ -10,7 +10,7 @@ export default function useGetEvents() {
         try {
             setLoading(true)
 
-            const response = await axios.get("https://api.itisgoodtohave.me/contacts/read.php")
+            const response = await axios.get("https://api.lesbotoc.com/contacts/read.php")
             const data = response.data;
             setContacts(data);
             setLoading(false);

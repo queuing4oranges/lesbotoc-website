@@ -19,7 +19,7 @@ export default function AddEvent({ getEvents }) {
     console.log(formData);
 
     axios
-      .post("https://api.itisgoodtohave.me/events/create.php", formData)
+      .post("https://api.lesbotoc.com/events/create.php", formData)
       .then(function (response) {
         if (response.status === 200) {
           swal("YEAH BABY!", "You added a new event.", "success");

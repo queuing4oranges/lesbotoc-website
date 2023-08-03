@@ -32,7 +32,7 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
     //if newsletter in data obj is true, also add contact to user table
     if (data.newsletter) {
       axios
-        .post("https://api.itisgoodtohave.me/contacts/create.php", inputs)
+        .post("https://api.lesbotoc.com/contacts/create.php", inputs)
         .then(function () {
           console.log("Speed Dating contact was added to 'contacts' table.");
         });
@@ -41,7 +41,7 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
     }
 
     axios
-      .post("https://api.itisgoodtohave.me/speeddating/create.php", inputs)
+      .post("https://api.lesbotoc.com/speeddating/create.php", inputs)
       .then(function (response) {
         console.log(response.data.message);
         if (response.status === 200) {

@@ -49,10 +49,7 @@ export default function EditEvent({
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(
-        `https://api.itisgoodtohave.me/events/update.php/${data.id}`,
-        formValues
-      )
+      .put(`https://api.lesbotoc.com/events/update.php/${data.id}`, formValues)
       .then(function (response) {
         if (response.status === 200) {
           swal("YEAH BABY!", "You edited this event.", "success");
@@ -272,7 +269,7 @@ export default function EditEvent({
                         <p>Image used:</p>
                         <img
                           className="edit-input-pic"
-                          src={`https://api.itisgoodtohave.me/events/images/${data.image_path}`}
+                          src={`https://api.lesbotoc.com/events/images/${data.image_path}`}
                           alt={data.image_alt}
                         />
                       </div>

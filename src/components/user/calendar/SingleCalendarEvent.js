@@ -136,7 +136,7 @@ export default function SingleCalendarEvent() {
               <div className="single-cal-event-right">
                 <img
                   className="single-cal-img"
-                  src={`https://api.itisgoodtohave.me/events/images/${oneEvent.image_path}`}
+                  src={`https://api.lesbotoc.com/events/images/${oneEvent.image_path}`}
                   alt={oneEvent.image_alt}
                   loading="eager"
                 />

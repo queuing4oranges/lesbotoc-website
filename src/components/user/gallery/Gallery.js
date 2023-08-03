@@ -35,7 +35,7 @@ export default function Gallery() {
               <div key={key} className="user-img-cont">
                 <img
                   className="user-gallery-img"
-                  src={`https://api.itisgoodtohave.me/images/images/${img.filename}`}
+                  src={`https://api.lesbotoc.com/images/images/${img.filename}`}
                   alt={`${img.alt}`}
                 />
                 <p className="user-img-title">{img.title}</p>

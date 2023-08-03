@@ -21,7 +21,7 @@ export default function EventsList({ events, setSuccess, getEvents }) {
     }).then((willDelete) => {
       if (willDelete) {
         axios
-          .delete(`https://api.itisgoodtohave.me/events/delete.php/${id}`)
+          .delete(`https://api.lesbotoc.com/events/delete.php/${id}`)
           .then(function () {
             swal(
               "Deleted!",
@@ -40,7 +40,7 @@ export default function EventsList({ events, setSuccess, getEvents }) {
   const showEvent = (id) => {
     setOpenModal(true);
     axios
-      .get(`https://api.itisgoodtohave.me/events/single_read.php/${id}`)
+      .get(`https://api.lesbotoc.com/events/single_read.php/${id}`)
       .then(function (response) {
         setData(response.data);
         setOneEventLoaded(true);

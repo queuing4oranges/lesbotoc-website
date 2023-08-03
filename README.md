@@ -9,7 +9,7 @@ The clients want to have a website with a slim and easy to handle CMS, in which 
 The backend and frontend of the website are separated.
 The finished admin panel is currently hosted at:
 
-http://lesbotoc.itisgoodtohave.me
+http://lesbotoc.lesbotoc.com
 
 ## Functionalities
 
