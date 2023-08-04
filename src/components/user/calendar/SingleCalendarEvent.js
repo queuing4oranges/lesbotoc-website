@@ -20,6 +20,23 @@ import StreetMap from "../../../assets/svg-icons/StreetMap";
 export default function SingleCalendarEvent() {
   const [showMod, setShowMod] = useState(false);
   const { oneEvent, loading, error, showEvent } = useShowEvent();
+  const {
+    name,
+    date,
+    time,
+    loc_name,
+    loc_website,
+    price,
+    capacity,
+    description,
+    event_type,
+    image_path,
+    image_alt,
+    latitude,
+    longitude,
+    loc_address,
+    instructions,
+  } = oneEvent;
 
   const { id } = useParams();
 
@@ -31,20 +48,12 @@ export default function SingleCalendarEvent() {
     return console.log(error);
   }
 
-  // useEffect(() => {
-  //   if (showMod) {
-  //     document.querySelector(".single-cal-cont").classList.add("blur");
-  //   } else {
-  //     document.querySelector(".single-cal-cont").classList.remove("blur");
-  //   }
-  // });
-
   return (
     <div className="user-container">
       <Navbar />
       {oneEvent && (
         <div className="user-container single-cal-cont">
-          <h2 className="user-title">{oneEvent.name}</h2>
+          <h2 className="user-title">{name}</h2>
 
           <div className="single-cal-event-bg">
             <div className="user-cal-cont">
@@ -52,51 +61,47 @@ export default function SingleCalendarEvent() {
                 <div className="single-cal-event">
                   <Kalender width={16} height={16} fill="#003243" />
                   <p>
-                    <Moment format="D.MM.YYYY">{oneEvent.date}</Moment>
+                    <Moment format="D.MM.YYYY">{date}</Moment>
                   </p>
                 </div>
 
                 <div className="single-cal-event">
                   <Clock width={16} height={16} fill="#003243" />
-                  <p>{oneEvent.time}</p>
+                  <p>{time}</p>
                 </div>
 
                 <div className="single-cal-event">
                   <AddressPin width={14} height={20} fill="#003243" />
-                  <p>{oneEvent.loc_name}</p>
+                  <p>{loc_name}</p>
                 </div>
 
                 <div className="single-cal-event">
                   <Globe height={16} width={16} fill="#003243" />
-                  <a
-                    href={oneEvent.loc_website}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {oneEvent.loc_website}
+                  <a href={loc_website} target="_blank" rel="noreferrer">
+                    {loc_website}
                   </a>
                 </div>
 
-                {oneEvent.price ? (
+                {price ? (
                   <div className="single-cal-event">
                     <Money width={16} height={16} fill="#003243" />
-                    <p>{oneEvent.price} CZK</p>
+                    <p>{price} CZK</p>
                   </div>
                 ) : (
                   ""
                 )}
 
-                {oneEvent.capacity ? (
+                {capacity ? (
                   <div className="single-cal-event">
                     <People width={16} height={16} fill="#003243" />
-                    <p>max. {oneEvent.capacity} lidí</p>
+                    <p>max. {capacity} lidí</p>
                   </div>
                 ) : (
                   ""
                 )}
 
                 <div className="cal-event-description">
-                  <p>{oneEvent.description}</p>
+                  <p>{description}</p>
                 </div>
 
                 <div className="single-cal-event-button">
@@ -105,7 +110,7 @@ export default function SingleCalendarEvent() {
                       Back
                     </button>
                   </Link>
-                  {oneEvent.event_type === "Speed Dating" ? (
+                  {event_type === "Speed Dating" ? (
                     <Link>
                       <button
                         onClick={() => setShowMod(!showMod)}
@@ -118,7 +123,7 @@ export default function SingleCalendarEvent() {
                     ""
                   )}
 
-                  {oneEvent.event_type === "Lesbotoc Camp" ? (
+                  {event_type === "Lesbotoc Camp" ? (
                     <Link>
                       <button
                         // onClick={() => openModal()}
@@ -136,8 +141,8 @@ export default function SingleCalendarEvent() {
               <div className="single-cal-event-right">
                 <img
                   className="single-cal-img"
-                  src={`https://api.lesbotoc.com/events/images/${oneEvent.image_path}`}
-                  alt={oneEvent.image_alt}
+                  src={`https://api.lesbotoc.com/events/images/${image_path}`}
+                  alt={image_alt}
                   loading="eager"
                 />
               </div>
@@ -152,26 +157,26 @@ export default function SingleCalendarEvent() {
             id="iframeId"
             height="300px"
             width="50%"
-            src={`https://maps.google.com/maps?q=${oneEvent.latitude},${oneEvent.longitude}&hl=es;&output=embed`}
+            src={`https://maps.google.com/maps?q=${latitude},${longitude}&hl=es;&output=embed`}
           ></iframe>
 
           <div className="gmaps-info">
             <div className="gmaps-address">
               <StreetMap width={16} height={16} fill="#003243" />
-              <p>{oneEvent.loc_address}</p>
+              <p>{loc_address}</p>
             </div>
 
             <div className="gmaps-instructions">
-              <p>{oneEvent.instructions}</p>
+              <p>{instructions}</p>
             </div>
           </div>
         </div>
       </div>
       {showMod && (
         <SpeedDating
-          date={oneEvent.date}
-          time={oneEvent.time}
-          location={oneEvent.loc_name}
+          date={date}
+          time={time}
+          location={loc_name}
           setShowMod={setShowMod}
         />
       )}

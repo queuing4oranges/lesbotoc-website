@@ -15,6 +15,7 @@ import Person from "../../../assets/svg-icons/Person";
 import Letter from "../../../assets/svg-icons/Letter";
 import Dino from "../../../assets/svg-icons/Dino";
 import Handy from "../../../assets/svg-icons/Handy";
+import { ADD_CONTACT, ADD_SPEEDDATER } from "../../../urls";
 
 export default function SpeedDating({ date, time, location, setShowMod }) {
   const {
@@ -25,23 +26,19 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     const inputs = { ...data, date, wherefrom: "SpeedDating" };
-    console.log(inputs);
 
     //if newsletter in data obj is true, also add contact to user table
     if (data.newsletter) {
-      axios
-        .post("https://api.lesbotoc.com/contacts/create.php", inputs)
-        .then(function () {
-          console.log("Speed Dating contact was added to 'contacts' table.");
-        });
+      axios.post(ADD_CONTACT, inputs).then(function () {
+        console.log("Speed Dating contact was added to 'contacts' table.");
+      });
     } else {
       console.log("nic tam neni");
     }
 
     axios
-      .post("https://api.lesbotoc.com/speeddating/create.php", inputs)
+      .post(ADD_SPEEDDATER, inputs)
       .then(function (response) {
         console.log(response.data.message);
         if (response.status === 200) {
@@ -173,7 +170,8 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
                 <input
                   type="text"
                   className="form-control speed-input"
-                  placeholder={errors.phone?.message}
+                  // placeholder={errors.phone?.message}
+                  placeholder="777888999"
                   {...register("phone", {
                     required: "Please enter a phone number",
                     minLength: 9,

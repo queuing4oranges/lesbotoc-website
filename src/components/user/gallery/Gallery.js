@@ -31,16 +31,19 @@ export default function Gallery() {
 
         {images && (
           <div className="user-gallery-cont">
-            {images.map((img, key) => (
-              <div key={key} className="user-img-cont">
-                <img
-                  className="user-gallery-img"
-                  src={`https://api.lesbotoc.com/images/images/${img.filename}`}
-                  alt={`${img.alt}`}
-                />
-                <p className="user-img-title">{img.title}</p>
-              </div>
-            ))}
+            {images.map((img, key) => {
+              const { filename, alt, title } = img;
+              return (
+                <div key={key} className="user-img-cont">
+                  <img
+                    className="user-gallery-img"
+                    src={`https://api.lesbotoc.com/images/images/${filename}`}
+                    alt={`${alt}`}
+                  />
+                  <p className="user-img-title">{title}</p>
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
