@@ -1,6 +1,6 @@
-.gallery-container {
-  position: relative;
-}
+// .gallery-container {
+//   position: relative;
+// }
 
 .gallery-container::before {
   content: "";
@@ -28,6 +28,7 @@
 }
 
 .user-img-cont {
+  font-size: 1em;
   width: 300px;
   height: 300px;
   padding-top: 30px;
@@ -46,8 +47,8 @@
 }
 
 .user-img-title {
+  font-size: 2em;
   font-family: "Amatic SC", sans-serif, Arial, Helvetica, sans-serif;
-  font-size: 2vw;
   font-weight: 700;
   color: $dark-petrol;
   text-align: center;

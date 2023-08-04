@@ -26,7 +26,7 @@ export default function Gallery() {
   return (
     <div>
       <Navbar />
-      <div className="user-container gallery-container">
+      <div className="user-container gallery-container position-relative">
         <h2 className="user-title gallery-title">Galerie</h2>
 
         {images && (
