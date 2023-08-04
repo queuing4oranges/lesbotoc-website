@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Moment from "react-moment";
 import { useForm } from "react-hook-form";
-import { ageGroups } from "../../admin/Datalists";
+import { ageGroups } from "../Datalists";
 
 //libraries
 import axios from "axios";
