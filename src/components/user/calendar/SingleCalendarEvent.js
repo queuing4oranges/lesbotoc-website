@@ -75,12 +75,14 @@ export default function SingleCalendarEvent() {
                   <p>{loc_name}</p>
                 </div>
 
-                <div className="single-cal-event">
-                  <Globe height={16} width={16} fill="#003243" />
-                  <a href={loc_website} target="_blank" rel="noreferrer">
-                    {loc_website}
-                  </a>
-                </div>
+                {loc_website ? (
+                  <div className="single-cal-event">
+                    <Globe height={16} width={16} fill="#003243" />
+                    <a href={loc_website} target="_blank" rel="noreferrer">
+                      {loc_website}
+                    </a>
+                  </div>
+                ) : null}
 
                 {price ? (
                   <div className="single-cal-event">

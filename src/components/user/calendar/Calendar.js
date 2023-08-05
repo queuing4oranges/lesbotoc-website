@@ -80,10 +80,10 @@ export default function Calendar() {
                       event.event_type === "Speed Dating"
                         ? "#ed7f71"
                         : event.event_type === "Other Event"
-                        ? "#A5B8BC"
+                        ? "#3fc16f"
                         : event.event_type === "Lesbotoc Camp"
                         ? "#EC9704"
-                        : "#4d8eb5",
+                        : "#7ab6cb",
                     boxShadow: "3px 3px 3px 0px rgba(0, 0, 0, 0.3)",
                   }}
                 >
@@ -105,7 +105,7 @@ export default function Calendar() {
                   </div>
 
                   <div className="cal-address-cont">
-                    <AddressPin width={14} height={20} fill="#f5efea" />
+                    <AddressPin width={14} height={20} fill="#003243" />
 
                     <p className="cal-address">{event.loc_name}</p>
                   </div>

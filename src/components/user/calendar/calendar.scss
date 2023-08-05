@@ -33,11 +33,11 @@
 }
 
 .square-lesbotoc {
-  background-color: $lesbotoc-dark;
+  background-color: $lesbotoc;
 }
 
 .square-other {
-  background-color: #a5b8bc;
+  background-color: #3fc16f;
 }
 
 .square-dating {
@@ -62,11 +62,14 @@
   width: 200px;
   height: 200px;
   padding: 15px;
-  color: $user-beige-light;
   text-align: start;
-  color: white;
+  color: $dark-petrol;
   position: relative;
   font-size: 1em;
+
+  &:hover {
+    color: white !important;
+  }
 }
 
 .cal-date-time-cont {
@@ -91,7 +94,6 @@
   top: 150px;
   font-size: 0.8em;
   display: flex;
-
   & svg,
   p {
     margin-right: 10px;
@@ -101,10 +103,6 @@
 
 .calendar-event-link:hover {
   text-decoration: none;
-}
-
-.user-single-event:hover {
-  color: $dark-petrol;
 }
 
 /* ------ RESPONSIVENESS ------ */
@@ -139,7 +137,6 @@
     height: 40vw !important;
     display: flex;
     flex-direction: column;
-    // align-items: space-between;
     justify-content: space-between;
     font-size: 2em;
   }
@@ -167,6 +164,7 @@
     }
 
     & .cal-address {
+      font-size: 0.8em;
       margin: 0;
     }
   }

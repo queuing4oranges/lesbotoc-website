@@ -52,12 +52,13 @@
   align-items: flex-start;
 
   & a {
-    color: $user-beige-light;
+    color: $user-red;
   }
 
   & p {
     display: flex;
     margin: 0;
+    color: $dark-petrol;
   }
 }
 
