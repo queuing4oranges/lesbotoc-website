@@ -173,6 +173,28 @@
 /*-------------------------------------------------------------------------------------
 SingleCalenderEvent.js
 --------------------------------------------------------------------------------------*/
+//bootstrap custom
+.info-container .list-group-item {
+  background-color: #e6f4f1 !important;
+  border: none;
+  & .cal-icon-container {
+    width: 15% !important;
+  }
+}
+
+.link-container {
+  display: inline-block !important;
+  width: 85% !important;
+  overflow-wrap: break-word;
+  & a {
+    width: 85% !important;
+    white-space: pre-line;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    color: $dark-petrol;
+  }
+}
+
 .single-cal-cont {
   height: fit-content !important;
 }
@@ -215,6 +237,10 @@ SingleCalenderEvent.js
   padding: 20px;
 }
 
+.info-container {
+  max-width: 100%;
+}
+
 .single-cal-event-right {
   width: 50%;
   position: relative;
@@ -227,18 +253,18 @@ SingleCalenderEvent.js
 }
 
 .single-cal-event {
-  // border: 1px white solid;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 10px;
-  position: relative;
+  white-space: pre-line;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 
   & p,
   a {
     margin-bottom: 0;
     font-weight: 600;
-    position: absolute;
-    left: 50px;
     color: $dark-petrol;
   }
 
@@ -320,18 +346,6 @@ SingleCalenderEvent.js
   margin-top: -150px;
   display: flex;
   flex-direction: row;
-
-  & .single-cal-event {
-    width: 50%;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  & .single-cal-event p,
-  svg {
-    margin-left: 10%;
-  }
 }
 
 .gmaps-info {
@@ -375,10 +389,10 @@ SingleCalenderEvent.js
     & h2 {
       width: 70vw;
       align-self: center;
+      white-space: pre-line;
     }
   }
 
-  .single-cal-event-left,
   .single-cal-event-right {
     width: 80vw;
   }
@@ -392,12 +406,30 @@ SingleCalenderEvent.js
     margin-bottom: 10vh;
   }
 
+  .single-cal-event-left {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5vw;
+  }
+
   .single-cal-event {
+    max-width: 100%;
     font-size: 1em;
-    overflow: hidden;
-    & a,
-    p {
-      font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    white-space: pre-line !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+
+    & p {
+      inline-size: inherit;
+      display: flex;
+      align-items: center;
+      white-space: pre-line !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
     }
   }
 
@@ -421,6 +453,19 @@ SingleCalenderEvent.js
   .blurry {
     backdrop-filter: blur(5px);
     background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .cal-event-description {
+    text-align: left;
+    padding: 10px;
+    margin-top: 20px;
+    color: $dark-petrol;
+    white-space: pre-line;
+
+    & p {
+      white-space: pre-line;
+      word-wrap: break-word;
+    }
   }
 }
 

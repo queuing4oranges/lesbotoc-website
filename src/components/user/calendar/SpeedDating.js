@@ -196,13 +196,13 @@ export default function SpeedDating({ date, time, location, setShowMod }) {
                 onClick={() => setShowMod(false)}
                 className="button btn sm single-event-button"
               >
-                Cancel
+                Zrušit
               </button>
               <button
                 type="submit"
                 className="button btn sm single-event-button orange-btn"
               >
-                Sign Up
+                Přihlášeni
               </button>
             </div>
           </form>

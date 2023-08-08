@@ -58,85 +58,106 @@ export default function SingleCalendarEvent() {
           <div className="single-cal-event-bg">
             <div className="user-cal-cont">
               <div className="single-cal-event-left">
-                <div className="single-cal-event">
-                  <Kalender width={16} height={16} fill="#003243" />
-                  <p>
-                    <Moment format="D.MM.YYYY">{date}</Moment>
-                  </p>
-                </div>
+                <div className="info-container">
+                  {/* /*lkjlkj*/}
+                  <ul className="list-group">
+                    <li className="list-group-item d-flex align-items-center">
+                      <div className="cal-icon-container">
+                        <Kalender width={16} height={16} fill="#003243" />
+                      </div>
+                      <p className="ml-0 mb-0">
+                        <Moment format="D.MM.YYYY">{date}</Moment>
+                      </p>
+                    </li>
 
-                <div className="single-cal-event">
-                  <Clock width={16} height={16} fill="#003243" />
-                  <p>{time}</p>
-                </div>
+                    <li className="list-group-item d-flex align-items-center">
+                      <div className="cal-icon-container">
+                        <Clock width={16} height={16} fill="#003243" />
+                      </div>
+                      <p className="ml-0 mb-0">{time}</p>
+                    </li>
 
-                <div className="single-cal-event">
-                  <AddressPin width={14} height={20} fill="#003243" />
-                  <p>{loc_name}</p>
-                </div>
+                    <li className="list-group-item d-flex align-items-center">
+                      <div className="cal-icon-container">
+                        <AddressPin width={14} height={20} fill="#003243" />
+                      </div>
+                      <p className="ml-0 mb-0">{loc_name}</p>
+                    </li>
 
-                {loc_website ? (
-                  <div className="single-cal-event">
-                    <Globe height={16} width={16} fill="#003243" />
-                    <a href={loc_website} target="_blank" rel="noreferrer">
-                      {loc_website}
-                    </a>
+                    {loc_website && (
+                      <li className="list-group-item d-flex align-items-center">
+                        <div className="cal-icon-container">
+                          <Globe height={16} width={16} fill="#003243" />
+                        </div>
+                        {/* <p className="ms-3 mb-0"> */}
+                        <div className="link-container">
+                          <a
+                            href={loc_website}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {loc_website}
+                          </a>
+                        </div>
+                        {/* </p> */}
+                      </li>
+                    )}
+
+                    {price && (
+                      <li className="list-group-item d-flex align-items-center">
+                        <div className="cal-icon-container">
+                          <Money width={16} height={16} fill="#003243" />
+                        </div>
+                        <p className="ml-0 mb-0">{price} CZK</p>
+                      </li>
+                    )}
+
+                    {capacity && (
+                      <li className="list-group-item d-flex align-items-center">
+                        <div className="cal-icon-container">
+                          <People width={16} height={16} fill="#003243" />
+                        </div>
+                        <p className="ml-0 mb-0">max. {capacity} lidí</p>
+                      </li>
+                    )}
+                  </ul>
+
+                  <div className="cal-event-description">
+                    <p>{description}</p>
                   </div>
-                ) : null}
 
-                {price ? (
-                  <div className="single-cal-event">
-                    <Money width={16} height={16} fill="#003243" />
-                    <p>{price} CZK</p>
-                  </div>
-                ) : (
-                  ""
-                )}
-
-                {capacity ? (
-                  <div className="single-cal-event">
-                    <People width={16} height={16} fill="#003243" />
-                    <p>max. {capacity} lidí</p>
-                  </div>
-                ) : (
-                  ""
-                )}
-
-                <div className="cal-event-description">
-                  <p>{description}</p>
-                </div>
-
-                <div className="single-cal-event-button">
-                  <Link to={"/kalendar"}>
-                    <button className="button btn sm single-event-button">
-                      Back
-                    </button>
-                  </Link>
-                  {event_type === "Speed Dating" ? (
-                    <Link>
-                      <button
-                        onClick={() => setShowMod(!showMod)}
-                        className="button btn sm single-event-button orange-btn"
-                      >
-                        Sign Up
+                  <div className="single-cal-event-button">
+                    <Link to={"/kalendar"}>
+                      <button className="button btn sm single-event-button">
+                        Zpět
                       </button>
                     </Link>
-                  ) : (
-                    ""
-                  )}
+                    {event_type === "Speed Dating" ? (
+                      <Link>
+                        <button
+                          onClick={() => setShowMod(!showMod)}
+                          className="button btn sm single-event-button orange-btn"
+                        >
+                          Přihlášeni
+                        </button>
+                      </Link>
+                    ) : (
+                      ""
+                    )}
 
-                  {event_type === "Lesbotoc Camp" ? (
-                    <Link>
-                      <button
-                        // onClick={() => openModal()}
-                        className="button btn sm single-event-button yellow-btn"
-                      >
-                        Sign Up
-                      </button>
-                    </Link>
-                  ) : (
-                    ""
-                  )}
+                    {event_type === "Lesbotoc Camp" ? (
+                      <Link>
+                        <button
+                          // onClick={() => openModal()}
+                          className="button btn sm single-event-button yellow-btn"
+                        >
+                          Sign Up
+                        </button>
+                      </Link>
+                    ) : (
+                      ""
+                    )}
+                  </div>
                 </div>
               </div>
 
@@ -162,16 +183,18 @@ export default function SingleCalendarEvent() {
             src={`https://maps.google.com/maps?q=${latitude},${longitude}&hl=es;&output=embed`}
           ></iframe>
 
-          <div className="gmaps-info">
-            <div className="gmaps-address">
-              <StreetMap width={16} height={16} fill="#003243" />
-              <p>{loc_address}</p>
-            </div>
+          {loc_address && (
+            <div className="gmaps-info">
+              <div className="gmaps-address">
+                <StreetMap width={16} height={16} fill="#003243" />
+                <p>{loc_address}</p>
+              </div>
 
-            <div className="gmaps-instructions">
-              <p>{instructions}</p>
+              <div className="gmaps-instructions">
+                <p>{instructions}</p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
       {showMod && (
