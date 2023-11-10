@@ -7,9 +7,6 @@ The website was created as a revision to the existing website and is still work 
 The clients want to have a website with a slim and easy to handle CMS, in which they can update their events on a regular basis. They also want to be able to save contacts and for people to be able to sign up to events.
 
 The backend and frontend of the website are separated.
-The finished admin panel is currently hosted at:
-
-http://lesbotoc.lesbotoc.com
 
 ## Functionalities
 
