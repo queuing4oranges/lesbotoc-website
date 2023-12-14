@@ -1,111 +1,28 @@
-.user-footer-container {
-  background: $lesbotoc;
-  height: 80px;
-  z-index: 20;
-}
-
-.user-footer-cont {
-  width: 90%;
-  height: 100%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  color: $user-beige-light;
-}
-
-.user-footer-newsletter {
-  width: 20%;
-  display: flex;
-  justify-content: space-between;
-
-  & p {
-    margin-bottom: 0;
-  }
-}
-
-.user-footer-admin {
-  width: 30%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.admin-panel-button {
-  background-color: $dark-petrol;
-  color: white;
-  font-size: 14px;
-}
-
-.user-footer-social {
-  padding-left: 50px;
-}
-
-.user-footer-copyright {
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  & a {
-    color: $user-red;
-  }
-
-  & p {
-    display: flex;
-    margin: 0;
-    color: $dark-petrol;
-  }
+.footer-wrapper {
+	background: $lesbotoc;
+	height: 80px;
+	z-index: 20;
 }
 
 .copyright-katja {
-  display: flex;
+	& a:hover {
+		text-decoration: none;
+	}
 }
-/* ------ RESPONSIVENESS ------ */
-//mobiles
+
+.admin-panel-button {
+	background-color: $dark-petrol;
+	color: white;
+}
+
 @media only screen and (max-width: 600px) {
-  .user-footer-container {
-    background-color: $lesbotoc;
-  }
-  .user-footer-cont {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: fit-content;
-    width: 100%;
-    background-color: $lesbotoc;
-    padding: 20px 0;
-  }
-
-  .user-footer-copyright {
-    align-items: center;
-  }
-
-  .copyright-katja {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .user-footer-admin {
-    flex-direction: column;
-  }
-
-  .user-footer-social {
-    display: flex;
-    width: 15vw;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: unset;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-    & svg {
-      margin: 0;
-    }
-  }
+	.copyright-katja {
+		display: flex;
+		flex-direction: column;
+		align-items: center !important;
+	}
+	
+	.admin-panel-button {
+		margin-bottom: 1rem;
+	}
 }
