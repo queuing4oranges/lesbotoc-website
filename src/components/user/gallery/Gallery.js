@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 //components
 import Footer from "../includes/Footer";
 import Navbar from "../includes/Navbar";
-import Loading from "../includes/Loading";
+import { Spinner } from "../includes/Spinner";
 //hooks
 import useGetImages from "../../../hooks/useGetImages";
 
@@ -16,7 +16,7 @@ export default function Gallery() {
   if (loading) {
     return (
       <div>
-        <Loading />
+        <Spinner />
       </div>
     );
   }

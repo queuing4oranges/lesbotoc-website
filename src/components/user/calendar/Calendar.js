@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 //components
 import Navbar from "../includes/Navbar";
 import Footer from "../includes/Footer";
-import Loading from "../includes/Loading";
+import { Spinner } from "../includes/Spinner";
 
 //libraries
 import Moment from "react-moment";
@@ -26,7 +26,7 @@ export default function Calendar() {
   if (loading) {
     return (
       <div>
-        <Loading />
+        <Spinner />
       </div>
     );
   }

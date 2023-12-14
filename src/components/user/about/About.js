@@ -3,7 +3,7 @@ import Footer from "../includes/Footer";
 import Navbar from "../includes/Navbar";
 import team from "../../../assets/about_images/team2.png";
 import { members } from "./aboutData";
-import Loading from "../includes/Loading";
+import { Spinner } from "../includes/Spinner";
 
 export default function About() {
   const [loading, setLoading] = useState(true);
@@ -18,7 +18,7 @@ export default function About() {
   return (
     <>
       {loading ? (
-        <Loading />
+        <Spinner />
       ) : (
         <div className="user-container">
           <Navbar />
