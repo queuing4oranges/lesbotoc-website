@@ -108,9 +108,9 @@ export default function SingleCalendarEvent() {
 							</div>
 							}
 							
-							<div className="d-flex justify-content-start">
-								<Link to={"/kalendar"}>
-									<Button className="btn back-btn mt-3">
+							<div className="d-flex justify-content-start align-items-center">
+								<Link to={"/kalendar"} className="mr-5">
+									<Button className="btn back-btn">
 										Zpět
 									</Button>
 								</Link>

@@ -182,12 +182,13 @@ SingleCalenderEvent.js
 		.info-column {
 			z-index: 2;
 			background-color: $light-blue;
+			
+			& div:last-child {
+				margin-top: auto;
+			}
 		}
 	}
 	
-	& div:last-child {
-		margin-top: auto;
-	}
 
 	.event-info::before {
 		content: "";
@@ -207,12 +208,6 @@ SingleCalenderEvent.js
 		position: relative;
 		box-shadow: $box-shadow-lesbotoc;
 	}
-	
-	.image-column {
-		img {
-			box-shadow: $box-shadow-img
-		}
-	}
 
 	.gmaps-wrapper {
 		& iframe {
@@ -220,38 +215,28 @@ SingleCalenderEvent.js
 			box-shadow: $box-shadow-img;
 		}
 	}
+	
+	.btn {
+		background-color: $lesbotoc;
+		&:hover {
+			opacity: 0.75;
+		}
+	}
+	
+	.orange-btn {
+		background-color: $lesbotoc;
+		&:hover {
+			background-color: #eb5a49;
+		}
+	}
+	
+	.yellow-btn {
+		background-color: $lesbotoc;
+		&:hover {
+			background-color: #ec9704;
+		}
+	}
 }
-
-
-
-
-//below legacy
-
-
-// .single-event-button {
-// //   margin: 10px;
-//   background-color: transparent;
-//   border: 2px solid $dark-petrol;
-//   color: $dark-petrol;
-
-//   &:hover {
-//     background-color: $user-red;
-//   }
-// }
-// .orange-btn {
-//   background-color: $lesbotoc;
-//   &:hover {
-//     background-color: #eb5a49;
-//   }
-// }
-// .yellow-btn {
-//   background-color: $lesbotoc;
-//   &:hover {
-//     background-color: #ec9704;
-//   }
-// }
-
-
 
 /* ------ RESPONSIVENESS ------ */
 //mobiles
