@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
 import Moment from "react-moment";
+import 'add-to-calendar-button';
 
 import Navbar from "../includes/Navbar";
 import Footer from "../includes/Footer";
@@ -10,10 +11,11 @@ import SpeedDating from "./SpeedDating";
 import useShowEvent from "../../../hooks/useShowEvent";
 
 import { Col, Row, Button } from "reactstrap";
+import { Spinner } from "../includes/Spinner";
 
 export default function SingleCalendarEvent() {
 	const [showMod, setShowMod] = useState(false);
-	const { oneEvent, error, showEvent } = useShowEvent();
+	const { oneEvent, error, loading, showEvent } = useShowEvent();
 	const {
 		name, event_type, description,
 		date, time,
@@ -44,6 +46,10 @@ export default function SingleCalendarEvent() {
 	if (error) {
 		return console.log(error);
 	}
+	
+	if (loading) {
+		return <Spinner />
+	}
 
 	return (
 		<div className="screen-wrapper">
@@ -55,9 +61,22 @@ export default function SingleCalendarEvent() {
 
 					<Row md="12" className="mb-5 p-5 event-info justify-content-center">
 						<Col md="5" sm="12" className="d-flex flex-column info-column p-4">
-							<div className="d-flex">
-								<i className="bi bi-calendar2-heart mr-3"></i>
-								<p><Moment format="D.MM.YYYY">{date}</Moment></p>
+							<div className="d-flex justify-content-between">
+								<div className="d-flex">
+									<i className="bi bi-calendar2-heart mr-3"></i>
+									<p><Moment format="D.MM.YYYY">{date}</Moment></p>
+								</div>
+								<div>
+									<add-to-calendar-button
+										name={name}
+										startDate={date}
+										options="['Google', 'Apple']"
+										location={loc_address}
+										trigger="click"
+										description={`Start: ${time} --- ${description}`}
+									/>
+								</div>
+
 							</div>
 							
 							<div className="d-flex">

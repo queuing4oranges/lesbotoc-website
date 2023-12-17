@@ -189,6 +189,9 @@ SingleCalenderEvent.js
 		}
 	}
 	
+	.atcb-checkmark {
+		color: transparent;
+	}
 
 	.event-info::before {
 		content: "";
@@ -218,72 +221,34 @@ SingleCalenderEvent.js
 	
 	.btn {
 		background-color: $lesbotoc;
+		border: none;
 		&:hover {
-			opacity: 0.75;
+			color: $dark-petrol;
 		}
-	}
-	
-	.orange-btn {
-		background-color: $lesbotoc;
-		&:hover {
+		
+		&.orange-btn {
 			background-color: #eb5a49;
 		}
-	}
-	
-	.yellow-btn {
-		background-color: $lesbotoc;
-		&:hover {
+		&.yellow-btn {
 			background-color: #ec9704;
 		}
 	}
+	
+	// .orange-btn {
+	// 	background-color: $lesbotoc;
+	// 	&:hover {
+			
+	// 	}
+	// }
+	
+	// .yellow-btn {
+	// 	background-color: $lesbotoc;
+	// 	&:hover {
+			
+	// 	}
+	// }
 }
 
-/* ------ RESPONSIVENESS ------ */
-//mobiles
-@media only screen and (max-width: 600px) {
-  .user-cal-cont {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .single-cal-cont {
-    & h2 {
-      width: 70vw;
-      align-self: center;
-      white-space: pre-line;
-    }
-  }
-
-  .single-cal-event-right {
-    width: 80vw;
-  }
-
-  .single-cal-img {
-    max-width: 80vw;
-    margin-left: unset;
-  }
-
-  .single-cal-event-bg {
-    margin-bottom: 10vh;
-  }
-
-  .single-cal-event-left {
-    width: 80vw;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 5vw;
-  }
-
-
-
-  .blurry {
-    backdrop-filter: blur(5px);
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-
-}
 
 /*-------------------------------------------------------------------------------------
 SpeedDating.js
