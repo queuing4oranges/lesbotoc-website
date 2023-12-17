@@ -1,7 +1,9 @@
 .footer-wrapper {
 	background: $lesbotoc;
-	height: 80px;
+	min-height: 80px;
 	z-index: 20;
+	position: absolute;
+	bottom: 0;
 }
 
 .copyright-katja {
@@ -16,6 +18,9 @@
 }
 
 @media only screen and (max-width: 600px) {
+	.footer-wrapper {
+background-color: $lesbotoc;
+	}
 	.copyright-katja {
 		display: flex;
 		flex-direction: column;

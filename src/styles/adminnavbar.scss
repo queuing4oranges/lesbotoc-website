@@ -6,14 +6,14 @@
   border-radius: 3px;
 }
 
-.container {
-  width: 100%;
-  justify-content: space-between;
-  background-color: #003243;
-  color: #e6f4f1;
-  margin: 0;
-  padding: 0;
-}
+// .container {
+//   width: 100%;
+//   justify-content: space-between;
+//   background-color: #003243;
+//   color: #e6f4f1;
+//   margin: 0;
+//   padding: 0;
+// }
 
 .navbar-brand p {
   color: #e6f4f1;
@@ -104,12 +104,12 @@
     border-radius: 50%;
   }
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-content: flex-start;
-    font-size: 0.7em;
-  }
+//   .container {
+//     display: flex;
+//     flex-direction: column;
+//     align-content: flex-start;
+//     font-size: 0.7em;
+//   }
 
   .mobil-nav-cont {
     display: block;

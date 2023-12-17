@@ -6,7 +6,7 @@ export default function Footer() {
 const currentYear = new Date();
 
 	return (
-		<Container fluid className="footer-wrapper h-100">
+		<Container fluid className="footer-wrapper">
 			<Row>
 				<Col md="8">					
 					<div className="d-flex flex-column justify-content-center align-items-start copyright-katja">
@@ -44,7 +44,7 @@ const currentYear = new Date();
 							aria-label="Instagram"
 							className="ml-2"
 						>
-							<i class="bi bi-instagram" style={{fontSize: "2rem", color: "#003243"}}></i>
+							<i className="bi bi-instagram" style={{fontSize: "2rem", color: "#003243"}}></i>
 						</a>
 					</div>
 				</Col>

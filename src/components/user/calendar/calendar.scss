@@ -173,208 +173,85 @@
 /*-------------------------------------------------------------------------------------
 SingleCalenderEvent.js
 --------------------------------------------------------------------------------------*/
-//bootstrap custom
-.info-container .list-group-item {
-  background-color: #e6f4f1 !important;
-  border: none;
-  & .cal-icon-container {
-    width: 15% !important;
-  }
+.calendar-container {
+	p {
+		text-align: left;
+	}
+	.event-info {
+		position: relative;
+		.info-column {
+			z-index: 2;
+			background-color: $light-blue;
+		}
+	}
+	
+	& div:last-child {
+		margin-top: auto;
+	}
+
+	.event-info::before {
+		content: "";
+		background-image: url("../../../assets/calendar_images/cafe-above.jpg");
+		background-size: cover;
+		opacity: 0.15;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		//make button still clickable with bg image::before
+		pointer-events: none;
+		}
+		
+	.info-column {
+		position: relative;
+		box-shadow: $box-shadow-lesbotoc;
+	}
+	
+	.image-column {
+		img {
+			box-shadow: $box-shadow-img
+		}
+	}
+
+	.gmaps-wrapper {
+		& iframe {
+			border: none;
+			box-shadow: $box-shadow-img;
+		}
+	}
 }
 
-.link-container {
-  display: inline-block !important;
-  width: 85% !important;
-  overflow-wrap: break-word;
-  & a {
-    width: 85% !important;
-    white-space: pre-line;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    color: $dark-petrol;
-  }
-}
 
-.single-cal-cont {
-  height: fit-content !important;
-}
-.single-cal-event-bg {
-  position: relative;
-  width: 100%;
-  height: fit-content;
-  background-size: cover;
-  padding-bottom: 30px;
-  margin-bottom: 200px;
-}
 
-.single-cal-event-bg::before {
-  content: "";
-  background-image: url("../../../assets/calendar_images/cafe-above.jpg");
-  background-size: cover;
-  opacity: 0.15;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  //make button still clickable with bg image::before
-  pointer-events: none;
-}
 
-.user-cal-cont {
-  width: 80%;
-  height: fit-content;
-  margin: auto;
-  display: flex;
-  padding-top: 50px;
-  padding-bottom: 60px;
-}
+//below legacy
 
-.single-cal-event-left {
-  background-color: $light-blue;
-  z-index: 2;
-  width: 50%;
-  padding: 20px;
-}
 
-.info-container {
-  max-width: 100%;
-}
+// .single-event-button {
+// //   margin: 10px;
+//   background-color: transparent;
+//   border: 2px solid $dark-petrol;
+//   color: $dark-petrol;
 
-.single-cal-event-right {
-  width: 50%;
-  position: relative;
-  min-height: fit-content;
-}
+//   &:hover {
+//     background-color: $user-red;
+//   }
+// }
+// .orange-btn {
+//   background-color: $lesbotoc;
+//   &:hover {
+//     background-color: #eb5a49;
+//   }
+// }
+// .yellow-btn {
+//   background-color: $lesbotoc;
+//   &:hover {
+//     background-color: #ec9704;
+//   }
+// }
 
-.single-cal-event-right img {
-  position: relative;
-  z-index: 5;
-}
 
-.single-cal-event {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  white-space: pre-line;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-
-  & p,
-  a {
-    margin-bottom: 0;
-    font-weight: 600;
-    color: $dark-petrol;
-  }
-
-  & path {
-    color: $lesbotoc-dark;
-  }
-}
-
-.cal-event-description {
-  text-align: left;
-  padding: 10px;
-  margin-top: 20px;
-  color: $dark-petrol;
-}
-
-.single-cal-event-button {
-  display: flex;
-  justify-content: flex-start;
-  z-index: 15;
-}
-
-.single-event-button {
-  margin: 10px;
-  background-color: transparent;
-  border: 2px solid $dark-petrol;
-  color: $dark-petrol;
-
-  &:hover {
-    background-color: $user-red;
-  }
-}
-
-.orange-btn {
-  background-color: $lesbotoc;
-  &:hover {
-    background-color: #eb5a49;
-  }
-}
-
-.yellow-btn {
-  background-color: $lesbotoc;
-  &:hover {
-    background-color: #ec9704;
-  }
-}
-
-.single-event-img-cont {
-  min-height: fit-content;
-}
-
-.single-cal-img {
-  max-width: 400px;
-  position: absolute;
-  top: 30px;
-  left: 0;
-  margin-left: 80px;
-}
-
-.gmaps-container {
-  background-color: $user-beige-light;
-
-  & iframe {
-    border: none;
-  }
-}
-
-.gmaps-cont {
-  width: 80%;
-  background: linear-gradient(
-    45deg,
-    $lesbotoc 0%,
-    $lesbotoc-dark 30%,
-    $lesbotoc 60%,
-    $lesbotoc-dark 100%
-  );
-  margin: auto;
-  padding: 40px;
-  margin-bottom: 60px;
-  margin-top: -150px;
-  display: flex;
-  flex-direction: row;
-}
-
-.gmaps-info {
-  display: flex;
-  flex-direction: column;
-  padding: 20px 60px;
-  width: 50%;
-
-  & .gmaps-address {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    & svg {
-      margin-left: 0;
-    }
-
-    & p {
-      margin: 0 20px;
-      font-weight: 600;
-      text-align: left;
-    }
-  }
-}
-
-.gmaps-instructions {
-  text-align: left;
-  margin-top: 20px;
-}
 
 /* ------ RESPONSIVENESS ------ */
 //mobiles
@@ -414,59 +291,13 @@ SingleCalenderEvent.js
     padding: 5vw;
   }
 
-  .single-cal-event {
-    max-width: 100%;
-    font-size: 1em;
-    display: flex;
-    align-items: center;
-    white-space: pre-line !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
 
-    & p {
-      inline-size: inherit;
-      display: flex;
-      align-items: center;
-      white-space: pre-line !important;
-      word-wrap: break-word !important;
-      overflow-wrap: break-word !important;
-    }
-  }
-
-  .gmaps-cont {
-    width: 80vw;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    margin-top: unset;
-    & iframe {
-      height: 30vh;
-      width: 70vw;
-    }
-  }
-
-  .gmaps-info {
-    width: 70vw;
-    padding: 2vw;
-  }
 
   .blurry {
     backdrop-filter: blur(5px);
     background-color: rgba(255, 255, 255, 0.5);
   }
 
-  .cal-event-description {
-    text-align: left;
-    padding: 10px;
-    margin-top: 20px;
-    color: $dark-petrol;
-    white-space: pre-line;
-
-    & p {
-      white-space: pre-line;
-      word-wrap: break-word;
-    }
-  }
 }
 
 /*-------------------------------------------------------------------------------------
