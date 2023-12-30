@@ -66,48 +66,38 @@ export default function SingleCalendarEvent() {
 		//format the dates to YYYYMMDDTHHmmssZ
 		const formattedStartTime = startTime.format('YYYYMMDDTHHmmss');
 		const formattedEndTime = endTime.format('YYYYMMDDTHHmmss');
+
+		//strip leading whitespace
+		const stripIndent = (str) => str.replace(/^\s+/gm, ''); //preventing problems with whitespace in iscContent
 		
-		// const calEvent = {
-		// 	name: name,
-		// 	start: formattedStartTime,
-		// 	end: formattedEndTime,
-		// };
+		//create the .ics file content
+		const icsContent = stripIndent(`
+			BEGIN:VCALENDAR
+			VERSION:2.0
+			BEGIN:VEVENT
+			SUMMARY:${name}
+			DTSTART:${formattedStartTime}
+			DTEND:${formattedEndTime}
+			LOCATION:${loc_address}
+			DESCRIPTION:${description}
+			END:VEVENT
+			END:VCALENDAR
+		`);
 		
-		// const encodedName = encodeURIComponent(calEvent.name);
-		
-		// const appleCalendarUrl = `data:text/calendar;charset=utf8,BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:${encodedName}\nDTSTART:${formattedStartTime}\nDTEND:${formattedEndTime}\nEND:VEVENT\nEND:VCALENDAR`;
-		
-// Create the .ics file content
-const icsContent = `
-BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-SUMMARY:${name}
-DTSTART:${formattedStartTime}
-DTEND:${formattedEndTime}
-END:VEVENT
-END:VCALENDAR
-`;
-	// Create a Blob with the .ics content
-	const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+		//create a Blob with the .ics content
+		const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+		const url = window.URL.createObjectURL(blob);
+		const link = document.createElement('a');
+		link.href = url;
+		link.setAttribute('download', 'event.ics');
+		document.body.appendChild(link);
 
-	// Create a URL from the Blob
-	const url = window.URL.createObjectURL(blob);
+		// Trigger a click on the link to start the download
+		link.click();
 
-	// Create a link element
-	const link = document.createElement('a');
-	link.href = url;
-	link.setAttribute('download', 'event.ics');
-
-	// Append the link to the document body
-	document.body.appendChild(link);
-
-	// Trigger a click on the link to start the download
-	link.click();
-
-	// Remove the link from the document
-	document.body.removeChild(link);
-};
+		// Remove the link from the document
+		document.body.removeChild(link);
+	};
 
 	
 	if (error) {
