@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import moment from 'moment-timezone';
 
 import Navbar from "../includes/Navbar";
 import Footer from "../includes/Footer";
@@ -44,7 +45,71 @@ export default function SingleCalendarEvent() {
 	}, [description])
 	
 	const toggle = () => setDropdownOpen((prevState) => !prevState)
+	
+	const handleGoogleCalendar = () => {		
+		const startTime = moment.tz(`${date}T${time}`, 'Europe/Paris');
+		const endTime = startTime.clone().add(3, "hours")
+		
+		//format the dates to YYYYMMDDTHHmmssZ
+		const formattedStartTime = startTime.format('YYYYMMDDTHHmmss');
+		const formattedEndTime = endTime.format('YYYYMMDDTHHmmss');
+		
+		const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(name)}&dates=${formattedStartTime}/${formattedEndTime}&location=${encodeURIComponent(loc_address)}&details=${description}&sprop=&sprop=name:`;
+		
+		window.open(googleCalendarUrl, '_blank');
+	}
+	
+	const handleAppleCalendar = () => {
+		const startTime = moment.tz(`${date}T${time}`, 'Europe/Paris');
+		const endTime = startTime.clone().add(3, "hours")
 
+		//format the dates to YYYYMMDDTHHmmssZ
+		const formattedStartTime = startTime.format('YYYYMMDDTHHmmss');
+		const formattedEndTime = endTime.format('YYYYMMDDTHHmmss');
+		
+		// const calEvent = {
+		// 	name: name,
+		// 	start: formattedStartTime,
+		// 	end: formattedEndTime,
+		// };
+		
+		// const encodedName = encodeURIComponent(calEvent.name);
+		
+		// const appleCalendarUrl = `data:text/calendar;charset=utf8,BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:${encodedName}\nDTSTART:${formattedStartTime}\nDTEND:${formattedEndTime}\nEND:VEVENT\nEND:VCALENDAR`;
+		
+// Create the .ics file content
+const icsContent = `
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:${name}
+DTSTART:${formattedStartTime}
+DTEND:${formattedEndTime}
+END:VEVENT
+END:VCALENDAR
+`;
+	// Create a Blob with the .ics content
+	const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+
+	// Create a URL from the Blob
+	const url = window.URL.createObjectURL(blob);
+
+	// Create a link element
+	const link = document.createElement('a');
+	link.href = url;
+	link.setAttribute('download', 'event.ics');
+
+	// Append the link to the document body
+	document.body.appendChild(link);
+
+	// Trigger a click on the link to start the download
+	link.click();
+
+	// Remove the link from the document
+	document.body.removeChild(link);
+};
+
+	
 	if (error) {
 		return console.log(error);
 	}
@@ -76,13 +141,13 @@ export default function SingleCalendarEvent() {
 										</DropdownToggle>
 										<DropdownMenu>
 											<DropdownItem 
-												onClick={()=>console.log("added to google")} 
+												onClick={()=>handleGoogleCalendar()} 
 												className="px-2">
 													<SiGooglecalendar className="mr-3" />
 													Google
 											</DropdownItem>
 											<DropdownItem 
-												onClick={()=>console.log("added to apple")} 
+												onClick={()=>handleAppleCalendar()} 
 												className="px-2">
 													<FaApple className="mr-3"/>
 													Apple
