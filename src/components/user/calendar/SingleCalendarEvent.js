@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
-import Moment from "react-moment";
-
 import Navbar from "../includes/Navbar";
 import Footer from "../includes/Footer";
 import SpeedDating from "./SpeedDating";
-
+import { Spinner } from "../includes/Spinner";
 import useShowEvent from "../../../hooks/useShowEvent";
 
-import { Col, Row, Button } from "reactstrap";
-import { Spinner } from "../includes/Spinner";
+import { Col, Row, Button, Dropdown, DropdownToggle, DropdownItem, DropdownMenu } from "reactstrap";
+import Moment from "react-moment";
+import { SiGooglecalendar } from "react-icons/si";
+import { FaApple } from "react-icons/fa";
 
 export default function SingleCalendarEvent() {
 	const [showMod, setShowMod] = useState(false);
+	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const { oneEvent, error, loading, showEvent } = useShowEvent();
 	const {
 		name, event_type, description,
@@ -41,6 +42,8 @@ export default function SingleCalendarEvent() {
 			setParagraphs([])
 		}
 	}, [description])
+	
+	const toggle = () => setDropdownOpen((prevState) => !prevState)
 
 	if (error) {
 		return console.log(error);
@@ -60,10 +63,32 @@ export default function SingleCalendarEvent() {
 
 					<Row md="12" className="mb-5 p-5 event-info justify-content-center">
 						<Col md="5" sm="12" className="d-flex flex-column info-column p-4">
-							<div className="d-flex justify-content-between">
+							<div className="d-flex justify-content-between align-items-start">
 								<div className="d-flex">
 									<i className="bi bi-calendar2-heart mr-3"></i>
 									<p><Moment format="D.MM.YYYY">{date}</Moment></p>
+								</div>
+								<div className="mt-0">
+									<Dropdown isOpen={dropdownOpen} toggle={toggle} className="add-event-dropdown">
+										<DropdownToggle size="sm">
+											<i className="bi bi-plus-square mr-2"></i>
+											Add to Calendar
+										</DropdownToggle>
+										<DropdownMenu>
+											<DropdownItem 
+												onClick={()=>console.log("added to google")} 
+												className="px-2">
+													<SiGooglecalendar className="mr-3" />
+													Google
+											</DropdownItem>
+											<DropdownItem 
+												onClick={()=>console.log("added to apple")} 
+												className="px-2">
+													<FaApple className="mr-3"/>
+													Apple
+											</DropdownItem>
+										</DropdownMenu>
+									</Dropdown>
 								</div>
 							</div>
 							
@@ -85,7 +110,7 @@ export default function SingleCalendarEvent() {
 							{loc_website &&
 							<div className="d-flex">
 								<i className="bi bi-globe mr-3"></i>
-								<p><a href={loc_website} target="_blank" rel="noreferrer">{loc_website}</a></p>
+								<p><a className="event-website" href={loc_website} target="_blank" rel="noreferrer">{loc_website}</a></p>
 							</div>
 							}
 							
@@ -108,7 +133,7 @@ export default function SingleCalendarEvent() {
 								<i className="bi bi-info-square mr-3"></i>
 									<div className="d-flex flex-column">
 									{paragraphs.map((par, i) =>(
-										<p key={i}>{par.replace(/\\n|\\r\\n|\\r/g, '')}</p> //replacing the \n with space
+										<p key={i}>{par.replace(/\\n|\\r\\n|\\r/g, '')}</p> //when using \n - it will make a new line 
 									))
 									}
 									</div>

@@ -1,3 +1,6 @@
+/*-------------------------------------------------------------------------------------
+Calendar.js
+--------------------------------------------------------------------------------------*/
 .calendar-title {
 	background-color: unset !important;
 }
@@ -243,6 +246,35 @@ SingleCalenderEvent.js
 		box-shadow: $box-shadow-lesbotoc;
 	}
 
+	.event-website {
+		text-decoration: none;
+		color: $dark-petrol;
+		&:hover {
+			color: $lesbotoc;
+		}
+	}
+	
+	.add-event-dropdown {
+		top: 0;
+		right: 0;
+		font-size: 0.8rem !important;
+		.btn:focus, .btn:active {
+			box-shadow: none;
+		}
+		.dropdown-item {
+			display: inline-block;
+			&:focus {
+				outline: none;
+				background-color: $lesbotoc;
+			}
+		}
+		.dropdown-menu {
+			right: 0;
+			min-width: unset;
+			padding: 0;
+		}
+	}
+	
 	.gmaps-wrapper {
 		& iframe {
 			border: none;
@@ -250,7 +282,7 @@ SingleCalenderEvent.js
 		}
 	}
 	
-	.btn {
+	.btn.back-btn {
 		background-color: $lesbotoc;
 		border: none;
 		&:hover {
