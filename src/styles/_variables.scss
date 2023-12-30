@@ -33,6 +33,11 @@ $text-font: "Poppins", sans-serif, Arial, Helvetica, sans-serif;
 $backdrop-filter: blur(0.5px);
 $box-shadow: 0px 10px 15px -5px rgba(122, 182, 203, 0.75);
 $triangle-color: linear-gradient(179deg, #85cde7 0%, #ca7d61 100%);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 //mixins:
 @mixin center-object {
@@ -49,20 +54,13 @@ html {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif, Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
-  // background-color: $user-beige-light;
-  min-height: 100vh;
+	min-height: max-content;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
 
 .App {
-  text-align: center;
+	text-align: center;
   font-family: "Poppins", sans-serif, Arial, Helvetica, sans-serif;
-  height: 100vh;
 }
 
 .App-logo {

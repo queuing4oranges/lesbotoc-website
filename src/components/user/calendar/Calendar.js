@@ -1,120 +1,117 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import useGetEvents from "../../../hooks/useGetEvents";
 
-//components
 import Navbar from "../includes/Navbar";
 import Footer from "../includes/Footer";
 import { Spinner } from "../includes/Spinner";
 
-//libraries
 import Moment from "react-moment";
 
-//images
 import bgImage from "../../../assets/calendar_images/pride-flag-house-bg.png";
-import AddressPin from "../../../assets/svg-icons/AddressPin";
+import { 
+	Row, Col, 
+	CardText, Card, CardTitle, CardSubtitle
+} from "reactstrap";
 
-//hooks
-import useGetEvents from "../../../hooks/useGetEvents";
 
 export default function Calendar() {
-  const { events, loading, error, getEvents } = useGetEvents();
+	const { events, loading, error, getEvents } = useGetEvents();
 
-  useEffect(() => {
-    getEvents(300);
-  }, []);
+	useEffect(() => {
+		getEvents(300);
+	}, []);
 
-  if (loading) {
-    return (
-      <div>
-        <Spinner />
-      </div>
-    );
-  }
-  if (error) {
-    return console.log(error);
-  }
+	if (loading) {
+		return (
+			<div><Spinner/></div>
+		);
+	}
 
-  return (
-    <div
-      style={{
-        backgroundImage: `url(${bgImage})`,
-        backgroundRepeat: "repeat",
-        height: "fit-content",
-      }}
-      className="user-container calendar-container"
-    >
-      <Navbar />
+	if (error) {
+		return console.log(error);
+	}
 
-      <div className="user-calendar-cont">
-        <h2 className="user-title">Kalendář</h2>
+	return (
+		<div 
+			className="screen-wrapper"
+			style={{
+			backgroundImage: `url(${bgImage})`,
+			backgroundRepeat: "repeat",
+			}}
+		>
+			<Navbar/>
+			<h2 className="screen-title calendar-title">Kalendář</h2>
+			
+			<div className="events-container d-flex flex-column mb-5">
+				
+				<Row className="d-flex justify-content-center mb-2 categories">
+					<Col md="2" className="d-flex justify-content-center">						
+						<i className="bi bi-square mr-2 blue"></i>
+						<p>Lesbotoč events</p>
+					</Col>
+					<Col md="2" className="d-flex justify-content-center">						
+						<i className="bi bi-square mr-2 grey"></i>
+						<p>Other events</p>
+					</Col>
+					<Col md="2" className="d-flex justify-content-center">						
+						<i className="bi bi-square mr-2 red"></i>
+						<p>Speed Dating</p>
+					</Col>
+				</Row>
+				
+				<Row className="d-flex justify-content-center h-100">
+					<div className="grid-wrapper h-100">
+						{events &&
+	            			events.map((event, key) => (
+								<Card
+									style={{
+										width: "12rem",
+										height: "12rem",
+										backgroundColor:
+											event.event_type === "Speed Dating"
+											? "#ed7f71"
+											: event.event_type === "Other Event"
+											? "#3fc16f"
+											: event.event_type === "Lesbotoc Camp"
+											? "#EC9704"
+											: "#7ab6cb",
+										boxShadow: "3px 3px 3px 0px rgba(0, 0, 0, 0.3)",
+										}}>
+									<Link
+										key={key}
+										className="card-body d-flex flex-column"
+										to={`/kalendar/${event.id}`}
+									>
+										<CardSubtitle className="d-flex justify-content-between">
+											{event.date === "0000-00-00" ? (
+											""
+											) : (
+											<p>
+												<Moment format="D.MM.YYYY">{event.date}</Moment> 
+												&nbsp;
+											</p>
+											)}
+											<p>{event.time === "00:00:00" ? "" : event.time}</p>
+										</CardSubtitle>
+							
+										<CardTitle className="fw-bold">
+											<h5>{event.name}</h5>
+										</CardTitle>
+										
+										<CardText className="d-flex mt-auto">
+											<i className="bi bi-geo-alt mr-1"></i>
+											<p className="mb-0" title={event.loc_name}>{event.loc_name}</p>
+										</CardText>
+									</Link>
+								</Card>
+							))
+						}
+					</div>
+				</Row>
 
-        <div className="calendar-subtitle-cont">
-          <div className="categorie-event">
-            <div className="square square-lesbotoc"></div>
-            <p>Lesbotoč events </p>
-          </div>
-
-          <div className="categorie-event">
-            <div className="square square-other"></div>
-            <p>Other events </p>
-          </div>
-
-          <div className="categorie-event">
-            <div className="square square-dating"></div>
-            <p>Lesbotoč Speed Dating </p>
-          </div>
-        </div>
-
-        <div className="cal-events-container pb-4">
-          {events &&
-            events.map((event, key) => (
-              <Link
-                key={key}
-                className="calendar-event-link"
-                to={`/kalendar/${event.id}`}
-              >
-                <div
-                  className="user-single-event mb-1"
-                  style={{
-                    backgroundColor:
-                      event.event_type === "Speed Dating"
-                        ? "#ed7f71"
-                        : event.event_type === "Other Event"
-                        ? "#3fc16f"
-                        : event.event_type === "Lesbotoc Camp"
-                        ? "#EC9704"
-                        : "#7ab6cb",
-                    boxShadow: "3px 3px 3px 0px rgba(0, 0, 0, 0.3)",
-                  }}
-                >
-                  <div className="cal-date-time-cont">
-                    {event.date === "0000-00-00" ? (
-                      ""
-                    ) : (
-                      <p className="cal-date-time">
-                        <Moment format="D.MM.YYYY">{event.date}</Moment> /
-                        &nbsp;
-                      </p>
-                    )}
-
-                    <p>{event.time === "00:00:00" ? "" : event.time}</p>
-                  </div>
-
-                  <div className="cal-name mt-1">
-                    <h2>{event.name}</h2>
-                  </div>
-
-                  <div className="cal-address-cont">
-                    <AddressPin width={14} height={20} fill="#003243" />
-
-                    <p className="cal-address">{event.loc_name}</p>
-                  </div>
-                </div>
-              </Link>
-            ))}
-        </div>
-      </div>
-      <Footer />
-    </div>
-  );
+			</div>
+			<Footer/>
+		</div>
+	)
 }

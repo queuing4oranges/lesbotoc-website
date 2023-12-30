@@ -6,6 +6,7 @@
 
 //importing main style sheets
 @import "./styles/variables";
+@import "./components/user/user.scss";
 
 //importing user styles
 @import "./components/user/home/home.scss";
@@ -15,7 +16,6 @@
 @import "./components/user/contact/contact.scss";
 @import "./components/user/includes/footer.scss";
 @import "./components/user/includes/navbar.scss";
-@import "./components/user/user.scss";
 
 //importing admin styles
 @import "./styles/searchbar.scss";

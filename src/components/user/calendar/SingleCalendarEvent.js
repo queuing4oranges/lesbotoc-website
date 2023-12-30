@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
 import Moment from "react-moment";
-import 'add-to-calendar-button';
 
 import Navbar from "../includes/Navbar";
 import Footer from "../includes/Footer";
@@ -66,17 +65,6 @@ export default function SingleCalendarEvent() {
 									<i className="bi bi-calendar2-heart mr-3"></i>
 									<p><Moment format="D.MM.YYYY">{date}</Moment></p>
 								</div>
-								<div>
-									<add-to-calendar-button
-										name={name}
-										startDate={date}
-										options="['Google', 'Apple']"
-										location={loc_address}
-										trigger="click"
-										description={`Start: ${time} --- ${description}`}
-									/>
-								</div>
-
 							</div>
 							
 							<div className="d-flex">
