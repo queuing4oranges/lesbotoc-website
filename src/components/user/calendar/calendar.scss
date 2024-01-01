@@ -29,25 +29,26 @@ Calendar.js
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 1.5rem;
-		
-	& .card {
-		border-radius: 0;
-		& a {
-			color: $dark-petrol;
-		}
-		
-		& a:hover {
-			text-decoration: none;
+
+	& a {
+		text-decoration: none;
+		color: $dark-petrol;
+		&:hover {
 			color: white;
 		}
 		
 		& .card-text {
-			margin-top: auto;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
+			position: absolute;
+			bottom: 0;
+			margin-bottom: 0.5rem;
+
+			& span {
+				width: 8rem;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
 		}
-		
 	}
 }
 
