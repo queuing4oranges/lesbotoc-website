@@ -111,7 +111,7 @@ export default function SingleCalendarEvent() {
 		<div className="screen-wrapper">
 			<Navbar />
 			<h2 className="screen-title">{name}</h2>
-			<div className="calendar-container">
+			<div className="event-container">
 				{oneEvent && (
 				<div className="d-flex flex-column h-100">
 
