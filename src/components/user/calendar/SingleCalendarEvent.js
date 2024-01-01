@@ -79,7 +79,6 @@ export default function SingleCalendarEvent() {
 			DTSTART:${formattedStartTime}
 			DTEND:${formattedEndTime}
 			LOCATION:${loc_address}
-			DESCRIPTION:${description}
 			END:VEVENT
 			END:VCALENDAR
 		`);
@@ -116,7 +115,7 @@ export default function SingleCalendarEvent() {
 				{oneEvent && (
 				<div className="d-flex flex-column h-100">
 
-					<Row md="12" className="mb-5 p-5 event-info justify-content-center">
+					<Row md="12" sm="10" className="mb-5 p-5 event-info justify-content-center">
 						<Col md="5" sm="12" className="d-flex flex-column info-column p-4">
 							<div className="d-flex justify-content-between align-items-start">
 								<div className="d-flex">
@@ -125,22 +124,22 @@ export default function SingleCalendarEvent() {
 								</div>
 								<div className="mt-0">
 									<Dropdown isOpen={dropdownOpen} toggle={toggle} className="add-event-dropdown">
-										<DropdownToggle size="sm">
+										<DropdownToggle size="sm" className="d-flex">
 											<i className="bi bi-plus-square mr-2"></i>
-											Add to Calendar
+											<p className="m-0">Add to Calendar</p>
 										</DropdownToggle>
 										<DropdownMenu>
 											<DropdownItem 
 												onClick={()=>handleGoogleCalendar()} 
-												className="px-2">
-													<SiGooglecalendar className="mr-3" />
-													Google
+												className="d-flex px-2 align-items-center">
+												<SiGooglecalendar className="mr-3" />
+												<p className="mb-0">Google</p>
 											</DropdownItem>
 											<DropdownItem 
 												onClick={()=>handleAppleCalendar()} 
-												className="px-2">
-													<FaApple className="mr-3"/>
-													Apple
+												className="d-flex px-2 align-items-center">
+												<FaApple className="mr-3"/>
+												<p className="mb-0">Apple</p>
 											</DropdownItem>
 										</DropdownMenu>
 									</Dropdown>

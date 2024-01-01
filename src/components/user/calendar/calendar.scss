@@ -212,6 +212,7 @@ Calendar.js
 SingleCalenderEvent.js
 --------------------------------------------------------------------------------------*/
 .calendar-container {
+	overflow-x: hidden;
 	p {
 		text-align: left;
 	}
@@ -298,6 +299,47 @@ SingleCalenderEvent.js
 	}
 }
 
+@media only screen and (max-width: 768px) {
+	.event-website {
+		display: inline-block;
+		max-width: 200px;
+		overflow-x: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	.add-event-dropdown {
+		& p {
+			display: none;
+		}
+
+		& .btn-secondary {
+			border-radius: 50%;
+			& i {
+				margin-right: unset !important;
+			}
+		}
+
+		& .dropdown-menu {
+			width: 3rem;
+			background-color: $light-blue;
+			border: none;
+
+			& .dropdown-item {
+				border: $lesbotoc 1px solid;
+				width: 2rem;
+				height: 2rem;
+				border-radius: 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				& svg {
+					margin-right: 0 !important;
+				}
+			}
+		}
+	}
+}
 
 /*-------------------------------------------------------------------------------------
 SpeedDating.js
