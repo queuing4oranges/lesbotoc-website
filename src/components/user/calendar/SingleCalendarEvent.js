@@ -201,7 +201,7 @@ export default function SingleCalendarEvent() {
 									</Button>
 								</Link>
 								
-								{event_type === "Speed Dating" ? (
+								{/* {event_type === "Speed Dating" ? ( */}
 								<Link>
 									<Button
 										onClick={() => setShowMod(!showMod)}
@@ -210,9 +210,9 @@ export default function SingleCalendarEvent() {
 										Přihlášeni
 									</Button>
 								</Link>
-								) : (
+								{/* ) : (
 									""
-								)}
+								)} */}
 								{/* TODO {event_type === "Lesbotoc Camp" ? ( */}
 							</div>
 							
@@ -247,6 +247,7 @@ export default function SingleCalendarEvent() {
 							time={time}
 							location={loc_name}
 							setShowMod={setShowMod}
+							showMod={showMod}
 						/>
 					)}
 				</div>
