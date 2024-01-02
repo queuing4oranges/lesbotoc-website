@@ -4,11 +4,9 @@ import { useForm } from "react-hook-form";
 import { ageGroups } from "../Datalists";
 import { GrClose } from "react-icons/gr";
 
-//libraries
 import axios from "axios";
 import swal from "sweetalert";
 
-//icons
 import { ADD_CONTACT, ADD_SPEEDDATER } from "../../../urls";
 
 export default function SpeedDating({ date, time, location, setShowMod, showMod }) {
@@ -52,50 +50,43 @@ export default function SpeedDating({ date, time, location, setShowMod, showMod 
 	};
 
 	return (
-		<div //TODO change state openEditModal in this whole block
-			className={`modal fade${showMod ? ' show backdrop' : ''}`} 
+		<div
+			className={`speed-dating-wrapper modal fade${showMod ? ' show backdrop' : ''}`} 
 			tabIndex="-1" 
 			id="speeddating-modal"
 			style={{ display: showMod ? 'block' : 'none' }}
 		>
-			<div className="modal-dialog modal-dialog-centered">
+			<div className="modal-dialog modal-dialog-centered speed-container">
 				<div className="modal-content">
-					{/* TODO is this id correct? */}
-					{/* TODO error messages for user */}
 					<form onSubmit={handleSubmit(onSubmit)} id="add-speeddating-contact"> 
-						<div className="modal-header">
-							<h5>Lesbotoč speed dating sign up</h5>
-							<button
-								type="button"
-								className="btn btn-outline-warning"
-								onClick={() => {
-								reset(); 
-								setShowMod(false)
-								}}>
-							<GrClose />
-							</button>
-							<div className="d-flex">
+						<div className="modal-header flex-column align-items-center">
+							<div className="mb-2">
+								<h5>Lesbotoč Speed Dating</h5>
+							</div>
+							<div className="d-flex justify-content-between" style={{width: "80%"}}>
 								<div className="d-flex">
-									<i className="bi bi-calendar2-heart mr-3"></i>
-									<p><Moment format="D.MM.YYYY">{date}</Moment></p>
+									<i className="bi bi-calendar2-heart mr-2"></i>
+									<p className="mb-0"><Moment format="D.MM.YYYY">{date}</Moment></p>
 								</div>
 								<div className="d-flex">
-									<i className="bi bi-clock mr-3"></i>
-									<p>{time}</p>
+									<i className="bi bi-clock mr-2"></i>
+									<p className="mb-0">{time}</p>
 								</div>
 								<div className="d-flex">
-									<i className="bi bi-geo-alt mr-3"></i>
-									<p>{location}</p>
+									<i className="bi bi-geo-alt mr-2"></i>
+									<p className="mb-0">{location}</p>
 								</div>
 							</div>
 						</div>
 						
 						<div className="modal-body">
-							<p>Vyplněním tohoto dotazníku se přihlašuješ k účasti na Speed dating. Další informace Ti budou zaslány emailem.</p>
+							<p>Vyplněním tohoto dotazníku se přihlašuješ k účasti na Speed Dating. Další informace Ti budou zaslány emailem.</p>
 							
-							<div className="d-flex">
-								<i className="bi bi-person mr-2"></i>
-								<label htmlFor="" className="form-label speed-label">Jméno</label>
+							<div className="d-flex justify-content-between mb-3">
+								<div>
+									<i className="bi bi-person mr-2"></i>
+									<label htmlFor="" className="form-label speed-label">Jméno</label>
+								</div>
 								<input
 									className="form-control ml-2"
 									type="text"
@@ -108,9 +99,11 @@ export default function SpeedDating({ date, time, location, setShowMod, showMod 
 								/>
 							</div>
 							
-							<div className="d-flex">
-								<i className="bi bi-envelope-at mr-2"></i>
-								<label htmlFor="" className="form-label">Email</label>
+							<div className="d-flex justify-content-between mb-3">
+								<div>
+									<i className="bi bi-envelope-at mr-2"></i>
+									<label htmlFor="" className="form-label">Email</label>
+								</div>
 								<input
 									className="form-control ml-2"
 									type="email"
@@ -121,9 +114,11 @@ export default function SpeedDating({ date, time, location, setShowMod, showMod 
 								/>
 							</div>
 							
-							<div className="d-flex">
-								<i className="bi bi-cake2 mr-2"></i>
-								<label htmlFor="" className="form-label">Věk</label>
+							<div className="d-flex justify-content-between mb-3">
+								<div>
+									<i className="bi bi-cake2 mr-2"></i>
+									<label htmlFor="" className="form-label">Věk</label>
+								</div>
 								<input
 									className="form-control ml-2"
 									type="text"
@@ -137,46 +132,51 @@ export default function SpeedDating({ date, time, location, setShowMod, showMod 
 								</datalist>
 							</div>
 							
-							<div className="d-flex">
-								<i className="bi bi-phone mr-2"></i>
-								<label htmlFor="" className="form-label">Telefon</label>
+							<div className="d-flex justify-content-between">
+								<div>
+									<i className="bi bi-phone mr-2"></i>
+									<label htmlFor="" className="form-label">Telefon*</label>
+								</div>
 								<input
 									type="text"
-									className="form-control speed-input"
-									// placeholder={errors.phone?.message}
-									placeholder="777888999"
+									className="form-control"
+									placeholder={errors.phone?.message}
 									{...register("phone", {
 									required: "Please enter a phone number",
 									minLength: 9,
 									maxLength: 12
 									})}
 								/>
-								<span>Telefon  - bude použit pro předání pouze v případě shody</span>
 							</div>
+								<span><p className="fs-6">*Telefon  - bude použit pro předání pouze v případě shody</p></span>
 							
-							<div className="d-flex">
-								<input
-								type="checkbox"
-								className="form-check-input speed-input checkbox-input"
-								{...register("newsletter")}
-								id="speedNewsletter"
-								/>
-								<p>Chci dostávat informace o dalších akcích Lesbotoče.</p>		
-							</div>
 							
 						</div>
 						
 						<div className="modal-footer">
+							<div className="d-flex justify-content-start">
+								<input
+									type="checkbox"
+									className="mt-0"
+									{...register("newsletter")}
+									id="speedNewsletter"
+									style={{width: "unset"}}
+								/>
+								<p className="mb-0 ml-3">Chci dostávat informace o dalších akcích Lesbotoče.</p>		
+							</div>
 							<button
 								type="button"
-								onClick={() => setShowMod(false)}
-								className="btn btn-sm"
+								className="btn btn-sm btn-info"
+								onClick={() => {
+								reset(); 
+								setShowMod(false)
+								}}
 							>
 							Zrušit
 							</button>
 							<button
 								type="submit"
-								className="btn btn-sm"
+								className="btn btn-sm btn-success"
 							>
 							Přihlášeni
 							</button>
@@ -185,9 +185,6 @@ export default function SpeedDating({ date, time, location, setShowMod, showMod 
 					
 				</div>
 			</div>
-			
 		</div>
 	);
 }
-
-//up to line 206
