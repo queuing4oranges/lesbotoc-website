@@ -177,7 +177,7 @@ export default function SingleCalendarEvent() {
 							
 							{capacity &&
 							<div className="d-flex">
-								<i className="bi bi-cash-coin mr-3"></i>
+								<i className="bi bi-people mr-3"></i>
 								<p>max. {capacity} lidí</p>
 							</div>
 							}
@@ -201,7 +201,7 @@ export default function SingleCalendarEvent() {
 									</Button>
 								</Link>
 								
-								{/* {event_type === "Speed Dating" ? ( */}
+								{event_type === "Speed Dating" ? (
 								<Link>
 									<Button
 										onClick={() => setShowMod(!showMod)}
@@ -210,9 +210,9 @@ export default function SingleCalendarEvent() {
 										Přihlášeni
 									</Button>
 								</Link>
-								{/* ) : (
+								) : (
 									""
-								)} */}
+								)}
 								{/* TODO {event_type === "Lesbotoc Camp" ? ( */}
 							</div>
 							
