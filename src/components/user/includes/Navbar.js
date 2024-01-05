@@ -44,17 +44,7 @@ export default function Navbar() {
 							textDecoration: "none",
 							})}
 						>
-							<p
-								style={{
-								fontFamily: "'Amatic SC', cursive",
-								fontSize: "22px",
-								color: "black", 
-								fontWeight: "600",
-								marginBottom: 0
-							}}
-							>
-							Lesbotoč
-							</p>
+							<p>Lesbotoč</p>
 						</NavLink>
 					</div>
 					<div className="d-flex justify-content-end" style={{width: "60%"}}>
@@ -64,7 +54,7 @@ export default function Navbar() {
 							rel="noreferrer"
 							aria-label="Facebook"
 						>
-						<i className="bi bi-facebook me-2 fs-3" style={{fontSize: "2rem", color: "#003243"}}></i>
+							<i className="bi bi-facebook me-2 fs-3" style={{fontSize: "2rem", color: "#003243"}}></i>
 						</a>
 						<a
 							href="https://www.instagram.com/lesbotoc/"
@@ -72,12 +62,12 @@ export default function Navbar() {
 							rel="noreferrer"
 							aria-label="Instagram"
 						>
-						<i className="bi bi-instagram fs-3" style={{fontSize: "2rem", color: "#003243"}}></i>
+							<i className="bi bi-instagram fs-3" style={{fontSize: "2rem", color: "#003243"}}></i>
 						</a>
 					</div>
 				
 					<ul className="navbar-nav navbar-list me-3">
-					{navbarlinks.map((link) => (
+						{navbarlinks.map((link) => (
 							<li key={link.id} className="me-4">
 								<NavLink
 									to={link.to}
@@ -89,10 +79,10 @@ export default function Navbar() {
 								{link.name}
 								</NavLink>
 							</li>
-					))}
+						))}
 					</ul>
 				</div>
-		</nav>
+			</nav>
 			)}
 		</>
 	);

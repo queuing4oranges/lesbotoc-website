@@ -5,6 +5,16 @@
 	z-index: 1000;
 }
 
+.logo-container {
+	& p {
+		font-family: 'Amatic SC', cursive;
+		font-size: 22px;
+		color: black;
+		font-weight: 600;
+		margin-bottom: 0;
+	}
+}
+
 //mobile-navbar
 .mobile-navbar-wrapper {
 	background-color: $lesbotoc !important;

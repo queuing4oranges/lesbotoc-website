@@ -18,34 +18,23 @@ export default function MobileNavbar() {
 							textDecoration: "none",
 							})}
 						>
-							<p
-								style={{
-								fontFamily: "'Amatic SC', cursive",
-								fontSize: "22px",
-								color: "black", 
-								fontWeight: "600",
-								marginBottom: 0
-							}}
-							>
-							Lesbotoč
-							</p>
+							<p>Lesbotoč</p>
 						</NavLink>
 					</div>
-				<button
-					className="btn btn-outline fs-1"
-					onClick={() => setOpenMenu(!openMenu)}
-				>
-				<i className="bi bi-list"></i>
-				</button>
+					<button
+						className="btn btn-outline fs-1"
+						onClick={() => setOpenMenu(!openMenu)}
+					>
+						<i className="bi bi-list"></i>
+					</button>
 				</div>
 				) : (
-
 				<div className="d-flex flex-column align-items-end">
 					<button
 						className="btn btn-outline fs-1"
 						onClick={() => setOpenMenu(!openMenu)}
 					>
-					<i className="bi bi-x-lg me-2"></i>
+						<i className="bi bi-x-lg me-2"></i>
 					</button>
 
 					{navbarlinks.map((link) => (
@@ -56,7 +45,6 @@ export default function MobileNavbar() {
 						</div>
 					))}
 				</div>
-				
 				)
 			}
 		</nav>
