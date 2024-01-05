@@ -1,42 +1,64 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import { navbarlinks } from "../../../data/NavbarLinks";
-import Hamburger from "../../../assets/svg-icons/Hamburger";
-import X from "../../../assets/svg-icons/X";
 import { NavLink } from "react-router-dom";
 
 export default function MobileNavbar() {
-  const [openMenu, setOpenMenu] = useState(false);
-  return (
-    <Fragment>
-      {/* <div className="mobile-menu"></div> */}
-      {!openMenu ? (
-        <button
-          className="user-hamburger"
-          onClick={() => setOpenMenu(!openMenu)}
-        >
-          <Hamburger height={24} width={24} fill="#003243" />
-        </button>
-      ) : (
-        <>
-          <button
-            className="user-hamburger"
-            onClick={() => setOpenMenu(!openMenu)}
-          >
-            <X height={24} width={24} fill="#003243" />
-          </button>
-        </>
-      )}
-      {openMenu && (
-        <div className="navlinks-cont pt-3">
-          {navbarlinks.map((link) => (
-            <div key={link.id} className="mobile-navlink">
-              <NavLink to={link.to}>
-                <p className="mr-5 ml-5">{link.name}</p>
-              </NavLink>
-            </div>
-          ))}
-        </div>
-      )}
-    </Fragment>
-  );
+	const [openMenu, setOpenMenu] = useState(false);
+	
+	return (
+		<nav className="navbar mobile-navbar-wrapper sticky-top">
+			{!openMenu ? (
+				<div className="d-flex justify-content-between w-100">
+					<div className="logo-container d-flex align-items-center ms-2">
+						<NavLink
+							className="navbar-brand"
+							to={"/"}
+							style={({ isActive }) => ({
+							color: isActive ? "#eb5a49" : "#7ab6cb",
+							textDecoration: "none",
+							})}
+						>
+							<p
+								style={{
+								fontFamily: "'Amatic SC', cursive",
+								fontSize: "22px",
+								color: "black", 
+								fontWeight: "600",
+								marginBottom: 0
+							}}
+							>
+							Lesbotoč
+							</p>
+						</NavLink>
+					</div>
+				<button
+					className="btn btn-outline fs-1"
+					onClick={() => setOpenMenu(!openMenu)}
+				>
+				<i className="bi bi-list"></i>
+				</button>
+				</div>
+				) : (
+
+				<div className="d-flex flex-column align-items-end">
+					<button
+						className="btn btn-outline fs-1"
+						onClick={() => setOpenMenu(!openMenu)}
+					>
+					<i className="bi bi-x-lg me-2"></i>
+					</button>
+
+					{navbarlinks.map((link) => (
+						<div key={link.id} className="navbar-link">
+							<NavLink to={link.to} className="fs-4">
+								<p className="me-4 mb-1 text-end">{link.name}</p>
+							</NavLink>
+						</div>
+					))}
+				</div>
+				
+				)
+			}
+		</nav>
+	);
 }

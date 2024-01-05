@@ -1,9 +1,23 @@
 .navbar-wrapper {
 	background-color: $lesbotoc !important;
-	
+	position: relative;
+	width: 100%;
 	z-index: 1000;
 }
 
-.navbar-list {
+//mobile-navbar
+.mobile-navbar-wrapper {
+	background-color: $lesbotoc !important;
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+		
+		& .navbar-link {
+		
+			& a {
+				text-decoration: none !important;
+				color: $dark-petrol;
+			}
+		}
 
 }
