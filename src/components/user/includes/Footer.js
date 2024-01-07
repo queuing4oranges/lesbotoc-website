@@ -6,12 +6,12 @@ export default function Footer() {
 const currentYear = new Date();
 
 	return (
-		<Container fluid className="footer-wrapper">
-			<Row>
-				<Col md="8">					
-					<div className="d-flex flex-column justify-content-center align-items-start copyright-katja">
+		<>
+			<Row className="footer-row">
+				<Col md="10">
+					<div className="d-flex flex-column justify-content-center align-items-start copyright-katja px-3">
 						<p className="pt-3 mb-0">&copy; {currentYear.getFullYear()}&nbsp; Lesbotoč </p>
-						<p>made by 						
+						<p>made by
 							<a
 								href="https://www.queuing4oranges.com/"
 								target="_blank"
@@ -32,7 +32,7 @@ const currentYear = new Date();
 							target="_blank"
 							rel="noreferrer"
 							aria-label="Facebook"
-							className="mr-2"
+							className="me-2"
 						>
 							<i className="bi bi-facebook" style={{fontSize: "2rem", color: "#003243"}}></i>
 						</a>
@@ -42,18 +42,18 @@ const currentYear = new Date();
 							target="_blank"
 							rel="noreferrer"
 							aria-label="Instagram"
-							className="ml-2"
+							className="ms-2"
 						>
 							<i className="bi bi-instagram" style={{fontSize: "2rem", color: "#003243"}}></i>
 						</a>
 					</div>
 				</Col>
 				
-				<Col md="2" className="d-flex align-items-center justify-content-center">
+				{/* <Col md="2" className="d-flex align-items-center justify-content-center"> */}
 					{/*TODO <NavLink to={"/admin"}></NavLink> */}
-					<button className="btn admin-panel-button">AdminPanel</button>
-				</Col>
+					{/* <button className="btn admin-panel-button">AdminPanel</button> */}
+				{/* </Col> */}
 			</Row>
-		</Container>
+		</>
 	);
 }

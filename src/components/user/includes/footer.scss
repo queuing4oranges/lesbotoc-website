@@ -1,14 +1,13 @@
-.footer-wrapper {
-	background: $lesbotoc;
-	min-height: 80px;
-	z-index: 20;
-	position: absolute;
-	bottom: 0;
+.footer-row {
+	background-color: $lesbotoc;
 }
 
 .copyright-katja {
-	& a:hover {
+	& a {
 		text-decoration: none;
+		&:hover {
+			color: white !important;
+		}
 	}
 }
 
@@ -18,8 +17,8 @@
 }
 
 @media only screen and (max-width: 600px) {
-	.footer-wrapper {
-	background-color: $lesbotoc;
+	.footer-row {
+		background-color: $lesbotoc;
 	}
 	.copyright-katja {
 		display: flex;
