@@ -1,11 +1,50 @@
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*,
+::after,
+::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+.App {
+	height: 100vh;
 }
+
+body {
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+/* ------ z-index distribution ------ */
+/*
+About
+.user-about-paragraph		1
+.user-singles-container		1
+.user-singles				100
+.user-about					90
+
+SingleCalenderEvent
+.info-column				2
+
+SpeedDating
+.backdrop					50
+
+Gallery
+.user-img-cont				5
+.gallery-title				5
+
+Home
+.home-card					20
+(responsive)
+.mobile-navbar-container	30
+
+Navbar
+.navbar-wrapper				1000
+*/
+ 

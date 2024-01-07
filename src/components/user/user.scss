@@ -1,44 +1,24 @@
 //global styling
+
 .screen-wrapper {
 	position: relative;
 	background-color: $user-beige-dark;
-	padding: 15vh 0 15vh;
 	color: $dark-petrol;
+	height: 100vh;
 }
 
 .screen-title {
-	background-color: $user-beige-dark;
+	padding-top: 15vh;
 	padding-bottom: 10vh;
 	font-family: "Amatic SC", sans-serif, Arial, Helvetica, sans-serif;
 	font-weight: 700;
 	font-size: 3.5em;
 	line-height: 50px;
 	color: $dark-petrol;
-	text-align: center;
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
 }
 
 .btn {
 	border-radius: 0;
-}
-
-
-//legacy code below:
-
-//global css for users
-.user-title {
-background-color: $user-beige-dark;
-font-family: "Amatic SC", sans-serif, Arial, Helvetica, sans-serif;
-font-weight: 700;
-font-size: 3.5em;
-line-height: 50px;
-color: $dark-petrol;
-text-align: center;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-//   margin-top: 20vh;
-//   margin-bottom: 10vh;
 }
 
 .user-container {
@@ -49,14 +29,9 @@ height: 100%;
 width: 100%;
 }
 
-.user-paragraph {
-font-family: "Poppins", sans-serif, Arial, Helvetica, sans-serif;
-font-weight: 300;
-font-size: 16px;
-line-height: 25px;
-letter-spacing: 0.1em;
-color: $dark-petrol;
-text-align: left;
+@media only screen and (max-width: 768px) {
+// .screen-title {
+// 	margin: unset;
+
+// }
 }
-
-
