@@ -1,10 +1,4 @@
-/*-------------------------------------------------------------------------------------
-Calendar.js
---------------------------------------------------------------------------------------*/
-.calendar-title {
-	background-color: unset !important;
-}
-
+/* ------ Calendar.js ------ */
 .events-container {
 	position: relative;
 	.bi-square {
@@ -37,6 +31,10 @@ Calendar.js
 			color: white;
 		}
 		
+		& .card {
+			border-radius: 0;
+		}
+
 		& .card-text {
 			position: absolute;
 			bottom: 0;
@@ -74,6 +72,7 @@ Calendar.js
 SingleCalenderEvent.js
 --------------------------------------------------------------------------------------*/
 .event-container {
+	position: relative;
 	overflow-x: hidden;
 	p {
 		text-align: left;
@@ -102,10 +101,15 @@ SingleCalenderEvent.js
 		left: 0px;
 		pointer-events: none; //make button still clickable with bg image::before
 		}
-		
+
 	.info-column {
 		position: relative;
 		box-shadow: $box-shadow-lesbotoc;
+	}
+
+	.image-column {
+		z-index: 20;
+		opacity: unset;
 	}
 
 	.event-website {

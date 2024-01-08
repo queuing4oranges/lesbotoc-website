@@ -64,15 +64,15 @@ export default function SpeedDating({ date, time, location, setShowMod, showMod 
 							</div>
 							<div className="d-flex justify-content-between" style={{width: "80%"}}>
 								<div className="d-flex">
-									<i className="bi bi-calendar2-heart mr-2"></i>
+									<i className="bi bi-calendar2-heart me-2"></i>
 									<p className="mb-0"><Moment format="D.MM.YYYY">{date}</Moment></p>
 								</div>
 								<div className="d-flex">
-									<i className="bi bi-clock mr-2"></i>
+									<i className="bi bi-clock me-2"></i>
 									<p className="mb-0">{time}</p>
 								</div>
 								<div className="d-flex">
-									<i className="bi bi-geo-alt mr-2"></i>
+									<i className="bi bi-geo-alt me-2"></i>
 									<p className="mb-0">{location}</p>
 								</div>
 							</div>
@@ -83,11 +83,11 @@ export default function SpeedDating({ date, time, location, setShowMod, showMod 
 							
 							<div className="d-flex justify-content-between mb-3">
 								<div>
-									<i className="bi bi-person mr-2"></i>
+									<i className="bi bi-person me-2"></i>
 									<label htmlFor="" className="form-label speed-label">Jméno</label>
 								</div>
 								<input
-									className="form-control ml-2"
+									className="form-control ms-2"
 									type="text"
 									placeholder={errors.name?.message}
 									{...register("name", {
@@ -100,11 +100,11 @@ export default function SpeedDating({ date, time, location, setShowMod, showMod 
 							
 							<div className="d-flex justify-content-between mb-3">
 								<div>
-									<i className="bi bi-envelope-at mr-2"></i>
+									<i className="bi bi-envelope-at me-2"></i>
 									<label htmlFor="" className="form-label">Email</label>
 								</div>
 								<input
-									className="form-control ml-2"
+									className="form-control ms-2"
 									type="email"
 									placeholder={errors.email?.message}
 									{...register("email", {
@@ -115,11 +115,11 @@ export default function SpeedDating({ date, time, location, setShowMod, showMod 
 							
 							<div className="d-flex justify-content-between mb-3">
 								<div>
-									<i className="bi bi-cake2 mr-2"></i>
+									<i className="bi bi-cake2 me-2"></i>
 									<label htmlFor="" className="form-label">Věk</label>
 								</div>
 								<input
-									className="form-control ml-2"
+									className="form-control ms-2"
 									type="text"
 									list="user_ages"
 									{...register("age")}
@@ -133,7 +133,7 @@ export default function SpeedDating({ date, time, location, setShowMod, showMod 
 							
 							<div className="d-flex justify-content-between">
 								<div>
-									<i className="bi bi-phone mr-2"></i>
+									<i className="bi bi-phone me-2"></i>
 									<label htmlFor="" className="form-label">Telefon*</label>
 								</div>
 								<input
@@ -161,7 +161,7 @@ export default function SpeedDating({ date, time, location, setShowMod, showMod 
 									id="speedNewsletter"
 									style={{width: "unset"}}
 								/>
-								<p className="mb-0 ml-3">Chci dostávat informace o dalších akcích Lesbotoče.</p>		
+								<p className="mb-0 ms-3">Chci dostávat informace o dalších akcích Lesbotoče.</p>
 							</div>
 							<button
 								type="button"

@@ -8,7 +8,7 @@ import SpeedDating from "./SpeedDating";
 import { Spinner } from "../includes/Spinner";
 import useShowEvent from "../../../hooks/useShowEvent";
 
-import { Col, Row, Button, Dropdown, DropdownToggle, DropdownItem, DropdownMenu } from "reactstrap";
+import { Container, Col, Row, Button, Dropdown, DropdownToggle, DropdownItem, DropdownMenu } from "reactstrap";
 import Moment from "react-moment";
 import { SiGooglecalendar } from "react-icons/si";
 import { FaApple } from "react-icons/fa";
@@ -44,6 +44,10 @@ export default function SingleCalendarEvent() {
 		}
 	}, [description])
 	
+	if (oneEvent == 0 || undefined) {
+		return <div className="mt-5 pt-5 d-flex align-items-center justify-content-center"><h1 className="mt-5 pt-5">Tady nic není  :-(</h1></div>
+	}
+
 	const toggle = () => setDropdownOpen((prevState) => !prevState)
 	
 	const handleGoogleCalendar = () => {		
@@ -119,26 +123,26 @@ export default function SingleCalendarEvent() {
 						<Col md="5" sm="12" className="d-flex flex-column info-column p-4">
 							<div className="d-flex justify-content-between align-items-start">
 								<div className="d-flex">
-									<i className="bi bi-calendar2-heart mr-3"></i>
+									<i className="bi bi-calendar2-heart me-3"></i>
 									<p><Moment format="D.MM.YYYY">{date}</Moment></p>
 								</div>
 								<div className="mt-0">
 									<Dropdown isOpen={dropdownOpen} toggle={toggle} className="add-event-dropdown">
 										<DropdownToggle size="sm" className="d-flex">
-											<i className="bi bi-plus-square mr-2"></i>
+											<i className="bi bi-plus-square me-2"></i>
 											<p className="m-0">Add to Calendar</p>
 										</DropdownToggle>
 										<DropdownMenu>
 											<DropdownItem 
 												onClick={()=>handleGoogleCalendar()} 
 												className="d-flex px-2 align-items-center">
-												<SiGooglecalendar className="mr-3" />
+												<SiGooglecalendar className="me-3" />
 												<p className="mb-0">Google</p>
 											</DropdownItem>
 											<DropdownItem 
 												onClick={()=>handleAppleCalendar()} 
 												className="d-flex px-2 align-items-center">
-												<FaApple className="mr-3"/>
+												<FaApple className="me-3"/>
 												<p className="mb-0">Apple</p>
 											</DropdownItem>
 										</DropdownMenu>
@@ -147,44 +151,44 @@ export default function SingleCalendarEvent() {
 							</div>
 							
 							<div className="d-flex">
-								<i className="bi bi-clock mr-3"></i>
+								<i className="bi bi-clock me-3"></i>
 								<p>{time}</p>
 							</div>
 							
 							<div className="d-flex">
-								<i className="bi bi-geo-alt mr-3"></i>
+								<i className="bi bi-geo-alt me-3"></i>
 								<p>{loc_name}</p>
 							</div>
 							
 							<div className="d-flex">
-								<i className="bi bi-map mr-3"></i>
+								<i className="bi bi-map me-3"></i>
 								<p>{loc_address}</p>
 							</div>
 							
 							{loc_website &&
 							<div className="d-flex">
-								<i className="bi bi-globe mr-3"></i>
+								<i className="bi bi-globe me-3"></i>
 								<p><a className="event-website" href={loc_website} target="_blank" rel="noreferrer">{loc_website}</a></p>
 							</div>
 							}
 							
 							{price &&
 							<div className="d-flex">
-								<i className="bi bi-cash-coin mr-3"></i>
+								<i className="bi bi-cash-coin me-3"></i>
 								<p>{price} CZK</p>
 							</div>
 							}
 							
 							{capacity &&
 							<div className="d-flex">
-								<i className="bi bi-people mr-3"></i>
+								<i className="bi bi-people me-3"></i>
 								<p>max. {capacity} lidí</p>
 							</div>
 							}
 							
 							{description &&
 							<div className="d-flex">
-								<i className="bi bi-info-square mr-3"></i>
+								<i className="bi bi-info-square me-3"></i>
 									<div className="d-flex flex-column">
 									{paragraphs.map((par, i) =>(
 										<p key={i}>{par.replace(/\\n|\\r\\n|\\r/g, '')}</p> //when using \n - it will make a new line 
@@ -195,7 +199,7 @@ export default function SingleCalendarEvent() {
 							}
 							
 							<div className="d-flex justify-content-start align-items-center">
-								<Link to={"/kalendar"} className="mr-5">
+								<Link to={"/kalendar"} className="me-5">
 									<Button className="btn back-btn">
 										Zpět
 									</Button>

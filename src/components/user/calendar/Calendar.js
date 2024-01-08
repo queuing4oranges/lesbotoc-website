@@ -34,28 +34,28 @@ export default function Calendar() {
 
 	return (
 		<div 
-			className="screen-wrapper"
+			className="screen-wrapper h-100"
 			style={{
-			backgroundImage: `url(${bgImage})`,
-			backgroundRepeat: "repeat",
+				backgroundImage: `url(${bgImage})`,
+				backgroundRepeat: "repeat",
 			}}
 		>
 			<Navbar/>
 			<h2 className="screen-title calendar-title">Kalendář</h2>
 			
-			<div className="events-container d-flex flex-column mb-5">
+			<div className="events-container d-flex flex-column mb-5 h-100">
 				
 				<Row className="d-flex justify-content-center mb-2 categories">
 					<Col md="2" className="d-flex justify-content-center">						
-						<i className="bi bi-square mr-2 blue"></i>
+						<i className="bi bi-square me-2 blue"></i>
 						<p>Lesbotoč events</p>
 					</Col>
 					<Col md="2" className="d-flex justify-content-center">						
-						<i className="bi bi-square mr-2 grey"></i>
+						<i className="bi bi-square me-2 grey"></i>
 						<p>Other events</p>
 					</Col>
 					<Col md="2" className="d-flex justify-content-center">						
-						<i className="bi bi-square mr-2 red"></i>
+						<i className="bi bi-square me-2 red"></i>
 						<p>Speed Dating</p>
 					</Col>
 				</Row>
@@ -101,7 +101,7 @@ export default function Calendar() {
 											</CardTitle>
 
 											<CardText className="d-flex">
-												<i className="bi bi-geo-alt mr-1"></i>
+												<i className="bi bi-geo-alt me-1"></i>
 												<span className="mb-1" title={event.loc_name}>{event.loc_name}</span>
 											</CardText>
 											</CardBody>
