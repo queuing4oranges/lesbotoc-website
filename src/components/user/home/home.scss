@@ -105,7 +105,7 @@
 			display: block;
 		}
 
-		& .slick-container {
+		& .slick-slider {
 			width: 80vw;
 
 			& img {
@@ -115,10 +115,9 @@
 			& h2 {
 				font-family: $title-font !important;
 				font-weight: 600;
-				margin-top: 3vh;
 			}
 
-			& .slick-prev, .slick-next {
+			& .slick-arrow {
 				display: none !important;
 			}
 		}
