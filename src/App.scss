@@ -17,14 +17,10 @@
 @import "./components/user/includes/footer.scss";
 @import "./components/user/includes/navbar.scss";
 
-//importing admin styles
-@import "./styles/reusables";
-
 /* ------ z-index distribution ------ */
 /*
 About
 .user-about-paragraph		1
-.user-singles-container		1
 .user-singles				100
 .user-about					90
 
