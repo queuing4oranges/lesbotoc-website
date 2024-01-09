@@ -1,5 +1,4 @@
 //global styling
-
 .screen-wrapper {
 	position: relative;
 	background-color: $user-beige-dark;
@@ -21,7 +20,7 @@
 	border-radius: 0;
 }
 
-.user-container {
+.user-container {  //still used in gallery and about
 background-color: #feebdd;
 display: flex;
 flex-direction: column;
@@ -30,8 +29,9 @@ width: 100%;
 }
 
 @media only screen and (max-width: 768px) {
-// .screen-title {
-// 	margin: unset;
-
-// }
+	.screen-wrapper {
+		& .screen-title {
+			padding-top: 10vh;
+		}
+	}
 }
