@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { navbarlinks } from "../../../data/NavbarLinks";
+import { navbarlinks } from "../../data/NavbarLinks";
 import { NavLink } from "react-router-dom";
 
 export default function MobileNavbar() {

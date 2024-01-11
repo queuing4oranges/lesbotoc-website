@@ -1,12 +1,12 @@
 import React from "react";
 import Moment from "react-moment";
 import { useForm } from "react-hook-form";
-import { ageGroups } from "../Datalists";
+import { ageGroups } from "../../data/Datalists";
 
 import axios from "axios";
 import swal from "sweetalert";
 
-import { ADD_CONTACT, ADD_SPEEDDATER } from "../../../urls";
+import { ADD_CONTACT, ADD_SPEEDDATER } from "../../urls";
 
 export default function SpeedDating({ date, time, location, setShowMod, showMod }) {
 	const {

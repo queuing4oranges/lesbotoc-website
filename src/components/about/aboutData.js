@@ -1,9 +1,9 @@
-import mariana from "../../../assets/about_images/mariana.png";
-import eliska from "../../../assets/about_images/eliska.png";
-import marta from "../../../assets/about_images/marta.png";
-import nathalie from "../../../assets/about_images/nathalie.png";
-import klara from "../../../assets/about_images/klara.png";
-import katja from "../../../assets/about_images/katja.jpg"
+import mariana from "../../assets/about_images/mariana.png";
+import eliska from "../../assets/about_images/eliska.png";
+import marta from "../../assets/about_images/marta.png";
+import nathalie from "../../assets/about_images/nathalie.png";
+import klara from "../../assets/about_images/klara.png";
+import katja from "../../assets/about_images/katja.jpg";
 
 export const members = [
 	{

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import { navbarlinks } from "../../../data/NavbarLinks";
+import { navbarlinks } from "../../data/NavbarLinks";
 import MobileNavbar from "./MobileNavbar";
 
 

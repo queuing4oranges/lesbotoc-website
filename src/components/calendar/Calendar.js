@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import useGetEvents from "../../../hooks/useGetEvents";
+import useGetEvents from "../../hooks/useGetEvents";
 
 import Navbar from "../includes/Navbar";
 import Footer from "../includes/Footer";
@@ -8,7 +8,8 @@ import { Spinner } from "../includes/Spinner";
 
 import Moment from "react-moment";
 
-import bgImage from "../../../assets/calendar_images/pride-flag-house-bg.png";
+import bgImage from "../../assets/calendar_images/pride-flag-house-bg.png";
+
 import { 
 	Row, Col, 
 	Card, CardBody, CardText, CardTitle, CardSubtitle

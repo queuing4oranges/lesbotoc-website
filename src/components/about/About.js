@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../includes/Footer";
 import Navbar from "../includes/Navbar";
-import team from "../../../assets/about_images/team2.avif";
+import team from "../../assets/about_images/team2.avif";
 import { members } from "./aboutData";
 import { Spinner } from "../includes/Spinner";
 

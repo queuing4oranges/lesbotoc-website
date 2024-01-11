@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Col, Row } from "reactstrap";
+import { Col, Row } from "reactstrap";
 
 export default function Footer() {
 //getting updated year for footer

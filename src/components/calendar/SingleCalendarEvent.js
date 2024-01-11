@@ -6,9 +6,9 @@ import Navbar from "../includes/Navbar";
 import Footer from "../includes/Footer";
 import SpeedDating from "./SpeedDating";
 import { Spinner } from "../includes/Spinner";
-import useShowEvent from "../../../hooks/useShowEvent";
+import useShowEvent from "../../hooks/useShowEvent";
 
-import { Container, Col, Row, Button, Dropdown, DropdownToggle, DropdownItem, DropdownMenu } from "reactstrap";
+import { Col, Row, Button, Dropdown, DropdownToggle, DropdownItem, DropdownMenu } from "reactstrap";
 import Moment from "react-moment";
 import { SiGooglecalendar } from "react-icons/si";
 import { FaApple } from "react-icons/fa";

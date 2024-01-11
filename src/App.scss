@@ -6,16 +6,16 @@
 
 //importing main style sheets
 @import "./styles/variables";
-@import "./components/user/user.scss";
+@import "./styles/user.scss";
 
 //importing user styles
-@import "./components/user/home/home.scss";
-@import "./components/user/calendar/calendar.scss";
-@import "./components/user/gallery/gallery.scss";
-@import "./components/user/about/about.scss";
-@import "./components/user/contact/contact.scss";
-@import "./components/user/includes/footer.scss";
-@import "./components/user/includes/navbar.scss";
+@import "./components/home/home.scss";
+@import "./components/calendar/calendar.scss";
+@import "./components/gallery/gallery.scss";
+@import "./components/about/about.scss";
+@import "./components/contact/contact.scss";
+@import "./components/includes/footer.scss";
+@import "./components/includes/navbar.scss";
 
 /* ------ z-index distribution ------ */
 /*

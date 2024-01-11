@@ -1,13 +1,13 @@
 import { HomeGradient } from "./HomeGradient";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../includes/Navbar";
+import Navbar from "../user/includes/Navbar";
 
-import LogoPart2 from "../../includes/icons/LogoPart2";
-import LogoPart1 from "../../includes/icons/LogoPart1";
+import LogoPart2 from "../includes/icons/LogoPart2";
+import LogoPart1 from "../includes/icons/LogoPart1";
 
-import { links } from "./homeData";
-import RightArrow from "../../../components/includes/icons/RightArrow";
+import { links } from "../../data/homeData";
+import RightArrow from "../../assets/icons/RightArrow";
 import CarouselSlider from "./CarouselSlider";
 import { Col, Container, Row } from "reactstrap";
 

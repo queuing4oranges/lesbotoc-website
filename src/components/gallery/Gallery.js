@@ -4,7 +4,7 @@ import Footer from "../includes/Footer";
 import Navbar from "../includes/Navbar";
 import { Spinner } from "../includes/Spinner";
 //hooks
-import useGetImages from "../../../hooks/useGetImages";
+import useGetImages from "../../hooks/useGetImages";
 
 export default function Gallery() {
   const { images, loading, error, getImages } = useGetImages();
