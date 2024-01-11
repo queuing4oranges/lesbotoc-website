@@ -7,7 +7,7 @@ import LogoPart2 from "../../includes/icons/LogoPart2";
 import LogoPart1 from "../../includes/icons/LogoPart1";
 
 import { links } from "./homeData";
-import RightArrow from "../../../assets/svg-icons/RightArrow";
+import RightArrow from "../../../components/includes/icons/RightArrow";
 import CarouselSlider from "./CarouselSlider";
 import { Col, Container, Row } from "reactstrap";
 

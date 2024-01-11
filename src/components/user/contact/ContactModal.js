@@ -3,11 +3,7 @@ import React, { Fragment, useRef, useState } from "react";
 import swal from "sweetalert";
 //components
 import Navbar from "../includes/Navbar";
-//icons
-import InstagramIcon from "../../includes/icons/InstagramIcon";
-import FacebookIcon from "../../includes/icons/FacebookIcon";
-import Letter from "../../../assets/svg-icons/Letter";
-import Handy from "../../../assets/svg-icons/Handy";
+
 //credentials
 import {
   YOUR_PUBLIC_KEY,
@@ -127,7 +123,7 @@ export default function ContactModal() {
               <p>info@lesbotoc.com</p>
 
               <div className="mobile-contact">
-                <Letter width={25} height={25} fill="#003243" />
+                <i className="bi bi-envelope"></i>
               </div>
             </a>
           </div>
@@ -136,7 +132,7 @@ export default function ContactModal() {
               <p>+420 737 364 699</p>
 
               <div className="mobile-contact">
-                <Handy width={25} height={25} fill="#003243" />
+                <i className="bi bi-phone"></i>
               </div>
             </a>
           </div>
@@ -148,7 +144,7 @@ export default function ContactModal() {
                 rel="noreferrer"
                 aria-label="Instagram"
               >
-                <InstagramIcon width={25} height={25} color="#003243" />
+                <i className="bi bi-instagram"></i>
               </a>
             </div>
             <div className="contact-icon contact-icon-fb">
@@ -158,7 +154,7 @@ export default function ContactModal() {
                 rel="noreferrer"
                 aria-label="Facebook"
               >
-                <FacebookIcon width={25} height={25} color="#003243" />
+               <i className="bi bi-facebook"></i>
               </a>
             </div>
           </div>

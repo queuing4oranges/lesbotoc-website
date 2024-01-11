@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 import { links } from './homeData';
-import RightArrow from "../../../assets/svg-icons/RightArrow";
+import RightArrow from "../../../components/includes/icons/RightArrow";
 
 export default function CarouselSlider() {
 	const navigate = useNavigate();
