@@ -4,7 +4,7 @@ import moment from 'moment-timezone';
 
 import Navbar from "../includes/Navbar";
 import Footer from "../includes/Footer";
-import SpeedDating from "./SpeedDating";
+import SignupForm from "./SignupForm";
 import { Spinner } from "../includes/Spinner";
 import useShowEvent from "../../hooks/useShowEvent";
 
@@ -252,7 +252,7 @@ export default function SingleCalendarEvent() {
 					</Row>
 					
 					{showMod && (
-						<SpeedDating
+						<SignupForm
 							date={date}
 							time={time}
 							location={loc_name}

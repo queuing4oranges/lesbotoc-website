@@ -62,7 +62,7 @@ export default function SpeedDating({ date, time, location, setShowMod, showMod 
 							<div className="mb-2">
 								<h5>Lesbotoč Speed Dating</h5>
 							</div>
-							<div className="d-flex justify-content-between" style={{width: "80%"}}>
+							<div className="d-flex justify-content-between basic-info" style={{width: "80%"}}>
 								<div className="d-flex">
 									<i className="bi bi-calendar2-heart me-2"></i>
 									<p className="mb-0"><Moment format="D.MM.YYYY">{date}</Moment></p>

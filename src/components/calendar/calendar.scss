@@ -261,5 +261,11 @@ SpeedDating.js
 			width: unset;
 			margin: 2vw;
 		}
+		
+		& .basic-info {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 }

@@ -12,7 +12,6 @@
 	font-family: "Amatic SC", sans-serif, Arial, Helvetica, sans-serif;
 	font-weight: 700;
 	font-size: 3.5em;
-	line-height: 50px;
 	color: $dark-petrol;
 }
 
@@ -33,7 +32,7 @@ width: 100%;
 		max-width: 100%;
 		overflow-x: hidden;
 		& .screen-title {
-			padding-top: 10vh;
+			padding: 10vh 10% 10vh;
 		}
 	}
 }
