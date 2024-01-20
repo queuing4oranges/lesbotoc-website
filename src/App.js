@@ -1,11 +1,11 @@
 import "./App.scss";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Home from "./components/user/home/Home";
-import Gallery from "./components/user/gallery/Gallery";
-import About from "./components/user/about/About";
-import Contact from "./components/user/contact/ContactModal";
-import Calendar from "./components/user/calendar/Calendar";
-import SingleCalendarEvent from "./components/user/calendar/SingleCalendarEvent";
+import Home from "./components/home/Home";
+import Gallery from "./components/gallery/Gallery";
+import About from "./components/about/About";
+import Contact from "./components/contact/ContactModal";
+import Calendar from "./components/calendar/Calendar";
+import SingleCalendarEvent from "./components/calendar/SingleCalendarEvent";
 
 function App() {
   return (

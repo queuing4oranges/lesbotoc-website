@@ -1,11 +1,11 @@
-import books from "../../../assets/home_images/books.png";
-import film from "../../../assets/home_images/film.png";
-import bowling from "../../../assets/home_images/bowling.png";
-import camp from "../../../assets/home_images/cottage.png";
-import deskovky from "../../../assets/home_images/deskovky.png";
-import music from "../../../assets/home_images/musicquiz.png";
-import dating from "../../../assets/home_images/speeddating.png";
-import svarak from "../../../assets/home_images/svarak.png";
+import books from "../../assets/home_images/books.png";
+import film from "../../assets/home_images/film.png";
+import bowling from "../../assets/home_images/bowling.png";
+import camp from "../../assets/home_images/cottage.png";
+import deskovky from "../../assets/home_images/deskovky.png";
+import music from "../../assets/home_images/musicquiz.png";
+import dating from "../../assets/home_images/speeddating.png";
+import svarak from "../../assets/home_images/svarak.png";
 
 export const links = [
 	{
