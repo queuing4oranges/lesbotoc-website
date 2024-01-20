@@ -23,7 +23,7 @@ export default function SingleCalendarEvent() {
 		loc_name, loc_website, loc_address,
 		price, capacity,
 		image_path, image_alt,
-		latitude, longitude, 
+		latitude, longitude, signup 
 	} = oneEvent;
 	const [paragraphs, setParagraphs] = useState([]);
 	const { id } = useParams();
@@ -45,7 +45,7 @@ export default function SingleCalendarEvent() {
 	}, [description])
 	
 	if (oneEvent == 0 || undefined) {
-		return <div className="mt-5 pt-5 d-flex align-items-center justify-content-center"><h1 className="mt-5 pt-5">Tady nic není  :-(</h1></div>
+		return <div className="mt-5 pt-5 d-flex align-items-center justify-content-center"><h1 className="mt-5 pt-5"><Spinner/></h1></div>
 	}
 
 	const toggle = () => setDropdownOpen((prevState) => !prevState)
@@ -150,20 +150,26 @@ export default function SingleCalendarEvent() {
 								</div>
 							</div>
 							
+							{time &&
 							<div className="d-flex">
 								<i className="bi bi-clock me-3"></i>
 								<p>{time}</p>
 							</div>
+							}
 							
+							{loc_name &&
 							<div className="d-flex">
 								<i className="bi bi-geo-alt me-3"></i>
 								<p>{loc_name}</p>
 							</div>
+							}
 							
+							{loc_address &&
 							<div className="d-flex">
 								<i className="bi bi-map me-3"></i>
 								<p>{loc_address}</p>
 							</div>
+							}
 							
 							{loc_website &&
 							<div className="d-flex">
