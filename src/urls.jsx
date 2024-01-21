@@ -18,5 +18,5 @@ export const DELETE_IMAGE = (id) => `https://api.lesbotoc.com/images/delete.php/
 
 //SPEEDDATING
 export const GET_SPEEDDATERS = "https://api.lesbotoc.com/speeddating/read.php";
-export const ADD_SPEEDDATER = "https://api.lesbotoc.com/speeddating/create.php"
+export const ADD_PARTICIPANT = "https://api.lesbotoc.com/speeddating/create.php"
 export const DELETE_SPEEDDATER = (id) => `https://api.lesbotoc.com/speeddating/delete.php/${id}`;

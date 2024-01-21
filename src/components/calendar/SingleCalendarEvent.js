@@ -57,7 +57,7 @@ export default function SingleCalendarEvent() {
 		//format the dates to YYYYMMDDTHHmmssZ
 		const formattedStartTime = startTime.format('YYYYMMDDTHHmmss');
 		const formattedEndTime = endTime.format('YYYYMMDDTHHmmss');
-		
+		// TODO :get rid of /n again in the entry!
 		const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(name)}&dates=${formattedStartTime}/${formattedEndTime}&location=${encodeURIComponent(loc_address)}&details=${description}&sprop=&sprop=name:`;
 		
 		window.open(googleCalendarUrl, '_blank');
@@ -211,7 +211,21 @@ export default function SingleCalendarEvent() {
 									</Button>
 								</Link>
 								
-								{event_type === "Speed Dating" ? (
+							{signup && signup === "1" ? (
+								<Link>
+									<Button
+										onClick={() => setShowMod(!showMod)}
+										className="btn back-btn orange-btn"
+									>
+										Přihlášeni
+									</Button>
+								</Link>
+							) : (
+								null
+							)
+								
+							}
+								{/* {event_type === "Speed Dating" ? (
 								<Link>
 									<Button
 										onClick={() => setShowMod(!showMod)}
@@ -222,7 +236,8 @@ export default function SingleCalendarEvent() {
 								</Link>
 								) : (
 									""
-								)}
+								)} */}
+								
 								{/* TODO {event_type === "Lesbotoc Camp" ? ( */}
 							</div>
 							
@@ -256,6 +271,8 @@ export default function SingleCalendarEvent() {
 							date={date}
 							time={time}
 							location={loc_name}
+							name={name}
+							event_type={event_type}
 							setShowMod={setShowMod}
 							showMod={showMod}
 						/>
