@@ -17,7 +17,7 @@ export const NameField = ({ register, errors }) => {
 					{...register("name", { required: true, maxLength: 30, minLength: 3 })}
 				/>
 				{errors.name && errors.name.type === "required" && (
-				<small className="text-danger">Our form feels a bit lonely without your name</small>
+				<small className="text-danger">Our form feels a bit lonely without your name :(</small>
 				)}
 				{errors.name && errors.name.type === "minLength" && (
 				<small className="text-danger">Minimum 3 characters. You can do it.</small>
@@ -42,7 +42,7 @@ export const EmailField = ({ register, errors }) => {
 				<input
 					className="form-control"
 					id="email"
-					type="email"
+					type="text"
 					{...register("email", { required: true, pattern: /^[A-Z0-9._%+-ěščřžýá]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i })}
 				/>
 				{errors.email && errors.email.type === "required" && (
@@ -66,11 +66,11 @@ export const AgeField = ({ register, errors }) => {
 			<Col sm={10}>
 				<input
 					className="form-control"
-					placeholder="*Share if you wish."
+					placeholder="Share if you wish."
 					id="age"
 					type="text"
 					list="user_ages"
-					{...register("age", { pattern: /^[0-9]{2,3}$/ })}
+					{...register("age", { pattern: /^(\d{2}|\d{2}-\d{2})$/ })}
 				/>
 				{errors.age && errors.age.type === "pattern" && (
 				<small className="text-danger">Invalid format.</small>
