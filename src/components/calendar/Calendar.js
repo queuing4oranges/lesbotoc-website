@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useGetEvents from "../../hooks/useGetEvents";
 
@@ -18,20 +18,25 @@ import {
 
 export default function Calendar() {
 	const { events, loading, error, getEvents } = useGetEvents();
+	const [sortedEvents, setSortedEvents] = useState({
+		upcomingEvents: [],
+		pastEvents: []
+	});
 
 	useEffect(() => {
 		getEvents(300);
 	}, []);
 
 	useEffect(() => {
-		sortEvents();
-	}, [events])
+		if (events) {
+			const sorted = sortEvents(events);
+			setSortedEvents(sorted);
+			console.log(sortedEvents)
+		}
+	}, [events]);
 
-	// Make two objects - past and future events
-	const upcomingEvents = {};
-	const pastEvents = {};
 
-	const sortEvents = () => {
+	const sortEvents = (events) => {
 
 		// Get current timestamp in milliseconds
 		const currentTimestamp = new Date().getTime();
@@ -49,13 +54,17 @@ export default function Calendar() {
 			return timeDifferenceA - timeDifferenceB
 		});
 
+		const upcomingEvents = [];
+		const pastEvents = [];
 		eventsArray.forEach(event => {
 			if (event.date > currentTimestamp) {
-				upcomingEvents[event.name] = event;
+				upcomingEvents.push(event);
 			} else {
-				pastEvents[event.name] = event;
+				pastEvents.push(event);
 			}
 		});
+
+		return { upcomingEvents, pastEvents }
 	}
 
 	if (loading) {
@@ -98,8 +107,8 @@ export default function Calendar() {
 				
 				<Row className="d-flex justify-content-center h-100">
 					<div className="grid-wrapper h-100">
-						{events &&
-						events.map((event) => (
+						{sortedEvents &&
+						sortedEvents.upcomingEvents.map((event) => (
 								<Link
 									key={event.id}
 									className="d-flex flex-column"
