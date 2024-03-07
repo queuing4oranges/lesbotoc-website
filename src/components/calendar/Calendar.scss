@@ -1,0 +1,66 @@
+.events-container {
+	position: relative;
+	.bi-square {
+		overflow: hidden;
+		&.blue::before {
+			background-color: $lesbotoc;
+		}
+		&.grey::before {
+			background-color: #3fc16f;
+		}
+		&.red::before {
+			background-color: #ed7f71;
+		}
+	}
+}
+
+.grid-wrapper {
+	text-align: left;
+	width: 60vw;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1.5rem;
+
+	& a {
+		text-decoration: none;
+		color: $dark-petrol;
+		&:hover {
+			color: white;
+		}
+		
+		& .card {
+			border-radius: 0;
+		}
+
+		& .card-text {
+			position: absolute;
+			bottom: 0;
+			margin-bottom: 0.5rem;
+
+			& span {
+				width: 8rem;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.grid-wrapper {
+		grid-template-columns: repeat(1, 1fr);
+		place-items: center;
+		place-content: center;
+		
+		& .card {
+			width: 20rem !important;
+			height: 10rem !important;
+			font-size: 1rem;
+		}
+	}
+	
+	.events-container .categories {
+		display: none !important;
+	}
+}

@@ -79,10 +79,14 @@ export default function Calendar() {
 
 	return (
 		<div 
-			className="screen-wrapper h-100"
+			className="screen-wrapper"
 			style={{
 				backgroundImage: `url(${bgImage})`,
 				backgroundRepeat: "repeat",
+				backgroundSize: "auto",
+				minHeight: "100vh",
+				display: "flex",
+				flexDirection: "column"
 			}}
 		>
 			<Navbar/>
