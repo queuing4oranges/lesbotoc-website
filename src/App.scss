@@ -10,7 +10,9 @@
 
 //importing user styles
 @import "./components/home/home.scss";
-@import "./components/calendar/calendar.scss";
+@import "./components/calendar/Calendar.scss";
+@import "./components/calendar/SingleCalendarEvent.scss";
+@import "./components/calendar/SignupForm.scss";
 @import "./components/gallery/gallery.scss";
 @import "./components/about/about.scss";
 @import "./components/contact/contact.scss";

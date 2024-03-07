@@ -1,0 +1,149 @@
+.event-container {
+	position: relative;
+	overflow-x: hidden;
+	p {
+		text-align: left;
+	}
+	.event-info {
+		position: relative;
+		.info-column {
+			z-index: 2;
+			background-color: $light-blue;
+			
+			& div:last-child {
+				margin-top: auto;
+			}
+		}
+	}
+		
+	.event-info::before {
+		content: "";
+		background-image: url("../../assets/calendar_images/cafe-above.jpg");
+		background-size: cover;
+		opacity: 0.15;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		pointer-events: none; //make button still clickable with bg image::before
+		}
+
+	.info-column {
+		position: relative;
+		box-shadow: $box-shadow-lesbotoc;
+	}
+
+	.image-column {
+		z-index: 20;
+		opacity: unset;
+	}
+
+	.event-website {
+		text-decoration: none;
+		color: $dark-petrol;
+		&:hover {
+			color: $lesbotoc;
+		}
+	}
+	
+	.add-event-dropdown {
+		top: 0;
+		right: 0;
+		font-size: 0.8rem !important;
+		.btn:focus, .btn:active {
+			box-shadow: none;
+		}
+		.dropdown-item {
+			display: inline-block;
+			&:focus {
+				outline: none;
+				background-color: $lesbotoc;
+			}
+		}
+		.dropdown-menu {
+			right: 0;
+			border-radius: 0;
+			padding: 0;
+
+			transform: translateY(-10px);
+			opacity: 0;
+			transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+			&.show {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+	}
+	
+	.gmaps-wrapper {
+		& iframe {
+			border: none;
+			box-shadow: $box-shadow-img;
+		}
+	}
+	
+	.btn.back-btn {
+		background-color: $lesbotoc;
+		border: none;
+		&:hover {
+			color: $dark-petrol;
+		}
+		
+		&.orange-btn {
+			background-color: #eb5a49;
+		}
+		&.yellow-btn {
+			background-color: #ec9704;
+		}
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.event-website {
+		display: inline-block;
+		max-width: 200px;
+		overflow-x: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	.add-event-dropdown {
+		& p {
+			display: none;
+		}
+
+		& .btn-secondary {
+			border-radius: 50%;
+			& i {
+				margin-right: unset !important;
+			}
+		}
+
+		& .dropdown-menu {
+			min-width: unset;
+			width: 3rem;
+			background-color: $light-blue;
+			border: none;
+
+			&.show {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+			}
+
+			& .dropdown-item {
+				border: $lesbotoc 1px solid;
+				width: 2rem;
+				height: 2rem;
+				border-radius: 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				& svg {
+					margin-right: 0 !important;
+				}
+			}
+		}
+	}
+}
