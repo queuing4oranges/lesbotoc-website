@@ -23,6 +23,41 @@ export default function Calendar() {
 		getEvents(300);
 	}, []);
 
+	useEffect(() => {
+		sortEvents();
+	}, [events])
+
+	// Make two objects - past and future events
+	const upcomingEvents = {};
+	const pastEvents = {};
+
+	const sortEvents = () => {
+
+		// Get current timestamp in milliseconds
+		const currentTimestamp = new Date().getTime();
+
+		// Extract dates, then convert object to an array of events
+		const eventsArray = Object.values(events).map(eve => ({
+			...eve,
+			date: new Date(eve.date).getTime()
+		}))
+
+		// Sort events based on proximity to current time:
+		eventsArray.sort((a,b) => {
+			const timeDifferenceA = Math.abs(a.date - currentTimestamp);
+			const timeDifferenceB = Math.abs(b.date - currentTimestamp);
+			return timeDifferenceA - timeDifferenceB
+		});
+
+		eventsArray.forEach(event => {
+			if (event.date > currentTimestamp) {
+				upcomingEvents[event.name] = event;
+			} else {
+				pastEvents[event.name] = event;
+			}
+		});
+	}
+
 	if (loading) {
 		return (
 			<div><Spinner/></div>
