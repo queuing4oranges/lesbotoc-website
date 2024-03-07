@@ -6,11 +6,15 @@
 	box-sizing: border-box;
 }
 
+html, body, #root {
+	height: 100%;
+	overflow-x: hidden;
+}
+
 html {
 	box-sizing: border-box;
 	font-family: "Poppins", sans-serif, Arial, Helvetica, sans-serif;
 	scroll-behavior: smooth;
-	height: 100%;
 	width: 100%;
 }
 
@@ -18,7 +22,6 @@ body {
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	height: 100%;
 	background-color:#feebdd ;
 }
 
