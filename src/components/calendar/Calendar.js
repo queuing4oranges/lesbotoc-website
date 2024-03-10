@@ -94,7 +94,7 @@ export default function Calendar() {
 			
 			<div className="events-container d-flex flex-column mb-5 h-100">
 				
-				<Row className="d-flex justify-content-center mb-2 categories">
+				<Row className="d-flex justify-content-center mb-4 categories">
 					<Col md="2" className="d-flex justify-content-center">						
 						<i className="bi bi-square me-2 blue"></i>
 						<p>Lesbotoč events</p>
@@ -109,13 +109,13 @@ export default function Calendar() {
 					</Col>
 				</Row>
 				
-				<Row className="d-flex justify-content-center h-100">
+				<Row className="d-flex justify-content-center align-items-center h-100">
 					<div className="grid-wrapper h-100">
 						{sortedEvents &&
 							sortedEvents.upcomingEvents.map((event) => (
 								<Link
 									key={event.id}
-									className="d-flex flex-column"
+									className="d-flex flex-column align-items-center"
 									to={`/kalendar/${event.id}`}
 								>
 									<Card
@@ -158,42 +158,34 @@ export default function Calendar() {
 								</Link>
 							))
 						}
-						<Button
-							onClick={() => setMoreEvents(!moreEvents)}
-							style={{width: "fit-content", padding: "0", border: "none"}}>
+						<Link
+							className="d-flex flex-column align-items-center"
+							onClick={() => setMoreEvents(!moreEvents)}>
 							<Card
-								className="more-events-card"
+								className="more-events-card d-flex flex-column justify-content-center align-items-center"
 								style={{
 									width: "12rem",
 									height: "12rem",
 									backgroundColor: "#7ab6cb",
 									boxShadow: "3px 3px 3px 0px rgba(0, 0, 0, 0.3)",
-									borderRadius: "0"
 									}}>
-									<CardBody className="h-100 d-flex flex-column justify-content-center align-items-center">
-										<CardText className="d-flex">
 											{moreEvents ?
-												<span className="rainbow-cloud">
-													<RainbowCloud width={50} height={50}/>
-												</span>
+												<RainbowCloud width={50} height={50}/>
 											:
-												<span className="d-flex flex-column">
+												<span className="d-flex flex-column justify-content-center">
 													<h6>Minulé</h6>
 													<h6>eventy</h6>
 													<RainbowCloud width={30} height={30}/>
 												</span>
 											}
-										</CardText>
-										{/* TODO background and mobile version */}
-									</CardBody>
 							</Card>
-						</Button>
+						</Link>
 
 						{moreEvents && sortedEvents &&
 							sortedEvents.pastEvents.map((event) => (
 								<Link
 									key={event.id}
-									className="d-flex flex-column"
+									className="d-flex flex-column align-items-center"
 									to={`/kalendar/${event.id}`}
 								>
 									<Card
