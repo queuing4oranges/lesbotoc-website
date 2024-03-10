@@ -45,6 +45,23 @@
 			}
 		}
 	}
+
+	.more-events-card {
+		color: $dark-petrol;
+
+		&:hover {
+			color: white;
+		}
+
+		.rainbow-cloud-container {
+			transition: transform 0.3s ease;
+
+			&.hovered {
+				transform: scale(2);
+			}
+
+		}
+	}
 }
 
 @media only screen and (max-width: 768px) {

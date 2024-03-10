@@ -162,6 +162,7 @@ export default function Calendar() {
 							onClick={() => setMoreEvents(!moreEvents)}
 							style={{width: "fit-content", padding: "0", border: "none"}}>
 							<Card
+								className="more-events-card"
 								style={{
 									width: "12rem",
 									height: "12rem",
@@ -172,13 +173,14 @@ export default function Calendar() {
 									<CardBody className="h-100 d-flex flex-column justify-content-center align-items-center">
 										<CardText className="d-flex">
 											{moreEvents ?
-												<span>
+												<span className="rainbow-cloud">
 													<RainbowCloud width={50} height={50}/>
 												</span>
 											:
 												<span className="d-flex flex-column">
-													<h6>Minulé události</h6>
-													<i className="bi bi-arrow-right"></i>
+													<h6>Minulé</h6>
+													<h6>eventy</h6>
+													<RainbowCloud width={30} height={30}/>
 												</span>
 											}
 										</CardText>
@@ -198,7 +200,7 @@ export default function Calendar() {
 										style={{
 											width: "12rem",
 											height: "12rem",
-											backgroundColor: "#d0d0d0",
+											backgroundColor: "#808588",
 											boxShadow: "3px 3px 3px 0px rgba(0, 0, 0, 0.3)",
 											}}>
 											<CardBody className="h-100">
@@ -213,11 +215,9 @@ export default function Calendar() {
 												)}
 												<p>{event.time === "00:00:00" ? "" : event.time}</p>
 											</CardSubtitle>
-
 											<CardTitle className="fw-bold">
 												<h5>{event.name}</h5>
 											</CardTitle>
-
 											<CardText className="d-flex">
 												<i className="bi bi-geo-alt me-1"></i>
 												<span className="mb-1" title={event.loc_name}>{event.loc_name}</span>
