@@ -9,15 +9,17 @@ import { Spinner } from "../includes/Spinner";
 import Moment from "react-moment";
 
 import bgImage from "../../assets/calendar_images/pride-flag-house-bg.png";
+import RainbowCloud from "../../assets/icons/RainbowCloud";
 
 import { 
 	Row, Col, 
-	Card, CardBody, CardText, CardTitle, CardSubtitle
+	Card, CardBody, CardText, CardTitle, CardSubtitle, Button
 } from "reactstrap";
 
 
 export default function Calendar() {
 	const { events, loading, error, getEvents } = useGetEvents();
+	const [moreEvents, setMoreEvents] = useState(false);
 	const [sortedEvents, setSortedEvents] = useState({
 		upcomingEvents: [],
 		pastEvents: []
@@ -34,7 +36,6 @@ export default function Calendar() {
 			console.log(sortedEvents)
 		}
 	}, [events]);
-
 
 	const sortEvents = (events) => {
 
@@ -79,7 +80,6 @@ export default function Calendar() {
 
 	return (
 		<div 
-			className="screen-wrapper"
 			style={{
 				backgroundImage: `url(${bgImage})`,
 				backgroundRepeat: "repeat",
@@ -112,7 +112,7 @@ export default function Calendar() {
 				<Row className="d-flex justify-content-center h-100">
 					<div className="grid-wrapper h-100">
 						{sortedEvents &&
-						sortedEvents.upcomingEvents.map((event) => (
+							sortedEvents.upcomingEvents.map((event) => (
 								<Link
 									key={event.id}
 									className="d-flex flex-column"
@@ -130,6 +130,75 @@ export default function Calendar() {
 												: event.event_type === "Lesbotoc Camp"
 												? "#EC9704"
 												: "#7ab6cb",
+											boxShadow: "3px 3px 3px 0px rgba(0, 0, 0, 0.3)",
+											}}>
+											<CardBody className="h-100">
+											<CardSubtitle className="d-flex justify-content-between">
+												{event.date === "0000-00-00" ? (
+												""
+												) : (
+												<p>
+													<Moment format="D.MM.YYYY">{event.date}</Moment>
+													&nbsp;
+												</p>
+												)}
+												<p>{event.time === "00:00:00" ? "" : event.time}</p>
+											</CardSubtitle>
+
+											<CardTitle className="fw-bold">
+												<h5>{event.name}</h5>
+											</CardTitle>
+
+											<CardText className="d-flex">
+												<i className="bi bi-geo-alt me-1"></i>
+												<span className="mb-1" title={event.loc_name}>{event.loc_name}</span>
+											</CardText>
+											</CardBody>
+									</Card>
+								</Link>
+							))
+						}
+						<Button
+							onClick={() => setMoreEvents(!moreEvents)}
+							style={{width: "fit-content", padding: "0", border: "none"}}>
+							<Card
+								style={{
+									width: "12rem",
+									height: "12rem",
+									backgroundColor: "#7ab6cb",
+									boxShadow: "3px 3px 3px 0px rgba(0, 0, 0, 0.3)",
+									borderRadius: "0"
+									}}>
+									<CardBody className="h-100 d-flex flex-column justify-content-center align-items-center">
+										<CardText className="d-flex">
+											{moreEvents ?
+												<span>
+													<RainbowCloud width={50} height={50}/>
+												</span>
+											:
+												<span className="d-flex flex-column">
+													<h6>Minulé události</h6>
+													<i className="bi bi-arrow-right"></i>
+												</span>
+											}
+										</CardText>
+										{/* TODO background and mobile version */}
+									</CardBody>
+							</Card>
+						</Button>
+
+						{moreEvents && sortedEvents &&
+							sortedEvents.pastEvents.map((event) => (
+								<Link
+									key={event.id}
+									className="d-flex flex-column"
+									to={`/kalendar/${event.id}`}
+								>
+									<Card
+										style={{
+											width: "12rem",
+											height: "12rem",
+											backgroundColor: "#d0d0d0",
 											boxShadow: "3px 3px 3px 0px rgba(0, 0, 0, 0.3)",
 											}}>
 											<CardBody className="h-100">
