@@ -108,6 +108,15 @@
 		text-overflow: ellipsis;
 	}
 
+	.event-info {
+		display: flex;
+		flex-direction: column-reverse;
+
+		.image-column{
+			display: flex;
+			align-items: center;
+		}
+	}
 	.add-event-dropdown {
 		& p {
 			display: none;
