@@ -1,38 +1,10 @@
-# Lesbotoč Website
+# Lesbotoč.cz
 
-## About
+## Project Overview
 
-The website was created as a revision to the existing website and is still work in progress.
+The project is a personal favor to my friends who are organizing events for queer women in Prague. It is an ongoing work to which more features will be added. The organization wanted a simple, well structured website which should include a calendar with events that also allow for events with sign ups, a gallery to show images from past events, as well as a section about themselves and a way to contact them. The CMS of the website is an admin panel, which is another one of my projects. With the help of the admin panel, the organization can update events and manage new contacts.
 
-The clients want to have a website with a slim and easy to handle CMS, in which they can update their events on a regular basis. They also want to be able to save contacts and for people to be able to sign up to events.
-
-The backend and frontend of the website are separated.
-
-## Functionalities
-
-### For Admins:
-
-- create, update, delete, show single or all contacts
-- search for contacts
-- export all contacts as csv
-- create, update, delete, show single or all events
-- add images to events
-- add and delete pictures (for the user picture gallery)
-- bug report function
-- login/logout
-- register a new admin
-- download function for a list of newsletter subscribers, speed dating participants or events
-
-### For Users:
-
-- look up all events in the calendar
-- display single events in more detail (description, time/date, how to get there, website of venue)
-- sign up for special events
-- see events of other organization in the calendar
-- browse through a gallery of photos from previous events
-- get information about the organization and members thereof
-- contact the organization via a contact form, phone or email
-- use links to follow the organization on social media
+https://www.lesbotoc.cz/
 
 ## Tech Stack
 
@@ -44,6 +16,16 @@ The backend and frontend of the website are separated.
 - Bootstrap
 - Sweet Alert
 - Figma (Wireframes)
+
+## Functionalities for users
+
+- look up all events in the calendar
+- display single events in detail (description, time/date, how to get there, website of venue)
+- sign up for special events
+- see events of other organization in the calendar
+- browse through a gallery of photos from previous events
+- get information about the organization and members thereof
+- contact the organization via a contact form, phone or email
 
 ## How to run the project
 
@@ -69,7 +51,3 @@ The backend and frontend of the website are separated.
 <img src="https://github.com/queuing4oranges/lesbotoc-website/blob/main/screenshots/ScreenShLesbotoc1.PNG">
 
 <img src="https://github.com/queuing4oranges/lesbotoc-website/blob/main/screenshots/ScreenShLesbotoc2.PNG">
-
-<img src="https://github.com/queuing4oranges/lesbotoc-website/blob/main/screenshots/ScreenShLesbotoc3.PNG">
-
-<img src="https://github.com/queuing4oranges/lesbotoc-website/blob/main/screenshots/ScreenShLesbotoc5.PNG">
