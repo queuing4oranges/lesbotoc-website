@@ -33,7 +33,6 @@ export default function Calendar() {
 		if (events) {
 			const sorted = sortEvents(events);
 			setSortedEvents(sorted);
-			console.log(sortedEvents)
 		}
 	}, [events]);
 
@@ -48,7 +47,7 @@ export default function Calendar() {
 			date: new Date(eve.date).getTime()
 		}))
 
-		// Sort events based on proximity to current time:
+		// Sort nearest events in the future to the start of the array
 		eventsArray.sort((a,b) => {
 			const timeDifferenceA = Math.abs(a.date - currentTimestamp);
 			const timeDifferenceB = Math.abs(b.date - currentTimestamp);
@@ -57,8 +56,9 @@ export default function Calendar() {
 
 		const upcomingEvents = [];
 		const pastEvents = [];
+		const oneDayInMilliseconds = 86400000; // Add one day for the event to stay in the upcoming events longer
 		eventsArray.forEach(event => {
-			if (event.date > currentTimestamp) {
+			if (event.date > (currentTimestamp - oneDayInMilliseconds)) {
 				upcomingEvents.push(event);
 			} else {
 				pastEvents.push(event);
