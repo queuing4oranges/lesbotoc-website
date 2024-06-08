@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 
 import Footer from "../includes/Footer";
 import Navbar from "../includes/Navbar";
-import GalleryModal from "./GalleryModal";
 import { Spinner } from "../includes/Spinner";
 
 import useGetImages from "../../hooks/useGetImages";

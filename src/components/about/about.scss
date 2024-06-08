@@ -9,8 +9,8 @@
 
 	//to make img opaque but not text inside div
 	&::before {
-		content: "";
-		background-image: url("../../assets/about_images/rainbow-flag-pride.jpg");
+		content: '';
+		background-image: url('../../assets/about_images/rainbow-flag-pride.jpg');
 		background-size: cover;
 		opacity: 0.15;
 		position: absolute;
@@ -38,7 +38,7 @@
 }
 
 .member-name {
-	font-family: "Amatic SC", sans-serif, Arial, Helvetica, sans-serif;
+	font-family: 'Amatic SC', sans-serif, Arial, Helvetica, sans-serif;
 	font-size: 2em;
 	font-weight: 700;
 	color: $dark-petrol;
