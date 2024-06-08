@@ -13,7 +13,7 @@ import RainbowCloud from "../../assets/icons/RainbowCloud";
 
 import { 
 	Row, Col, 
-	Card, CardBody, CardText, CardTitle, CardSubtitle, Button
+	Card, CardBody, CardText, CardTitle, CardSubtitle
 } from "reactstrap";
 
 
@@ -86,7 +86,8 @@ export default function Calendar() {
 				backgroundSize: "auto",
 				minHeight: "100vh",
 				display: "flex",
-				flexDirection: "column"
+				flexDirection: "column",
+				position: 'relative',
 			}}
 		>
 			<Navbar/>
@@ -221,9 +222,10 @@ export default function Calendar() {
 						}
 					</div>
 				</Row>
-
 			</div>
-			<Footer/>
+			<div className='w-100 position-absolute bottom-0 end-0'>
+				<Footer/>
+			</div>
 		</div>
 	)
 }
