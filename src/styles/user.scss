@@ -19,14 +19,6 @@
 	border-radius: 0;
 }
 
-.user-container {  //Used in gallery
-background-color: #feebdd;
-display: flex;
-flex-direction: column;
-height: 100%;
-width: 100%;
-}
-
 @media only screen and (max-width: 768px) {
 	.screen-wrapper {
 		max-width: 100%;

@@ -170,13 +170,13 @@ export default function Calendar() {
 												<span className='d-flex flex-column justify-content-center'>
 													<h6>Minulé</h6>
 													<h6>eventy</h6>
-													<RainbowCloud width={30} height={30}/>
+													<i className="fs-2 bi bi-arrow-bar-right" />
 												</span>
 											}
 							</Card>
 						</Link>
 
-						{moreEvents && sortedEvents &&
+						{!moreEvents && sortedEvents &&
 							sortedEvents.pastEvents.map((event) => (
 								<Link
 									key={event.id}
@@ -188,6 +188,7 @@ export default function Calendar() {
 											width: '12rem',
 											height: '12rem',
 											backgroundColor: '#808588',
+											opacity: 0.8,
 											boxShadow: '3px 3px 3px 0px rgba(0, 0, 0, 0.3)',
 											}}>
 											<CardBody className='h-100'>
