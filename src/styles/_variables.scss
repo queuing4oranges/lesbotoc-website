@@ -6,33 +6,15 @@
 $box-shadow-img: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 $box-shadow-lesbotoc: rgba(122, 182, 203, 0.4) -5px 5px, rgba(122, 182, 203, 0.3) -10px 10px, rgba(122, 182, 203, 0.2) -15px 15px, rgba(122, 182, 203, 0.1) -20px 20px, rgba(122, 182, 203, 0.05) -25px 25px;
 
-
-
-//TODO check below legacy code of aktuality!------------
-
-//user-colours:
 $lesbotoc: #7ab6cb;
-$user-red: #eb5a49;
-$lesbotoc-dark: #4d8eb5;
+$text-color: #feebdd;
 $user-beige-light: #f5efea;
-$user-lightred: #ed7f71;
 $dark-petrol: #003243;
-$user-almostblack: #2c353c;
-
-// other colours:
-$brown: #9a4700;
 $light-blue: #e6f4f1;
 $user-beige-medium: #feebdd;
 $user-beige-dark: #f5e2d3;
-$user-darkred: #b84639;
-
-//admin-input:
-$input-look: #7ab6cb solid 2px;
 $title-font: 'Amatic SC', cursive, Arial;
-$text-font: 'Poppins', sans-serif, Arial, Helvetica, sans-serif;
-$backdrop-filter: blur(0.5px);
 $box-shadow: 0px 10px 15px -5px rgba(122, 182, 203, 0.75);
-$triangle-color: linear-gradient(179deg, #85cde7 0%, #ca7d61 100%);
 
 //mixins:
 @mixin center-object {
@@ -40,7 +22,3 @@ $triangle-color: linear-gradient(179deg, #85cde7 0%, #ca7d61 100%);
   justify-content: center;
   align-items: center;
 }
-
-//new color palette
-$text-bg-color: #304635;
-$text-color: #feebdd;
