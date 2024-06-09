@@ -140,15 +140,15 @@ export const PhoneField = ({ register, errors }) =>{
 
 export const NewsletterCheckbox = ({ register }) => {
 	return (
-		<FormGroup row>
+		<FormGroup check inline>
 			<Col sm={12} className='pe-0'>
-				<input
+				<Input
 					type='checkbox'
 					{...register('newsletter')}
 					id='speedNewsletter'
 					className='me-2'
 				/>
-				<Label>Chci dostávat informace o dalších akcích Lesbotoče.</Label>
+				<Label check htmlFor='speedNewsletter'>Chci dostávat informace o dalších akcích Lesbotoče.</Label>
 			</Col>
 		</FormGroup>
 	)
