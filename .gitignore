@@ -23,7 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 sql_queries.txt
-instructions_marta.txt
-/src/components/includes/variables.js
-/src/components/user/contact/EmailCredentials.js
-/src/urls.jsx
+src/components/contact/EmailCredentials.js
