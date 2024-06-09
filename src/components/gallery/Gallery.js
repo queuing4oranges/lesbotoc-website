@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Footer from '../includes/Footer';
 import Navbar from '../includes/Navbar';
 import { Spinner } from '../includes/Spinner';
+import GalleryModal from './GalleryModal'
 
 import useGetImages from '../../hooks/useGetImages';
 
 export default function Gallery() {
 	const { images, loading, getImages } = useGetImages();
+	const [galleryModal, setGalleryModal] = useState(false);
+	const [currentIndex, setCurrentIndex] = useState(false);
 
 	useEffect(() => {
 		getImages();
@@ -19,7 +22,12 @@ export default function Gallery() {
 				<Spinner />
 			</div>
 		);
-	}
+	};
+
+	const showImage = (idx) => {
+		setCurrentIndex(idx);
+		setGalleryModal(true);
+	};
 
 	return (
 		<div>
@@ -29,10 +37,10 @@ export default function Gallery() {
 
 					{images && (
 						<div className='user-gallery-cont mb-5'>
-							{images.map((img, key) => {
+							{images.map((img, idx) => {
 								const { filename, alt, title } = img;
 								return (
-									<div key={key} className='user-img-cont'>
+									<div key={idx} className='user-img-cont' onClick={() => showImage(idx)}>
 										<img
 											className='user-gallery-img'
 											src={`https://api.lesbotoc.com/images/images/${filename}`}
@@ -45,6 +53,13 @@ export default function Gallery() {
 						</div>
 					)}
 				</div>
+				<GalleryModal
+					galleryModal={galleryModal}
+					setGalleryModal={setGalleryModal}
+					images={images}
+					currentIndex={currentIndex}
+					setCurrentIndex={setCurrentIndex}
+				/>
 			<Footer />
 		</div>
 	);

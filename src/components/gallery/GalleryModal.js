@@ -1,31 +1,52 @@
-import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import React from 'react';
+import { Modal, ModalHeader, ModalBody } from "reactstrap";
 
-export default function GalleryModal() {
-	const [modal, setModal] = useState(false);
+import './gallerymodal.scss';
 
-	const toggle = () => setModal(!modal);
+export default function GalleryModal({ galleryModal, setGalleryModal, images, currentIndex, setCurrentIndex }) {
+
+	// Check if images array exists, has elements, and currentIndex is valid
+	if (!images || images.length === 0 || !images[currentIndex]) {
+		return null;
+	}
+
+	const { filename, title, alt } = images[currentIndex];
+
+	const handleShowNext = () => {
+		setCurrentIndex((currentIndex + 1) % images.length);
+	};
+
+	// Moving to next image and handling negative numbers
+	const handleShowPrevious = () => {
+		setCurrentIndex((currentIndex - 1 + images.length) % images.length);
+	};
+
+	const closeModal = () => {
+		setGalleryModal(false);
+	}
 
 	return (
-		<div>
-		<Button color="danger" onClick={toggle}>
-			Click Me
-		</Button>
-		<Modal isOpen={modal} toggle={toggle}>
-			<ModalHeader toggle={toggle}>Modal title</ModalHeader>
-				<ModalBody>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-				</ModalBody>
-				<ModalFooter>
-					<Button color="primary" onClick={toggle}>
-						Do Something
-					</Button>{' '}
-					<Button color="secondary" onClick={toggle}>
-						Cancel
-					</Button>
-				</ModalFooter>
-			</Modal>
-		</div>
+		<Modal centered size='xl' isOpen={galleryModal} toggle={closeModal} onBackdropClick={closeModal}>
+			<ModalHeader className='d-flex justify-content-center'>
+				<p>{title}</p>
+				<i className="fs-1 bi bi-x-circle" onClick={() => closeModal()}/>
+			</ModalHeader>
+			<ModalBody className='d-flex justify-content-center align-items-center'>
+				<span className='me-3' onClick={() => handleShowPrevious()}>
+					<i className='fs-2 bi bi-arrow-left' />
+				</span>
+				<div>
+
+					<img
+						src={`https://api.lesbotoc.com/images/images/${filename}`}
+						alt={alt}
+						className='modal-gallery-img'
+					/>
+				</div>
+				<span className='ms-3' onClick={() => handleShowNext()}>
+					<i className='fs-2 bi bi-arrow-right' />
+				</span>
+			</ModalBody>
+		</Modal>
 	);
-}
+};
