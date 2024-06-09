@@ -1,26 +1,25 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
-import Slider from 'react-slick';
+import { useNavigate } from 'react-router-dom';
 import { links } from './homeData';
-import RightArrow from "./RightArrow";
+import RightArrow from './RightArrow';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
 
 export default function CarouselSlider() {
 	const navigate = useNavigate();
 
 	const goToCalendar = () => {
-		navigate("/kalendar");
+		navigate('/kalendar');
 	}
 
 	if (!links || links.length === 0) {
 		return (
-			<div className="enter-btn" onClick={() => goToCalendar()}>
+			<div className='enter-btn' onClick={() => goToCalendar()}>
 				<RightArrow height={50} width={50} />
 			</div>
 		)
 	}
-
 
 	const settings = {
 		dots: false,
