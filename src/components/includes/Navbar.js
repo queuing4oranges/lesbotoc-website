@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
-import { navbarlinks } from "../../data/NavbarLinks";
-import MobileNavbar from "./MobileNavbar";
-
-
+import { navbarlinks } from '../../data/NavbarLinks';
+import MobileNavbar from './MobileNavbar';
 
 export default function Navbar() { 
 	const [showBurger, setShowBurger] = useState(false)
@@ -22,7 +20,7 @@ export default function Navbar() {
 		
 		window.addEventListener('resize', handleResize);
 		
-		//cleanup event listener on component unmount
+		// Cleanup event listener on component unmount
 		return () => {
 			window.removeEventListener('resize', handleResize)
 		}
@@ -33,47 +31,47 @@ export default function Navbar() {
 		{showBurger ? (
 			<MobileNavbar/>
 		) : (
-		<nav className="navbar navbar-expand bg-light mobile-navbar-wrapper">
-				<div className="container-fluid">
-					<div className="logo-container d-flex ms-5">
+		<nav className='navbar navbar-expand bg-light mobile-navbar-wrapper'>
+				<div className='container-fluid'>
+					<div className='logo-container d-flex ms-5'>
 						<NavLink
-							className="navbar-brand"
-							to={"/"}
+							className='navbar-brand'
+							to={'/'}
 							style={({ isActive }) => ({
-							color: isActive ? "#eb5a49" : "#7ab6cb",
-							textDecoration: "none",
+							color: isActive ? '#eb5a49' : '#7ab6cb',
+							textDecoration: 'none',
 							})}
 						>
 							<p>Lesbotoč</p>
 						</NavLink>
 					</div>
-					<div className="d-flex justify-content-end" style={{width: "60%"}}>
+					<div className='d-flex justify-content-end' style={{width: '60%'}}>
 						<a
-							href="https://www.facebook.com/seznamsenatoci"
-							target="_blank"
-							rel="noreferrer"
-							aria-label="Facebook"
+							href='https://www.facebook.com/seznamsenatoci'
+							target='_blank'
+							rel='noreferrer'
+							aria-label='Facebook'
 						>
-							<i className="bi bi-facebook me-2 fs-3" style={{fontSize: "2rem", color: "#003243"}}></i>
+							<i className='bi bi-facebook me-2 fs-3' style={{fontSize: '2rem', color: '#003243'}} />
 						</a>
 						<a
-							href="https://www.instagram.com/lesbotoc/"
-							target="_blank"
-							rel="noreferrer"
-							aria-label="Instagram"
+							href='https://www.instagram.com/lesbotoc/'
+							target='_blank'
+							rel='noreferrer'
+							aria-label='Instagram'
 						>
-							<i className="bi bi-instagram fs-3" style={{fontSize: "2rem", color: "#003243"}}></i>
+							<i className='bi bi-instagram fs-3' style={{fontSize: '2rem', color: '#003243'}} />
 						</a>
 					</div>
 				
-					<ul className="navbar-nav navbar-list me-3">
+					<ul className='navbar-nav navbar-list me-3'>
 						{navbarlinks.map((link) => (
-							<li key={link.id} className="me-4">
+							<li key={link.id} className='me-4'>
 								<NavLink
 									to={link.to}
 									style={({ isActive }) => ({
-										color: isActive ? "#feebdd" : "#003243",
-										textDecoration: "none"
+										color: isActive ? '#feebdd' : '#003243',
+										textDecoration: 'none'
 									})}
 								>
 								{link.name}
