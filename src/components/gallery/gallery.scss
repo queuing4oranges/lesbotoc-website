@@ -32,6 +32,11 @@
 	flex-direction: column;
 	align-items: center;
 	z-index: 5;
+
+	&:hover {
+		background-color: #ed7f71;
+		cursor: pointer;
+	}
 }
 
 .user-gallery-img {
