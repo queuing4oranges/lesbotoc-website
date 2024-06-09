@@ -3,7 +3,7 @@
 }
 
 .gallery-container::before {
-  content: "";
+  content: '';
   background: repeating-radial-gradient(circle, #ed7f71, transparent 20%);
   background-size: 2em 2em;
   background-color: #ffffff;
@@ -48,7 +48,7 @@
 
 .user-img-title {
   font-size: 2em;
-  font-family: "Amatic SC", sans-serif, Arial, Helvetica, sans-serif;
+  font-family: 'Amatic SC', sans-serif, Arial, Helvetica, sans-serif;
   font-weight: 700;
   color: $dark-petrol;
   text-align: center;

@@ -1,4 +1,4 @@
-import Reactj, { useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 export default function GalleryModal() {
