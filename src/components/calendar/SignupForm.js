@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Moment from "react-moment";
-import { useForm } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import { FormText } from "reactstrap";
 
 import axios from "axios";
@@ -25,8 +25,6 @@ export default function SignupForm({ date, time, location, name: event_name, eve
 			}
 		}
 	},[])
-console.log(isSpeedDating)
-
 
 	const onSubmit = (data) => {
 		const inputs = { ...data, date, wherefrom: event_name };

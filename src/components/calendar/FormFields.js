@@ -1,81 +1,102 @@
-import React from "react";
-import { Label, Input, FormGroup, FormText, FormFeedback, Col } from "reactstrap";
-import { ageGroups } from "../../data/Datalists";
+import React from 'react';
+import { Label, FormGroup, FormText, FormFeedback, Col, Input } from 'reactstrap';
+import { ageGroups } from '../../data/Datalists';
 
 export const NameField = ({ register, errors }) => {
 
+	const nameField = register('name', {
+		required: 'Please provide a name',
+		minLength: {
+			value: 3,
+			message: 'Minimum 3 characters'
+		},
+		maxLength: {
+			value: 30,
+			message: 'Maximum 30 characters'
+		}
+	});
+
 	return (
-		<FormGroup row className="mt-3">
-			<Label sm={2} htmlFor="name" className="d-flex justify-content-start">
-				<i className="bi bi-person me-2"></i>
+		<FormGroup row className='mt-3'>
+			<Label sm={2} htmlFor='nameField' className='d-flex justify-content-start'>
+				<i className='bi bi-person me-2' />
 				Jméno
 			</Label>
-			<Col sm={10} className="d-flex flex-column">
-				<input	// errors not shown in reactstrap Input field
-					className="form-control"
-					id="name"
-					{...register("name", { required: true, maxLength: 30, minLength: 3 })}
+			<Col sm={10} className='d-flex flex-column'>
+				<Input
+					id='nameField'
+					name='name'
+					invalid={!!errors.name}
+					innerRef={nameField.ref}
+					onBlur={nameField.onBlur}
+					onChange={nameField.onChange}
 				/>
-				{errors.name && errors.name.type === "required" && (
-				<small className="text-danger">Our form feels a bit lonely without your name :(</small>
-				)}
-				{errors.name && errors.name.type === "minLength" && (
-				<small className="text-danger">Minimum 3 characters. You can do it.</small>
-				)}
-				{errors.name && errors.name.type === "maxLength" && (
-				<small className="text-danger">Maximum 30 characters.</small>
-				)}
-
+				{errors?.name && <FormFeedback>{errors.name.message}</FormFeedback>}
 			</Col>
 		</FormGroup>
-	)
-}
+	);
+};
 
 export const EmailField = ({ register, errors }) => {
+
+	const emailField = register('email', {
+		required: 'Please provide an email',
+		pattern: {
+			value: /^[A-Z0-9._%+-ěščřžýá]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+			message: 'Not an email address'
+		}
+	});
+
 	return (
 		<FormGroup row>
-			<Label sm={2} htmlFor="email" className="d-flex justify-content-start">
-				<i className="bi bi-envelope-at me-2"></i>
+			<Label sm={2} htmlFor='email' className='d-flex justify-content-start'>
+				<i className='bi bi-envelope-at me-2'/>
 				Email
 			</Label>
 			<Col sm={10}>
-				<input
-					className="form-control"
-					id="email"
-					type="text"
-					{...register("email", { required: true, pattern: /^[A-Z0-9._%+-ěščřžýá]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i })}
+				<Input
+					id='emailField'
+					name='email'
+					invalid={!!errors.email}
+					innerRef={emailField.ref}
+					onBlur={emailField.onBlur}
+					onChange={emailField.onChange}
 				/>
-				{errors.email && errors.email.type === "required" && (
-				<small className="text-danger">Oh, seems like we're missing an email address here</small>
-				)}
-				{errors.email && errors.email.type === "pattern" && (
-				<small className="text-danger">"Oops! Stick to a valid format"</small>
-				)}
+				{errors?.email && <FormFeedback>{errors.email.message}</FormFeedback>}
 			</Col>
 		</FormGroup>
-	)
-}
+	);
+};
 
 export const AgeField = ({ register, errors }) => {
+
+	const ageField = register('age', {
+		pattern: {
+			value: /^(\d{ 2} |\d{ 2} -\d{ 2})$/,
+			message: 'Invalid format'
+		}
+	});
+
 	return (
 		<FormGroup row>
-			<Label sm={2} htmlFor="age" className="d-flex justify-content-start">
-				<i className="bi bi-cake2 me-2"></i>
+			<Label sm={2} htmlFor='age' className='d-flex justify-content-start'>
+				<i className='bi bi-cake2 me-2'/>
 				Věk
 			</Label>
 			<Col sm={10}>
 				<input
-					className="form-control"
-					placeholder="Share if you wish."
-					id="age"
-					type="text"
-					list="user_ages"
-					{...register("age", { pattern: /^(\d{2}|\d{2}-\d{2})$/ })}
+					className='form-control'
+					placeholder='Share if you wish.'
+					list='user_ages'
+					id='ageField'
+					name='age'
+					invalid={!!errors.age}
+					innerRef={ageField.ref}
+					onBlur={ageField.onBlur}
+					onChange={ageField.onChange}
 				/>
-				{errors.age && errors.age.type === "pattern" && (
-				<small className="text-danger">Invalid format.</small>
-				)}
-				<datalist id="user_ages">
+				{errors?.age && <FormFeedback>{errors.age.message}</FormFeedback>}
+				<datalist id='user_ages'>
 					{ageGroups.map((age) => (
 					<option key={age.id} value={age.age}></option>
 					))}
@@ -86,33 +107,31 @@ export const AgeField = ({ register, errors }) => {
 }
 
 export const PhoneField = ({ register, errors }) =>{
+
+	const phoneField = register('phone', {
+		required: 'Add your phone number for updates please',
+		pattern: {
+			value: /^\d{9,14}$/,
+			message: 'Invalid format'
+		}
+	});
+
 	return (
 		<FormGroup row>
-				<Label sm={2} htmlFor="phone" className="d-flex justify-content-start">
-					<i className="bi bi-phone me-2"></i>
+				<Label sm={2} htmlFor='phone' className='d-flex justify-content-start'>
+					<i className='bi bi-phone me-2'></i>
 					Telefon*
 				</Label>
 				<Col sm={10}>
-					<input
-						className="form-control"
-						id="phone"
-						type="text"
-						placeholder={errors.phone?.message}
-						{...register("phone", { required: true, pattern: /^[0-9]+$/, maxLength: 14, minLength: 9 })}
+					<Input
+						id='phoneField'
+						name='phone'
+						invalid={!!errors.phone}
+						innerRef={phoneField.ref}
+						onBlur={phoneField.onBlur}
+						onChange={phoneField.onChange}
 					/>
-					{errors.phone && errors.phone.type === "required" && (
-					<small className="text-danger">Add your phone number for updates, please</small>
-					)}
-					{errors.phone && errors.phone.type === "pattern" && (
-					<small className="text-danger">"Oops! Stick to a valid format"</small>
-					)}
-					{errors.phone && errors.phone.type === "minLength" && (
-					<small className="text-danger">Minimum 9 digits. You can do it.</small>
-					)}
-					{errors.phone && errors.phone.type === "maxLength" && (
-					<small className="text-danger">Maximum 14 digits..</small>
-					)}
-					<br />
+					{errors?.phone && <FormFeedback>{errors.phone.message}</FormFeedback>}
 					<FormText>*Telefon  - bude použit pro předání pouze v případě shody</FormText>
 				</Col>
 		</FormGroup>
@@ -122,12 +141,12 @@ export const PhoneField = ({ register, errors }) =>{
 export const NewsletterCheckbox = ({ register }) => {
 	return (
 		<FormGroup row>
-			<Col sm={12} className="pe-0">
+			<Col sm={12} className='pe-0'>
 				<input
-					type="checkbox"
-					{...register("newsletter")}
-					id="speedNewsletter"
-					className="me-2"
+					type='checkbox'
+					{...register('newsletter')}
+					id='speedNewsletter'
+					className='me-2'
 				/>
 				<Label>Chci dostávat informace o dalších akcích Lesbotoče.</Label>
 			</Col>
