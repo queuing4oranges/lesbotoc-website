@@ -1,23 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700');
 //font-family: 'Poppins', sans-serif;
 
-@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700");
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700');
 //font-family: 'Amatic SC', cursive;
 
 //importing main style sheets
-@import "./styles/variables";
-@import "./styles/user.scss";
+@import './styles/variables';
+@import './styles/user.scss';
 
 //importing user styles
-@import "./components/home/home.scss";
-@import "./components/calendar/Calendar.scss";
-@import "./components/calendar/SingleCalendarEvent.scss";
-@import "./components/calendar/SignupForm.scss";
-@import "./components/gallery/gallery.scss";
-@import "./components/about/about.scss";
-@import "./components/contact/contact.scss";
-@import "./components/includes/footer.scss";
-@import "./components/includes/navbar.scss";
+@import './components/home/home.scss';
+@import './components/calendar/Calendar.scss';
+@import './components/calendar/SingleCalendarEvent.scss';
+@import './components/calendar/SignupForm.scss';
+@import './components/gallery/gallery.scss';
+@import './components/about/about.scss';
+@import './components/contact/contact.scss';
+@import './components/includes/footer.scss';
+@import './components/includes/navbar.scss';
 
 /* ------ z-index distribution ------ */
 /*
