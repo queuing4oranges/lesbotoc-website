@@ -1,5 +1,8 @@
 .footer-row {
 	background-color: $lesbotoc;
+		& a:hover, i:hover  {
+			color: white !important;
+	}
 }
 
 .copyright-katja {

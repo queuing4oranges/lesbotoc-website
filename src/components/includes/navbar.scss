@@ -1,8 +1,8 @@
-.navbar-wrapper {
-	background-color: $lesbotoc !important;
-	position: relative;
-	width: 100%;
-	z-index: 110;
+.navbar {
+
+	& a:hover, i:hover, p:hover  {
+		color: white !important;
+	}
 }
 
 .logo-container {

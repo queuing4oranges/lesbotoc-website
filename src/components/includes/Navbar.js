@@ -29,7 +29,7 @@ export default function Navbar() {
 	return (
 		<>
 		{showBurger ? (
-			<MobileNavbar/>
+			<MobileNavbar />
 		) : (
 		<nav className='navbar navbar-expand bg-light mobile-navbar-wrapper'>
 				<div className='container-fluid'>
