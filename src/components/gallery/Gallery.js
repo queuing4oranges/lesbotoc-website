@@ -24,11 +24,11 @@ export default function Gallery() {
 	return (
 		<div>
 			<Navbar />
-				<div className='user-container gallery-container position-relative'>
+				<div className='gallery-container position-relative position-relative d-flex flex-column'>
 					<h2 className='screen-title'>Galerie</h2>
 
 					{images && (
-						<div className='user-gallery-cont'>
+						<div className='user-gallery-cont mb-5'>
 							{images.map((img, key) => {
 								const { filename, alt, title } = img;
 								return (
