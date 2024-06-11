@@ -60,7 +60,7 @@ export default function Navbar() {
 							rel='noreferrer'
 							aria-label='Instagram'
 						>
-							<i className='bi bi-instagram fs-2' style={{fontSize: '2rem', color: '#003243'}} />
+							<i className='bi bi-instagram me-4 fs-2' style={{fontSize: '2rem', color: '#003243'}} />
 						</a>
 					</div>
 				
