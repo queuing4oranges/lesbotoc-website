@@ -31,7 +31,7 @@ export default function Navbar() {
 		{showBurger ? (
 			<MobileNavbar />
 		) : (
-		<nav className='navbar navbar-expand bg-light mobile-navbar-wrapper'>
+		<nav className='navbar navbar-expand bg-light navbar-wrapper'>
 				<div className='container-fluid'>
 					<div className='logo-container d-flex ms-5'>
 						<NavLink
@@ -52,7 +52,7 @@ export default function Navbar() {
 							rel='noreferrer'
 							aria-label='Facebook'
 						>
-							<i className='bi bi-facebook me-2 fs-3' style={{fontSize: '2rem', color: '#003243'}} />
+							<i className='bi bi-facebook me-2 fs-2' style={{color: '#003243'}} />
 						</a>
 						<a
 							href='https://www.instagram.com/lesbotoc/'
@@ -60,18 +60,19 @@ export default function Navbar() {
 							rel='noreferrer'
 							aria-label='Instagram'
 						>
-							<i className='bi bi-instagram fs-3' style={{fontSize: '2rem', color: '#003243'}} />
+							<i className='bi bi-instagram fs-2' style={{fontSize: '2rem', color: '#003243'}} />
 						</a>
 					</div>
 				
 					<ul className='navbar-nav navbar-list me-3'>
 						{navbarlinks.map((link) => (
-							<li key={link.id} className='me-4'>
+							<li key={link.id} className='me-4 fs-4'>
 								<NavLink
 									to={link.to}
 									style={({ isActive }) => ({
-										color: isActive ? '#feebdd' : '#003243',
-										textDecoration: 'none'
+										color: isActive ? '#ed7f71' : '#003243',
+										textDecoration: 'none',
+										whiteSpace: 'nowrap'
 									})}
 								>
 								{link.name}

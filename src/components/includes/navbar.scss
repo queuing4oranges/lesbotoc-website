@@ -1,15 +1,15 @@
-.navbar {
-
+.navbar-wrapper {
+	background-color: transparent !important;
 	& a:hover, i:hover, p:hover  {
-		color: white !important;
+		color: #ed7f71 !important;
 	}
 }
 
 .logo-container {
 	& p {
 		font-family: 'Amatic SC', cursive;
-		font-size: 22px;
-		color: black;
+		font-size: 40px;
+		color: $dark-petrol;
 		font-weight: 600;
 		margin-bottom: 0;
 	}
@@ -17,7 +17,7 @@
 
 // Mobile-navbar
 .mobile-navbar-wrapper {
-	background-color: $lesbotoc !important;
+	background-color: #7ab6cb;
 	display: flex;
 	justify-content: flex-end;
 	width: 100%;

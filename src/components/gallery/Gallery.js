@@ -31,8 +31,8 @@ export default function Gallery() {
 
 	return (
 		<div>
-			<Navbar />
-				<div className='gallery-container position-relative position-relative d-flex flex-column'>
+			<div className='gallery-container position-relative position-relative d-flex flex-column'>
+				<Navbar/>
 					<h2 className='screen-title'>Galerie</h2>
 
 					{images && (
