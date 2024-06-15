@@ -3,7 +3,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Home from './components/home/Home';
 import Gallery from './components/gallery/Gallery';
 import About from './components/about/About';
-import Contact from './components/contact/ContactModal';
+import Contact from './components/contact/Contact';
 import Calendar from './components/calendar/Calendar';
 import SingleCalendarEvent from './components/calendar/SingleCalendarEvent';
 

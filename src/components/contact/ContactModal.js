@@ -163,3 +163,11 @@ export default function ContactModal() {
     </Fragment>
   );
 }
+
+
+// Název / Typ akce:
+// Datum a čas:
+// Místo konání:
+// Popis akce, aktivita
+// bližší informace v případě organizované aktivity:
+// Požadavek na přihlašovací formulář:
