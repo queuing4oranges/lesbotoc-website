@@ -117,6 +117,10 @@ export default function ContactModal() {
             </form>
           </div>
         </div>
+        
+        
+        
+        
         <div className="contact-icon-container">
           <div className="contact-icon contact-icon-email">
             <a href="mailto: lesbotoc@gmail.com" aria-label="Email address">
@@ -127,6 +131,9 @@ export default function ContactModal() {
               </div>
             </a>
           </div>
+          
+          
+          
           <div className="contact-icon contact-icon-phone">
             <a href="tel:737364699" aria-label="Phone Number">
               <p>+420 737 364 699</p>
@@ -136,6 +143,9 @@ export default function ContactModal() {
               </div>
             </a>
           </div>
+          
+          
+          
           <div className="contact-icon-fb-insta">
             <div className="contact-icon contact-icon-insta">
               <a
@@ -147,6 +157,9 @@ export default function ContactModal() {
                 <i className="bi bi-instagram"></i>
               </a>
             </div>
+            
+            
+            
             <div className="contact-icon contact-icon-fb">
               <a
                 href="https://www.facebook.com/seznamsenatoci"
