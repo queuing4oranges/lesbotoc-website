@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
 
-import './gallerymodal.scss';
+import './Gallerymodal.scss';
 
 export default function GalleryModal({ galleryModal, setGalleryModal, images, currentIndex, setCurrentIndex }) {
 

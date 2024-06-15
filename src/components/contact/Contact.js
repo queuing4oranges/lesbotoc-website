@@ -10,6 +10,7 @@ import {
 import Navbar from '../includes/Navbar';
 import Footer from '../includes/Footer';
 import ContactIllustration from './ContactIllustration';
+import SemiCircle from './SemiCircle';
 
 export default function Contact() {
 	const {
@@ -48,10 +49,14 @@ export default function Contact() {
 		<>
 			<Navbar />
 			<div className='contact-container h-100'>
-				<Row className='d-flex justify-content-center align-items-center'>
+				<Row className='d-flex justify-content-center align-items-center h-100'>
 					<Col md='5' sm='12'>
-						<ContactIllustration width={600} height={800} />
+						<SemiCircle />
+						<Row>
+							<ContactIllustration width={400} height={500} />
+						</Row>
 					</Col>
+					{/* TODO wrap below also in row? */}
 					<Col md='7' sm='12' className='p-5' style={{width: '40vw', height: 'fit-content'}}>
 						<Form onSubmit={handleSubmit(onSubmit)} className='h-100'>
 							<Card className='h-100 p-5 shadow'>
