@@ -33,9 +33,15 @@
 	align-items: center;
 	z-index: 5;
 
+	transition: background-color 0.3s ease, color 0.3s ease;
+
 	&:hover {
 		background-color: #ed7f71;
 		cursor: pointer;
+	}
+
+	&:hover p {
+		color: white;
 	}
 }
 
