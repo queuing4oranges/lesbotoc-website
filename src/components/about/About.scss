@@ -1,0 +1,58 @@
+.about-paragraph {
+	width: 60%;
+	position: relative;
+}
+
+.user-singles {
+	position: relative;
+	z-index: 100;
+
+	//to make img opaque but not text inside div
+	&::before {
+		content: '';
+		background-image: url('../../assets/about_images/rainbow-flag-pride.jpg');
+		background-size: cover;
+		opacity: 0.15;
+		position: absolute;
+		top: 100px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+	}
+}
+
+.user-about {
+	width: 25vw;
+	z-index: 90;
+
+	& img {
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		border: 10px $lesbotoc solid;
+	}
+
+	& p {
+		width: 275px;
+	}
+}
+
+.member-name {
+	font-family: 'Amatic SC', sans-serif, Arial, Helvetica, sans-serif;
+	font-size: 2em;
+	font-weight: 700;
+	color: $dark-petrol;
+	text-align: center;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+/* ------ RESPONSIVENESS ------ */
+@media only screen and (max-width: 768px) {
+	.user-singles {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
