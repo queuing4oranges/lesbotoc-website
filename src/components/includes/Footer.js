@@ -24,30 +24,6 @@ export default function Footer() {
 						</p>
 					</div>
 				</Col>
-				
-				<Col md='2' className='d-flex align-items-center justify-content-center'>
-					<div>
-						<a
-							href='https://www.facebook.com/seznamsenatoci'
-							target='_blank'
-							rel='noreferrer'
-							aria-label='Facebook'
-							className='me-2'
-						>
-							<i className='bi bi-facebook' style={{fontSize: '2rem', color: '#003243'}} />
-						</a>
-						
-						<a
-							href='https://www.instagram.com/lesbotoc/'
-							target='_blank'
-							rel='noreferrer'
-							aria-label='Instagram'
-							className='ms-2'
-						>
-							<i className='bi bi-instagram' style={{fontSize: '2rem', color: '#003243'}} />
-						</a>
-					</div>
-				</Col>
 			</Row>
 		</>
 	);

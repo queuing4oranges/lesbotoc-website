@@ -1,13 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import emailjs from "@emailjs/browser";
-import axios from 'axios';
-import swal from "sweetalert";
+import emailjs from '@emailjs/browser';
+import swal from 'sweetalert';
 
 import {
 	Row, Col, Button,
 	Card, CardTitle, CardBody,
-	Form, FormGroup, FormFeedback, Label, Input
+	FormGroup, FormFeedback, Label, Input
 } from 'reactstrap';
 	
 import Navbar from '../includes/Navbar';
@@ -52,13 +51,24 @@ export default function Contact() {
 		}
 	});
 	
-	const sendEmail = (e) => {
-
+	const sendEmail = () => {
 		emailjs
 		.sendForm(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, formRef.current, YOUR_PUBLIC_KEY)
-		.then((response) => { console.log(response, "response after sending")})
+		.then((response) => {
+			swal('Děkujeme!', 'Ozveme se co nejdříve.', 'success');
+			console.log('Response after form submitting: ', response);
+			resetFormData();
+		})
 	};
-	
+
+	const resetFormData = () => {
+		setFormData({
+			user_name: '',
+			message:'',
+			user_email:''
+		})
+	};
+
 	const handleInputChange = (e) => {
 		const { name, value } = e.target;
 		setFormData({
@@ -79,7 +89,7 @@ export default function Contact() {
 						</Row>
 					</Col>
 					<Col md='7' sm='12' className='ms-5 p-5' style={{width: '40vw', height: 'fit-content'}}>
-						<form ref={formRef} onSubmit={handleSubmit(sendEmail)} id='contactForm' className='h-100'>
+						<form ref={formRef} onSubmit={handleSubmit(sendEmail)} method='post' id='contactForm' className='h-100'>
 							<Card className='h-100 p-5 shadow'>
 								<CardTitle>
 									<h3>Kontaktuj nás</h3>
