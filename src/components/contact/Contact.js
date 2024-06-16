@@ -1,30 +1,42 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import emailjs from "@emailjs/browser";
+import axios from 'axios';
+import swal from "sweetalert";
 
 import {
 	Row, Col, Button,
 	Card, CardTitle, CardBody,
 	Form, FormGroup, FormFeedback, Label, Input
-	} from 'reactstrap';
+} from 'reactstrap';
 	
 import Navbar from '../includes/Navbar';
 import Footer from '../includes/Footer';
 import ContactIllustration from './ContactIllustration';
 import SemiCircle from './SemiCircle';
 
+import { YOUR_PUBLIC_KEY, YOUR_SERVICE_ID, YOUR_TEMPLATE_ID } from './EmailCredentials';
+
 export default function Contact() {
 	const {
 		register,
 		handleSubmit,
-		reset,
 		formState: { errors }
 	} = useForm();
-	
-	const contactNameField = register('contactName', {
+
+	const formRef = useRef();
+
+	const [formData, setFormData] = useState({
+		user_name: '',
+		message: '',
+		user_email: ''
+	});
+
+	const contactNameField = register('user_name', {
 		required: 'Jméno je povinný údaj'
 	});
 	
-	const contactMailField = register('contactMail', {
+	const contactMailField = register('user_email', {
 		required: 'E-mailová adresa je povinný údaj',
 		pattern: {
 			value: /^[A-Z0-9._%+-ěščřžýá]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
@@ -32,7 +44,7 @@ export default function Contact() {
 		}
 	});
 	
-	const contactMessageField = register('contactMessage', {
+	const contactMessageField = register('message', {
 		required: 'Tvoje zpráva je povinný údaj',
 		pattern: {
 			value: /^.{5,}$/,
@@ -40,10 +52,20 @@ export default function Contact() {
 		}
 	});
 	
-	const onSubmit = async () => {
-		console.log('this form works')
-	}
+	const sendEmail = (e) => {
+
+		emailjs
+		.sendForm(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, formRef.current, YOUR_PUBLIC_KEY)
+		.then((response) => { console.log(response, "response after sending")})
+	};
 	
+	const handleInputChange = (e) => {
+		const { name, value } = e.target;
+		setFormData({
+			...formData,
+			[name]: value
+		});
+	};
 	
 	return (
 		<div className='contact-container'>
@@ -57,7 +79,7 @@ export default function Contact() {
 						</Row>
 					</Col>
 					<Col md='7' sm='12' className='ms-5 p-5' style={{width: '40vw', height: 'fit-content'}}>
-						<Form onSubmit={handleSubmit(onSubmit)} className='h-100'>
+						<form ref={formRef} onSubmit={handleSubmit(sendEmail)} id='contactForm' className='h-100'>
 							<Card className='h-100 p-5 shadow'>
 								<CardTitle>
 									<h3>Kontaktuj nás</h3>
@@ -70,13 +92,14 @@ export default function Contact() {
 										</Label>
 										<Input
 											id='contactNameField'
-											name='contactName'
-											invalid={!!errors.contactName}
+											name='user_name'
+											value={formData.user_name}
+											onChange={handleInputChange}
+											invalid={!!errors.user_name}
 											innerRef={contactNameField.ref}
 											onBlur={contactNameField.onBlur}
-											onChange={contactNameField.onChange}
 										/>
-										{errors?.contactName && <FormFeedback className='text-start'>{errors.contactName.message}</FormFeedback>}
+										{errors?.user_name && <FormFeedback className='text-start'>{errors.user_name.message}</FormFeedback>}
 									</FormGroup>
 
 									<FormGroup>
@@ -85,13 +108,14 @@ export default function Contact() {
 										</Label>
 										<Input
 											id='contactMailField'
-											name='contactMail'
-											invalid={!!errors.contactMail}
+											name='user_email'
+											value={formData.user_email}
+											onChange={handleInputChange}
+											invalid={!!errors.user_email}
 											innerRef={contactMailField.ref}
 											onBlur={contactMailField.onBlur}
-											onChange={contactMailField.onChange}
 										/>
-										{errors?.contactMail && <FormFeedback className='text-start'>{errors.contactMail.message}</FormFeedback>}
+										{errors?.user_email && <FormFeedback className='text-start'>{errors.user_email.message}</FormFeedback>}
 									</FormGroup>
 
 									<FormGroup>
@@ -100,22 +124,23 @@ export default function Contact() {
 										</Label>
 										<Input
 											id='contactMessageField'
-											name='contactMessage'
+											name='message'
 											type='textarea'
+											value={formData.message}
+											onChange={handleInputChange}
 											style={{height: '200px'}}
-											invalid={!!errors.contactMessage}
+											invalid={!!errors.message}
 											innerRef={contactMessageField.ref}
 											onBlur={contactMessageField.onBlur}
-											onChange={contactMessageField.onChange}
 										/>
-										{errors?.contactMessage && <FormFeedback className='text-start'>{errors.contactMessage.message}</FormFeedback>}
+										{errors?.message && <FormFeedback className='text-start'>{errors.message.message}</FormFeedback>}
 									</FormGroup>
 								</CardBody>
 								<div className='d-flex justify-content-center'>
 									<Button type='submit' className='w-50' color='warning'>Odeslat zprávu</Button>
 								</div>
 							</Card>
-						</Form>
+						</form>
 					</Col>
 				</Row>
 			</div>

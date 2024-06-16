@@ -1,12 +1,16 @@
 .contact-container::before {
 	content: '';
-	background: repeating-radial-gradient(circle, #7ab6cb, transparent 20%);
+	background: repeating-radial-gradient(circle, #003243, transparent 20%);
 	background-size: 2em 2em;
 	background-color: #ffffff;
-	opacity: 0.25;
+	opacity: 0.15;
 	position: absolute;
 	top: 0;
 	right: 0;
 	left: 0;
 	bottom: 0;
 }
+
+.contact-container .card {
+		background-color: #feebdd;
+	}
