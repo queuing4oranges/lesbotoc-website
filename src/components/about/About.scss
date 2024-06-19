@@ -30,6 +30,12 @@
 		height: 200px;
 		border-radius: 50%;
 		border: 10px $lesbotoc solid;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+		&:hover {
+			transform: scale(1.1);
+			box-shadow: 0 0 15px rgb(237, 127, 113);
+		}
 	}
 
 	& p {

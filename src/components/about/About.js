@@ -46,10 +46,10 @@ export default function About() {
 
 			<div className='user-singles w-100 mb-5 d-flex flex-wrap justify-content-center'>
 				{members.map((member) => (
-					<div key={member.id} className='user-about d-flex flex-column align-items-center p-3'>
-					<img src={member.img} loading='lazy' alt={member.name} />
-					<p className='member-name mt-3'>{member.name}</p>
-					<p className='user-paragraph text-start'>{member.intro}</p>
+					<div key={member.id} className='user-about d-flex flex-column align-items-center p-3 mb-4'>
+						<img src={member.img} loading='lazy' alt={member.name} />
+						<p className='member-name my-3'>{member.name}</p>
+						<p className='user-paragraph text-start'>{member.intro}</p>
 					</div>
 				))}
 			</div>
@@ -58,4 +58,4 @@ export default function About() {
 			</div>
 		</div>
 	);
-}
+};
