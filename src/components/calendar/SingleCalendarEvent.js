@@ -270,7 +270,9 @@ export default function SingleCalendarEvent() {
 					</div>
 				)}
 			</div>
-			<Footer />
+			<div className='position-relative'>
+				<Footer />
+			</div>
 		</div>
 	);
 }

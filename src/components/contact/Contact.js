@@ -78,19 +78,22 @@ export default function Contact() {
 	};
 	
 	return (
-		<div className='contact-container'>
+		<div className='h-100 contact-container d-flex flex-column'>
 			<Navbar />
-			<div className='position-relative'>
-				<Row className='d-flex justify-content-center align-items-center h-100'>
-					<Col md='5' sm='12'>
+				<div className='contact-row d-flex justify-content-center align-items-center h-100'>
+					<div className='image-column'>
 						<SemiCircle />
-						<Row>
-							<ContactIllustration width={400} height={500} />
-						</Row>
-					</Col>
-					<Col md='7' sm='12' className='ms-5 p-5' style={{width: '40vw', height: 'fit-content'}}>
-						<form ref={formRef} onSubmit={handleSubmit(sendEmail)} method='post' id='contactForm' className='h-100'>
-							<Card className='h-100 p-5 shadow'>
+						<ContactIllustration width={500} height={600}/>
+					</div>
+					<div className='contact-form-column'>
+						<form
+							ref={formRef}
+							onSubmit={handleSubmit(sendEmail)}
+							method='post'
+							id='contactForm'
+							className=''
+						>
+							<Card className='p-5 shadow w-100'>
 								<CardTitle>
 									<h3>Kontaktuj nás</h3>
 								</CardTitle>
@@ -145,18 +148,18 @@ export default function Contact() {
 										/>
 										{errors?.message && <FormFeedback className='text-start'>{errors.message.message}</FormFeedback>}
 									</FormGroup>
+
 								</CardBody>
 								<div className='d-flex justify-content-center'>
 									<Button type='submit' className='w-50' color='warning'>Odeslat zprávu</Button>
 								</div>
 							</Card>
 						</form>
-					</Col>
-				</Row>
-			</div>
-			<div className='position-absolute bottom-0 w-100'>
-				<Footer />
-			</div>
+					</div>
+				</div>
+				<div className='position-relative'>
+					<Footer />
+				</div>
 		</div>
 	);
 };

@@ -20,7 +20,7 @@ export default function About() {
 	}
 
 	return (
-		<div className='screen-wrapper'>
+		<div className='screen-wrapper h-100'>
 			<Navbar />
 
 			<h2 className='screen-title'>To jsme my</h2>
@@ -44,7 +44,7 @@ export default function About() {
 				</p>
 			</div>
 
-			<div className='user-singles w-100 d-flex flex-wrap justify-content-center'>
+			<div className='user-singles w-100 mb-5 d-flex flex-wrap justify-content-center'>
 				{members.map((member) => (
 					<div key={member.id} className='user-about d-flex flex-column align-items-center p-3'>
 					<img src={member.img} loading='lazy' alt={member.name} />
@@ -53,9 +53,9 @@ export default function About() {
 					</div>
 				))}
 			</div>
-
-			<Footer />
-			
+			<div className='position-relative mt-5'>
+				<Footer />
+			</div>
 		</div>
 	);
 }

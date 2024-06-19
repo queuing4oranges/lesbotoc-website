@@ -30,8 +30,8 @@ export default function Gallery() {
 	};
 
 	return (
-		<div>
-			<div className='gallery-container position-relative position-relative d-flex flex-column'>
+		<>
+			<div className='gallery-container d-flex flex-column'>
 				<Navbar/>
 					<h2 className='screen-title'>Galerie</h2>
 
@@ -52,15 +52,18 @@ export default function Gallery() {
 							})}
 						</div>
 					)}
-				</div>
-				<GalleryModal
-					galleryModal={galleryModal}
-					setGalleryModal={setGalleryModal}
-					images={images}
-					currentIndex={currentIndex}
-					setCurrentIndex={setCurrentIndex}
-				/>
-			<Footer />
-		</div>
+					<div className='position-relative mt-5'>
+						<Footer />
+					</div>
+			</div>
+
+			<GalleryModal
+				galleryModal={galleryModal}
+				setGalleryModal={setGalleryModal}
+				images={images}
+				currentIndex={currentIndex}
+				setCurrentIndex={setCurrentIndex}
+			/>
+		</>
 	);
-}
+};

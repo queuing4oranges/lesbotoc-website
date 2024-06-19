@@ -218,9 +218,7 @@ export default function Calendar() {
 					</div>
 				</Row>
 			</div>
-			<div className='w-100 position-absolute bottom-0 end-0'>
-				<Footer/>
-			</div>
+			<Footer/>
 		</div>
-	)
-}
+	);
+};

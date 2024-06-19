@@ -9,8 +9,49 @@
 	right: 0;
 	left: 0;
 	bottom: 0;
+	z-index: -1;
+}
+
+.contact-container {
+	z-index: 1;
 }
 
 .contact-container .card {
 		background-color: #feebdd;
+}
+
+.contact-form-column {
+	width: 40rem;
+	margin-top: -10vh;
+	margin-left: 10vh;
+}
+
+.image-column {
+	margin-top: 20vh;
+	margin-right: 10vw;
+}
+
+/* ------ RESPONSIVENESS ------ */
+//mobiles
+@media only screen and (max-width: 600px) {
+	.contact-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: space-between;
 	}
+
+	.contact-form-column {
+		width: unset;
+		margin-top: unset;
+		margin-left: unset;
+	}
+
+	.image-column {
+		display: none;
+	}
+
+	.contact-row{
+		margin-bottom: 20px;
+	}
+}
