@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser';
 import swal from 'sweetalert';
 
 import {
-	Row, Col, Button,
+	Button,
 	Card, CardTitle, CardBody,
 	FormGroup, FormFeedback, Label, Input
 } from 'reactstrap';
@@ -81,7 +81,7 @@ export default function Contact() {
 		<div className='h-100 contact-container d-flex flex-column'>
 			<Navbar />
 				<div className='contact-row d-flex justify-content-center align-items-center h-100'>
-					<div className='image-column'>
+					<div className='contact-image-column'>
 						<SemiCircle />
 						<ContactIllustration width={500} height={600}/>
 					</div>
