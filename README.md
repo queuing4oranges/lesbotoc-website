@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-The project is a personal favor to my friends who are organizing events for queer women in Prague. It is an ongoing work to which more features will be added. The organization wanted a simple, well structured website which should include a calendar with events that also allow for events with sign ups, a gallery to show images from past events, as well as a section about themselves and a way to contact them. The CMS of the website is an admin panel, which is another one of my projects. With the help of the admin panel, the organization can update events and manage new contacts.
+I have been asked to do this project for a group organizing events for queer women in Prague. It is an ongoing work to which more features will be added. The organization wanted a simple, well structured website which should include a calendar with events that also allow for sign ups, a gallery to show images from past events, as well as a section about themselves and a way to contact them.
 
 https://www.lesbotoc.cz/
 
