@@ -2,9 +2,10 @@
 
 ## Project Overview
 
-I have been asked to do this project for a group organizing events for queer women in Prague. It is an ongoing work to which more features will be added. The organization wanted a simple, well structured website which should include a calendar with events that also allow for sign ups, a gallery to show images from past events, as well as a section about themselves and a way to contact them.
+I have been asked to do this project for a group organizing events for queer women in Prague. The organization wanted a simple, well structured website which should include a calendar with events that also allow for sign ups, a gallery to show images from past events, as well as a section about themselves and a way to contact them.
+(The organisation is currently being restructured and will be rebranded in the near future. For this reason and to preserve and showcase my work, the website is being hosted on a subdomain).
 
-https://www.lesbotoc.cz/
+[https://www.lesbotoc.cz/](https://lesbotoc.queuing4oranges.com/)
 
 ## Tech Stack
 
