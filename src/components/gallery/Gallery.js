@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import Footer from '../includes/Footer';
 import Navbar from '../includes/Navbar';
 import { Spinner } from '../includes/Spinner';
-import GalleryModal from './GalleryModal'
+import GalleryModal from './GalleryModal';
+import { API_BASE_URL } from '../../config';
 
 import useGetImages from '../../hooks/useGetImages';
 
@@ -43,7 +44,7 @@ export default function Gallery() {
 									<div key={idx} className='user-img-cont' onClick={() => showImage(idx)}>
 										<img
 											className='user-gallery-img'
-											src={`https://api.lesbotoc.com/images/images/${filename}`}
+											src={`${API_BASE_URL}/images/images/${filename}`}
 											alt={`${alt}`}
 										/>
 										<p className='user-img-title'>{title}</p>

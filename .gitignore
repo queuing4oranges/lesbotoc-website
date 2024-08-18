@@ -24,3 +24,5 @@ yarn-error.log*
 
 sql_queries.txt
 src/components/contact/EmailCredentials.js
+src/api.js
+src/config.js

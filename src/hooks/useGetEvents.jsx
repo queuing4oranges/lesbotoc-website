@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import apiClient from '../api';
 
 export default function useGetEvents() {
     const [ events, setEvents ] = useState([])
@@ -12,7 +12,7 @@ export default function useGetEvents() {
             setLoading(true)
 
             setTimeout(async () => {
-                const response = await axios.get('https://api.lesbotoc.com/events/read.php')
+                const response = await apiClient.get('/events/read.php')
                 const data = response.data;
     
                 setEvents(data);

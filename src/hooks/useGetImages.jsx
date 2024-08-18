@@ -1,5 +1,5 @@
 import { useState } from 'react'; 
-import axios from 'axios';
+import apiClient from '../api';
 
 export default function useGetImages() {
     const [ images, setImages ] = useState([])
@@ -11,7 +11,7 @@ export default function useGetImages() {
             setLoading(true)
 
             setTimeout(async () => {
-                const response = await axios.get('https://api.lesbotoc.com/images/read.php')
+                const response = await apiClient.get('images/read.php')
                 const data = response.data
     
                 setImages(data);

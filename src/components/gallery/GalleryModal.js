@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
+import { API_BASE_URL } from '../../config';
 
 import './Gallerymodal.scss';
 
@@ -38,7 +39,7 @@ export default function GalleryModal({ galleryModal, setGalleryModal, images, cu
 				<div>
 
 					<img
-						src={`https://api.lesbotoc.com/images/images/${filename}`}
+						src={`${API_BASE_URL}/images/images/${filename}`}
 						alt={alt}
 						className='modal-gallery-img'
 					/>

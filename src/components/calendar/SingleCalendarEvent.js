@@ -7,6 +7,7 @@ import Footer from '../includes/Footer';
 import SignupForm from './SignupForm';
 import { Spinner } from '../includes/Spinner';
 import useShowEvent from '../../hooks/useShowEvent';
+import { API_BASE_URL } from '../../config';
 
 import { Col, Row, Button, Dropdown, DropdownToggle, DropdownItem, DropdownMenu } from 'reactstrap';
 import Moment from 'react-moment';
@@ -125,8 +126,8 @@ export default function SingleCalendarEvent() {
 				{oneEvent && (
 					<div className='d-flex flex-column h-100'>
 
-						<Row md='12' sm='10' className='mb-5 p-5 event-info justify-content-center'>
-							<Col md='5' sm='12' className='d-flex flex-column info-column p-4'>
+						<Row md='12' sm='10' className='mb-5 p-5 event-info d-flex justify-content-center align-items-center'>
+							<Col md='5' sm='12' className='h-100 d-flex flex-column info-column p-4'>
 								<div className='d-flex justify-content-between align-items-start'>
 									<div className='d-flex'>
 										<i className='bi bi-calendar2-heart me-3' />
@@ -233,9 +234,9 @@ export default function SingleCalendarEvent() {
 
 							</Col>
 
-							<Col md='5' sm='12' className='p-5 image-column'>
+							<Col md='5' sm='12' className='p-5 single-image-column'>
 								<img
-									src={`https://api.lesbotoc.com/events/images/${image_path}`}
+									src={`${API_BASE_URL}/events/images/${image_path}`}
 									alt={image_alt}
 									loading='eager'
 									style={{ width: '100%', height: '100%', objectFit: 'contain' }}
@@ -247,6 +248,7 @@ export default function SingleCalendarEvent() {
 							<Col md='8' className='mb-5'>
 								<div className='gmaps-wrapper'>
 									<iframe
+										title='Find us here'
 										id='iframeId'
 										height='300px'
 										width='100%'

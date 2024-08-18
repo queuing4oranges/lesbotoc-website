@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import apiClient from '../api';
 
 export default function useShowEvent() {
     const [ oneEvent, setOneEvent ] = useState([])
@@ -10,7 +10,7 @@ export default function useShowEvent() {
     const showEvent = async (id) => {
     try {
         setLoading(true)
-        const response = await axios.get(`https://api.lesbotoc.com/events/single_read.php/${id}`)
+        const response = await apiClient.get(`/events/single_read.php/${id}`)
         const data = response.data;
 
         setOneEvent(data)

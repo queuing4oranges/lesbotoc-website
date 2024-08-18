@@ -3,7 +3,7 @@ import Moment from 'react-moment';
 import { useForm } from 'react-hook-form';
 import { FormText } from 'reactstrap';
 
-import axios from 'axios';
+import apiClient from '../../api.js'
 import swal from 'sweetalert';
 
 import { NameField, EmailField, AgeField, PhoneField, NewsletterCheckbox } from './FormFields';
@@ -16,7 +16,7 @@ export default function SignupForm({ date, time, location, name: event_name, eve
 		reset,
 		formState: { errors }
 	} = useForm();
-			
+		
 	useEffect(() => {
 		if(event_type) {
 			if(event_type === 'Speed Dating') {
@@ -30,7 +30,7 @@ export default function SignupForm({ date, time, location, name: event_name, eve
 
 		//if user ticks newsletter, also add contact to user table
 		if (data.newsletter) {
-			axios.post('https://api.lesbotoc.com/contacts/create.php', inputs)
+			apiClient.post('/contacts/create.php', inputs)
 			.then(function () {
 				console.log('Sign contact was added to contacts table.');
 			});
@@ -38,7 +38,7 @@ export default function SignupForm({ date, time, location, name: event_name, eve
 			console.log('nic tam neni');
 		}
 
-		axios.post('https://api.lesbotoc.com/speeddating/create.php', inputs)
+		apiClient.post('/speeddating/create.php', inputs)
 			.then(function (response) {
 				if (response.status === 200) {
 					swal({
